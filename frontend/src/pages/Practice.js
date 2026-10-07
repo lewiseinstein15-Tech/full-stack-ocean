@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FiSearch, FiFilter, FiPlay, FiFileText, FiCheckCircle, FiClock, FiCode, FiUsers } from 'react-icons/fi';
+import { FiSearch, FiFilter, FiPlay, FiFileText, FiCheckCircle, FiClock, FiCode, FiUsers, FiCalendar } from 'react-icons/fi';
 import { useAuth } from 'contexts/AuthContext';
 
 const Practice = () => {
