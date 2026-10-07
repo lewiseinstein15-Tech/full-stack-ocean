@@ -73,45 +73,42 @@ const Brand = ({ collapsed }) => (
 );
 
 const NavItem = ({ item, collapsed, onNavigate }) => {
-  const isActive = (pathname) => {
-    if (item.to === '/week') return pathname.startsWith('/week');
-    if (item.end) return pathname === item.to;
-    return pathname.startsWith(item.to);
-  };
+  const { pathname } = useLocation();
+  const active =
+    item.to === '/week'
+      ? pathname.startsWith('/week')
+      : item.end
+      ? pathname === item.to
+      : pathname.startsWith(item.to);
   return (
     <NavLink to={item.to} onClick={onNavigate} className="block" title={collapsed ? item.label : undefined}>
-      {({ location: loc }) => {
-        const active = isActive(loc.pathname);
-        return (
-          <div className="nav-item">
-            {active && (
-              <motion.div
-                layoutId="nav-active-pill"
-                className="absolute inset-0 rounded-xl"
-                style={{
-                  background: 'linear-gradient(180deg, #f2d894 0%, #d9a441 100%)',
-                  boxShadow: '0 4px 12px rgba(138,100,34,.35), inset 0 1px 0 rgba(255,255,255,.6)',
-                }}
-                transition={{ type: 'spring', stiffness: 380, damping: 32 }}
-              />
-            )}
-            <item.icon
-              className={`w-[18px] h-[18px] relative z-10 shrink-0 transition-colors ${
-                active ? 'text-espresso-800' : 'text-espresso-500'
-              }`}
-            />
-            {!collapsed && (
-              <span
-                className={`relative z-10 transition-colors ${
-                  active ? 'text-espresso-800 font-extrabold' : ''
-                }`}
-              >
-                {item.label}
-              </span>
-            )}
-          </div>
-        );
-      }}
+      <div className="nav-item">
+        {active && (
+          <motion.div
+            layoutId="nav-active-pill"
+            className="absolute inset-0 rounded-xl"
+            style={{
+              background: 'linear-gradient(180deg, #f2d894 0%, #d9a441 100%)',
+              boxShadow: '0 4px 12px rgba(138,100,34,.35), inset 0 1px 0 rgba(255,255,255,.6)',
+            }}
+            transition={{ type: 'spring', stiffness: 380, damping: 32 }}
+          />
+        )}
+        <item.icon
+          className={`w-[18px] h-[18px] relative z-10 shrink-0 transition-colors ${
+            active ? 'text-espresso-800' : 'text-espresso-500'
+          }`}
+        />
+        {!collapsed && (
+          <span
+            className={`relative z-10 transition-colors ${
+              active ? 'text-espresso-800 font-extrabold' : ''
+            }`}
+          >
+            {item.label}
+          </span>
+        )}
+      </div>
     </NavLink>
   );
 };
