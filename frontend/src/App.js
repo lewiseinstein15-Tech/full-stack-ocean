@@ -7,7 +7,7 @@ import Layout from '../components/layout/Layout';
 import AuthLayout from '../components/layout/AuthLayout';
 
 // Public Pages
-import Home from '../pages/Home';
+import Home from 'pages/Home';
 import Courses from '../pages/Courses';
 import CourseDetail from '../pages/CourseDetail';
 
