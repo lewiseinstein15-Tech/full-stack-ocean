@@ -19,11 +19,17 @@ const userRoutes = require('./routes/user');
 const app = express();
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI)
+console.log('Connecting to MongoDB...');
+mongoose.connect(process.env.MONGO_URI || process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  serverSelectionTimeoutMS: 30000,
+  retryWrites: true,
+})
   .then(() => console.log('MongoDB connected successfully'))
   .catch(err => {
     console.error('MongoDB connection error:', err.message);
-    process.exit(1);
+    console.log('Continuing without MongoDB - API will still respond');
   });
 
 // Middleware
