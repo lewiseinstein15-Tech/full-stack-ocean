@@ -159,7 +159,7 @@ router.post('/login', [
 // @route   GET /api/auth/me
 // @desc    Get current user
 // @access  Private
-router.get('/me', require('../middleware/auth'), async (req, res) => {
+router.get('/me', require('../middleware/auth').protect, async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select('-password');
     res.json({
@@ -178,7 +178,7 @@ router.get('/me', require('../middleware/auth'), async (req, res) => {
 // @route   GET /api/auth/logout
 // @desc    Logout user
 // @access  Private
-router.get('/logout', require('../middleware/auth'), (req, res) => {
+router.get('/logout', require('../middleware/auth').protect, (req, res) => {
   res.json({
     success: true,
     message: 'Logged out successfully'

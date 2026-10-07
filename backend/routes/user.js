@@ -7,7 +7,7 @@ const { body, validationResult } = require('express-validator');
  * @desc    Get user profile
  * @access  Private
  */
-router.get('/profile', require('../middleware/auth'), async (req, res) => {
+router.get('/profile', require('../middleware/auth').protect, async (req, res) => {
   try {
     const User = require('../models/User');
     const user = await User.findById(req.user.id)
@@ -64,7 +64,7 @@ router.get('/profile', require('../middleware/auth'), async (req, res) => {
  * @desc    Update user profile
  * @access  Private
  */
-router.put('/profile', require('../middleware/auth'), [
+router.put('/profile', require('../middleware/auth').protect, [
   body('firstName').optional().trim().escape(),
   body('lastName').optional().trim().escape(),
   body('username').optional().trim().isLength({ min: 3 }).withMessage('Username must be at least 3 characters')
@@ -126,7 +126,7 @@ router.put('/profile', require('../middleware/auth'), [
  * @desc    Update password
  * @access  Private
  */
-router.put('/password', require('../middleware/auth'), [
+router.put('/password', require('../middleware/auth').protect, [
   body('currentPassword').notEmpty().withMessage('Current password is required'),
   body('newPassword')
     .notEmpty().withMessage('New password is required')
@@ -175,7 +175,7 @@ router.put('/password', require('../middleware/auth'), [
  * @desc    Delete user account
  * @access  Private
  */
-router.delete('/account', require('../middleware/auth'), [
+router.delete('/account', require('../middleware/auth').protect, [
   body('password').notEmpty().withMessage('Password is required for account deletion')
 ], async (req, res) => {
   try {
