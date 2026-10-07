@@ -1,6 +1,6 @@
 const express = require('express');
 const { Curriculum, Course } = require('../models/Curriculum');
-const { protect, authorize } = require('../middleware/auth').protect;
+const { protect, authorize } = require('../middleware/auth');
 
 const router = express.Router();
 
