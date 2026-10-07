@@ -18,36 +18,32 @@ const userRoutes = require('./routes/user');
 // Initialize app
 const app = express();
 
-// Connect to MongoDB
-console.log('Connecting to MongoDB...');
-mongoose.connect(process.env.MONGO_URI || process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  serverSelectionTimeoutMS: 30000,
-  socketTimeoutMS: 45000,
-  retryWrites: true,
-})
-  .then(() => console.log('MongoDB connected successfully'))
-  .catch(err => {
-    console.error('MongoDB connection error:', err.message);
-    console.log('Continuing without MongoDB - API will still respond');
-  });
+// Connect to MongoDB - with short timeout and graceful failure
+if (process.env.MONGO_URI) {
+  console.log('Connecting to MongoDB...');
+  mongoose.connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    serverSelectionTimeoutMS: 5000,
+    socketTimeoutMS: 45000,
+    retryWrites: true,
+  })
+    .then(() => console.log('MongoDB connected successfully'))
+    .catch(err => {
+      console.error('MongoDB connection error:', err.message);
+      console.log('Continuing without MongoDB - API will still respond');
+    });
+} else {
+  console.log('No MongoDB URI provided - running in standalone mode');
+}
 
 // Middleware
 app.use(helmet());
-// CORS configuration - allow all origins dynamically
-const allowedOrigins = process.env.CORS_ORIGIN 
-  ? process.env.CORS_ORIGIN.split(',')
-  : (process.env.NODE_ENV === 'production'
-    ? ['https://fullstackocean.com', 'https://*.onrender.com']
-    : 'http://localhost:3000');
-
-const corsOptions = {
-  origin: true, // Allow all origins - the frontend is on a different domain
+app.use(cors({
+  origin: true,
   credentials: true,
   optionsSuccessStatus: 200
-};
-app.use(cors(corsOptions));
+}));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use(morgan('dev'));
@@ -89,7 +85,7 @@ app.use((err, req, res, next) => {
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`);
+  console.log(`Server running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`);
 });
 
 module.exports = app;
