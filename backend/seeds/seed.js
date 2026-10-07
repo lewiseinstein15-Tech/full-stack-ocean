@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const { seedCurriculum } = require('./seeds/curriculumData');
+const { seedCurriculum } = require('./curriculumData');
 
 // Load environment variables
 dotenv.config();

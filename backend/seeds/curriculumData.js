@@ -1,5 +1,5 @@
-const Curriculum = require('../models/Curriculum');
-const Course = require('../models/Curriculum').Course;
+const { Curriculum } = require('../models/Curriculum');
+const { Course } = require('../models/Curriculum');
 
 // Sample MIT OCW links for Week 1
 const MIT_60001_LECTURES = {
@@ -1185,4 +1185,4 @@ const PRACTICE_LINKS_EXTENDED = {
   pset3: 'https://ocw.mit.edu/courses/6-0001-understanding-modern-artificial-intelligence-in-python-fall-2023/assignments/',
   pset4: 'https://ocw.mit.edu/courses/6-0001-understanding-modern-artificial-intelligence-in-python-fall-2023/assignments/',
   pset5: 'https://ocw.mit.edu/courses/6-0001-understanding-modern-artificial-intelligence-in-python-fall-2023/assignments/',
-};
+};Object.assign(PRACTICE_LINKS, PRACTICE_LINKS_EXTENDED);
