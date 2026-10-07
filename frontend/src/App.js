@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { useAuth } from './contexts/AuthContext';
+import { useAuth } from 'contexts/AuthContext';
 
 // Layouts
 import Layout from '../components/layout/Layout';
@@ -8,7 +8,7 @@ import AuthLayout from '../components/layout/AuthLayout';
 
 // Public Pages
 import Home from 'pages/Home';
-import Courses from '../pages/Courses';
+import Courses from 'pages/Courses';
 import CourseDetail from '../pages/CourseDetail';
 
 // Auth Pages

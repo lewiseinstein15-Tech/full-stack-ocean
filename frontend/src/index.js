@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
-import App from './App';
-import { AuthProvider } from './contexts/AuthContext';
-import { ThemeProvider } from './contexts/ThemeContext';
+import App from 'App';
+import { AuthProvider } from 'contexts/AuthContext';
+import { ThemeProvider } from 'contexts/ThemeContext';
 import './index.css';
 import 'react-toastify/dist/ReactToastify.css';
 
