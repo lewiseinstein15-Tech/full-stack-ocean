@@ -1,0 +1,49 @@
+services:
+  # Backend Web Service
+  - type: web
+    name: fullstackocean-backend
+    runtime: node
+    plan: free
+    env: node
+    buildCommand: |
+      cd backend && npm install
+    startCommand: node server.js
+    rootDir: backend
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+      - key: MONGO_URI
+        syncWith: mongo-db.uri
+      - key: JWT_SECRET
+        syncWith: backend-jwt-secret
+      - key: JWT_EXPIRES_IN
+        value: 7d
+      - key: BCRYPT_ROUNDS
+        value: 12
+      - key: CORS_ORIGIN
+        value: https://fullstackocean-frontend.onrender.com
+
+  # Frontend Static Site
+  - type: static
+    name: fullstackocean-frontend
+    buildCommand: |
+      cd frontend && npm install && npm run build
+    rootDir: frontend
+    envVars:
+      - key: REACT_APP_API_URL
+        value: https://fullstackocean-backend.onrender.com/api
+
+# Managed MongoDB (MongoDB Atlas)
+databases:
+  - name: fullstackocean-db
+    region: oregon
+    plan: free
+
+# Environment variables (secrets)
+envVarGroups:
+  - name: backend-secrets
+    envVars:
+      - key: JWT_SECRET
+        value: supersecretjwtkey12345changeinproduction
