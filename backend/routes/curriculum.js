@@ -27,6 +27,91 @@ router.get('/', async (req, res) => {
   }
 });
 
+// @route   GET /api/curriculum/today
+// @desc    Get today's lessons
+// @access  Private
+router.get('/today', protect, async (req, res) => {
+  try {
+    // Find the active curriculum
+    const curriculum = await Curriculum.findOne({ isActive: true });
+
+    if (!curriculum) {
+      return res.status(404).json({
+        success: false,
+        error: 'No active curriculum found'
+      });
+    }
+
+    // Get today's date
+    const today = new Date();
+    const todayString = today.toDateString();
+
+    // Find today's day in any term/week
+    let todayLessons = null;
+    
+    for (const term of curriculum.terms) {
+      for (const week of term.weeks) {
+        for (const day of week.days) {
+          const dayDate = new Date(day.date);
+          if (dayDate.toDateString() === todayString) {
+            todayLessons = {
+              term: term.termNumber,
+              week: week.weekNumber,
+              date: day.date,
+              dayOfWeek: day.dayOfWeek,
+              lessons: day.lessons,
+              isReviewDay: day.isReviewDay,
+              reviewNotes: day.reviewNotes,
+              courses: term.courses
+            };
+            break;
+          }
+        }
+        if (todayLessons) break;
+      }
+      if (todayLessons) break;
+    }
+
+    // If no lessons for today (future or not scheduled), find the next upcoming lessons
+    if (!todayLessons) {
+      for (const term of curriculum.terms) {
+        for (const week of term.weeks) {
+          for (const day of week.days) {
+            const dayDate = new Date(day.date);
+            if (dayDate > today) {
+              todayLessons = {
+                term: term.termNumber,
+                week: week.weekNumber,
+                date: day.date,
+                dayOfWeek: day.dayOfWeek,
+                lessons: day.lessons,
+                isReviewDay: day.isReviewDay,
+                reviewNotes: day.reviewNotes,
+                courses: term.courses,
+                upcoming: true
+              };
+              break;
+            }
+          }
+          if (todayLessons) break;
+        }
+        if (todayLessons) break;
+      }
+    }
+
+    res.json({
+      success: true,
+      today: todayLessons
+    });
+  } catch (error) {
+    console.error('Get today error:', error.message);
+    res.status(500).json({
+      success: false,
+      error: 'Server error'
+    });
+  }
+});
+
 // @route   GET /api/curriculum/:id
 // @desc    Get single curriculum with full details
 // @access  Public
@@ -182,90 +267,6 @@ router.get('/:curriculumId/term/:termId/week/:weekId', async (req, res) => {
   }
 });
 
-// @route   GET /api/curriculum/today
-// @desc    Get today's lessons
-// @access  Private
-router.get('/today', protect, async (req, res) => {
-  try {
-    // Find the active curriculum
-    const curriculum = await Curriculum.findOne({ isActive: true });
-
-    if (!curriculum) {
-      return res.status(404).json({
-        success: false,
-        error: 'No active curriculum found'
-      });
-    }
-
-    // Get today's date
-    const today = new Date();
-    const todayString = today.toDateString();
-
-    // Find today's day in any term/week
-    let todayLessons = null;
-    
-    for (const term of curriculum.terms) {
-      for (const week of term.weeks) {
-        for (const day of week.days) {
-          const dayDate = new Date(day.date);
-          if (dayDate.toDateString() === todayString) {
-            todayLessons = {
-              term: term.termNumber,
-              week: week.weekNumber,
-              date: day.date,
-              dayOfWeek: day.dayOfWeek,
-              lessons: day.lessons,
-              isReviewDay: day.isReviewDay,
-              reviewNotes: day.reviewNotes,
-              courses: term.courses
-            };
-            break;
-          }
-        }
-        if (todayLessons) break;
-      }
-      if (todayLessons) break;
-    }
-
-    // If no lessons for today (future or not scheduled), find the next upcoming lessons
-    if (!todayLessons) {
-      for (const term of curriculum.terms) {
-        for (const week of term.weeks) {
-          for (const day of week.days) {
-            const dayDate = new Date(day.date);
-            if (dayDate > today) {
-              todayLessons = {
-                term: term.termNumber,
-                week: week.weekNumber,
-                date: day.date,
-                dayOfWeek: day.dayOfWeek,
-                lessons: day.lessons,
-                isReviewDay: day.isReviewDay,
-                reviewNotes: day.reviewNotes,
-                courses: term.courses,
-                upcoming: true
-              };
-              break;
-            }
-          }
-          if (todayLessons) break;
-        }
-        if (todayLessons) break;
-      }
-    }
-
-    res.json({
-      success: true,
-      today: todayLessons
-    });
-  } catch (error) {
-    console.error('Get today error:', error.message);
-    res.status(500).json({
-      success: false,
-      error: 'Server error'
-    });
-  }
-});
 
 // @route   GET /api/curriculum/course/:courseCode
 // @desc    Get course details
