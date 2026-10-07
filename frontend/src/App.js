@@ -3,26 +3,26 @@ import { Routes, Route } from 'react-router-dom';
 import { useAuth } from 'contexts/AuthContext';
 
 // Layouts
-import Layout from '../components/layout/Layout';
-import AuthLayout from '../components/layout/AuthLayout';
+import Layout from 'components/layout/Layout';
+import AuthLayout from 'components/layout/AuthLayout';
 
 // Public Pages
 import Home from 'pages/Home';
 import Courses from 'pages/Courses';
-import CourseDetail from '../pages/CourseDetail';
+import CourseDetail from 'pages/CourseDetail';
 
 // Auth Pages
-import Login from '../pages/auth/Login';
-import Register from '../pages/auth/Register';
-import ForgotPassword from '../pages/auth/ForgotPassword';
+import Login from 'pages/auth/Login';
+import Register from 'pages/auth/Register';
+import ForgotPassword from 'pages/auth/ForgotPassword';
 
 // Protected Pages
-import Dashboard from '../pages/Dashboard';
-import Today from '../pages/Today';
-import WeekView from '../pages/WeekView';
-import Progress from '../pages/Progress';
-import Profile from '../pages/Profile';
-import Practice from '../pages/Practice';
+import Dashboard from 'pages/Dashboard';
+import Today from 'pages/Today';
+import WeekView from 'pages/WeekView';
+import Progress from 'pages/Progress';
+import Profile from 'pages/Profile';
+import Practice from 'pages/Practice';
 
 const App = () => {
   const { user } = useAuth();
