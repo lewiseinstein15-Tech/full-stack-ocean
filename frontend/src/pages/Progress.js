@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FiBarChart2, FiAward, FiTrendingUp, FiCheckCircle, FiCalendar, FiClock } from 'react-icons/fi';
-import { useAuth } from '../contexts/AuthContext';
+import { useAuth } from 'contexts/AuthContext';
 
 const Progress = () => {
   const { user } = useAuth();

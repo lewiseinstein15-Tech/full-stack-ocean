@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { FiArrowLeft, FiPlay, FiFileText, FiUsers, FiClock, FiBook, FiExternalLink } from 'react-icons/fi';
-import { useAuth } from '../contexts/AuthContext';
+import { useAuth } from 'contexts/AuthContext';
 
 const CourseDetail = () => {
   const { courseCode } = useParams();

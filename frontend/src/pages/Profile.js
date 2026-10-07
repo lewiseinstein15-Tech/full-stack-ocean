@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FiUser, FiMail, FiCalendar, FiSave, FiEdit2, FiShield, FiSettings, FiTrendingUp } from 'react-icons/fi';
-import { useAuth } from '../contexts/AuthContext';
+import { useAuth } from 'contexts/AuthContext';
 
 const Profile = () => {
   const { user, updateProfile, updateUserPreferences, logout } = useAuth();

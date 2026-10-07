@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FiCalendar, FiClock, FiCheck, FiPlay, FiFileText, FiAward, FiTrendingUp } from 'react-icons/fi';
-import { useAuth } from '../contexts/AuthContext';
+import { useAuth } from 'contexts/AuthContext';
 import { format, isToday, isTomorrow, isPast, parseISO } from 'date-fns';
 
 const Dashboard = () => {

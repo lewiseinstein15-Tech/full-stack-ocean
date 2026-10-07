@@ -4,7 +4,7 @@ import {
   FiChevronLeft, FiChevronRight, FiCheck, FiPlay, FiFileText, FiSun, 
   FiBarChart2, FiAward, FiUsers, FiFilter 
 } from 'react-icons/fi';
-import { useAuth } from '../contexts/AuthContext';
+import { useAuth } from 'contexts/AuthContext';
 import { format, startOfWeek, endOfWeek, eachDayOfInterval, isSameDay, addWeeks, subWeeks, isToday } from 'date-fns';
 
 const WeekView = () => {

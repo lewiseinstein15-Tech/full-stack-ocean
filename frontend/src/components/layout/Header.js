@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
+import { useAuth } from 'contexts/AuthContext';
 import { useTheme } from '../contexts/ThemeContext';
 import { FiHome, FiBook, FiCalendar, FiTrendingUp, FiUser, FiLogIn, FiMenu, FiX, FiSun, FiMoon, FiBarChart2 } from 'react-icons/fi';
 

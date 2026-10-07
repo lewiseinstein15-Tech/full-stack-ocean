@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useAuth } from '../contexts/AuthContext';
+import { useAuth } from 'contexts/AuthContext';
 import { FiPlay, FiTrendingUp, FiCalendar, FiUsers, FiAward } from 'react-icons/fi';
 
 const Home = () => {

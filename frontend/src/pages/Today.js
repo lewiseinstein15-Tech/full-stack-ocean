@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FiCalendar, FiClock, FiCheck, FiPlay, FiFileText, FiSun, FiLink, FiMap } from 'react-icons/fi';
-import { useAuth } from '../contexts/AuthContext';
+import { useAuth } from 'contexts/AuthContext';
 import { format, isToday, isTomorrow, parseISO } from 'date-fns';
 
 const Today = () => {
