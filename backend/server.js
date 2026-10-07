@@ -19,20 +19,31 @@ const userRoutes = require('./routes/user');
 const app = express();
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI)
+console.log('Connecting to MongoDB...');
+mongoose.connect(process.env.MONGO_URI || process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  serverSelectionTimeoutMS: 30000,
+  socketTimeoutMS: 45000,
+  retryWrites: true,
+})
   .then(() => console.log('MongoDB connected successfully'))
   .catch(err => {
     console.error('MongoDB connection error:', err.message);
-    process.exit(1);
+    console.log('Continuing without MongoDB - API will still respond');
   });
 
 // Middleware
 app.use(helmet());
-// CORS configuration - allow all origins in development, specific origins in production
+// CORS configuration - allow all origins dynamically
+const allowedOrigins = process.env.CORS_ORIGIN 
+  ? process.env.CORS_ORIGIN.split(',')
+  : (process.env.NODE_ENV === 'production'
+    ? ['https://fullstackocean.com', 'https://*.onrender.com']
+    : 'http://localhost:3000');
+
 const corsOptions = {
-  origin: process.env.CORS_ORIGIN || (process.env.NODE_ENV === 'production' 
-    ? ['https://fullstackocean.com', 'https://api.fullstackocean.com']
-    : 'http://localhost:3000'),
+  origin: true, // Allow all origins - the frontend is on a different domain
   credentials: true,
   optionsSuccessStatus: 200
 };
@@ -43,15 +54,15 @@ app.use(morgan('dev'));
 
 // Rate limiting
 const limiter = rateLimit({
-  windowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS) || 900000, // 15 minutes
-  max: parseInt(process.env.RATE_LIMIT_MAX) || 100, // limit each IP to 100 requests per windowMs
+  windowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS) || 900000,
+  max: parseInt(process.env.RATE_LIMIT_MAX) || 100,
   message: { error: 'Too many requests from this IP, please try again later.' }
 });
 app.use('/api/', limiter);
 
 // Routes
 app.get('/', (req, res) => {
-  res.json({ 
+  res.json({
     message: 'Welcome to Full Stack Ocean API!',
     version: '1.0.0',
     status: 'active'
