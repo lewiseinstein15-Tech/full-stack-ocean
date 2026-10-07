@@ -14,7 +14,7 @@ services:
       - key: PORT
         value: 5000
       - key: MONGO_URI
-        fromDatabase: fullstackocean-mongodb
+        value: ""
       - key: JWT_SECRET
         value: fullstackocean_supersecret_jwt_key_2026
       - key: JWT_EXPIRES_IN
