@@ -14,10 +14,24 @@ const app = express();
 app.set('trust proxy', 1);
 
 // Connect to MongoDB
-const mongoUri = process.env.MONGO_URI || process.env.MONGODB_URI;
+const mongoUri = process.env.MONGO_URI;
+
+console.log('Environment variables loaded:');
+console.log(`- MONGO_URI is set: ${!!mongoUri}`);
+if (mongoUri) {
+  console.log(`- MONGO_URI length: ${mongoUri.length}`);
+  // Check if it looks like a MongoDB URI without exposing credentials
+  if (mongoUri.startsWith('mongodb://') || mongoUri.startsWith('mongodb+srv://')) {
+    console.log('- MONGO_URI appears to be a valid MongoDB connection string');
+  } else {
+    console.warn('- MONGO_URI does not look like a standard MongoDB URI');
+  }
+} else {
+  console.warn('- MONGO_URI is not set!');
+}
 
 async function connectDB() {
-  if (!mongoUri || mongoUri.includes('placeholder')) {
+  if (!mongoUri || mongoUri.includes('placeholder') || mongoUri.trim() === '') {
     console.warn('No valid MongoDB URI provided - running without database');
     return;
   }
