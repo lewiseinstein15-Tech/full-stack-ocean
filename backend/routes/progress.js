@@ -6,7 +6,7 @@ const router = express.Router();
  * @desc    Get user's progress overview
  * @access  Private
  */
-router.get('/', require('../middleware/auth').protect.protect, async (req, res) => {
+router.get('/', require('../middleware/auth').protect, async (req, res) => {
   try {
     const User = require('../models/User');
     const user = await User.findById(req.user.id)
@@ -63,7 +63,7 @@ router.get('/', require('../middleware/auth').protect.protect, async (req, res) 
  * @desc    Mark a lesson as completed
  * @access  Private
  */
-router.post('/lesson/:lessonId/complete', require('../middleware/auth').protect.protect, async (req, res) => {
+router.post('/lesson/:lessonId/complete', require('../middleware/auth').protect, async (req, res) => {
   try {
     const User = require('../models/User');
     const user = await User.findById(req.user.id);
@@ -111,7 +111,7 @@ router.post('/lesson/:lessonId/complete', require('../middleware/auth').protect.
  * @desc    Unmark a lesson as completed
  * @access  Private
  */
-router.delete('/lesson/:lessonId/complete', require('../middleware/auth').protect.protect, async (req, res) => {
+router.delete('/lesson/:lessonId/complete', require('../middleware/auth').protect, async (req, res) => {
   try {
     const User = require('../models/User');
     const user = await User.findById(req.user.id);
@@ -152,7 +152,7 @@ router.delete('/lesson/:lessonId/complete', require('../middleware/auth').protec
  * @desc    Check if a lesson is completed
  * @access  Private
  */
-router.get('/check/:lessonId', require('../middleware/auth').protect.protect, async (req, res) => {
+router.get('/check/:lessonId', require('../middleware/auth').protect, async (req, res) => {
   try {
     const User = require('../models/User');
     const { lessonId } = req.params;
@@ -180,7 +180,7 @@ router.get('/check/:lessonId', require('../middleware/auth').protect.protect, as
  * @desc    Get user's progress history
  * @access  Private
  */
-router.get('/history', require('../middleware/auth').protect.protect, async (req, res) => {
+router.get('/history', require('../middleware/auth').protect, async (req, res) => {
   try {
     const User = require('../models/User');
     const user = await User.findById(req.user.id)
@@ -221,7 +221,7 @@ router.get('/history', require('../middleware/auth').protect.protect, async (req
  * @desc    Add an achievement
  * @access  Private
  */
-router.post('/achievement', require('../middleware/auth').protect.protect, async (req, res) => {
+router.post('/achievement', require('../middleware/auth').protect, async (req, res) => {
   try {
     const User = require('../models/User');
     const { achievement } = req.body;
@@ -259,7 +259,7 @@ router.post('/achievement', require('../middleware/auth').protect.protect, async
  * @desc    Update user preferences
  * @access  Private
  */
-router.put('/preferences', require('../middleware/auth').protect.protect, async (req, res) => {
+router.put('/preferences', require('../middleware/auth').protect, async (req, res) => {
   try {
     const User = require('../models/User');
     const { preferences } = req.body;
