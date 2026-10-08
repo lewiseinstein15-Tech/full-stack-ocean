@@ -125,6 +125,15 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const fetchLesson = async (slug) => {
+    try {
+      const res = await axios.get(`/curriculum/lesson/${slug}`);
+      return res.data;
+    } catch (error) {
+      return null;
+    }
+  };
+
   const fetchToday = async () => {
     try {
       const res = await axios.get('/curriculum/today');
@@ -202,6 +211,7 @@ export const AuthProvider = ({ children }) => {
     updateUserPreferences,
     fetchProgress,
     fetchToday,
+    fetchLesson,
     completeLesson,
     uncompleteLesson,
     checkLessonCompleted,

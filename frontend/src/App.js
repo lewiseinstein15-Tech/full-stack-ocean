@@ -20,6 +20,7 @@ import Progress from 'pages/Progress';
 import Profile from 'pages/Profile';
 import Practice from 'pages/Practice';
 import Courses from 'pages/Courses';
+import Study from 'pages/Study';
 import CourseDetail from 'pages/CourseDetail';
 
 const CenterSpinner = () => (
@@ -68,6 +69,7 @@ const App = () => {
         {/* Protected app routes (sidebar shell) */}
         <Route element={<ProtectedShell />}>
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/study/:slug" element={<Study />} />
           <Route path="/today" element={<Today />} />
           <Route path="/week/:weekId?" element={<WeekView />} />
           <Route path="/courses" element={<Courses />} />

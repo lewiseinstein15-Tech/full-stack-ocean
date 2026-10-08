@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { 
   FiChevronLeft, FiChevronRight, FiCheck, FiPlay, FiFileText, FiSun, 
-  FiBarChart2, FiAward, FiUsers, FiFilter 
+  FiBarChart2, FiAward, FiUsers, FiFilter, FiBookOpen 
 } from 'react-icons/fi';
 import { useAuth } from 'contexts/AuthContext';
 import { format, startOfWeek, endOfWeek, eachDayOfInterval, isSameDay, addWeeks, subWeeks, isToday } from 'date-fns';
@@ -215,27 +215,39 @@ const WeekView = () => {
                     </div>
                     
                     <div className="mt-2 flex gap-4">
-                      {lesson.lectureLink && (
-                        <a
-                          href={lesson.lectureLink.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
+                      {lesson.slug ? (
+                        <Link
+                          to={`/study/${lesson.slug}`}
                           className="text-sm text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 flex items-center"
                         >
-                          <FiPlay className="h-3 w-3 mr-1" />
-                          Lecture
-                        </a>
-                      )}
-                      {lesson.practiceLink && (
-                        <a
-                          href={lesson.practiceLink.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-sm text-secondary-600 dark:text-secondary-400 hover:text-secondary-700 dark:hover:text-secondary-300 flex items-center"
-                        >
-                          <FiFileText className="h-3 w-3 mr-1" />
-                          Practice
-                        </a>
+                          <FiBookOpen className="h-3 w-3 mr-1" />
+                          Study in app
+                        </Link>
+                      ) : (
+                        <>
+                          {lesson.lectureLink && (
+                            <a
+                              href={lesson.lectureLink.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-sm text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 flex items-center"
+                            >
+                              <FiPlay className="h-3 w-3 mr-1" />
+                              Lecture
+                            </a>
+                          )}
+                          {lesson.practiceLink && (
+                            <a
+                              href={lesson.practiceLink.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-sm text-secondary-600 dark:text-secondary-400 hover:text-secondary-700 dark:hover:text-secondary-300 flex items-center"
+                            >
+                              <FiFileText className="h-3 w-3 mr-1" />
+                              Practice
+                            </a>
+                          )}
+                        </>
                       )}
                     </div>
                   </div>

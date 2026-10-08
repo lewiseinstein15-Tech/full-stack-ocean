@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { FiClock, FiCheck, FiPlay, FiFileText, FiSun, FiMap, FiChevronsRight } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
+import { FiClock, FiCheck, FiPlay, FiFileText, FiSun, FiMap, FiChevronsRight, FiBookOpen } from 'react-icons/fi';
 import { motion } from 'framer-motion';
 import { useAuth } from 'contexts/AuthContext';
 import { format, isToday, isTomorrow } from 'date-fns';
@@ -197,28 +198,41 @@ const Today = () => {
                         <p className="text-sm text-espresso-600 mb-4">{lesson.description}</p>
                       )}
                       <div className="flex flex-wrap gap-3">
-                        {lesson.lectureLink && (
-                          <a
-                            href={lesson.lectureLink.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
+                        {lesson.slug ? (
+                          <Link
+                            to={`/study/${lesson.slug}`}
                             className="btn btn-gold !py-2 !px-4 text-xs"
                           >
-                            <FiPlay className="w-3.5 h-3.5" />
-                            Watch Lecture
+                            <FiBookOpen className="w-3.5 h-3.5" />
+                            Start Studying
                             <FiChevronsRight className="w-3 h-3" />
-                          </a>
-                        )}
-                        {lesson.practiceLink && (
-                          <a
-                            href={lesson.practiceLink.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="btn btn-cream !py-2 !px-4 text-xs"
-                          >
-                            <FiFileText className="w-3.5 h-3.5" />
-                            Practice Problems
-                          </a>
+                          </Link>
+                        ) : (
+                          <>
+                            {lesson.lectureLink && (
+                              <a
+                                href={lesson.lectureLink.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="btn btn-gold !py-2 !px-4 text-xs"
+                              >
+                                <FiPlay className="w-3.5 h-3.5" />
+                                Watch Lecture
+                                <FiChevronsRight className="w-3 h-3" />
+                              </a>
+                            )}
+                            {lesson.practiceLink && (
+                              <a
+                                href={lesson.practiceLink.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="btn btn-cream !py-2 !px-4 text-xs"
+                              >
+                                <FiFileText className="w-3.5 h-3.5" />
+                                Practice Problems
+                              </a>
+                            )}
+                          </>
                         )}
                       </div>
                     </div>
