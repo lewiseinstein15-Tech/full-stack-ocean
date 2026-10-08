@@ -226,6 +226,36 @@ const Study = () => {
         </div>
       </motion.div>
 
+      {!mats.videoId && !mats.slidesUrl && !mats.transcriptUrl && !mats.practicePdfUrl && !mats.practiceZipUrl && (
+        <motion.div
+          className="glass-strong rounded-[1.75rem] p-7 sm:p-8 text-center"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.08, ease: EASE }}
+        >
+          <h3 className="font-display text-xl font-bold text-espresso-800 mb-2">
+            This unit opens on the official course hub
+          </h3>
+          <p className="text-espresso-600 text-sm max-w-xl mx-auto mb-5">
+            Embedded video and PDF material is fully wired for Term 1 right now. Later terms point
+            to the official course pages — watch and read there, then come back and mark the lesson
+            complete to keep your streak.
+          </p>
+          <div className="flex flex-wrap justify-center gap-2.5">
+            {mats.externalUrl && (
+              <a href={mats.externalUrl} target="_blank" rel="noopener noreferrer" className="btn btn-gold !py-2 !px-5 text-xs">
+                <FiExternalLink className="w-3.5 h-3.5" /> Open video hub
+              </a>
+            )}
+            {mats.readingUrl && (
+              <a href={mats.readingUrl} target="_blank" rel="noopener noreferrer" className="btn btn-cream !py-2 !px-5 text-xs">
+                <FiBookOpen className="w-3.5 h-3.5" /> Textbook / notes
+              </a>
+            )}
+          </div>
+        </motion.div>
+      )}
+
       {/* ---------- Video ---------- */}
       {mats.videoId && (
         <motion.div

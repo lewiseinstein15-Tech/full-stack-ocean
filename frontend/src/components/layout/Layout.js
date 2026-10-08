@@ -26,6 +26,7 @@ const NAV = [
       { to: '/week', icon: FiCalendar, label: 'Week View' },
       { to: '/courses', icon: FiBookOpen, label: 'Courses', end: true },
       { to: '/practice', icon: FiEdit3, label: 'Practice' },
+      { to: '/library', icon: FiBookOpen, label: 'Library' },
     ],
   },
   {
@@ -44,6 +45,7 @@ const PAGE_TITLES = {
   '/week': 'Week View',
   '/courses': 'Courses',
   '/practice': 'Practice',
+  '/library': 'Library',
   '/progress': 'Progress',
   '/profile': 'Profile',
 };
