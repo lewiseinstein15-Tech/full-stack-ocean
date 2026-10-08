@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
@@ -368,6 +368,7 @@ const Layout = () => {
   }, [location.pathname]);
 
   const marginLeft = collapsed ? 108 : 288;
+  const pageRef = useRef(null);
 
   return (
     <div className="min-h-screen relative">
@@ -390,10 +391,21 @@ const Layout = () => {
           <AnimatePresence mode="wait">
             <motion.div
               key={location.pathname}
+              ref={pageRef}
               initial={{ opacity: 0, y: 18, filter: 'blur(6px)' }}
               animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
               exit={{ opacity: 0, y: -14, filter: 'blur(6px)' }}
               transition={{ duration: 0.4, ease: EASE }}
+              onAnimationComplete={() => {
+                /* A lingering CSS filter/transform makes this wrapper the
+                   containing block for position:fixed children, which breaks
+                   full-viewport overlays (book reader). Clear it once the page
+                   transition settles. */
+                if (pageRef.current) {
+                  pageRef.current.style.filter = 'none';
+                  pageRef.current.style.transform = 'none';
+                }
+              }}
             >
               <Outlet />
             </motion.div>

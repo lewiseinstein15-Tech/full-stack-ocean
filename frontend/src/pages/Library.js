@@ -1,70 +1,142 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   FiBookOpen, FiExternalLink, FiX, FiDownload, FiLayers, FiTarget,
   FiTool, FiZap, FiArrowRight, FiFileText, FiGrid, FiMap, FiCheckCircle,
+  FiMaximize2, FiMinimize2,
 } from 'react-icons/fi';
 import { useAuth } from 'contexts/AuthContext';
 import { Stagger, StaggerItem } from 'components/motion/motion';
 
 const EASE = [0.22, 1, 0.36, 1];
 
-/* Full-screen in-app reader (PDF or HTML book) */
+/* Full-screen in-app reader (PDF or HTML book).
+   Rendered through a portal to document.body so the overlay always sizes to
+   the real viewport — an ancestor with a CSS filter (the page-transition
+   blur) would otherwise become the containing block for position:fixed and
+   stretch the frame to the full page height, cutting it off below the fold. */
 const Reader = ({ book, onClose }) => {
+  const rootRef = useRef(null);
+  const fsRef = useRef(false);
+  const [fsMode, setFsMode] = useState(false);
+
+  const setFs = (v) => { fsRef.current = v; setFsMode(v); };
+
+  const enterFs = async () => {
+    setFs(true);
+    try {
+      if (rootRef.current && rootRef.current.requestFullscreen && !document.fullscreenElement) {
+        await rootRef.current.requestFullscreen();
+      }
+    } catch {
+      /* Native Fullscreen API unavailable (e.g. iOS Safari) — stay in the
+         in-app immersive mode: header hidden, book fills the viewport. */
+    }
+  };
+
+  const exitFs = () => {
+    try {
+      if (document.fullscreenElement) document.exitFullscreen();
+    } catch {
+      /* noop */
+    }
+    setFs(false);
+  };
+
   useEffect(() => {
-    const onKey = (e) => e.key === 'Escape' && onClose();
+    const onKey = (e) => {
+      if (e.key === 'Escape') {
+        if (fsRef.current) exitFs();
+        else onClose();
+      } else if ((e.key === 'f' || e.key === 'F') && !e.ctrlKey && !e.metaKey && !e.altKey) {
+        if (fsRef.current) exitFs();
+        else enterFs();
+      }
+    };
+    /* Keep state in sync when the browser leaves fullscreen on its own
+       (Esc / F11 at browser level). */
+    const onFsChange = () => { if (!document.fullscreenElement) setFs(false); };
     window.addEventListener('keydown', onKey);
+    document.addEventListener('fullscreenchange', onFsChange);
     document.body.style.overflow = 'hidden';
     return () => {
       window.removeEventListener('keydown', onKey);
+      document.removeEventListener('fullscreenchange', onFsChange);
       document.body.style.overflow = '';
+      try {
+        if (document.fullscreenElement) document.exitFullscreen();
+      } catch {
+        /* noop */
+      }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [onClose]);
 
-  return (
+  const shell = (
     <motion.div
+      ref={rootRef}
       className="fixed inset-0 z-50 flex flex-col"
-      style={{ background: 'rgba(58,42,18,.55)', backdropFilter: 'blur(6px)' }}
+      style={{ background: 'rgba(58,42,18,.55)', backdropFilter: 'blur(6px)', height: '100dvh' }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <div className="glass-strong rounded-none flex items-center justify-between px-4 sm:px-6 py-3 z-10">
-        <div className="flex items-center gap-3 min-w-0">
-          <span
-            className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0"
-            style={{
-              background: 'linear-gradient(180deg, #f2d894, #d9a441)',
-              boxShadow: 'inset 0 1px 0 rgba(255,255,255,.6), 0 3px 9px rgba(138,100,34,.35)',
-            }}
-          >
-            <FiBookOpen className="w-5 h-5 text-espresso-900" />
-          </span>
-          <div className="min-w-0">
-            <div className="font-display font-bold text-espresso-800 truncate">{book.title}</div>
-            <div className="text-[11px] font-bold text-espresso-500 truncate">{book.author}</div>
+      {!fsMode && (
+        <div className="glass-strong rounded-none flex items-center justify-between px-4 sm:px-6 py-3 z-10">
+          <div className="flex items-center gap-3 min-w-0">
+            <span
+              className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0"
+              style={{
+                background: 'linear-gradient(180deg, #f2d894, #d9a441)',
+                boxShadow: 'inset 0 1px 0 rgba(255,255,255,.6), 0 3px 9px rgba(138,100,34,.35)',
+              }}
+            >
+              <FiBookOpen className="w-5 h-5 text-espresso-900" />
+            </span>
+            <div className="min-w-0">
+              <div className="font-display font-bold text-espresso-800 truncate">{book.title}</div>
+              <div className="text-[11px] font-bold text-espresso-500 truncate">{book.author}</div>
+            </div>
+          </div>
+          <div className="flex items-center gap-2">
+            {book.downloadName && (
+              <a href={book.src} download={book.downloadName} className="btn btn-cream !py-1.5 !px-3 text-[11px]">
+                <FiDownload className="w-3.5 h-3.5" />
+                Save
+              </a>
+            )}
+            <button onClick={enterFs} className="btn btn-cream !py-1.5 !px-3 text-[11px]" title="Fullscreen (F)">
+              <FiMaximize2 className="w-3.5 h-3.5" />
+              Fullscreen
+            </button>
+            <button onClick={onClose} className="btn btn-gold !py-1.5 !px-3 text-[11px]">
+              <FiX className="w-3.5 h-3.5" />
+              Close
+            </button>
           </div>
         </div>
-        <div className="flex items-center gap-2">
-          {book.downloadName && (
-            <a href={book.src} download={book.downloadName} className="btn btn-cream !py-1.5 !px-3 text-[11px]">
-              <FiDownload className="w-3.5 h-3.5" />
-              Save
-            </a>
-          )}
-          <button onClick={onClose} className="btn btn-gold !py-1.5 !px-3 text-[11px]">
-            <FiX className="w-3.5 h-3.5" />
-            Close
-          </button>
-        </div>
-      </div>
+      )}
       <iframe
         src={book.src}
         title={book.title}
-        className="flex-1 w-full bg-white border-0"
+        className="flex-1 min-h-0 w-full bg-white border-0"
       />
+      {fsMode && (
+        <button
+          onClick={exitFs}
+          title="Exit fullscreen (Esc)"
+          aria-label="Exit fullscreen"
+          className="absolute top-3 right-3 z-20 w-10 h-10 rounded-full glass-strong flex items-center justify-center"
+          style={{ boxShadow: '0 6px 18px rgba(58,42,18,.35)' }}
+        >
+          <FiMinimize2 className="w-5 h-5 text-espresso-700" />
+        </button>
+      )}
     </motion.div>
   );
+
+  return createPortal(shell, document.body);
 };
 
 const EMBEDDED_BOOKS = [
