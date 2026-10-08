@@ -23,7 +23,7 @@ const Today = () => {
       if (data?.lessons) {
         const status = {};
         for (const lesson of data.lessons) {
-          status[lesson._id || lesson.id] = await checkLessonCompleted(lesson._id || lesson.id);
+          status[lesson.slug || lesson._id || lesson.id] = await checkLessonCompleted(lesson.slug || lesson._id || lesson.id);
         }
         setLessonStatus(status);
       }
@@ -33,7 +33,7 @@ const Today = () => {
   }, [fetchToday, checkLessonCompleted]);
 
   const handleToggleComplete = async (lesson) => {
-    const lessonId = lesson._id || lesson.id;
+    const lessonId = lesson.slug || lesson._id || lesson.id;
     const hours = (lesson.duration || 90) / 60;
     if (lessonStatus[lessonId]) {
       await uncompleteLesson(lessonId, hours);
@@ -148,7 +148,7 @@ const Today = () => {
       ) : today?.lessons && today.lessons.length > 0 ? (
         <Stagger className="space-y-5" delay={0.09}>
           {today.lessons.map((lesson, idx) => {
-            const lessonId = lesson._id || lesson.id;
+            const lessonId = lesson.slug || lesson._id || lesson.id;
             const completed = lessonStatus[lessonId];
             return (
               <StaggerItem key={lessonId || idx}>

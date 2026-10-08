@@ -32,7 +32,7 @@ const WeekView = () => {
       if (data?.lessons) {
         const status = {};
         for (const lesson of data.lessons) {
-          status[lesson._id || lesson.id] = await checkLessonCompleted(lesson._id || lesson.id);
+          status[lesson.slug || lesson._id || lesson.id] = await checkLessonCompleted(lesson.slug || lesson._id || lesson.id);
         }
         setLessonStatus(status);
       }
@@ -54,7 +54,7 @@ const WeekView = () => {
   const goToToday = () => setCurrentDate(new Date());
 
   const handleToggleComplete = async (lesson) => {
-    const lessonId = lesson._id || lesson.id;
+    const lessonId = lesson.slug || lesson._id || lesson.id;
     const hours = (lesson.duration || 90) / 60;
     
     if (lessonStatus[lessonId]) {
@@ -133,7 +133,7 @@ const WeekView = () => {
                 <div className="mt-1 space-y-1">
                   {todayData.lessons.slice(0, 2).map((lesson, idx) => (
                     <div key={lesson._id || idx} className="text-xs truncate">
-                      <span className={`block ${lessonStatus[lesson._id || lesson.id] ? 'line-through text-green-600 dark:text-green-400' : 'text-gray-600 dark:text-gray-400'}`}>
+                      <span className={`block ${lessonStatus[lesson.slug || lesson._id || lesson.id] ? 'line-through text-green-600 dark:text-green-400' : 'text-gray-600 dark:text-gray-400'}`}>
                         {lesson.title}
                       </span>
                       <span className={`inline-block px-1 rounded text-xs ${
@@ -179,7 +179,7 @@ const WeekView = () => {
           ) : todayData.lessons?.length > 0 ? (
             <div className="space-y-4">
               {todayData.lessons.map((lesson, idx) => {
-                const lessonId = lesson._id || lesson.id;
+                const lessonId = lesson.slug || lesson._id || lesson.id;
                 const completed = lessonStatus[lessonId];
 
                 return (
