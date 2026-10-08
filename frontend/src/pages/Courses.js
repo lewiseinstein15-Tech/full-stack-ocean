@@ -45,11 +45,11 @@ const Courses = () => {
         }
       }
 
-      // Lesson aggregates per course + exact slug→course map
+      // Lesson aggregates per course + exact slug→course map (case-insensitive keys)
       const stats = {};
       const s2c = {};
       for (const l of lessons || []) {
-        const code = l.course;
+        const code = (l.course || '').toLowerCase();
         if (!code) continue;
         if (l.slug) s2c[l.slug] = code;
         if (!stats[code]) stats[code] = { total: 0, hours: 0, weeks: new Set(), practice: 0 };
@@ -108,11 +108,10 @@ const Courses = () => {
     const q = searchTerm.trim().toLowerCase();
     const matchesSearch =
       !q || c.title.toLowerCase().includes(q) || c.code.toLowerCase().includes(q);
-    const stats = lessonStats[c.code] || {};
     const matchesFilter =
       filter === 'all' ||
-      (filter === 'started' && (completedByCourse[c.code] || 0) > 0) ||
-      (filter === 'fresh' && !(completedByCourse[c.code] || 0));
+      (filter === 'started' && (completedByCourse[(c.code || '').toLowerCase()] || 0) > 0) ||
+      (filter === 'fresh' && !(completedByCourse[(c.code || '').toLowerCase()] || 0));
     return matchesSearch && matchesFilter;
   });
 
@@ -145,15 +144,15 @@ const Courses = () => {
             <span className="course-tag">Catalog</span>
             <span className="inline-flex items-center gap-1 text-xs font-bold text-espresso-500">
               <FiCalendar className="w-3 h-3" />
-              8 terms · 24 courses · from Oct 8, 2026
+              Term 1 · 7 weeks · Oct 2026 →
             </span>
           </div>
           <h1 className="font-display text-3xl sm:text-4xl font-bold text-espresso-800 text-balance">
             Your MIT Course Lineup
           </h1>
           <p className="text-espresso-600 mt-2.5 max-w-2xl">
-            Twenty-four courses across eight terms — the complete path from foundations to
-            capstone, two lessons every day, dated from your real start.
+            Three MIT OpenCourseWare courses, scheduled week by week with videos, slides,
+            transcripts and problem sets embedded right in the app.
           </p>
         </div>
       </motion.div>
@@ -208,8 +207,8 @@ const Courses = () => {
       {/* ---------- Course grid ---------- */}
       <Stagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
         {filtered.map((c) => {
-          const stats = lessonStats[c.code] || { total: 0, hours: 0, weeks: 0, practice: 0 };
-          const done = Math.min(completedByCourse[c.code] || 0, stats.total);
+          const stats = lessonStats[(c.code || '').toLowerCase()] || { total: 0, hours: 0, weeks: 0, practice: 0 };
+          const done = Math.min(completedByCourse[(c.code || '').toLowerCase()] || 0, stats.total);
           const pct = stats.total ? Math.round((done / stats.total) * 100) : 0;
           return (
             <StaggerItem key={c.code}>
@@ -233,7 +232,9 @@ const Courses = () => {
                     >
                       {c.code}
                     </span>
-                    <span className="status-badge">{c.term}</span>
+                    <span className="status-badge status-completed">
+                      <FiPlay className="w-3 h-3" /> Active
+                    </span>
                   </div>
 
                   <h3 className="relative font-display text-lg font-bold text-espresso-800 leading-snug group-hover:text-honey-700 transition-colors">

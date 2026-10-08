@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   FiArrowLeft, FiClock, FiAward, FiBookOpen, FiCheck, FiPlay,
-  FiChevronRight, FiFileText, FiPackage, FiLayers, FiCalendar, FiTarget, FiExternalLink,
+  FiChevronRight, FiFileText, FiPackage, FiLayers, FiCalendar, FiTarget,
 } from 'react-icons/fi';
 import { useAuth } from 'contexts/AuthContext';
 import { Stagger, StaggerItem } from 'components/motion/motion';
@@ -63,12 +63,12 @@ const CourseDetail = () => {
     return () => { alive = false; };
   }, [courseCode, fetchCourse, fetchLessons]);
 
-  const code = course?.courseCode || (courseCode || '').toUpperCase();
+  const code = course?.courseCode || courseCode || '';
   const courseLessons = useMemo(() => {
     if (!lessons || !code) return [];
-    const norm = (s) => (s || '').replace(/[^a-z0-9]/gi, '');
+    const norm = (s) => (s || '').replace(/[^a-z0-9]/gi, '').toLowerCase();
     return lessons
-      .filter((l) => l.course === code || norm(l.course).startsWith(norm(code)))
+      .filter((l) => norm(l.course) === norm(code) || norm(l.course).startsWith(norm(code)))
       .sort((a, b) => (a.week - b.week) || ((a.order || 0) - (b.order || 0)));
   }, [lessons, code]);
 
@@ -252,42 +252,13 @@ const CourseDetail = () => {
                   </h3>
                   <p className="text-espresso-700 leading-relaxed">
                     {course.description || course.title} — taught by{' '}
-                    {course.instructor || 'MIT faculty'} through MIT OpenCourseWare. All lectures,
-                    slides, transcripts and problem sets for this course are embedded in Full Stack
-                    Ocean: videos play in the in-app player, documents open in the built-in reader,
-                    and your completion progress feeds your daily streak.
+                    {course.instructor || 'course staff'} through the official course hub. Term 1
+                    courses have every lecture, slide deck, transcript and problem set embedded
+                    right here (in-app player and PDF reader); later terms link to their official
+                    hubs until their material is embedded. Your completion progress feeds your
+                    daily streak either way.
                   </p>
                 </div>
-
-                {(course.resources?.lectures?.length > 0 || course.resources?.assignments?.length > 0 || course.resources?.exams?.length > 0) && (
-                  <div className="glass rounded-3xl p-6 sm:p-8">
-                    <h3 className="font-display text-xl font-bold text-espresso-800 mb-4 flex items-center gap-2">
-                      <FiLayers className="w-5 h-5 text-honey-600" />
-                      Official course hub
-                    </h3>
-                    <div className="flex flex-wrap gap-2.5">
-                      {course.resources.lectures?.map((r, i) => (
-                        <a key={`lec${i}`} href={r.url} target="_blank" rel="noopener noreferrer" className="btn btn-gold !py-2 !px-4 text-xs">
-                          <FiExternalLink className="w-3.5 h-3.5" /> {r.title || 'Video hub'}
-                        </a>
-                      ))}
-                      {course.resources.assignments?.map((r, i) => (
-                        <a key={`asg${i}`} href={r.url} target="_blank" rel="noopener noreferrer" className="btn btn-cream !py-2 !px-4 text-xs">
-                          <FiTarget className="w-3.5 h-3.5" /> {r.title || 'Practice archive'}
-                        </a>
-                      ))}
-                      {course.resources.exams?.map((r, i) => (
-                        <a key={`exm${i}`} href={r.url} target="_blank" rel="noopener noreferrer" className="btn btn-cream !py-2 !px-4 text-xs">
-                          <FiBookOpen className="w-3.5 h-3.5" /> {r.title || 'Textbook / notes'}
-                        </a>
-                      ))}
-                    </div>
-                    <p className="text-xs text-espresso-500 mt-3">
-                      This course's lectures and exercises live on the official hub — open these
-                      whenever a unit points to the source material.
-                    </p>
-                  </div>
-                )}
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   <div className="glass rounded-3xl p-6 text-center">
