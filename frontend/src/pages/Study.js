@@ -114,7 +114,7 @@ const Study = () => {
   }, [mats.slidesUrl, mats.transcriptUrl, mats.practicePdfUrl, mats.practiceZipUrl]);
 
   useEffect(() => {
-    if (!tabs.some((t) => t.id === activeTab) && tabs.length) setActiveTab(tabs[0].id);
+    if (tabs.length && !tabs.some((t) => t.id === activeTab)) setActiveTab(tabs[0].id);
   }, [tabs, activeTab]);
 
   const handleToggleComplete = async () => {
