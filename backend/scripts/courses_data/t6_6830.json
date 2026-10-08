@@ -1,0 +1,201 @@
+{
+  "course": "6.830",
+  "term": 6,
+  "lessons": [
+    {
+      "title": "The Relational Model",
+      "lecture": { "url": "http://www.redbook.io/", "title": "6.830 Lecture 1: Relational model (Redbook)" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-830-database-systems-fall-2010/pages/assignments/", "title": "Assignments" },
+      "materials": {
+        "readingUrl": "http://www.redbook.io/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-830-database-systems-fall-2010/",
+        "practiceLabel": "Assignment 1: relational algebra",
+        "notes": {
+          "summary": "Databases begin with Codd's insight: store data as relations (tuples of typed values) and manipulate it with a small algebra — select, project, join — that is declarative and optimizable. The reading is the Redbook (the course's textbook, free online), whose chapter 2 grounds everything: schemas, keys, constraints, and the data independence that separates logical from physical.",
+          "concepts": ["Relations, tuples, schemas", "Relational algebra: sigma, pi, join", "Keys and constraints", "Declarative vs procedural", "Data independence", "Why the relational model won"],
+          "focus": "Write three relational algebra queries against a sample schema before touching SQL. The algebra IS SQL's semantics — owning it makes SQL obvious."
+        }
+      }
+    },
+    {
+      "title": "SQL: Queries and Semantics",
+      "lecture": { "url": "http://www.redbook.io/", "title": "6.830: SQL (Redbook ch. 2-3)" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-830-database-systems-fall-2010/pages/assignments/", "title": "Assignments: SQL problems" },
+      "materials": {
+        "readingUrl": "http://www.redbook.io/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-830-database-systems-fall-2010/",
+        "practiceLabel": "SQL problem set",
+        "notes": {
+          "summary": "SQL as the relational algebra's friendly face: SELECT-FROM-WHERE's logical evaluation order (FROM, WHERE, GROUP BY, HAVING, SELECT, ORDER BY), subqueries, and aggregation semantics. You learn the set-vs-bag (duplicate) semantics — the difference between theory and practice that bites real queries.",
+          "concepts": ["Logical query evaluation order", "Bag vs set semantics", "GROUP BY and aggregation", "NULL's three-valued logic", "Subqueries and EXISTS", "Window functions preview"],
+          "focus": "Take one query with GROUP BY + HAVING and write out each intermediate relation by hand. SQL's evaluation order, once concrete, stops surprising you."
+        }
+      }
+    },
+    {
+      "title": "Storage: Disks, Files, and Pages",
+      "lecture": { "url": "http://www.redbook.io/", "title": "6.830: Storage (Redbook ch. 4)" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-830-database-systems-fall-2010/pages/assignments/", "title": "Assignments" },
+      "materials": {
+        "readingUrl": "http://www.redbook.io/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-830-database-systems-fall-2010/",
+        "practiceLabel": "Storage assignment problems",
+        "notes": {
+          "summary": "The physical layer: databases are arrays of pages (usually 4-16KB), and every design decision — heap files, page formats, record layouts (slotted pages for variable-length rows) — is I/O minimization. Sequential scans crush random access on both disks and SSDs, which is why layout is destiny for scan-heavy workloads.",
+          "concepts": ["Pages and block I/O", "Heap files, page directories", "Slotted page format", "Fixed vs variable records", "Sequential vs random I/O economics", "SSD characteristics"],
+          "focus": "Design the byte layout of a slotted page on paper (header, slot array, records growing toward the middle). Every DBMS you will use contains exactly this page."
+        }
+      }
+    },
+    {
+      "title": "Tree Indexes: B+ Trees",
+      "lecture": { "url": "http://www.redbook.io/", "title": "6.830: Tree indexes (Redbook ch. 8)" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-830-database-systems-fall-2010/pages/assignments/", "title": "Assignments" },
+      "materials": {
+        "readingUrl": "http://www.redbook.io/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-830-database-systems-fall-2010/",
+        "practiceLabel": "B+ tree assignment",
+        "notes": {
+          "summary": "B+ trees are the database's index workhorse: high fanout keeps trees shallow (3-4 levels index billions of rows), all data lives in leaves, and range scans follow leaf sibling pointers. Insert splits, delete merges, and bulk loading are the mechanics every system (Postgres, MySQL, SQLite) implements.",
+          "concepts": ["Fanout and height math", "Leaf and internal node structure", "Insert with splits", "Delete with merges/borrows", "Range scans via leaf links", "Clustered vs unclustered indexes"],
+          "focus": "Compute how many rows a 4-level B+ tree indexes with 100-byte keys and 16KB pages. The number (billions) explains why indexes always fit in shallow trees."
+        }
+      }
+    },
+    {
+      "title": "Hash Indexes and External Sorting",
+      "lecture": { "url": "http://www.redbook.io/", "title": "6.830: Hash + sorting" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-830-database-systems-fall-2010/pages/assignments/", "title": "Assignments" },
+      "materials": {
+        "readingUrl": "http://www.redbook.io/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-830-database-systems-fall-2010/",
+        "practiceLabel": "Hash/sort assignment",
+        "notes": {
+          "summary": "Two building blocks: extendible hashing grows directories gracefully as data doubles, and external merge sort handles data far larger than memory with multi-pass merging. Sorting underlies GROUP BY, ORDER BY, and the sort-merge join — the I/O cost formulas (2N passes etc.) are the course's exam currency.",
+          "concepts": ["Extendible hashing directories", "Linear hashing ideas", "External merge sort passes", "Buffer pool management", "Cost formulas (I/Os)", "When hash beats tree"],
+          "focus": "Compute the I/O cost of externally sorting N pages with B buffers, 2 passes. Then check: does one more buffer meaningfully help? Cost math drives design."
+        }
+      }
+    },
+    {
+      "title": "Query Operators: Joins",
+      "lecture": { "url": "http://www.redbook.io/", "title": "6.830: Operator evaluation (Redbook ch. 12-15)" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-830-database-systems-fall-2010/pages/assignments/", "title": "Assignments" },
+      "materials": {
+        "readingUrl": "http://www.redbook.io/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-830-database-systems-fall-2010/",
+        "practiceLabel": "Join evaluation assignment",
+        "notes": {
+          "summary": "The iterator model (Volcano) and the three join algorithms: simple nested loops (terrible), block nested loops (okay), and hash join (the default everywhere). Grace hash partitioning spills to disk gracefully. Knowing WHEN each wins — data skew, available memory, index presence — is the difference between a DB engineer and a query writer.",
+          "concepts": ["Iterator/volcano model", "Tuple nested loop join", "Block nested loop join", "Hash join (build/probe)", "Grace partitioning", "Skew handling"],
+          "focus": "Compare hash join vs block nested loop for two relations at specific sizes and buffer counts. The I/O arithmetic picks the winner — always let it."
+        }
+      }
+    },
+    {
+      "title": "Query Optimization",
+      "lecture": { "url": "http://www.redbook.io/", "title": "6.830: Query optimization (Redbook ch. 15)" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-830-database-systems-fall-2010/pages/assignments/", "title": "Assignments" },
+      "materials": {
+        "readingUrl": "http://www.redbook.io/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-830-database-systems-fall-2010/",
+        "practiceLabel": "Optimizer assignment",
+        "notes": {
+          "summary": "Declarative SQL becomes a plan: the optimizer enumerates join orders, prunes with equivalences (commutativity, associativity), and costs plans with cardinality estimates. The cost model's dependence on statistics — and its famous inaccuracy — explains why the 'bad plan' problem haunts every production database.",
+          "concepts": ["Logical vs physical plans", "Join order enumeration (DP)", "Equivalence rules", "Cost estimation from histograms", "Selectivity guesses", "Plan caching pitfalls"],
+          "focus": "For a 3-way join, enumerate all orders and cost each with simple estimates. Watch a 100x difference emerge from order alone — that's why optimizers exist."
+        }
+      }
+    },
+    {
+      "title": "Concurrency Control",
+      "lecture": { "url": "http://www.redbook.io/", "title": "6.830: Concurrency (Redbook ch. 18)" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-830-database-systems-fall-2010/pages/assignments/", "title": "Assignments" },
+      "materials": {
+        "readingUrl": "http://www.redbook.io/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-830-database-systems-fall-2010/",
+        "practiceLabel": "2PL/serializability assignment",
+        "notes": {
+          "summary": "Transactions make concurrent access safe: ACID as the contract, serializability as correctness (some serial order exists), and 2PL as the locking discipline that enforces it. Deadlocks (detection vs prevention), strictness for recoverability, and the isolation levels that trade correctness for concurrency close the picture.",
+          "concepts": ["ACID properties", "Serializability definitions", "Two-phase locking (2PL)", "Deadlock detection and prevention", "Strict 2PL and recoverability", "Isolation levels (and anomalies)"],
+          "focus": "Find a schedule that is serializable but violates 2PL, and one legal under 2PL but not serializable — the second doesn't exist; proving that to yourself is the exercise."
+        }
+      }
+    },
+    {
+      "title": "Crash Recovery: WAL and ARIES",
+      "lecture": { "url": "http://www.redbook.io/", "title": "6.830: Recovery (Redbook ch. 19)" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-830-database-systems-fall-2010/pages/assignments/", "title": "Assignments" },
+      "materials": {
+        "readingUrl": "http://www.redbook.io/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-830-database-systems-fall-2010/",
+        "practiceLabel": "Recovery assignment",
+        "notes": {
+          "summary": "Crash safety: write-ahead logging (WAL) — log before data, always — plus the undo/redo protocol and ARIES' three-pass recovery (analysis, redo, repeat history, undo). The buffer pool's steal/no-force policies determine what recovery must fix. Your 6.1810 file-system log is the same idea at kernel scale.",
+          "concepts": ["WAL rule", "Steal vs force buffer policies", "ARIES: analysis, redo, undo", "Checkpointing", "LSNs and log records", "Repeat history"],
+          "focus": "Given a WAL and a crash point, execute the three passes by hand. Recovery you can simulate on paper is recovery you can trust in production."
+        }
+      }
+    },
+    {
+      "title": "Distributed Databases",
+      "lecture": { "url": "http://www.redbook.io/", "title": "6.830: Distributed DB (Redbook ch. 21-23)" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-830-database-systems-fall-2010/pages/assignments/", "title": "Assignments" },
+      "materials": {
+        "readingUrl": "http://www.redbook.io/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-830-database-systems-fall-2010/",
+        "practiceLabel": "Distributed problems",
+        "notes": {
+          "summary": "Distribution multiplies everything by failure: two-phase commit for atomic commit across sites, and CAP's theorem's honest trade-off (consistency vs availability under partitions) — the reason your cloud databases choose what they choose. Replication, sharding, and quorums complete the vocabulary every backend engineer now needs.",
+          "concepts": ["2PC and the blocking problem", "CAP theorem", "Partition tolerance reality", "Quorum reads/writes", "Leader election basics", "Sharding strategies"],
+          "focus": "Write the 2PC message flow and mark where a coordinator crash blocks participants. One diagram explains decades of distributed-system design."
+        }
+      }
+    },
+    {
+      "title": "Analytics: Column Stores and Big Data",
+      "lecture": { "url": "http://www.redbook.io/", "title": "6.830: Column stores, analytics (Redbook ch. 25-26)" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-830-database-systems-fall-2010/pages/assignments/", "title": "Assignments" },
+      "materials": {
+        "readingUrl": "http://www.redbook.io/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-830-database-systems-fall-2010/",
+        "practiceLabel": "Analytics assignment",
+        "notes": {
+          "summary": "Analytics flipped the storage model: column stores (Vertica, DuckDB, Redshift) read only the columns a query touches, compress aggressively, and vectorize execution. MapReduce/Spark moved compute to data at cluster scale. The row-vs-column decision is the OLTP-vs-OLAP decision — the central architectural split in modern data systems.",
+          "concepts": ["Row vs column storage", "Compression (RLE, dictionary)", "Vectorized execution", "OLTP vs OLAP", "MapReduce and Spark models", "The modern lakehouse stack"],
+          "focus": "For a 20-column table queried on 2 columns, compute the I/O savings of columnar layout. The 10x is why every analytics engine you'll touch is columnar."
+        }
+      }
+    },
+    {
+      "title": "Midterm: The DBMS Engine Room",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-830-database-systems-fall-2010/pages/exams/", "title": "6.830 exams" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-830-database-systems-fall-2010/pages/exams/", "title": "Practice exams" },
+      "materials": {
+        "readingUrl": "http://www.redbook.io/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-830-database-systems-fall-2010/pages/exams/",
+        "practiceLabel": "Midterm: storage + operators",
+        "notes": {
+          "summary": "Checkpoint through the engine room: storage, B+ trees, hash/external sorting, join algorithms, and basic optimization. The exams test I/O cost arithmetic and algorithm selection under constraints — bring the cost formulas you derived in the focus prompts; they are the exam.",
+          "concepts": ["I/O cost arithmetic", "Algorithm selection given sizes", "B+ tree mechanics", "Join strategy analysis", "Exam pacing"],
+          "focus": "Re-derive every cost formula from a blank page (external sort, hash join, BNL). Derivation beats memorization when exam problems twist the setup."
+        }
+      }
+    },
+    {
+      "title": "Final: Streaming, Modern Systems, and Synthesis",
+      "lecture": { "url": "http://www.redbook.io/", "title": "6.830: Streaming + synthesis" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-830-database-systems-fall-2010/pages/exams/", "title": "Final practice" },
+      "materials": {
+        "readingUrl": "http://www.redbook.io/",
+        "externalUrl": "http://www.redbook.io/",
+        "practiceLabel": "Final exam + synthesis",
+        "notes": {
+          "summary": "The close: stream processing's windowed aggregates, the resurgence of embedded engines (SQLite, DuckDB), and the course synthesis. Your final artifact: a written map from a SQL query text to pages on disk — parser, algebra, optimizer, iterators, buffer pool, and log — every box something you could now reason about from first principles.",
+          "concepts": ["Windowed stream queries", "Exactly-once semantics", "Embedded DB engines", "The full query-to-disk map", "Choosing a database (dimensions)", "Course synthesis"],
+          "focus": "Write that query-to-disk map from memory. Full Stack Ocean's own MongoDB sits on these exact ideas — reading its architecture with this map is the final exam."
+        }
+      }
+    }
+  ]
+}

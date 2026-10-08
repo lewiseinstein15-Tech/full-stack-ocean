@@ -1,0 +1,225 @@
+{
+  "course": "6.046J",
+  "term": 4,
+  "lessons": [
+    {
+      "title": "Overview and Interval Scheduling",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/resources/lecture-1-overview-interval-scheduling/", "title": "MIT 6.046J Spring 2015 — Lecture 1" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/pages/assignments/", "title": "Assignments" },
+      "materials": {
+        "videoId": "2P-yW7LQr08",
+        "videoTitle": "MIT 6.046J S15 Lecture 1: Overview, Interval Scheduling",
+        "readingUrl": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/pages/lecture-notes/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/",
+        "practiceLabel": "Problem Set 1",
+        "notes": {
+          "summary": "6.046J is 6.006's graduate sibling: fewer topics, deeper proofs, taught by Moshkovitz with full video. Lecture 1 frames the course (intractability will be the destination) and solves interval scheduling with the earliest-finish-time greedy — a canonical proof of optimality by the 'greedy stays ahead' exchange argument.",
+          "concepts": ["Greedy algorithm design", "Greedy-stays-ahead proofs", "Exchange arguments", "Interval scheduling", "Correctness proof structure", "Where greedy fails"],
+          "focus": "Rewrite the interval scheduling proof yourself: induction showing the greedy's i-th pick finishes no later than any alternative's. If you can reproduce it cold, the whole proof style is yours."
+        }
+      }
+    },
+    {
+      "title": "Divide and Conquer: Convex Hull, Median Finding",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/resources/lecture-2-divide-conquer-convex-hull-median-finding/", "title": "MIT 6.046J S15 — Lecture 2" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/pages/assignments/", "title": "Assignments" },
+      "materials": {
+        "videoId": "EzeYI7p9MjU",
+        "videoTitle": "MIT 6.046J S15 Lecture 2: Divide & Conquer",
+        "readingUrl": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/pages/lecture-notes/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/",
+        "practiceLabel": "Problem Set 1: continued",
+        "notes": {
+          "summary": "Divide-and-conquer beyond mergesort: the convex hull in O(n log n) by sorting-then-merging hulls, and deterministic selection (median) in O(n) via groups-of-five recursion. The master theorem is introduced as the standard tool for analyzing the resulting recurrences.",
+          "concepts": ["Master method / theorem", "Convex hull algorithms", "Deterministic selection (median)", "Groups of five analysis", "Recurrence solving", "Why groups of 5, not 3"],
+          "focus": "Analyze the median-of-medians recurrence on paper. The magic is that the 70-30 split makes the recursion tree's work geometric — understand why 3 fails and 5 works."
+        }
+      }
+    },
+    {
+      "title": "Amortized Analysis",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/resources/lecture-5-amortization-amortized-analysis/", "title": "MIT 6.046J S15 — Lecture 5" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/pages/assignments/", "title": "Assignments" },
+      "materials": {
+        "videoId": "3MpzavN3Mco",
+        "videoTitle": "MIT 6.046J S15 Lecture 5: Amortized Analysis",
+        "readingUrl": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/pages/lecture-notes/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/",
+        "practiceLabel": "Problem Set 2",
+        "notes": {
+          "summary": "Amortized analysis done rigorously: the aggregate, accounting (bank), and potential methods, demonstrated on two-pointer tables and binary counters. This formalizes the intuition from 6.006's dynamic arrays and is the exact machinery splay trees will need later — potential functions become a real tool, not a trick.",
+          "concepts": ["Aggregate method", "Accounting/banking method", "Potential functions", "Table doubling revisited", "Binary counter example", "Worst-case vs amortized"],
+          "focus": " redo the binary counter with the potential method, defining Phi explicitly. Writing a VALID potential function is a skill — practice it now, splay trees will demand it."
+        }
+      }
+    },
+    {
+      "title": "Randomization: Quicksort and Matrix Multiply",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/resources/lecture-6-randomization-matrix-multiply-quicksort/", "title": "MIT 6.046J S15 — Lecture 6" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/pages/assignments/", "title": "Assignments" },
+      "materials": {
+        "videoId": "cNB2lADZ3_s",
+        "videoTitle": "MIT 6.046J S15 Lecture 6: Randomization",
+        "readingUrl": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/pages/lecture-notes/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/",
+        "practiceLabel": "Problem Set 2: continued",
+        "notes": {
+          "summary": "Randomness as an algorithmic resource. Freivalds' trick verifies matrix multiplication in O(n^2) with one-sided error; randomized quicksort gets expected O(n log n) with no assumptions about input order. The expectation arguments use your Stat 110 linearity training directly — probability courses and algorithms meet here.",
+          "concepts": ["Freivalds' matrix verification", "Randomized quicksort analysis", "One-sided error", "Expected running time", "Linearity of expectation in algorithms", "Las Vegas vs Monte Carlo"],
+          "focus": " redo the randomized quicksort expectation argument. Note exactly where linearity is used — it is the same move as Stat 110's indicator tricks."
+        }
+      }
+    },
+    {
+      "title": "Randomization: Skip Lists and Universal Hashing",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/resources/lecture-7-randomization-skip-lists/", "title": "MIT 6.046J S15 — Lecture 7" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/pages/assignments/", "title": "Assignments" },
+      "materials": {
+        "videoId": "2g9OSRKJuzM",
+        "videoTitle": "MIT 6.046J S15 Lecture 7: Skip Lists",
+        "readingUrl": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/resources/lecture-8-randomization-universal-perfect-hashing/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/",
+        "practiceLabel": "Problem Set 3",
+        "notes": {
+          "summary": "Skip lists get O(log n) expected search with random towers instead of rotations — elegance over cleverness. Universal and perfect hashing (lecture 8, reading) go deeper than 6.006: perfect hashing achieves worst-case O(1) lookups for a static set, showing what randomness buys when you can afford two-level tables.",
+          "concepts": ["Skip list structure and search", "Geometric distribution of tower heights", "Universal hashing (review)", "Perfect hashing: two-level", "Worst-case vs expected bounds", "Static vs dynamic sets"],
+          "focus": "Compute the expected height of a skip list tower yourself (geometric distribution). Your Stat 110 geometric distribution knowledge is a prerequisite here — use it."
+        }
+      }
+    },
+    {
+      "title": "Augmentation: Range Trees",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/resources/lecture-9-augmentation-range-trees/", "title": "MIT 6.046J S15 — Lecture 9" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/pages/assignments/", "title": "Assignments" },
+      "materials": {
+        "videoId": "xVka6z1hu-I",
+        "videoTitle": "MIT 6.046J S15 Lecture 9: Augmentation, Range Trees",
+        "readingUrl": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/pages/lecture-notes/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/",
+        "practiceLabel": "Problem Set 3: continued",
+        "notes": {
+          "summary": "Augmenting data structures: store extra per-node data (subtree sizes, min/max) and maintain it under updates. Order statistics (select the k-th smallest) in O(log n), and range trees answering orthogonal range queries. The design rule: augment with what your queries need, and prove the augmentation survives rotation.",
+          "concepts": ["Augmentation rules", "Order-statistic trees", "Subtree size maintenance", "Range trees for 2D queries", "Augmentation under rotations", "Fractional cascading mention"],
+          "focus": "Add order-statistics to your 61B AVL mental model: which rotations change which subtree sizes? Walk one insert and update the augmentation by hand."
+        }
+      }
+    },
+    {
+      "title": "Dynamic Programming: Advanced",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/resources/lecture-10-dynamic-programming-advanced-dp/", "title": "MIT 6.046J S15 — Lecture 10" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/pages/assignments/", "title": "Assignments" },
+      "materials": {
+        "videoId": "Tw1k46ywN6E",
+        "videoTitle": "MIT 6.046J S15 Lecture 10: Advanced DP",
+        "readingUrl": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/pages/lecture-notes/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/",
+        "practiceLabel": "Problem Set 4",
+        "notes": {
+          "summary": "DP at graduate level: longest palindromic subsequence, pretty printing with line breaks, and knapsack, each with careful subproblem design and reconstruction. The lecture emphasizes the analysis craft — counting subproblems and work per subproblem — and when memoization beats cleverness.",
+          "concepts": ["Interval subproblems", "Palindrome DP", "Pretty printing DP", "Knapsack variants", "Subproblem counting discipline", "Reconstruction pointers"],
+          "focus": "For knapsack, state the running time in two variables (n, W) and explain why pseudo-polynomial is not polynomial. That distinction returns in the NP lectures."
+        }
+      }
+    },
+    {
+      "title": "Greedy Algorithms: Minimum Spanning Trees",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/resources/lecture-12-greedy-algorithms-minimum-spanning-tree/", "title": "MIT 6.046J S15 — Lecture 12" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/pages/assignments/", "title": "Assignments" },
+      "materials": {
+        "videoId": "tKwnms5iRBU",
+        "videoTitle": "MIT 6.046J S15 Lecture 12: Greedy, MST",
+        "readingUrl": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/pages/lecture-notes/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/",
+        "practiceLabel": "Problem Set 4: continued",
+        "notes": {
+          "summary": "MST theory done with proofs: the cut property (some minimum-weight edge crossing every cut is safe) powers both Kruskal and Prim. The union-find structure from 61B gives Kruskal its near-linear cost. Dijkstra falls out of the same greedy framework — a unified theory of greedy correctness.",
+          "concepts": ["Cut property proof", "Kruskal with union-find", "Prim with heaps", "Greedy exchange proofs", "Comparing MST algorithms", "Dijkstra as greedy family"],
+          "focus": "Prove the cut property in your own words. It is short, and it certifies BOTH MST algorithms — one theorem, two algorithms."
+        }
+      }
+    },
+    {
+      "title": "Max Flow and Min Cut",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/resources/lecture-13-incremental-improvement-max-flow-min-cut/", "title": "MIT 6.046J S15 — Lecture 13" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/pages/assignments/", "title": "Assignments" },
+      "materials": {
+        "videoId": "VYZGlgzr_As",
+        "videoTitle": "MIT 6.046J S15 Lecture 13: Max Flow, Min Cut",
+        "readingUrl": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/pages/lecture-notes/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/",
+        "practiceLabel": "Problem Set 5",
+        "notes": {
+          "summary": "Flow networks and the max-flow min-cut theorem — one of the most beautiful dualities in CS. Ford-Fulkerson's residual-graph iteration is proved via the augmenting-path argument. Matching problems (lecture 14) reduce to flow, connecting graphs to assignment problems.",
+          "concepts": ["Flow networks and constraints", "Residual graphs", "Augmenting paths", "Max-flow = min-cut proof", "Bipartite matching reduction", "Ford-Fulkerson running time"],
+          "focus": "Run Ford-Fulkerson on a small graph and draw the residual graph after each augmentation. The final cut you find IS the min cut — see both sides of the duality in one drawing."
+        }
+      }
+    },
+    {
+      "title": "Linear Programming and Reductions",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/resources/lecture-15-linear-programming-lp-reductions-simplex/", "title": "MIT 6.046J S15 — Lecture 15" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/pages/assignments/", "title": "Assignments" },
+      "materials": {
+        "videoId": "WwMz2fJwUCg",
+        "videoTitle": "MIT 6.046J S15 Lecture 15: Linear Programming",
+        "readingUrl": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/pages/lecture-notes/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/",
+        "practiceLabel": "Problem Set 5: continued",
+        "notes": {
+          "summary": "Linear programming as a universal optimization language: maximize a linear objective over polyhedral constraints, solved (geometrically here) by simplex vertex-hopping. Standard form, duality, and translating problems — diet, flow, and max strategies — into LP is the skill. LP solvers power real industry optimization.",
+          "concepts": ["Standard LP form", "Feasible regions and vertices", "Simplex at a geometric level", "Duality intuition", "Reductions to LP", "Degeneracy and unboundedness"],
+          "focus": "Translate max flow into an LP yourself. Once you see flow constraints are linear, every other reduction in the lecture becomes mechanical."
+        }
+      }
+    },
+    {
+      "title": "Complexity: P, NP, and NP-Completeness",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/resources/lecture-16-complexity-p-np-np-completeness-reductions/", "title": "MIT 6.046J S15 — Lecture 16" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/pages/assignments/", "title": "Assignments" },
+      "materials": {
+        "videoId": "eHZifpgyH_4",
+        "videoTitle": "MIT 6.046J S15 Lecture 16: P, NP, NP-Completeness",
+        "readingUrl": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/resources/lecture-18-approximation-algorithms/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/",
+        "practiceLabel": "Problem Set 6",
+        "notes": {
+          "summary": "The cliff edge of the course: P, NP, polynomial reductions, and Cook-Levin — SAT is as hard as anything in NP. Then the classics: 3-SAT to vertex cover to set cover via reductions you reproduce by hand. Knowing a problem is NP-complete changes your job: stop seeking exact algorithms, start approximating (lecture 18, reading).",
+          "concepts": ["P and NP definitions", "Polynomial-time reductions", "Cook-Levin theorem (statement)", "3-SAT, vertex cover, TSP as NPC", "Reduction diagrams", "Approximation mindset"],
+          "focus": "Memorize one reduction chain: 3-SAT to independent-set to vertex-cover. Reproducing a chain by hand is exactly what complexity exams test."
+        }
+      }
+    },
+    {
+      "title": "Midterm: Proof Marathon",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/pages/exams/", "title": "6.046J exams" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/pages/exams/", "title": "Practice exams" },
+      "materials": {
+        "readingUrl": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/pages/lecture-notes/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/pages/exams/",
+        "practiceLabel": "Quiz 1 + practice exams",
+        "notes": {
+          "summary": "Checkpoint across the algorithm design toolbox: greedy with proofs, divide-and-conquer with recurrences, randomized analysis, amortized analysis, and DP. 6.046J tests proofs, not implementations — work the exams writing full arguments, and grade yourself on proof structure, not final answers.",
+          "concepts": ["Greedy exchange arguments", "Recurrence solving under time", "Amortized potential functions", "DP subproblem design", "Exam proof writing"],
+          "focus": "Write one full exchange argument under a 20-minute timer. The skill is fluency under pressure, and only repetition under time pressure builds it."
+        }
+      }
+    },
+    {
+      "title": "Final: Approximation, Randomization, and Synthesis",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/resources/lecture-18-approximation-algorithms/", "title": "MIT 6.046J S15 — Lecture 18: Approximation" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/pages/exams/", "title": "Final practice" },
+      "materials": {
+        "videoId": "8C_T4iTzPCU",
+        "videoTitle": "MIT 6.046J S15 Lecture 14: Matching (final synthesis)",
+        "readingUrl": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/pages/lecture-notes/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/",
+        "practiceLabel": "Final exam + synthesis",
+        "notes": {
+          "summary": "The close: approximation algorithms (vertex cover factor-2, set cover ln n) as the constructive response to NP-completeness, randomized algorithms as a third paradigm, and the course synthesis. Your one-page map from 6.006 grows a column: 'or prove it hard, then approximate.' The theory courses (6.045J) formalize the cliff you just met.",
+          "concepts": ["Approximation ratios", "Vertex cover 2-approximation", "Set cover bound", "Three paradigms: exact, randomized, approximate", "Full course map", "Coping with hardness"],
+          "focus": "Write the vertex cover approximation proof (pick both endpoints of a maximal matching). Short, constructive, and satisfying — a good final artifact for the term."
+        }
+      }
+    }
+  ]
+}

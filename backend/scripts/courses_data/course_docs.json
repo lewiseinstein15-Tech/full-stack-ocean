@@ -1,0 +1,158 @@
+{
+  "_comment": "Course-level resource updates: point each course's hub links at its newest edition (2026 where it exists). Applied to Course.resources.lectures/assignments and description.",
+  "courses": {
+    "6.0001": {
+      "description": "Introduction to computer science and programming in Python, using MIT's newest OCW edition (6.100L, Fall 2022 video lectures by Ana Bell).",
+      "lectures": [
+        { "url": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/", "title": "6.100L Fall 2022 (newest OCW edition)" }
+      ],
+      "assignments": [
+        { "url": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/pages/problem-sets/", "title": "Problem Sets (F2022 edition)" }
+      ]
+    },
+    "CS50X": {
+      "description": "CS50x 2026 — Harvard's introduction to the intellectual enterprises of computer science and the art of programming (David Malan).",
+      "lectures": [
+        { "url": "https://cs50.harvard.edu/x/2026/weeks/", "title": "CS50x 2026 lectures" }
+      ],
+      "assignments": [
+        { "url": "https://cs50.harvard.edu/x/2026/psets/", "title": "Problem Sets 2026" }
+      ]
+    },
+    "CS61A": {
+      "description": "Structure and Interpretation of Computer Programs — the Fall 2026 edition of Berkeley's flagship programming course.",
+      "lectures": [
+        { "url": "https://cs61a.org/fa26/", "title": "CS 61A Fall 2026" }
+      ],
+      "assignments": [
+        { "url": "https://cs61a.org/fa26/hw/hw01/", "title": "Homework (fa26)" }
+      ]
+    },
+    "CS61B": {
+      "description": "UC Berkeley Data Structures — the live Fall 2026 edition (fa26.datastructur.es).",
+      "lectures": [
+        { "url": "https://fa26.datastructur.es/", "title": "CS 61B Fall 2026" }
+      ],
+      "assignments": [
+        { "url": "https://fa26.datastructur.es/projects/proj1a/", "title": "Projects (fa26)" }
+      ]
+    },
+    "6.006": {
+      "description": "MIT Introduction to Algorithms — Spring 2020 OCW edition with full video lectures (Devadas, Demaine, Soloviev).",
+      "lectures": [
+        { "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/", "title": "6.006 Spring 2020 (newest full-video edition)" }
+      ],
+      "assignments": [
+        { "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/assignments/", "title": "Problem sets (S2020)" }
+      ]
+    },
+    "6.046J": {
+      "description": "MIT Design and Analysis of Algorithms — Spring 2015 OCW edition with full video lectures (Moshkovitz).",
+      "lectures": [
+        { "url": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/", "title": "6.046J Spring 2015" }
+      ],
+      "assignments": [
+        { "url": "https://ocw.mit.edu/courses/6-046j-design-and-analysis-of-algorithms-spring-2015/pages/assignments/", "title": "Assignments (S2015)" }
+      ]
+    },
+    "6.004": {
+      "description": "MIT Computation Structures (now 6.191) — OCW Spring 2017 edition with topic videos; live course at 6191.mit.edu.",
+      "lectures": [
+        { "url": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/", "title": "6.004 S2017 (videos) + 6.191 live" }
+      ],
+      "assignments": [
+        { "url": "https://6191.mit.edu/fall26/", "title": "6.191 Fall 2026 (live)" }
+      ]
+    },
+    "6.828": {
+      "description": "MIT Operating System Engineering — the LIVE 6.1810 Fall 2026 xv6 course (successor of 6.828), Kaashoek & Morris.",
+      "lectures": [
+        { "url": "https://pdos.csail.mit.edu/6.1810/2026/", "title": "MIT 6.1810 Fall 2026 (live)" }
+      ],
+      "assignments": [
+        { "url": "https://pdos.csail.mit.edu/6.1810/2026/labs/util.html", "title": "xv6 labs (Fall 2026)" }
+      ]
+    },
+    "6.829": {
+      "description": "MIT Computer Networks — OCW edition with complete lecture notes; topics ordered to the modern curriculum.",
+      "lectures": [
+        { "url": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/", "title": "6.829 lecture notes" }
+      ],
+      "assignments": [
+        { "url": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/pages/assignments/", "title": "Assignments" }
+      ]
+    },
+    "6.830": {
+      "description": "MIT Database Systems — the Redbook (free online) plus OCW Fall 2010 materials.",
+      "lectures": [
+        { "url": "http://www.redbook.io/", "title": "Redbook: Database Systems (free)" }
+      ],
+      "assignments": [
+        { "url": "https://ocw.mit.edu/courses/6-830-database-systems-fall-2010/pages/assignments/", "title": "Assignments (OCW)" }
+      ]
+    },
+    "6.045J": {
+      "description": "Automata, Computability, and Complexity — MIT 18.404J Fall 2020 video edition (Sipser's course, recorded).",
+      "lectures": [
+        { "url": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/", "title": "18.404J Fall 2020 (videos)" }
+      ],
+      "assignments": [
+        { "url": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/pages/assignments/", "title": "Assignments (F2020)" }
+      ]
+    },
+    "CSE341": {
+      "description": "Programming Languages (UW CSE341, Dan Grossman's curriculum) — studied through the PLAI book and interpreters you build.",
+      "lectures": [
+        { "url": "https://www.plai.org/", "title": "PLAI (Programming Languages: Application and Interpretation)" }
+      ],
+      "assignments": [
+        { "url": "https://courses.cs.washington.edu/courses/cse341/", "title": "UW CSE341 hub" }
+      ]
+    },
+    "6.036": {
+      "description": "MIT Introduction to Machine Learning — the interactive Open Learning Library edition (6.036 1T2019), with 6.036 Fall 2020 OCW notes.",
+      "lectures": [
+        { "url": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/about", "title": "MITx 6.036 on Open Learning Library" }
+      ],
+      "assignments": [
+        { "url": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/course/", "title": "Interactive exercises" }
+      ]
+    },
+    "CS188": {
+      "description": "UC Berkeley Introduction to Artificial Intelligence — Spring 2024 official lecture recordings (newest public edition).",
+      "lectures": [
+        { "url": "https://inst.eecs.berkeley.edu/~cs188/", "title": "CS 188 (Berkeley)" }
+      ],
+      "assignments": [
+        { "url": "https://inst.eecs.berkeley.edu/~cs188/", "title": "Course hub" }
+      ]
+    },
+    "6.858": {
+      "description": "MIT Computer Systems Security — Fall 2014 video edition (Zeldovich); the canonical recorded security course.",
+      "lectures": [
+        { "url": "https://ocw.mit.edu/courses/6-858-computer-systems-security-fall-2014/", "title": "6.858 Fall 2014 (videos)" }
+      ],
+      "assignments": [
+        { "url": "https://css.csail.mit.edu/6.858/", "title": "Course hub + labs" }
+      ]
+    },
+    "CS143": {
+      "description": "Stanford Compilers — the current course site; builds a complete Cool compiler (your Nand2Tetris compiler, professional scale).",
+      "lectures": [
+        { "url": "https://web.stanford.edu/class/cs143/", "title": "CS143 (Stanford, current)" }
+      ],
+      "assignments": [
+        { "url": "https://web.stanford.edu/class/cs143/", "title": "Programming assignments" }
+      ]
+    },
+    "CS142": {
+      "description": "Stanford Web Applications — the current course site; the full-stack payoff course of the path.",
+      "lectures": [
+        { "url": "https://web.stanford.edu/class/cs142/", "title": "CS142 (Stanford, current)" }
+      ],
+      "assignments": [
+        { "url": "https://web.stanford.edu/class/cs142/", "title": "Projects" }
+      ]
+    }
+  }
+}

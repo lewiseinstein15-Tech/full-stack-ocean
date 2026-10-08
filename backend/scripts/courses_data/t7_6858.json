@@ -1,0 +1,389 @@
+{
+  "course": "6.858",
+  "term": 7,
+  "lessons": [
+    {
+      "title": "Introduction: Threat Models",
+      "lecture": {
+        "url": "https://ocw.mit.edu/courses/6-858-computer-systems-security-fall-2014/resources/lecture-1-introduction-threat-models/",
+        "title": "MIT 6.858 F2014 \u2014 Lecture 1"
+      },
+      "practice": {
+        "url": "https://css.csail.mit.edu/6.858/",
+        "title": "6.858 course hub"
+      },
+      "materials": {
+        "videoId": "GqmQg-cszw4",
+        "videoTitle": "MIT 6.858 Lecture 1: Introduction, Threat Models (Fall 2014)",
+        "readingUrl": "https://css.csail.mit.edu/6.858/",
+        "externalUrl": "https://css.csail.mit.edu/6.858/",
+        "practiceLabel": "Lab 0: setup (course hub)",
+        "notes": {
+          "summary": "Security's first principle: state your threat model. What is the attacker allowed to do \u2014 read packets? run code? control the admin? Nickolai Zeldovich's Fall 2014 recorded edition teaches security as explicit assumptions and mechanisms, with buffer overflow labs that make it hands-on. Every lecture here names its attacker before its defense.",
+          "concepts": [
+            "Threat models and trust boundaries",
+            "Attacker capabilities taxonomy",
+            "Security = policy + mechanism + assumptions",
+            "The course's attack/defense rhythm",
+            "Lab environment",
+            "Responsible use ethics"
+          ],
+          "focus": "Write the threat model for your Full Stack Ocean account system: who can do what, and which of those you defend against. Most real vulnerabilities are unstated models."
+        }
+      }
+    },
+    {
+      "title": "Control Hijacking: Buffer Overflows",
+      "lecture": {
+        "url": "https://ocw.mit.edu/courses/6-858-computer-systems-security-fall-2014/resources/lecture-2-control-hijacking-attacks/",
+        "title": "MIT 6.858 \u2014 Lecture 2"
+      },
+      "practice": {
+        "url": "https://css.csail.mit.edu/6.858/",
+        "title": "Lab 1: buffer overflow"
+      },
+      "materials": {
+        "videoId": "r4KjHEgg9Wg",
+        "videoTitle": "MIT 6.858 Lecture 2: Control Hijacking Attacks (F2014)",
+        "readingUrl": "https://css.csail.mit.edu/6.858/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-858-computer-systems-security-fall-2014/resources/lecture-2-control-hijacking-attacks/",
+        "practiceLabel": "Lab 1: exploit a stack overflow",
+        "notes": {
+          "summary": "The classic exploit, dissected: unchecked input overflows a stack buffer, overwrites the return address, and hijacks control flow. The lab has you actually smash a stack in a contained environment \u2014 writing shellcode and jumping to it. Your 6.100L/6.004 stack-frame knowledge is the prerequisite that makes this concrete.",
+          "concepts": [
+            "Stack layout and return addresses",
+            "Overwriting saved RIP",
+            "Shellcode basics",
+            "GDB as an exploit tool",
+            "Why C is dangerous",
+            "The lab's contained attack VM"
+          ],
+          "focus": "Draw the stack frame of the vulnerable function, marking where each input byte lands. The exploit is arithmetic once the diagram is right."
+        }
+      }
+    },
+    {
+      "title": "Exploit Defenses and Privilege Separation",
+      "lecture": {
+        "url": "https://ocw.mit.edu/courses/6-858-computer-systems-security-fall-2014/resources/lecture-4-privilege-separation/",
+        "title": "MIT 6.858 \u2014 Lecture 4"
+      },
+      "practice": {
+        "url": "https://css.csail.mit.edu/6.858/",
+        "title": "Labs (course hub)"
+      },
+      "materials": {
+        "videoId": "dNl22h1kW1k",
+        "videoTitle": "MIT 6.858 Lecture 4: Privilege Separation (F2014)",
+        "readingUrl": "https://css.csail.mit.edu/6.858/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-858-computer-systems-security-fall-2014/resources/lecture-4-privilege-separation/",
+        "practiceLabel": "Lab 1 defenses: apply them",
+        "notes": {
+          "summary": "Defense in depth: ASLR, stack canaries, DEP/NX make raw exploitation harder; ROP chains adapt (lecture 3's continuation). The architectural answer is privilege separation \u2014 split programs so a compromised component controls little. OKWS-style designs treat every component as untrusted, which is how your own apps should think.",
+          "concepts": [
+            "Stack canaries",
+            "ASLR and its entropy",
+            "DEP/NX bits",
+            "Return-oriented programming (overview)",
+            "Privilege separation design",
+            "Minimum privilege as architecture"
+          ],
+          "focus": "Take an app you've built (CS50 Finance counts) and split its components by privilege on paper: what breaks if each is compromised? That map IS the design."
+        }
+      }
+    },
+    {
+      "title": "Capabilities and Sandboxing",
+      "lecture": {
+        "url": "https://ocw.mit.edu/courses/6-858-computer-systems-security-fall-2014/resources/lecture-6-capabilities/",
+        "title": "MIT 6.858 \u2014 Lecture 6"
+      },
+      "practice": {
+        "url": "https://css.csail.mit.edu/6.858/",
+        "title": "Labs (course hub)"
+      },
+      "materials": {
+        "videoId": "TQhmua7Z2cY",
+        "videoTitle": "MIT 6.858 Lecture 6: Capabilities (F2014)",
+        "readingUrl": "https://css.csail.mit.edu/6.858/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-858-computer-systems-security-fall-2014/resources/lecture-6-capabilities/",
+        "practiceLabel": "Capability design exercises",
+        "notes": {
+          "summary": "Unforgeable tokens of authority: capabilities confine what code CAN do rather than vetting who it IS. File descriptors are capabilities; so are object references in capability languages. Sandboxing native code (lecture 7's topic) combines OS isolation with capability-style delegation \u2014 the browser's model for every extension and tab you use.",
+          "concepts": [
+            "Capabilities vs ACLs",
+            "Unforgeability via kernel/object refs",
+            "Confused deputy problem",
+            "Sandboxing untrusted code",
+            "Native client ideas",
+            "Ambient authority critique"
+          ],
+          "focus": "List three ambient-authority moments in your own code (reading env vars, implicit filesystem paths). Then sketch the capability version of each."
+        }
+      }
+    },
+    {
+      "title": "Web Security Model",
+      "lecture": {
+        "url": "https://ocw.mit.edu/courses/6-858-computer-systems-security-fall-2014/resources/lecture-8-web-security-model/",
+        "title": "MIT 6.858 \u2014 Lecture 8"
+      },
+      "practice": {
+        "url": "https://css.csail.mit.edu/6.858/",
+        "title": "Labs (course hub)"
+      },
+      "materials": {
+        "videoId": "eRJ_r8WF1Y0",
+        "videoTitle": "MIT 6.858 Lecture 8: Web Security Model (F2014)",
+        "readingUrl": "https://css.csail.mit.edu/6.858/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-858-computer-systems-security-fall-2014/resources/lecture-8-web-security-model/",
+        "practiceLabel": "Web security analysis exercises",
+        "notes": {
+          "summary": "The browser's security architecture: same-origin policy as the load-bearing wall, DNS and certificates as naming, frames and postMessage for cross-origin communication. Every web app you've built (and this one) lives inside this model \u2014 understanding SOP's exact rules explains half of all web CVEs.",
+          "concepts": [
+            "Same-origin policy computation",
+            "Origins: scheme + host + port",
+            "Framing and busting",
+            "postMessage channels",
+            "Certificate authorities and TLS naming",
+            "Cookies and their rules"
+          ],
+          "focus": "Compute SOP verdicts for 8 URL pairs, including tricky subdomains and ports. Precision here separates 'knows the web' from 'ships secure web apps'."
+        }
+      }
+    },
+    {
+      "title": "Securing Web Applications",
+      "lecture": {
+        "url": "https://ocw.mit.edu/courses/6-858-computer-systems-security-fall-2014/resources/lecture-9-securing-web-applications/",
+        "title": "MIT 6.858 \u2014 Lecture 9"
+      },
+      "practice": {
+        "url": "https://css.csail.mit.edu/6.858/",
+        "title": "Labs (course hub)"
+      },
+      "materials": {
+        "videoId": "WlmKwIe9z1Q",
+        "videoTitle": "MIT 6.858 Lecture 9: Securing Web Applications (F2014)",
+        "readingUrl": "https://css.csail.mit.edu/6.858/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-858-computer-systems-security-fall-2014/resources/lecture-9-securing-web-applications/",
+        "practiceLabel": "XSS/CSRF analysis exercises",
+        "notes": {
+          "summary": "The web exploit family: XSS injects scripts into pages (stored, reflected, DOM-based), CSRF makes the browser act as the user, and SQL injection talks to your database. Defenses \u2014 output encoding, CSRF tokens, parameterized queries \u2014 are simple ONCE you can articulate the exact confusion each attack exploits.",
+          "concepts": [
+            "XSS variants and sinks",
+            "Output encoding rules",
+            "CSRF tokens and SameSite cookies",
+            "SQL injection via parameterization",
+            "Content Security Policy",
+            "The confusion pattern behind all three"
+          ],
+          "focus": "Audit one of your own projects for all three bug classes with a checklist. Finding your first real XSS in your own code is this lecture's true assignment."
+        }
+      }
+    },
+    {
+      "title": "Symbolic Execution and Fuzzing",
+      "lecture": {
+        "url": "https://ocw.mit.edu/courses/6-858-computer-systems-security-fall-2014/resources/lecture-10-symbolic-execution/",
+        "title": "MIT 6.858 \u2014 Lecture 10"
+      },
+      "practice": {
+        "url": "https://css.csail.mit.edu/6.858/",
+        "title": "Labs (course hub)"
+      },
+      "materials": {
+        "videoId": "yRVZPvHYHzw",
+        "videoTitle": "MIT 6.858 Lecture 10: Symbolic Execution (F2014)",
+        "readingUrl": "https://css.csail.mit.edu/6.858/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-858-computer-systems-security-fall-2014/resources/lecture-10-symbolic-execution/",
+        "practiceLabel": "Symbolic reasoning exercises",
+        "notes": {
+          "summary": "Program analysis for finding bugs: symbolic execution runs programs with symbolic inputs, collecting path constraints and solving them (SMT solvers) to reach deep code. Coverage-guided fuzzing (AFL-style) is its cheap cousin. These tools found thousands of real CVEs and are standard equipment in modern security engineering.",
+          "concepts": [
+            "Symbolic vs concrete execution",
+            "Path constraints and SMT",
+            "Path explosion",
+            "Coverage-guided fuzzing",
+            "Sanitizers (ASan family)",
+            "Tool-assisted auditing"
+          ],
+          "focus": "Write the path constraints for a simple check function, then hand-solve them to reach the error branch. You have just done a solver's job, at toy scale."
+        }
+      }
+    },
+    {
+      "title": "Network Security",
+      "lecture": {
+        "url": "https://ocw.mit.edu/courses/6-858-computer-systems-security-fall-2014/resources/lecture-12-network-security/",
+        "title": "MIT 6.858 \u2014 Lecture 12"
+      },
+      "practice": {
+        "url": "https://css.csail.mit.edu/6.858/",
+        "title": "Labs (course hub)"
+      },
+      "materials": {
+        "videoId": "BZTWXl9QNK8",
+        "videoTitle": "MIT 6.858 Lecture 12: Network Security (F2014)",
+        "readingUrl": "https://css.csail.mit.edu/6.858/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-858-computer-systems-security-fall-2014/resources/lecture-12-network-security/",
+        "practiceLabel": "Network attack exercises",
+        "notes": {
+          "summary": "Attacking the network itself: TCP sequence prediction and off-path injection, BGP hijacking (your 6.829 knowledge returning as threat), and DNS spoofing. Defenses \u2014 TLS for confidentiality and authentication, and its CA trust roots \u2014 get the same assumption-based scrutiny. The lecture connects your networking course to its adversary.",
+          "concepts": [
+            "Off-path vs on-path attackers",
+            "TCP injection basics",
+            "BGP hijack (recap from 6.829)",
+            "DNS poisoning",
+            "TLS handshake essentials",
+            "CA trust and its failures"
+          ],
+          "focus": "Classify five attacks as on-path or off-path, then say which TLS property defeats each. The matrix organizes the whole lecture."
+        }
+      }
+    },
+    {
+      "title": "Attacking Cryptographic Protocols",
+      "lecture": {
+        "url": "https://ocw.mit.edu/courses/6-858-computer-systems-security-fall-2014/resources/lecture-14-network-protocols-fall-2014/",
+        "title": "MIT 6.858 \u2014 Network protocols"
+      },
+      "practice": {
+        "url": "https://css.csail.mit.edu/6.858/",
+        "title": "Labs (course hub)"
+      },
+      "materials": {
+        "videoId": "QOtA76ga_fY",
+        "videoTitle": "MIT 6.858 Lecture 13: Network Protocols (F2014)",
+        "readingUrl": "https://css.csail.mit.edu/6.858/",
+        "externalUrl": "https://css.csail.mit.edu/6.858/",
+        "practiceLabel": "Protocol analysis exercises",
+        "notes": {
+          "summary": "Protocols fail around cryptography, not inside it: replay attacks, downgrade negotiations, timing side channels, and re-ordering of unauthenticated fields. The lecture dissects real protocol flaws (the WEP/SSL family) with the message-flow diagrams your 6.829 training taught you to read. Nonce discipline and authenticate-everything emerge as the rules.",
+          "concepts": [
+            "Replay and nonces",
+            "Downgrade attacks",
+            "Side channels (timing)",
+            "Authenticate all negotiated parameters",
+            "Forward secrecy concept",
+            "Real-world protocol postmortems"
+          ],
+          "focus": "Draw one protocol's message flows and mark what is authenticated vs plaintext. Unauthenticated fields in a diagram = attack surface on a whiteboard."
+        }
+      }
+    },
+    {
+      "title": "Advanced: Side Channels and Hardware",
+      "lecture": {
+        "url": "https://css.csail.mit.edu/6.858/",
+        "title": "6.858 \u2014 advanced topics"
+      },
+      "practice": {
+        "url": "https://css.csail.mit.edu/6.858/",
+        "title": "Labs + readings"
+      },
+      "materials": {
+        "readingUrl": "https://css.csail.mit.edu/6.858/",
+        "externalUrl": "https://css.csail.mit.edu/6.858/",
+        "practiceLabel": "Advanced topic readings",
+        "notes": {
+          "summary": "The modern frontier: side channels leak secrets through timing, cache behavior, and power (Spectre/Meltdown changed the industry), and trusted hardware (SGX, TPMs) tries to enforce confidentiality even against the OS. These topics connect your 6.004 hardware instincts to the attacker's perspective.",
+          "concepts": [
+            "Timing and cache side channels",
+            "Speculative execution leaks",
+            "Constant-time programming",
+            "Trusted execution environments",
+            "Attestation",
+            "Defense economics"
+          ],
+          "focus": "Take the password-comparison loop and rewrite it constant-time. Then say WHY the naive version leaks length and prefix information."
+        }
+      }
+    },
+    {
+      "title": "Language-Based Security: Ur/Web",
+      "lecture": {
+        "url": "https://ocw.mit.edu/courses/6-858-computer-systems-security-fall-2014/resources/ur-web-lecture-videos/",
+        "title": "MIT 6.858 F2014 - Lecture 11"
+      },
+      "practice": {
+        "url": "https://css.csail.mit.edu/6.858/",
+        "title": "6.858 course hub"
+      },
+      "materials": {
+        "videoId": "XMEFdofERLI",
+        "videoTitle": "MIT 6.858 Lecture 11: Ur/Web (F2014)",
+        "readingUrl": "https://css.csail.mit.edu/6.858/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-858-computer-systems-security-fall-2014/resources/ur-web-lecture-videos/",
+        "practiceLabel": "Language-based security exercises",
+        "notes": {
+          "summary": "What if the compiler enforced security? Type systems powerful enough to prevent SQL injection, XSS, and CSRF by construction \u2014 Ur/Web is the case study, where whole classes of web vulnerabilities are TYPE ERRORS. This lecture connects your CSE341 type theory to 6.858's attack classes: prevention by construction, not by vigilance.",
+          "concepts": [
+            "Type-enforced invariants",
+            "Metaprogramming for safety",
+            "SQL/XSS as type errors",
+            "Information-flow typing (concept)",
+            "Library vs language defenses",
+            "The 'correct by construction' philosophy"
+          ],
+          "focus": "Pick one attack class from the web lectures and sketch a type rule that would reject the vulnerable code. One rule, one dead vulnerability class."
+        }
+      }
+    },
+    {
+      "title": "Midterm: Attack and Defense Analysis",
+      "lecture": {
+        "url": "https://css.csail.mit.edu/6.858/",
+        "title": "6.858 \u2014 review"
+      },
+      "practice": {
+        "url": "https://css.csail.mit.edu/6.858/",
+        "title": "Quizzes + labs review"
+      },
+      "materials": {
+        "readingUrl": "https://css.csail.mit.edu/6.858/",
+        "externalUrl": "https://css.csail.mit.edu/6.858/",
+        "practiceLabel": "Midterm: labs 1-2 + quizzes",
+        "notes": {
+          "summary": "Checkpoint across the exploit families: memory corruption, web attacks, network attacks, and the analysis tools. Your labs ARE the exam in this course \u2014 re-derive your buffer overflow exploit and your XSS findings from scratch. Security exams test exactly the attacker's reasoning loop.",
+          "concepts": [
+            "Exploit derivation from memory layouts",
+            "Web attack chaining",
+            "Threat model articulation",
+            "Defense selection justification",
+            "Tool fluency (gdb, dev tools)"
+          ],
+          "focus": "Re-write your lab 1 exploit cold: stack diagram first, then input construction. Speed at THAT is the course's real certification."
+        }
+      }
+    },
+    {
+      "title": "Final: Building Secure Systems",
+      "lecture": {
+        "url": "https://css.csail.mit.edu/6.858/",
+        "title": "6.858 \u2014 final synthesis"
+      },
+      "practice": {
+        "url": "https://css.csail.mit.edu/6.858/",
+        "title": "Final project: design a secure system"
+      },
+      "materials": {
+        "readingUrl": "https://css.csail.mit.edu/6.858/",
+        "externalUrl": "https://css.csail.mit.edu/6.858/",
+        "practiceLabel": "Final: secure design project",
+        "notes": {
+          "summary": "The synthesis: pick a system you know (this app qualifies!) and design its security end to end \u2014 assets, threat model, mechanisms, and residual risks, with the audit checklist from each unit applied. Security as a design discipline, not a checklist \u2014 that is 6.858's thesis, and your CS142 web apps next term inherit it.",
+          "concepts": [
+            "Threat-model-driven design",
+            "Defense in depth layering",
+            "Security review practice",
+            "Residual risk honesty",
+            "Full course map",
+            "Ethics of disclosure"
+          ],
+          "focus": "Write Full Stack Ocean's security design doc: assets, attackers, mechanisms per unit, and open risks. A real system you actually use makes this final real."
+        }
+      }
+    }
+  ]
+}

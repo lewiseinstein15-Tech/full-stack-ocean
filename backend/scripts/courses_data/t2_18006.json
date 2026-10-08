@@ -1,0 +1,228 @@
+{
+  "course": "18.06",
+  "term": 2,
+  "lessons": [
+    {
+      "title": "The Geometry of Linear Equations",
+      "lecture": { "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-1-the-geometry-of-linear-equations/", "title": "MIT 18.06 Lecture 1 (Gilbert Strang)" },
+      "practice": { "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/", "title": "Course page: problem sets" },
+      "materials": {
+        "videoId": "J7DzL2_Na80",
+        "videoTitle": "MIT 18.06 Lecture 1: The Geometry of Linear Equations",
+        "externalUrl": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-1-the-geometry-of-linear-equations/",
+        "readingUrl": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/",
+        "practiceLabel": "Problem Set 1",
+        "notes": {
+          "summary": "Gilbert Strang opens linear algebra the right way: not with matrix arithmetic, but with pictures. A system of equations is simultaneously rows (planes meeting in a point), columns (vectors combining to reach b), and a matrix acting on a vector. The column picture is the one this whole course is built on — linear algebra is the study of vector combinations.",
+          "concepts": ["Row picture: intersecting planes", "Column picture: linear combinations of vectors", "The coefficient matrix A and Ax = b", "When solutions exist and are unique", "Vectors as arrows and as points", "R^n as the stage"],
+          "focus": "For a 2x2 system, draw BOTH pictures by hand for the same equations. When you can switch views at will, every later theorem has a picture attached."
+        }
+      }
+    },
+    {
+      "title": "Elimination with Matrices",
+      "lecture": { "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-2-elimination-with-matrices/", "title": "MIT 18.06 Lecture 2" },
+      "practice": { "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/", "title": "Course page: problem sets" },
+      "materials": {
+        "videoId": "QVKj3LADCnA",
+        "videoTitle": "MIT 18.06 Lecture 2: Elimination with Matrices",
+        "externalUrl": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-2-elimination-with-matrices/",
+        "readingUrl": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/",
+        "practiceLabel": "Problem Set 1: continued",
+        "notes": {
+          "summary": "Elimination — the systematic subtract-and-clear procedure from school algebra — becomes an algorithm with matrices. Strang covers pivots, multipliers, and back-substitution, and introduces elimination matrices: the elementary operations themselves written as matrices that multiply A. Failure cases (zero pivots, singular systems) get equal billing.",
+          "concepts": ["Pivots and multipliers", "Row operations as matrix multiplication", "Back-substitution", "Singular matrices and no-pivot failures", "Row exchanges", "E matrices and their inverses"],
+          "focus": "Solve a 3x3 system by elimination twice: once on the equations, once on the matrix alone. The matrix version must feel like the SAME process, only cleaner."
+        }
+      }
+    },
+    {
+      "title": "Multiplication and Inverse Matrices",
+      "lecture": { "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-3-multiplication-and-inverse-matrices/", "title": "MIT 18.06 Lecture 3" },
+      "practice": { "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/", "title": "Course page: problem sets" },
+      "materials": {
+        "videoId": "FX4C-JpTFgY",
+        "videoTitle": "MIT 18.06 Lecture 3: Multiplication and Inverse Matrices",
+        "externalUrl": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-3-multiplication-and-inverse-matrices/",
+        "readingUrl": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/",
+        "practiceLabel": "Problem Set 2",
+        "notes": {
+          "summary": "Matrix multiplication is not one idea but five: row-times-column, column-by-column, row-by-row, columns times rows summed as rank-one pieces, and block multiplication. Then the inverse: which matrices have them, the Gauss-Jordan method for finding them, and the singular (non-invertible) case where a combination of columns dies.",
+          "concepts": ["Five ways to multiply matrices", "Rank-one perspective (columns x rows)", "Invertible and singular matrices", "Gauss-Jordan elimination for A^-1", "Inverses of products and transposes", "Detecting singularity"],
+          "focus": "Compute the inverse of a 2x2 and a 3x3 by Gauss-Jordan. Then test singularity the cheap way (determinant for 2x2, elimination for 3x3) and confirm they agree."
+        }
+      }
+    },
+    {
+      "title": "Factorization into A = LU",
+      "lecture": { "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-4-factorization-into-a-lu/", "title": "MIT 18.06 Lecture 4" },
+      "practice": { "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/", "title": "Course page: problem sets" },
+      "materials": {
+        "videoId": "MsIvs_6vC38",
+        "videoTitle": "MIT 18.06 Lecture 4: Factorization into A = LU",
+        "externalUrl": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-4-factorization-into-a-lu/",
+        "readingUrl": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/",
+        "practiceLabel": "Problem Set 2: continued",
+        "notes": {
+          "summary": "The first big factorization: elimination says A = LU, where L is lower triangular with the multipliers and U is the upper triangular result. This is the workhorse of numerical computing — solve Ax=b twice cheaply, and factor once for reuse. Transposes and permutations close the lecture, including the symmetric case P^T = P.",
+          "concepts": ["A = LU and why L holds multipliers", "Cost of elimination (n^3/3)", "Row exchanges and permutation matrices", "Symmetric matrices and P^T", "Factoring once, solving many times", "Numerical stability preview"],
+          "focus": "Factor a 3x3 into LU by hand and record L as you eliminate. If any multiplier surprises you, redo it — L is just elimination history."
+        }
+      }
+    },
+    {
+      "title": "Column Space and Nullspace",
+      "lecture": { "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-6-column-space-and-nullspace/", "title": "MIT 18.06 Lecture 6" },
+      "practice": { "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/", "title": "Course page: problem sets" },
+      "materials": {
+        "videoId": "8o5Cmfpeo6g",
+        "videoTitle": "MIT 18.06 Lecture 6: Column Space and Nullspace",
+        "externalUrl": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-6-column-space-and-nullspace/",
+        "readingUrl": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/",
+        "practiceLabel": "Problem Set 3",
+        "notes": {
+          "summary": "Vector spaces enter: a subspace is a set closed under combinations, and every matrix brings two with it. The column space C(A) is all combinations of the columns — the b's that Ax=b can hit. The nullspace N(A) is all x's with Ax=0 — the hidden freedom in the system. Solvability becomes a membership test, and the whole course becomes spatial.",
+          "concepts": ["Vector spaces and subspaces", "Column space: reachable b's", "Nullspace: solutions of Ax=0", "Solvability of Ax=b", "Subspaces of R^n", "Combinations that stay inside"],
+          "focus": "For one 3x2 matrix, describe C(A) geometrically (a plane through origin?) and find two nullspace vectors. Sketch both on the same axes."
+        }
+      }
+    },
+    {
+      "title": "Solving Ax = 0: Pivot Variables and Special Solutions",
+      "lecture": { "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-7-solving-ax-0-pivot-variables-special-solutions/", "title": "MIT 18.06 Lecture 7" },
+      "practice": { "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/", "title": "Course page: problem sets" },
+      "materials": {
+        "videoId": "VqP2tREMvt0",
+        "videoTitle": "MIT 18.06 Lecture 7: Solving Ax = 0",
+        "externalUrl": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-7-solving-ax-0-pivot-variables-special-solutions/",
+        "readingUrl": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/",
+        "practiceLabel": "Problem Set 3: continued",
+        "notes": {
+          "summary": "The algorithm for the nullspace: reduce A to row echelon form R, identify pivot columns and free columns, then set each free variable to 1 in turn to read off the special solutions. The number of special solutions — the dimension of the nullspace — is the count of free variables. Rank r ties it all together: r pivots, n-r free columns.",
+          "concepts": ["Row reduced echelon form R", "Pivot columns and free columns", "Special solutions", "Complete solution of Ax=0", "Rank r and nullspace dimension n-r", "Reduced row reduction (rref)"],
+          "focus": "Compute the rref of a 4x4 by hand, mark pivots and frees, and write every special solution. Count them — the count IS the nullspace dimension."
+        }
+      }
+    },
+    {
+      "title": "The Four Fundamental Subspaces",
+      "lecture": { "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-10-the-four-fundamental-subspaces/", "title": "MIT 18.06 Lecture 10" },
+      "practice": { "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/", "title": "Course page: problem sets" },
+      "materials": {
+        "videoId": "nHlE7EgJFds",
+        "videoTitle": "MIT 18.06 Lecture 10: The Four Fundamental Subspaces",
+        "externalUrl": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-10-the-four-fundamental-subspaces/",
+        "readingUrl": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/",
+        "practiceLabel": "Problem Set 4",
+        "notes": {
+          "summary": "The centerpiece lecture: column space, nullspace, row space, and left nullspace — two live in R^m, two in R^n, and rank r governs all four dimensions. The big picture diagram (row space perpendicular to nullspace inside R^n) is the single most useful drawing in linear algebra, and it is where the SVD and least squares will later live.",
+          "concepts": ["The four subspaces and their dimensions", "Row space = column space of A^T", "dim C(A) = dim C(A^T) = rank r", "dim N(A) = n-r, dim N(A^T) = m-r", "Orthogonality of row space and nullspace", "The big picture diagram"],
+          "focus": "Draw the big picture for a specific 3x5 matrix of rank 2, labeling each subspace's dimension. That one drawing organizes every remaining lecture."
+        }
+      }
+    },
+    {
+      "title": "Orthogonal Vectors and Subspaces",
+      "lecture": { "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-14-orthogonal-vectors-and-subspaces/", "title": "MIT 18.06 Lecture 14" },
+      "practice": { "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/", "title": "Course page: problem sets" },
+      "materials": {
+        "videoId": "YzZUIYRCE38",
+        "videoTitle": "MIT 18.06 Lecture 14: Orthogonal Vectors and Subspaces",
+        "externalUrl": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-14-orthogonal-vectors-and-subspaces/",
+        "readingUrl": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/",
+        "practiceLabel": "Problem Set 5",
+        "notes": {
+          "summary": "Orthogonality: dot product zero, right angles everywhere. Every pair of fundamental subspaces is orthogonal (row space vs nullspace, column space vs left nullspace), which is why the big picture is drawn with perpendicular axes. The lecture ends with the first application: project b onto a line and find the component that misses.",
+          "concepts": ["Dot products and orthogonality", "Length and unit vectors", "Orthogonal complements", "Subspace pairs that are perpendicular", "Projection onto a line", "The error vector e = b - p"],
+          "focus": "Verify with a dot product that the error of a projection is orthogonal to the projection itself. That single identity powers least squares."
+        }
+      }
+    },
+    {
+      "title": "Projections onto Subspaces",
+      "lecture": { "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-15-projections-onto-subspaces/", "title": "MIT 18.06 Lecture 15" },
+      "practice": { "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/", "title": "Course page: problem sets" },
+      "materials": {
+        "videoId": "Y_Ac6KiQ1t0",
+        "videoTitle": "MIT 18.06 Lecture 15: Projections onto Subspaces",
+        "externalUrl": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-15-projections-onto-subspaces/",
+        "readingUrl": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/",
+        "practiceLabel": "Problem Set 5: continued",
+        "notes": {
+          "summary": "Projection generalizes from lines to subspaces: P = A(A^T A)^-1 A^T takes any b to the closest point in the column space. Why care? Because least squares — fitting a line through data that doesn't fit — IS projection, with the residual as the error vector. This lecture is the bridge between abstract subspaces and statistics.",
+          "concepts": ["The projection matrix P onto a subspace", "P is symmetric and idempotent", "Least squares as projection", "Fitting lines: the normal equations", "Residuals orthogonal to the fit", "When A^T A is invertible"],
+          "focus": "Fit a best line through three non-collinear points by forming the normal equations yourself. Then verify the residual is orthogonal to both columns of A."
+        }
+      }
+    },
+    {
+      "title": "Properties of Determinants",
+      "lecture": { "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-18-properties-of-determinants/", "title": "MIT 18.06 Lecture 18" },
+      "practice": { "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/", "title": "Course page: problem sets" },
+      "materials": {
+        "videoId": "srxexLishgY",
+        "videoTitle": "MIT 18.06 Lecture 18: Properties of Determinants",
+        "externalUrl": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-18-properties-of-determinants/",
+        "readingUrl": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/",
+        "practiceLabel": "Problem Set 6",
+        "notes": {
+          "summary": "Strang builds determinants from three properties (identity has det 1, row swaps flip sign, linearity in rows) rather than memorized cofactor formulas. From the properties flow everything: singular matrices have det 0, products multiply, transposes agree, and elimination tracks the det through pivots. The payoff is intuition for what det measures — volume scaling.",
+          "concepts": ["The three defining properties", "Row swaps and sign flips", "det of triangular matrices = pivot product", "det(AB) = det(A)det(B)", "Zero determinant = singularity", "Determinant as volume factor"],
+          "focus": "For a 2x2, interpret det as the area of the parallelogram from the columns. Then compute a 3x3 det via elimination and confirm the volume story with a box you can visualize."
+        }
+      }
+    },
+    {
+      "title": "Eigenvalues and Eigenvectors",
+      "lecture": { "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-21-eigenvalues-and-eigenvectors/", "title": "MIT 18.06 Lecture 21" },
+      "practice": { "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/", "title": "Course page: problem sets" },
+      "materials": {
+        "videoId": "cdZnhQjJu4I",
+        "videoTitle": "MIT 18.06 Lecture 21: Eigenvalues and Eigenvectors",
+        "externalUrl": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-21-eigenvalues-and-eigenvectors/",
+        "readingUrl": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/",
+        "practiceLabel": "Problem Set 7",
+        "notes": {
+          "summary": "The special directions a matrix does not turn: Ax = lambda x. Eigenvalues come from det(A - lambda I) = 0, eigenvectors from the nullspace that remains. Strang works 2x2 examples to a formula (trace and determinant) and shows the diagonalization idea that follows: in the eigenbasis, the matrix becomes diagonal. This is the engine of PCA, spectral methods, and differential equations.",
+          "concepts": ["The eigen equation Ax = lambda x", "Characteristic polynomial det(A - lambda I)", "Trace and determinant relations", "Eigenvector bases and diagonalization", "Complex eigenvalues (rotation)", "Why repeated eigenvalues are delicate"],
+          "focus": "Compute eigenvalues of a 2x2 via the characteristic polynomial, then find both eigenvectors. Check each pair by multiplying: Ax really should just scale x."
+        }
+      }
+    },
+    {
+      "title": "Midterm: Quiz 1 Review",
+      "lecture": { "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-13-quiz-1-review/", "title": "MIT 18.06 Lecture 13: Quiz 1 review" },
+      "practice": { "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-13-quiz-1-review/", "title": "Quiz 1 review problems" },
+      "materials": {
+        "videoId": "l88D4r74gtM",
+        "videoTitle": "MIT 18.06 Lecture 13: Quiz 1 Review",
+        "externalUrl": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-13-quiz-1-review/",
+        "readingUrl": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/",
+        "practiceLabel": "Quiz 1 review + exams",
+        "notes": {
+          "summary": "Strang's own exam review for the first third of the course: elimination, factorizations, the four subspaces, and independence. Work each review problem before he solves it on the video — it is the closest thing to sitting in the room. Target fluency: for any matrix, describe its subspaces and its rank without hesitation.",
+          "concepts": ["Elimination and LU", "Four subspaces rapid recall", "Independence, basis, dimension", "Rank computations", "Exam problem patterns"],
+          "focus": "Pause the video at every problem and commit to an answer first. Wrong answers here are cheap; wrong answers on the quiz are not."
+        }
+      }
+    },
+    {
+      "title": "Final: Diagonalization, SVD, and Course Review",
+      "lecture": { "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-34-final-course-review/", "title": "MIT 18.06 Lecture 34: Final course review" },
+      "practice": { "url": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-29-singular-value-decomposition/", "title": "Lecture 29: SVD" },
+      "materials": {
+        "videoId": "RWvi4Vx4CDc",
+        "videoTitle": "MIT 18.06 Lecture 34: Final Course Review",
+        "transcriptUrl": "",
+        "readingUrl": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-29-singular-value-decomposition/",
+        "externalUrl": "https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/resources/lecture-34-final-course-review/",
+        "practiceLabel": "Quiz 2-3 reviews + final",
+        "notes": {
+          "summary": "The course review lecture sweeps the whole arc, and the reading assignment is the SVD (lecture 29) — the greatest factorization of all: every matrix, even singular ones, splits into rotations and stretches A = U Sigma V^T. Diagonalization (A = S Lambda S^-1, lecture 22) and positive definiteness complete the picture. Next term, statistics and CS courses will assume this vocabulary.",
+          "concepts": ["Diagonalization A = S Lambda S^-1", "Symmetric matrices: orthogonal eigenvectors", "Singular value decomposition", "Positive definite matrices", "Similar matrices", "The whole-course map"],
+          "focus": "Write the course map from memory — combinations to elimination to subspaces to projections to eigen to SVD — and put a one-sentence takeaway next to each. That map is what you carry into CS61A and beyond."
+        }
+      }
+    }
+  ]
+}

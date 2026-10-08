@@ -1,0 +1,201 @@
+{
+  "course": "6.828",
+  "term": 5,
+  "lessons": [
+    {
+      "title": "OS Organization and System Calls",
+      "lecture": { "url": "https://pdos.csail.mit.edu/6.1810/2026/lec/l-overview.txt", "title": "MIT 6.1810 Fall 2026 — Lecture 1: OS intro & examples" },
+      "practice": { "url": "https://pdos.csail.mit.edu/6.1810/2026/labs/util.html", "title": "Lab: Utilities (sleep, find, xargs)" },
+      "materials": {
+        "readingUrl": "https://pdos.csail.mit.edu/6.1810/2026/xv6-book-ref2.html",
+        "externalUrl": "https://pdos.csail.mit.edu/6.1810/2026/",
+        "practiceLabel": "Lab util: sleep, find, xargs",
+        "notes": {
+          "summary": "This is the LIVE MIT 6.1810 (Fall 2026) — the successor of 6.828 — taught by Frans Kaashoek and Robert Morris with the xv6 teaching kernel. Lecture 1 covers why OSes exist (multiplexing, isolation, interaction) and the system-call interface as the boundary contract. You'll work inside a real kernel this term, reading source before writing it.",
+          "concepts": ["Multiplexing, isolation, interaction", "The system call boundary", "User vs kernel space", "xv6's design", "UNIX interface: fork, exec, pipe", "Why OS study kernels matter"],
+          "focus": "Read the util lab's C code and the fork/exec sections of the xv6 book BEFORE the lab. xv6 is small — the whole kernel fits in your head, but only if you read it."
+        }
+      }
+    },
+    {
+      "title": "C in xv6 and OS Design",
+      "lecture": { "url": "https://pdos.csail.mit.edu/6.1810/2026/lec/l-c.txt", "title": "MIT 6.1810 F26 — Lecture 2: C in xv6" },
+      "practice": { "url": "https://pdos.csail.mit.edu/6.1810/2026/labs/util.html", "title": "Lab: Utilities — finish" },
+      "materials": {
+        "readingUrl": "https://pdos.csail.mit.edu/6.1810/2026/lec/l-c.html",
+        "externalUrl": "https://pdos.csail.mit.edu/6.1810/2026/",
+        "practiceLabel": "Lab util: finish + submit",
+        "notes": {
+          "summary": "The C you need for kernels: pointers as memory, explicit allocation, undefined behavior landmines, and the course's coding conventions. The lecture dissects real xv6 code so idioms (linked lists via struct pointers, error returns) become familiar before the labs demand them.",
+          "concepts": ["Pointers and arrays in kernel code", "Stack and heap discipline", "Structs and function pointers", "The preprocessor in xv6", "Common C pitfalls", "xv6 coding conventions"],
+          "focus": "Trace one pointer-heavy function in xv6's kernel source (e.g., argstr or walk) and annotate every dereference. Kernel C is readable once you slow down."
+        }
+      }
+    },
+    {
+      "title": "Page Tables",
+      "lecture": { "url": "https://pdos.csail.mit.edu/6.1810/2026/lec/l-vm.txt", "title": "MIT 6.1810 F26 — Lecture 4: Page tables" },
+      "practice": { "url": "https://pdos.csail.mit.edu/6.1810/2026/labs/pgtbl.html", "title": "Lab: Page tables" },
+      "materials": {
+        "readingUrl": "https://pdos.csail.mit.edu/6.1810/2026/lec/l-vm.html",
+        "externalUrl": "https://pdos.csail.mit.edu/6.1810/2026/",
+        "practiceLabel": "Lab pgtbl: page table dumps, perms",
+        "notes": {
+          "summary": "Virtual memory's machinery: SV39 three-level page tables, page table entries with permission bits, and how the kernel maps its own memory and user memory. The lab has you walk the tables yourself and print them — the same structure 6.004 introduced, now in the RISC-V silicon you program.",
+          "concepts": ["Virtual vs physical addresses", "SV39 3-level translation", "PTE flags: R, W, X, U, V", "Kernel page table layout", "walk() and mappages()", "The satp register"],
+          "focus": "Hand-translate one virtual address through all three levels using real PTE values from your lab dump. Do it once manually and translations stop being abstract."
+        }
+      }
+    },
+    {
+      "title": "Interrupts and Traps",
+      "lecture": { "url": "https://pdos.csail.mit.edu/6.1810/2026/lec/l-trap.txt", "title": "MIT 6.1810 F26 — Traps" },
+      "practice": { "url": "https://pdos.csail.mit.edu/6.1810/2026/labs/traps.html", "title": "Lab: Traps" },
+      "materials": {
+        "readingUrl": "https://pdos.csail.mit.edu/6.1810/2026/lec/l-trap.html",
+        "externalUrl": "https://pdos.csail.mit.edu/6.1810/2026/",
+        "practiceLabel": "Lab traps: backtraces and alarms",
+        "notes": {
+          "summary": "The trap machinery: how a system call or device interrupt suspends user code, saves state on the trampoline, and vectors to the kernel. RISC-V's stvec, sepc, and scause registers; xv6's usertrap/kerneltrap. This is the mechanism behind EVERY system call you've ever made.",
+          "concepts": ["Trap frames", "The trampoline page", "uservec/usertrapvec", "stvec, sepc, scause", "System call dispatch", "Interrupt vs exception vs syscall"],
+          "focus": "Trace the full path of one write() syscall from ecall to kernel return. When you can narrate every register save and restore, traps are yours."
+        }
+      }
+    },
+    {
+      "title": "Locking and Synchronization",
+      "lecture": { "url": "https://pdos.csail.mit.edu/6.1810/2026/lec/l-lockv2.txt", "title": "MIT 6.1810 F26 — Locking" },
+      "practice": { "url": "https://pdos.csail.mit.edu/6.1810/2026/labs/lock.html", "title": "Lab: Lock (parallel)" },
+      "materials": {
+        "readingUrl": "https://pdos.csail.mit.edu/6.1810/2026/lec/l-lockv2.html",
+        "externalUrl": "https://pdos.csail.mit.edu/6.1810/2026/",
+        "practiceLabel": "Lab lock: parallel performance",
+        "notes": {
+          "summary": "Concurrency's core problem: lost updates and races on shared kernel data. The RISC-V atomic swap underlies spinlocks; xv6's acquire/release with interrupts disabled is the discipline. The lab measures contention and asks you to shard a locked structure for parallel speedup — theory meeting profile.",
+          "concepts": ["Race conditions and lost updates", "Atomics: amoswap", "Spinlocks in xv6", "Deadlock avoidance rules", "Interrupts-off discipline", "Throughput vs contention"],
+          "focus": "Find one race in un-sharded code by reasoning about interleavings — write the two schedules that produce different results. Races you can narrate, you can fix."
+        }
+      }
+    },
+    {
+      "title": "Scheduling and Context Switching",
+      "lecture": { "url": "https://pdos.csail.mit.edu/6.1810/2026/lec/l-threads.txt", "title": "MIT 6.1810 F26 — Thread switching" },
+      "practice": { "url": "https://pdos.csail.mit.edu/6.1810/2026/labs/cow.html", "title": "Lab: Copy-on-write fork" },
+      "materials": {
+        "readingUrl": "https://pdos.csail.mit.edu/6.1810/2026/lec/l-threads.html",
+        "externalUrl": "https://pdos.csail.mit.edu/6.1810/2026/",
+        "practiceLabel": "Lab cow: COW fork",
+        "notes": {
+          "summary": "Threads and the context switch: each thread has its own stack and saved registers; the scheduler swaps them on timer yields. You study swtch.S, per-CPU schedulers, and the yield/schedule dance. Then copy-on-write fork in the lab — where virtual memory tricks (reference-counted pages) meet process semantics.",
+          "concepts": ["Thread state: stacks + registers", "swtch.S and callee-saved regs", "The round-robin scheduler", "yield() and sched()", "Copy-on-write page sharing", "Reference counting PTEs"],
+          "focus": "Read swtch.S until you can explain which registers it saves and why only callee-saved ones. Then implement COW — it exercises everything from PTEs to traps to locks."
+        }
+      }
+    },
+    {
+      "title": "File Systems",
+      "lecture": { "url": "https://pdos.csail.mit.edu/6.1810/2026/lec/l-organization.txt", "title": "MIT 6.1810 F26 — FS organization" },
+      "practice": { "url": "https://pdos.csail.mit.edu/6.1810/2026/labs/fs.html", "title": "Lab: File system (mmap)" },
+      "materials": {
+        "readingUrl": "https://pdos.csail.mit.edu/6.1810/2026/lec/l-organization.html",
+        "externalUrl": "https://pdos.csail.mit.edu/6.1810/2026/",
+        "practiceLabel": "Lab fs: crash-safe layers",
+        "notes": {
+          "summary": "The xv6 file system as a seven-layer tower: disk blocks, buffer cache, logging, inodes, directories, paths, file descriptors. Each layer only trusts the one below. The log layer gives crash-safe multi-block updates via write-ahead — the same technique in every serious database and file system.",
+          "concepts": ["Layered FS design", "The buffer cache", "i-nodes and block addressing", "Directory entries", "Write-ahead logging", "Crash recovery: log replay"],
+          "focus": "Trace a two-block write through the log (begin_op, buffer writes, commit). Being able to say exactly what survives a crash is the exam question every year."
+        }
+      }
+    },
+    {
+      "title": "Device Drivers and Interrupts",
+      "lecture": { "url": "https://pdos.csail.mit.edu/6.1810/2026/lec/l-interrupt.txt", "title": "MIT 6.1810 F26 — Device drivers" },
+      "practice": { "url": "https://pdos.csail.mit.edu/6.1810/2026/labs/net.html", "title": "Lab: Network driver" },
+      "materials": {
+        "readingUrl": "https://pdos.csail.mit.edu/6.1810/2026/lec/l-interrupt.html",
+        "externalUrl": "https://pdos.csail.mit.edu/6.1810/2026/",
+        "practiceLabel": "Lab net: the e1000 driver",
+        "notes": {
+          "summary": "Devices: programmed I/O, memory-mapped registers, and the interrupt-driven completion path. The console (UART) and the network card (e1000 with descriptor rings) show two driver styles. The lab's user-level network driver — with kernel-bypass DMA rings — previews how modern high-performance I/O really works.",
+          "concepts": ["Memory-mapped I/O", "Polling vs interrupts", "The UART console driver", "DMA and descriptor rings", "Top/bottom-half processing", "User-space drivers (lab net)"],
+          "focus": "Draw the e1000 ring: descriptors, buffers, head/tail pointers. When you can narrate one packet's journey through the ring, DMA is no longer magic."
+        }
+      }
+    },
+    {
+      "title": "Virtual Memory for Applications",
+      "lecture": { "url": "https://pdos.csail.mit.edu/6.1810/2026/lec/l-uservm.txt", "title": "MIT 6.1810 F26 — VM for applications" },
+      "practice": { "url": "https://pdos.csail.mit.edu/6.1810/2026/labs/fs.html", "title": "Lab: mmap" },
+      "materials": {
+        "readingUrl": "https://pdos.csail.mit.edu/6.1810/2026/lec/l-uservm.html",
+        "externalUrl": "https://pdos.csail.mit.edu/6.1810/2026/",
+        "practiceLabel": "Lab fs: mmap implementation",
+        "notes": {
+          "summary": "The OS as service provider: lazy page allocation, copy-on-write, demand paging from file, and mmap's page-fault-driven contract. The throughline is that VM is an API, not just hardware — programs and the kernel cooperate through page faults. The lab's mmap completes the picture with real demand-paged file mapping.",
+          "concepts": ["Lazy allocation via faults", "Demand paging", "mmap semantics", "Page fault handling paths", "VM as user-kernel contract", "fork + exec interactions"],
+          "focus": "Count the page faults for a program touching a large mmap'd file sparsely. Predicting the fault count before running proves you understand demand paging."
+        }
+      }
+    },
+    {
+      "title": "Coordination: Condition Variables and Semaphores",
+      "lecture": { "url": "https://pdos.csail.mit.edu/6.1810/2026/lec/l-coordination.txt", "title": "MIT 6.1810 F26 — Coordination" },
+      "practice": { "url": "https://pdos.csail.mit.edu/6.1810/2026/labs/lock.html", "title": "Lab: Lock — continued" },
+      "materials": {
+        "readingUrl": "https://pdos.csail.mit.edu/6.1810/2026/lec/l-coordination.html",
+        "externalUrl": "https://pdos.csail.mit.edu/6.1810/2026/",
+        "practiceLabel": "Coordination exercises + lock lab",
+        "notes": {
+          "summary": "Beyond spinlocks: sleep/wakeup coordination with condition variables, lost-wakeup avoidance (the sleep-lock pattern), and semaphores. The producer/consumer bounded buffer is the canonical protocol, and the reasons for the wake-up-with-locks-held discipline are exactly the reasons bugs show up in real servers.",
+          "concepts": ["sleep() and wakeup()", "Lost wakeups", "Condition variables", "Semaphores", "Bounded-buffer protocol", "Sleep locks in xv6"],
+          "focus": "Construct the lost-wakeup interleaving on paper (sleep called between checking and wakeup). Then explain the fix in one sentence — holding the lock across sleep."
+        }
+      }
+    },
+    {
+      "title": "Crash Recovery, Networking, and Scalability",
+      "lecture": { "url": "https://pdos.csail.mit.edu/6.1810/2026/lec/l-fs.txt", "title": "MIT 6.1810 F26 — Crash recovery" },
+      "practice": { "url": "https://pdos.csail.mit.edu/6.1810/2026/lec/l-network.txt", "title": "Reading: networking lecture" },
+      "materials": {
+        "readingUrl": "https://pdos.csail.mit.edu/6.1810/2026/lec/l-coordination.html",
+        "externalUrl": "https://pdos.csail.mit.edu/6.1810/2026/",
+        "practiceLabel": "Lectures 18-20 reading set",
+        "notes": {
+          "summary": "The advanced lecture set: crash recovery via the log (revisited in depth), the network stack from an OS perspective (the lab's user-level driver, the 16550 UART), and multi-core scalability — per-CPU data structures and RCU-style thinking. These are the lectures where xv6's simplicity becomes a lens on real Linux design.",
+          "concepts": ["Log-based crash recovery", "Network stack layers", "UDP as lab substrate", "Scalability: per-CPU structures", "Read-mostly sharing", "Where xv6 differs from Linux"],
+          "focus": "Read one 2026 lecture note end to end with a highlighter. These notes are remarkably dense — one careful pass beats three skims."
+        }
+      }
+    },
+    {
+      "title": "Midterm: Kernel Anatomy Check",
+      "lecture": { "url": "https://pdos.csail.mit.edu/6.1810/2026/schedule.html", "title": "MIT 6.1810 F26 — Midterm (schedule)" },
+      "practice": { "url": "https://pdos.csail.mit.edu/6.1810/2026/labs/cow.html", "title": "Finish labs: cow + fs" },
+      "materials": {
+        "readingUrl": "https://pdos.csail.mit.edu/6.1810/2026/xv6-book-ref2.html",
+        "externalUrl": "https://pdos.csail.mit.edu/6.1810/2026/",
+        "practiceLabel": "Midterm: COW + mmap completion",
+        "notes": {
+          "summary": "Checkpoint: the labs completed so far (util, pgtbl, traps, cow, and locks) are the exam. Re-derive your own COW fork's page-fault path and your pgtbl walk from memory. The midterm in 6.1810 tradition tests exactly the code you wrote — your own repository is your study guide.",
+          "concepts": ["Self-derivation of lab solutions", "PTE reference counting", "Fault handler flow", "Lock discipline review", "Timed code reading"],
+          "focus": "Redraw your COW design's state transitions (refcounts, flags) for a fork-exec sequence. If any state surprises you, that's the gap to close tonight."
+        }
+      }
+    },
+    {
+      "title": "Final: VMs, Containers, and the Full Kernel Map",
+      "lecture": { "url": "https://pdos.csail.mit.edu/6.1810/2026/lec/l-janus.txt", "title": "MIT 6.1810 F26 — Final lectures" },
+      "practice": { "url": "https://pdos.csail.mit.edu/6.1810/2026/labs/net.html", "title": "Finish lab net" },
+      "materials": {
+        "readingUrl": "https://pdos.csail.mit.edu/6.1810/2026/xv6-book-ref2.html",
+        "externalUrl": "https://pdos.csail.mit.edu/6.1810/2026/",
+        "practiceLabel": "Final: net lab + course map",
+        "notes": {
+          "summary": "The 2026 close: system-call interposition (Janus), containers and VMs as the industrial descendants of everything you built, and the course review. You leave with a complete, inspected, modified RISC-V kernel in your git history — a portfolio artifact and the exact prerequisite for 6.829 (networks) and 6.830 (databases) later in the path.",
+          "concepts": ["System-call interposition", "Virtual machines vs containers", "The final course map", "How your labs compose", "What real kernels add", "Reading real kernel code next"],
+          "focus": "Write the one-page xv6 map: traps, VM, processes, FS, drivers, locks. Every box is code you modified — that map is your certification."
+        }
+      }
+    }
+  ]
+}

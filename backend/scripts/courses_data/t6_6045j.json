@@ -1,0 +1,389 @@
+{
+  "course": "6.045J",
+  "term": 6,
+  "lessons": [
+    {
+      "title": "Introduction, Finite Automata, and Regular Expressions",
+      "lecture": {
+        "url": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/resources/introduction-finite-automata-regular-expressions/",
+        "title": "MIT 18.404J/6.045J Fall 2020 \u2014 Lecture 1"
+      },
+      "practice": {
+        "url": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/pages/assignments/",
+        "title": "Assignments"
+      },
+      "materials": {
+        "videoId": "9syvZr-9xwk",
+        "videoTitle": "MIT 18.404J Lecture 1: Introduction, Finite Automata, Regular Expressions (F2020)",
+        "readingUrl": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/pages/lecture-notes/",
+        "externalUrl": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/",
+        "practiceLabel": "Problem Set 1",
+        "notes": {
+          "summary": "Sipser's Theory of Computation, taught in the Fall 2020 recorded edition: what can be computed, and at what cost? Lecture 1 introduces deterministic finite automata as language recognizers and regular expressions as language descriptions \u2014 two faces of the same class of languages, a correspondence you'll soon prove.",
+          "concepts": [
+            "Languages and alphabets",
+            "DFAs: states and transitions",
+            "Regular expressions",
+            "The equivalence (statement)",
+            "Formal definitions discipline",
+            "Why models of computation"
+          ],
+          "focus": "For one small DFA, write the regular expression it accepts by inspecting state structure. Building the correspondence early makes the proofs feel inevitable."
+        }
+      }
+    },
+    {
+      "title": "Nondeterminism and Closure Properties",
+      "lecture": {
+        "url": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/resources/nondeterminism-closure-properties-regular-expressions-optional-lecture-mst-interview-optional-content/",
+        "title": "MIT 18.404J F2020 \u2014 Lecture 2"
+      },
+      "practice": {
+        "url": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/pages/assignments/",
+        "title": "Assignments"
+      },
+      "materials": {
+        "videoId": "oNsscmUwjMU",
+        "videoTitle": "MIT 18.404J Lecture 2: Nondeterminism (F2020)",
+        "readingUrl": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/pages/lecture-notes/",
+        "externalUrl": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/",
+        "practiceLabel": "Problem Set 1: continued",
+        "notes": {
+          "summary": "Nondeterminism \u2014 guessing as a computational resource \u2014 and the subset construction converting any NFA to an equivalent DFA (possibly exponentially larger). Closure properties (union, concatenation, star) fall out constructively. This is the machinery your Nand2Tetris tokenizer and every regex engine quietly relies on.",
+          "concepts": [
+            "NFAs and acceptance",
+            "The subset construction",
+            "Exponential blowup example",
+            "Closure under union/concat/star",
+            "epsilon-transitions",
+            "Regex engine internals"
+          ],
+          "focus": "Run the subset construction on a small NFA and count the reachable states. Exponential blowup on paper explains why regex engines go catastrophic."
+        }
+      }
+    },
+    {
+      "title": "The Pumping Lemma and Non-Regular Languages",
+      "lecture": {
+        "url": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/resources/regular-pumping-lemma-finite-automata-regular-expressions-lecture-videos/",
+        "title": "MIT 18.404J F2020 \u2014 Lecture 3"
+      },
+      "practice": {
+        "url": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/pages/assignments/",
+        "title": "Assignments"
+      },
+      "materials": {
+        "videoId": "KAySmSEGc9U",
+        "videoTitle": "MIT 18.404J Lecture 3: Regular Pumping Lemma (F2020)",
+        "readingUrl": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/pages/lecture-notes/",
+        "externalUrl": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/",
+        "practiceLabel": "Problem Set 2",
+        "notes": {
+          "summary": "The first impossibility result: finite memory cannot count, so {0^n 1^n} is not regular. The pumping lemma formalizes the pigeonhole argument \u2014 long strings must revisit a state, and that loop can be pumped. Learning to wield the lemma (as a game against an adversary) is the course's introduction to proving things IMPOSSIBLE.",
+          "concepts": [
+            "The pigeonhole principle on states",
+            "Pumping lemma statement",
+            "Adversary game structure",
+            "Proving non-regularity",
+            "Myhill-Nerode mention",
+            "Limits of finite memory"
+          ],
+          "focus": "Prove {ww} non-regular with the pumping lemma, writing the adversary's move at each step. The game framing keeps quantifier order straight."
+        }
+      }
+    },
+    {
+      "title": "Context-Free Grammars and Pushdown Automata",
+      "lecture": {
+        "url": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/resources/pushdown-automata-cfg-pda-lecture-videos/",
+        "title": "MIT 18.404J F2020 \u2014 Lecture 4"
+      },
+      "practice": {
+        "url": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/pages/assignments/",
+        "title": "Assignments"
+      },
+      "materials": {
+        "videoId": "m9eHViDPAJQ",
+        "videoTitle": "MIT 18.404J Lecture 4: Pushdown Automata, CFG (F2020)",
+        "readingUrl": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/pages/lecture-notes/",
+        "externalUrl": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/",
+        "practiceLabel": "Problem Set 2: continued",
+        "notes": {
+          "summary": "Adding a stack unlocks structure: context-free grammars generate nested languages (balanced parens, arithmetic), and PDAs recognize them. The CFG-to-PDA construction is constructive. This is the exact theory behind parsing \u2014 your N2T project-10 recursive descent parser is a CFG walkthrough, and CS143's parser generators are this lecture industrialized.",
+          "concepts": [
+            "CFG derivations and parse trees",
+            "Ambiguity",
+            "PDAs: stack operations",
+            "CFG to PDA construction",
+            "Chomsky normal form",
+            "Parsing as derivation"
+          ],
+          "focus": "Trace a derivation of a balanced-parentheses string in a small CFG, drawing the parse tree. Then note which derivation order your own N2T parser used."
+        }
+      }
+    },
+    {
+      "title": "Turing Machines",
+      "lecture": {
+        "url": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/resources/cf-pumping-lemma-turing-machines-lecture-videos/",
+        "title": "MIT 18.404J F2020 \u2014 Lecture 5"
+      },
+      "practice": {
+        "url": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/pages/assignments/",
+        "title": " "
+      },
+      "materials": {
+        "videoId": "IycOPFmEQk8",
+        "videoTitle": "MIT 18.404J Lecture 5: Turing Machines (F2020)",
+        "readingUrl": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/pages/lecture-notes/",
+        "externalUrl": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/",
+        "practiceLabel": "Problem Set 3",
+        "notes": {
+          "summary": "The Church-Turing thesis: TMs capture effective computation \u2014 everything from laptops to lambda calculus computes the same class. TM variants (multi-tape, nondeterministic) add convenience but not power. Every language you know, every computer you'll use: a TM in fancy clothing. This is the floor of computation.",
+          "concepts": [
+            "TM formal definition",
+            "Configurations and acceptance",
+            "Multi-tape equivalence",
+            "Nondeterministic TMs",
+            "Church-Turing thesis",
+            "Universal machines"
+          ],
+          "focus": "Design a TM for {0^n 1^n} (the language PDAs couldn't do without a stack). The machine is short \u2014 and it establishes what 'more powerful' means."
+        }
+      }
+    },
+    {
+      "title": "Decidability",
+      "lecture": {
+        "url": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/resources/decision-problems-for-automata-and-grammars-lecture-videos/",
+        "title": "MIT 18.404J F2020 \u2014 Lecture 7"
+      },
+      "practice": {
+        "url": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/pages/assignments/",
+        "title": "Assignments"
+      },
+      "materials": {
+        "videoId": "4MgN6uxd4i4",
+        "videoTitle": "MIT 18.404J Lecture 7: Decision Problems (F2020)",
+        "readingUrl": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/pages/lecture-notes/",
+        "externalUrl": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/",
+        "practiceLabel": "Problem Set 3: continued",
+        "notes": {
+          "summary": "Decision problems for the lower levels are decidable: emptiness, equivalence of DFAs, CFG membership (CYK). But the halting problem \u2014 does this TM halt on this input? \u2014 is undecidable, by diagonalization. The proof technique (self-reference) is the same trick behind Cantor, Russell, and Godel, and it lands here as the first law of computational limits.",
+          "concepts": [
+            "Decidability definition",
+            "DFA/CFG decision algorithms",
+            "The halting problem",
+            "Diagonalization",
+            "Self-reference paradoxes",
+            "ATM undecidability"
+          ],
+          "focus": "Reproduce the halting-problem diagonalization from memory. It is six lines \u2014 and knowing them cold is knowing the boundary of computing."
+        }
+      }
+    },
+    {
+      "title": "Reducibility",
+      "lecture": {
+        "url": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/resources/reducibility-lecture-videos/",
+        "title": "MIT 18.404J F2020 \u2014 Lecture 9"
+      },
+      "practice": {
+        "url": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/pages/assignments/",
+        "title": "Assignments"
+      },
+      "materials": {
+        "videoId": "N28g_YBXY8Y",
+        "videoTitle": "MIT 18.404J Lecture 9: Reducibility (F2020)",
+        "readingUrl": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/pages/lecture-notes/",
+        "externalUrl": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/",
+        "practiceLabel": "Problem Set 4",
+        "notes": {
+          "summary": "Undecidability spreads by reduction: if solving B would solve the halting problem, B is undecidable too. Rice's theorem (any nontrivial semantic property of programs is undecidable) is the industrial-strength version. Recognizable vs decidable languages (semi-decision vs decision) refines the map of what's even approachable.",
+          "concepts": [
+            "Many-one reductions",
+            "Rice's theorem",
+            "Recognizable vs decidable",
+            "Complementary recognition",
+            "Post correspondence problem",
+            "Program analysis limits"
+          ],
+          "focus": "Reduce ATM to EQTM in writing. When the reduction pattern (assume solver, build halting oracle) is automatic, the whole unit is yours."
+        }
+      }
+    },
+    {
+      "title": "Time Complexity: P and NP",
+      "lecture": {
+        "url": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/resources/time-complexity-lecture-videos/",
+        "title": "MIT 18.404J F2020 \u2014 Lecture 12"
+      },
+      "practice": {
+        "url": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/pages/assignments/",
+        "title": "Assignments"
+      },
+      "materials": {
+        "videoId": "asjAc90L8rE",
+        "videoTitle": "MIT 18.404J Lecture 12: Time Complexity (F2020)",
+        "readingUrl": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/pages/lecture-notes/",
+        "externalUrl": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/",
+        "practiceLabel": "Problem Set 5",
+        "notes": {
+          "summary": "Cost enters the theory: P as feasible, NP as verifiable, and the question of the century. Time hierarchy theorems prove that more time really computes more languages. This lecture is the rigorous version of the cliff edge you met in 6.046J \u2014 now you can define the terms precisely.",
+          "concepts": [
+            "P and NP definitions",
+            "Verifiers and certificates",
+            "Time hierarchy theorem",
+            "Polynomial reductions (formal)",
+            "P vs NP status",
+            "Determinism vs verification"
+          ],
+          "focus": "Write the formal definitions of P and NP for yourself, then verify SAT is in NP. Precision here is what separates understanding from vibes."
+        }
+      }
+    },
+    {
+      "title": "NP-Completeness",
+      "lecture": {
+        "url": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/resources/p-and-np-sat-poly-time-reducibility-lecture-videos/",
+        "title": "MIT 18.404J F2020 \u2014 Lecture 14"
+      },
+      "practice": {
+        "url": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/pages/assignments/",
+        "title": "Assignments"
+      },
+      "materials": {
+        "videoId": "1VhnDdQsELo",
+        "videoTitle": "MIT 18.404J Lecture 14: P and NP, SAT (F2020)",
+        "readingUrl": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/pages/lecture-notes/",
+        "externalUrl": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/",
+        "practiceLabel": "Problem Set 5: continued",
+        "notes": {
+          "summary": "Cook-Levin: SAT is NP-complete \u2014 every NP problem reduces to it. The 3SAT-to-clique-to-vertex-cover chain then propagates completeness through the classics. Combined with 6.046J's algorithmic side, you now hold both halves: how to prove hardness AND how to cope (approximation, heuristics).",
+          "concepts": [
+            "Cook-Levin theorem",
+            "3SAT as the seed",
+            "Standard reduction chains",
+            "NP-hard vs NP-complete",
+            "Coping strategies recap",
+            "The complexity zoo map"
+          ],
+          "focus": "Redraw the reduction diagram (3SAT -> CLIQUE -> VC -> IS) from memory with the gadget for each edge. The diagram IS the unit."
+        }
+      }
+    },
+    {
+      "title": "Space Complexity",
+      "lecture": {
+        "url": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/pages/lecture-notes/",
+        "title": "MIT 18.404J F2020 \u2014 Space complexity"
+      },
+      "practice": {
+        "url": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/pages/assignments/",
+        "title": "Assignments"
+      },
+      "materials": {
+        "readingUrl": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/pages/lecture-notes/",
+        "externalUrl": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/",
+        "practiceLabel": "Space complexity problems",
+        "notes": {
+          "summary": "Space as the resource: Savitch's theorem (NSPACE(f) in SPACE(f^2)), PSPACE (games like generalized chess live there), and the L vs NL distinction with the NL=coNL surprise. The reachability-by-DFS-in-log-space construction is the technical heart \u2014 and the notes carry it in full.",
+          "concepts": [
+            "SPACE and NSPACE",
+            "Savitch's theorem",
+            "PSPACE and games",
+            "L and NL",
+            "Immerman-Szelepcsenyi",
+            "Configuration graphs"
+          ],
+          "focus": "Verify Savitch's recursion on a tiny graph reachability instance by hand. The squaring in the space bound becomes concrete once you trace it."
+        }
+      }
+    },
+    {
+      "title": "The Computation History Method",
+      "lecture": {
+        "url": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/resources/computation-history-method-lecture-videos/",
+        "title": "MIT 18.404J F2020 - Lecture 10"
+      },
+      "practice": {
+        "url": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/pages/assignments/",
+        "title": "Assignments"
+      },
+      "materials": {
+        "videoId": "MGqoLm2aAgc",
+        "videoTitle": "MIT 18.404J Lecture 10: Computation History Method (F2020)",
+        "readingUrl": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/pages/lecture-notes/",
+        "externalUrl": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/",
+        "practiceLabel": "Problem set: computation histories",
+        "notes": {
+          "summary": "The workhorse technique of advanced undecidability: encode a TM's full execution trace as a single string, then reduce problems ABOUT that trace to problems about grammars and machines. CFG-ambiguity and Post's Correspondence Problem both fall to histories. Mastering this method is what lets you prove undecidability for languages beyond the classics.",
+          "concepts": [
+            "Computation histories as strings",
+            "CFG ambiguity undecidability",
+            "Post Correspondence Problem",
+            "Reduction via histories",
+            "When to reach for the technique",
+            "Boundary of the decidable world"
+          ],
+          "focus": "Write the history of a 3-step TM computation explicitly, then reread the CFG-ambiguity reduction with it in hand. The reduction becomes mechanical once the encoding is concrete."
+        }
+      }
+    },
+    {
+      "title": "Midterm: Languages and Machines",
+      "lecture": {
+        "url": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/pages/exams/",
+        "title": "Exams"
+      },
+      "practice": {
+        "url": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/pages/exams/",
+        "title": "Practice exams"
+      },
+      "materials": {
+        "readingUrl": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/pages/lecture-notes/",
+        "externalUrl": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/",
+        "practiceLabel": "Midterm: automata through TM",
+        "notes": {
+          "summary": "Checkpoint across the automata hierarchy: regular languages, pumping, CFGs/PDAs, TMs, and undecidability. Exams in this course are proof-writing under time \u2014 statements, quantifier discipline, and adversary games. Your 6.042J proof training from term 1 is the direct prerequisite here.",
+          "concepts": [
+            "Proof-writing fluency",
+            "Quantifier order discipline",
+            "Pumping adversary games",
+            "Diagonalization recall",
+            "Reduction constructions"
+          ],
+          "focus": "Rewrite your three best proofs from memory, checking that every quantifier is in the right order. Sloppy quantifiers are the #1 point leak."
+        }
+      }
+    },
+    {
+      "title": "Final: Hierarchy, Logic, and Synthesis",
+      "lecture": {
+        "url": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/pages/lecture-notes/",
+        "title": "18.404J \u2014 final topics"
+      },
+      "practice": {
+        "url": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/pages/exams/",
+        "title": "Final practice"
+      },
+      "materials": {
+        "readingUrl": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/pages/lecture-notes/",
+        "externalUrl": "https://ocw.mit.edu/courses/18-404j-theory-of-computation-fall-2020/",
+        "practiceLabel": "Final exam + synthesis",
+        "notes": {
+          "summary": "The close ties theory to its foundations: Godel's incompleteness as self-reference's deepest form, the recursion theorem, and the full hierarchy map (regular < context-free < decidable < recognizable). Your synthesis artifact: the one-page tower of computation with the proof technique that separates each level \u2014 the field, compressed.",
+          "concepts": [
+            "Godel incompleteness (statement)",
+            "Recursion theorem",
+            "The full hierarchy",
+            "One technique per boundary",
+            "Logic and computation duality",
+            "Course synthesis"
+          ],
+          "focus": "Draw the tower from memory: each level, its machine, its pumping/closure/limitation, and its separation technique. That page is your certificate in the theory of computation."
+        }
+      }
+    }
+  ]
+}

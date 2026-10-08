@@ -1,0 +1,369 @@
+{
+  "course": "CS143",
+  "term": 8,
+  "lessons": [
+    {
+      "title": "Overview: Compilers and Cool",
+      "lecture": {
+        "url": "https://web.stanford.edu/class/cs143/",
+        "title": "Stanford CS143 \u2014 Course overview"
+      },
+      "practice": {
+        "url": "https://web.stanford.edu/class/cs143/",
+        "title": "Course hub: PA1"
+      },
+      "materials": {
+        "readingUrl": "https://web.stanford.edu/class/cs143/",
+        "externalUrl": "https://web.stanford.edu/class/cs143/",
+        "practiceLabel": "PA1: write a Cool program",
+        "notes": {
+          "summary": "CS143 teaches compilers by building one for Cool, a small object-oriented language. The pipeline \u2014 lexing, parsing, semantic analysis, code generation \u2014 mirrors what you built in Nand2Tetris projects 10-11 at toy scale. Stanford's course hub (the current edition) runs the same programming assignments that have trained compiler engineers for decades.",
+          "concepts": [
+            "The compilation pipeline",
+            "Cool language tour",
+            "Passes and intermediate representations",
+            "Programming assignment structure",
+            "Why study compilers",
+            "Your N2T compiler as a head start"
+          ],
+          "focus": "Write a small Cool program (a class hierarchy with dispatch) this week. The compiler you build must accept what you write \u2014 start as its user."
+        }
+      }
+    },
+    {
+      "title": "Lexical Analysis: Regular Languages",
+      "lecture": {
+        "url": "https://web.stanford.edu/class/cs143/",
+        "title": "CS143 \u2014 Lexical analysis"
+      },
+      "practice": {
+        "url": "https://web.stanford.edu/class/cs143/",
+        "title": "PA2: write the lexer"
+      },
+      "materials": {
+        "readingUrl": "https://web.stanford.edu/class/cs143/",
+        "externalUrl": "https://web.stanford.edu/class/cs143/",
+        "practiceLabel": "PA2: the Cool lexer (flex or hand-rolled)",
+        "notes": {
+          "summary": "Tokens from text: regexes to NFAs to DFAs (your 18.404J theory, industrialized), longest-match disambiguation, and error handling strategy. The PA2 lexer is your first real pass \u2014 and exactly the tokenizer you hand-wrote for N2T project 10, now with a formal guarantee of correctness.",
+          "concepts": [
+            "Token specifications",
+            "Thompson's construction",
+            "Subset construction (again!)",
+            "Maximal munch",
+            "Keywords vs identifiers",
+            "Lexical error recovery"
+          ],
+          "focus": "Derive the DFA for a two-rule lexer (identifiers, numbers) by hand through the full pipeline. You have just executed chapters of theory as one exercise."
+        }
+      }
+    },
+    {
+      "title": "Parsing: Context-Free Grammars",
+      "lecture": {
+        "url": "https://web.stanford.edu/class/cs143/",
+        "title": "CS143 \u2014 Parsing (CFGs)"
+      },
+      "practice": {
+        "url": "https://web.stanford.edu/class/cs143/",
+        "title": "PA3: the parser"
+      },
+      "materials": {
+        "readingUrl": "https://web.stanford.edu/class/cs143/",
+        "externalUrl": "https://web.stanford.edu/class/cs143/",
+        "practiceLabel": "PA3: the Cool parser (bison or hand-rolled)",
+        "notes": {
+          "summary": "Grammar engineering: derivations, parse trees, ambiguity elimination, left recursion removal, and precedence declarations. The 18.404J CFG theory becomes working code \u2014 a parser that rejects invalid programs with precise errors. LL vs LR trade-offs decide hand-written vs generated parsers.",
+          "concepts": [
+            "CFG derivations and trees",
+            "Ambiguity and rewriting",
+            "Left recursion removal",
+            "Operator precedence encoding",
+            "LL vs LR parsing",
+            "Error recovery strategies"
+          ],
+          "focus": "Take an ambiguous expression grammar and fix it with precedence rules, then parse x + y * z by hand. One tree, no ambiguity \u2014 that's the assignment's core."
+        }
+      }
+    },
+    {
+      "title": "Semantic Analysis and Symbol Tables",
+      "lecture": {
+        "url": "https://web.stanford.edu/class/cs143/",
+        "title": "CS143 \u2014 Semantic analysis"
+      },
+      "practice": {
+        "url": "https://web.stanford.edu/class/cs143/",
+        "title": "PA4: the semantic analyzer"
+      },
+      "materials": {
+        "readingUrl": "https://web.stanford.edu/class/cs143/",
+        "externalUrl": "https://web.stanford.edu/class/cs143/",
+        "practiceLabel": "PA4: type checking Cool",
+        "notes": {
+          "summary": "Meaning after structure: attribute grammars decorate the tree, symbol tables track scopes (your CSE341 interpreter knowledge applies directly), and type checking enforces the language's rules. Cool's inheritance graph check (cycles!) is a graph problem \u2014 the whole curriculum converges inside the compiler.",
+          "concepts": [
+            "Attribute grammars",
+            "Symbol tables with scopes",
+            "Type systems in practice",
+            "Inheritance and subtyping rules",
+            "Error reporting quality",
+            "Two-pass checking"
+          ],
+          "focus": "Design the symbol table for nested scopes on paper, then trace insert/lookup for a program with shadowing. Your CSE341 environments ARE this structure."
+        }
+      }
+    },
+    {
+      "title": "Code Generation: Runtime and MIPS",
+      "lecture": {
+        "url": "https://web.stanford.edu/class/cs143/",
+        "title": "CS143 \u2014 Code generation"
+      },
+      "practice": {
+        "url": "https://web.stanford.edu/class/cs143/",
+        "title": "PA5: the code generator"
+      },
+      "materials": {
+        "readingUrl": "https://web.stanford.edu/class/cs143/",
+        "externalUrl": "https://web.stanford.edu/class/cs143/",
+        "practiceLabel": "PA5: generate MIPS code",
+        "notes": {
+          "summary": "Tree to machine: stack frames for dispatch (your 6.004 activation records, now emitted), object layouts with vtables for dynamic dispatch, and basic code generation strategies for expressions and control flow. The generated MIPS runs in a simulator \u2014 closing the loop from source text to machine code you can step through.",
+          "concepts": [
+            "Activation records (emitting them)",
+            "Object layout and vtables",
+            "Dynamic dispatch implementation",
+            "MIPS calling conventions",
+            "Expression compilation",
+            "The runtime system's role"
+          ],
+          "focus": "Trace one method call in generated MIPS: frame setup, vtable lookup, argument passing, jump, and return. It is your 6.004 stack-frame diagram, now in code YOU emitted."
+        }
+      }
+    },
+    {
+      "title": "Optimization: Dataflow Analysis",
+      "lecture": {
+        "url": "https://web.stanford.edu/class/cs143/",
+        "title": "CS143 \u2014 Optimization I"
+      },
+      "practice": {
+        "url": "https://web.stanford.edu/class/cs143/",
+        "title": "Optimization exercises"
+      },
+      "materials": {
+        "readingUrl": "https://web.stanford.edu/class/cs143/",
+        "externalUrl": "https://web.stanford.edu/class/cs143/",
+        "practiceLabel": "Dataflow problems",
+        "notes": {
+          "summary": "Making code fast without breaking it: liveness and reaching definitions as fixpoint computations over control-flow graphs, with the worklist algorithm. Dataflow frameworks (meet, transfer, direction) generalize a family of analyses \u2014 the mathematical core that LLVM's pass managers implement.",
+          "concepts": [
+            "Control-flow graphs",
+            "Liveness analysis",
+            "Reaching definitions",
+            "Fixpoints and worklists",
+            "The monotone framework",
+            "Dead code elimination"
+          ],
+          "focus": "Run liveness to convergence on a 6-block CFG by hand, iterating until NOTHING changes. The stability of the fixpoint is the proof of correctness."
+        }
+      }
+    },
+    {
+      "title": "Optimization: Register Allocation and Loops",
+      "lecture": {
+        "url": "https://web.stanford.edu/class/cs143/",
+        "title": "CS143 \u2014 Optimization II"
+      },
+      "practice": {
+        "url": "https://web.stanford.edu/class/cs143/",
+        "title": "Optimization exercises"
+      },
+      "materials": {
+        "readingUrl": "https://web.stanford.edu/class/cs143/",
+        "externalUrl": "https://web.stanford.edu/class/cs143/",
+        "practiceLabel": "Register allocation problems",
+        "notes": {
+          "summary": "Graph coloring for registers: interference graphs from liveness, k-coloring as allocation, spilling when coloring fails. Then the loop family \u2014 induction variables, loop-invariant code motion \u2014 the transformations that gave optimizing compilers their name. Spill decisions are where theory meets memory pressure.",
+          "concepts": [
+            "Interference graphs",
+            "Graph coloring allocation",
+            "Spill code",
+            "Loop-invariant code motion",
+            "Induction variables",
+            "Cost models for optimization"
+          ],
+          "focus": "Build the interference graph for a small function and 3-color it, spilling one variable. The colors are registers; the spill is a stack slot \u2014 now you see them."
+        }
+      }
+    },
+    {
+      "title": "Garbage Collection and Runtime Systems",
+      "lecture": {
+        "url": "https://web.stanford.edu/class/cs143/",
+        "title": "CS143 \u2014 Runtime systems"
+      },
+      "practice": {
+        "url": "https://web.stanford.edu/class/cs143/",
+        "title": "Runtime exercises"
+      },
+      "materials": {
+        "readingUrl": "https://web.stanford.edu/class/cs143/",
+        "externalUrl": "https://web.stanford.edu/class/cs143/",
+        "practiceLabel": "GC tracing exercises",
+        "notes": {
+          "summary": "The runtime beneath the language: allocation strategies (bump allocation for youth), mark-and-sweep, copying collectors (Cheney's two-space trick), and generational hypotheses. Stop-the-world vs concurrent trade-offs connect to your 6.1810 locking knowledge. Every managed language you use (Python, JS, Go) lives on this lecture.",
+          "concepts": [
+            "Bump allocation",
+            "Mark and sweep",
+            "Copying collection (Cheney)",
+            "Generational GC",
+            "Roots and liveness",
+            "Pause time trade-offs"
+          ],
+          "focus": "Trace a copying GC on a heap diagram: copy live objects to to-space, update all pointers. Twelve objects on paper teaches the entire algorithm."
+        }
+      }
+    },
+    {
+      "title": "Modern Compilers: SSA and LLVM",
+      "lecture": {
+        "url": "https://web.stanford.edu/class/cs143/",
+        "title": "CS143 \u2014 Modern landscape"
+      },
+      "practice": {
+        "url": "https://web.stanford.edu/class/cs143/",
+        "title": "Exploration exercises"
+      },
+      "materials": {
+        "readingUrl": "https://web.stanford.edu/class/cs143/",
+        "externalUrl": "https://web.stanford.edu/class/cs143/",
+        "practiceLabel": "LLVM exploration",
+        "notes": {
+          "summary": "From the classroom to the industry: SSA form (each variable defined once \u2014 dataflow for free), LLVM IR as the portable middle layer, and JIT compilation for run-time optimization. This maps your Cool pipeline onto clang, V8, and every modern toolchain \u2014 the exact vocabulary of compiler jobs today.",
+          "concepts": [
+            "SSA and phi nodes",
+            "LLVM IR structure",
+            "Pass pipelines",
+            "JIT vs AOT",
+            "Language frontend zoo",
+            "Where compilers are going"
+          ],
+          "focus": "Emit LLVM IR for a small function with clang and read it. You'll recognize YOUR optimizations running as passes \u2014 the bridge from class to industry."
+        }
+      }
+    },
+    {
+      "title": "Advanced: Type Systems and Certifying Compilers",
+      "lecture": {
+        "url": "https://web.stanford.edu/class/cs143/",
+        "title": "CS143 \u2014 Advanced topics"
+      },
+      "practice": {
+        "url": "https://web.stanford.edu/class/cs143/",
+        "title": "Advanced readings"
+      },
+      "materials": {
+        "readingUrl": "https://web.stanford.edu/class/cs143/",
+        "externalUrl": "https://web.stanford.edu/class/cs143/",
+        "practiceLabel": "Advanced topic readings",
+        "notes": {
+          "summary": "The theory adjacent to the course: sound type systems as proofs of safety (CSE341's topic, deepened), typed intermediate languages, and certifying compilation where the compiler emits checkable evidence. Rust's borrow checker is this lineage in production \u2014 proof techniques shipping in a mainstream compiler.",
+          "concepts": [
+            "Type soundness",
+            "Typed IRs",
+            "Certifying compilation",
+            "Proof-carrying code ideas",
+            "Rust's borrow checker lineage",
+            "Where PL theory meets compilers"
+          ],
+          "focus": "Write the typing judgment for one Cool expression and explain what bug it makes impossible. Type systems are theorems about your programs \u2014 state one."
+        }
+      }
+    },
+    {
+      "title": "LR Parsing: LALR and Generated Parsers",
+      "lecture": {
+        "url": "https://web.stanford.edu/class/cs143/",
+        "title": "CS143 - Bottom-up parsing"
+      },
+      "practice": {
+        "url": "https://web.stanford.edu/class/cs143/",
+        "title": "PA3: parser work"
+      },
+      "materials": {
+        "readingUrl": "https://web.stanford.edu/class/cs143/",
+        "externalUrl": "https://web.stanford.edu/class/cs143/",
+        "practiceLabel": "PA3: bottom-up parsing exercises",
+        "notes": {
+          "summary": "Bottom-up parsing: LR(0)/SLR/LALR states built from item sets, shift-reduce decisions driven by tables, and conflict diagnosis when grammars go wrong. Yacc/Bison generate exactly this machinery \u2014 and your PA3 experience with generated parsers will now make sense from the inside. The LR family handles more grammars than LL, which is why the industry standard is bottom-up.",
+          "concepts": [
+            "LR items and closures",
+            "Shift-reduce parsing",
+            "LALR table compression",
+            "Conflicts: shift/reduce, reduce/reduce",
+            "Operator precedence in LR",
+            "Generated vs handwritten parsers"
+          ],
+          "focus": "Build the LR(0) item sets for a tiny grammar by hand and fill a 2-row parse table. Then parse one string with a stack trace \u2014 bottom-up parsing, demystified."
+        }
+      }
+    },
+    {
+      "title": "Midterm: The Pipeline Check",
+      "lecture": {
+        "url": "https://web.stanford.edu/class/cs143/",
+        "title": "CS143 \u2014 midterm"
+      },
+      "practice": {
+        "url": "https://web.stanford.edu/class/cs143/",
+        "title": "PA1-PA4 review"
+      },
+      "materials": {
+        "readingUrl": "https://web.stanford.edu/class/cs143/",
+        "externalUrl": "https://web.stanford.edu/class/cs143/",
+        "practiceLabel": "Midterm: lexer through semantic",
+        "notes": {
+          "summary": "Checkpoint across the front half: your lexer, parser, and semantic analyzer running end to end on Cool. The exam style is grammar work and fixpoint tracing \u2014 table-driven reasoning you can drill. Re-derive your parser's parse for the trickiest program in your test suite.",
+          "concepts": [
+            "Grammar transformations",
+            "DFA construction",
+            "Symbol table semantics",
+            "Fixpoint iteration",
+            "Pipeline debugging"
+          ],
+          "focus": "Feed one malformed program through your pipeline and fix every error message it produces. Error quality is the difference between a toy and a tool."
+        }
+      }
+    },
+    {
+      "title": "Final: The Working Compiler",
+      "lecture": {
+        "url": "https://web.stanford.edu/class/cs143/",
+        "title": "CS143 \u2014 final"
+      },
+      "practice": {
+        "url": "https://web.stanford.edu/class/cs143/",
+        "title": "PA5 completion + benchmarking"
+      },
+      "materials": {
+        "readingUrl": "https://web.stanford.edu/class/cs143/",
+        "externalUrl": "https://web.stanford.edu/class/cs143/",
+        "practiceLabel": "Final: end-to-end compilation",
+        "notes": {
+          "summary": "The finish: source in, MIPS out, programs running \u2014 a compiler YOU built, pass by pass, on top of every course before it (6.100L's expressions, 6.045J's grammars, CSE341's semantics, 6.004's machine model). Your final artifact: the pipeline diagram annotated with which course powers each box. Next, the capstone makes you USE everything.",
+          "concepts": [
+            "End-to-end integration",
+            "Benchmarking your output",
+            "The full pipeline map",
+            "Prerequisite ledger",
+            "Debugging across passes",
+            "What you'd add with more time"
+          ],
+          "focus": "Run your compiler on the program you wrote in week 1 and watch it execute. Then draw the annotated pipeline map \u2014 it is your entire CS education in one image."
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,201 @@
+{
+  "course": "6.829",
+  "term": 5,
+  "lessons": [
+    {
+      "title": "Course Overview: The Network as a System",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/pages/lecture-notes/", "title": "MIT 6.829 — Lecture notes (course hub)" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/pages/lecture-notes/", "title": "Lecture notes hub" },
+      "materials": {
+        "readingUrl": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/pages/lecture-notes/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/",
+        "practiceLabel": "Overview reading + assignments",
+        "notes": {
+          "summary": "6.829 studies networks as an engineering system under adversarial and economic pressure. The overview frames the core tension: smart endpoints vs dumb network, the layering that made the Internet win, and the implicit trust model we now regret. Fall 2002 is the OCW edition (with S. Katti's later semesters informing the topic order), and its lecture notes remain the cleanest public map of the field.",
+          "concepts": ["Layering and the hourglass", "Smart endpoints, dumb core", "End-to-end principle", "Trust and adversaries on networks", "The economics of ISPs", "Why the Internet's design won"],
+          "focus": "Draw the 5-layer stack and place each course topic on it. The map keeps every later protocol from becoming trivia."
+        }
+      }
+    },
+    {
+      "title": "Link Layer: Ethernet and Multiple Access",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/pages/lecture-notes/", "title": "MIT 6.829 — Link layer" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/pages/assignments/", "title": "Assignments" },
+      "materials": {
+        "readingUrl": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/pages/lecture-notes/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/",
+        "practiceLabel": "Link layer problems",
+        "notes": {
+          "summary": "How bits actually move: Ethernet's framing and CSMA/CD, collision domains, switches learning MAC addresses, and VLANs. The modern reality — switched full-duplex Ethernet everywhere — plus WiFi's trickier shared medium (CSMA/CA) set up every protocol above.",
+          "concepts": ["Ethernet frames and addressing", "CSMA/CD and collisions", "Switches: learning and forwarding", "VLANs", "WiFi CSMA/CA", "MAC addresses vs IP addresses"],
+          "focus": "Explain why a switch needs no configuration to work. The learning algorithm is two sentences — knowing them cold demystifies every LAN."
+        }
+      }
+    },
+    {
+      "title": "Queueing and the Delay Budget",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/pages/lecture-notes/", "title": "MIT 6.829 — Queueing" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/pages/assignments/", "title": "Assignments" },
+      "materials": {
+        "readingUrl": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/pages/lecture-notes/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/",
+        "practiceLabel": "Queueing analysis problems",
+        "notes": {
+          "summary": "The mathematics of waiting: Little's Law, M/M/1 queues, and why utilization approaching 1 makes delay explode. Queue management (FIFO, RED, fair queueing) becomes the fairness engine of the network. This lecture's math is small but powers every capacity-planning decision in industry.",
+          "concepts": ["Little's Law", "Queue utilization and delay", "M/M/1 intuition", "Drop policies: tail drop vs RED", "Fair queueing", "Bufferbloat"],
+          "focus": "Compute delay at 50%, 90%, and 99% utilization for an M/M/1 queue. The exponential blowup curve is the entire argument for headroom."
+        }
+      }
+    },
+    {
+      "title": "IP: Addressing, Forwarding, and Fragmentation",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/pages/lecture-notes/", "title": "MIT 6.829 — IP" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/pages/assignments/", "title": "Assignments" },
+      "materials": {
+        "readingUrl": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/pages/lecture-notes/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/",
+        "practiceLabel": "IP problems",
+        "notes": {
+          "summary": "The Internet's narrow waist: IP addresses, longest-prefix-match routing tables, TTL loops, fragmentation (and why path MTU discovery replaced it). NAT rewrites the address model; IPv6 fixes the shortage. Every packet you send this term passes through exactly this machinery.",
+          "concepts": ["IP header fields", "Longest prefix match", "TTL and loop prevention", "Fragmentation and MTU", "NAT and its consequences", "IPv6 design"],
+          "focus": "Trace a packet's header changes across two routers and one NAT box. Drawing the mutated headers at each hop cements what every field is for."
+        }
+      }
+    },
+    {
+      "title": "Intra-Domain Routing: Link State and Distance Vector",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/pages/lecture-notes/", "title": "MIT 6.829 — Routing (intradomain)" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/pages/assignments/", "title": "Assignments" },
+      "materials": {
+        "readingUrl": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/pages/lecture-notes/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/",
+        "practiceLabel": "Routing problems",
+        "notes": {
+          "summary": "Distributed shortest paths, two ways: link-state flooding plus Dijkstra (OSPF), or distance-vector Bellman-Ford with the count-to-infinity problem (RIP). Poisoned reverse, split horizon, and hierarchical areas make DV survivable. Your 6.006 graph algorithms literally run the Internet.",
+          "concepts": ["Link state: flood + Dijkstra", "Distance vector: Bellman-Ford", "Count to infinity", "Split horizon, poisoned reverse", "OSPF areas", "Convergence time"],
+          "focus": "Hand-run both algorithms on a 6-node graph. Then trigger a link failure and watch DV count to infinity while LS just re-floods — one experiment, two designs."
+        }
+      }
+    },
+    {
+      "title": "Inter-Domain Routing and BGP",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/pages/lecture-notes/", "title": "MIT 6.829 — BGP" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/pages/assignments/", "title": "Assignments" },
+      "materials": {
+        "readingUrl": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/pages/lecture-notes/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/",
+        "practiceLabel": "BGP problems",
+        "notes": {
+          "summary": "The Internet's glue and its fragility: BGP announces reachability between autonomous systems with policy (business relationships) overriding shortest paths. Route hijacks, prefix leaks, and the trust model with no authentication make BGP both essential and dangerous — the lecture's security angle connects directly to 6.858.",
+          "concepts": ["Autonomous systems", "Path vector protocol", "Local preference and policy", "Business relationships (transit, peer)", "Route hijacking", "RPKI and route filtering"],
+          "focus": "Sketch two ASes where policy routing gives a LONGER path than shortest. When 'business beats distance' feels natural, BGP is comprehensible."
+        }
+      }
+    },
+    {
+      "title": "Transport: UDP and Reliability Basics",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/pages/lecture-notes/", "title": "MIT 6.829 — Transport / UDP" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/pages/assignments/", "title": "Assignments" },
+      "materials": {
+        "readingUrl": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/pages/lecture-notes/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/",
+        "practiceLabel": "Transport problems",
+        "notes": {
+          "summary": "UDP as the minimal transport — ports, checksums, nothing else — and why DNS, video, and games choose it. Then the reliability toolkit that TCP assembles: ACKs, retransmission, sequence numbers, and the sliding-window pipelining that 6.1810's lab network driver implements at driver level.",
+          "concepts": ["Ports and multiplexing", "Checksums (end-to-end argument)", "ACKs and retransmission", "Sequence numbers", "Stop-and-wait vs pipelining", "Sliding windows"],
+          "focus": "Design (on paper) a reliable protocol over UDP with window 4. You have just reinvented TCP's core — which is exactly how to understand it."
+        }
+      }
+    },
+    {
+      "title": "TCP: Congestion Control",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/pages/lecture-notes/", "title": "MIT 6.829 — TCP congestion" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/pages/assignments/", "title": "Assignments" },
+      "materials": {
+        "readingUrl": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/pages/lecture-notes/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/",
+        "practiceLabel": "Congestion control problems",
+        "notes": {
+          "summary": "TCP's crowning achievement: distributed congestion control with no network support. AIMD's additive-increase/multiplicative-decrease gives fairness, slow start, congestion avoidance, and fast recovery respond to loss, and bufferbloat explains why delay signals (BBR) now compete with loss signals. This lecture's math is the real theory of the Internet's stability.",
+          "concepts": ["AIMD and the sawtooth", "Slow start threshold", "Congestion vs flow control windows", "Loss as a signal (and its problems)", "Fairness convergence", "BBR and delay-based control"],
+          "focus": "Plot cwnd over time for slow start into steady AIMD with one loss event. Drawing the sawtooth is drawing the Internet's heartbeat."
+        }
+      }
+    },
+    {
+      "title": "DNS and Naming",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/pages/lecture-notes/", "title": "MIT 6.829 — DNS" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/pages/assignments/", "title": "Assignments" },
+      "materials": {
+        "readingUrl": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/pages/lecture-notes/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/",
+        "practiceLabel": "DNS problems",
+        "notes": {
+          "summary": "The Internet's phone book: hierarchical zones, recursive vs iterative resolution, caching with TTLs, and the record types. DNS's design (a globally distributed, cached database) is the pattern behind CDNs and modern service discovery — and its spoofing weakness motivates DNSSEC, closing the loop with the security mindset.",
+          "concepts": ["Zone hierarchy and delegation", "Recursive resolution", "TTLs and caching", "Record types: A, AAAA, CNAME, MX", "CDN integration (low TTL trick)", "DNS spoofing and DNSSEC"],
+          "focus": "Trace a full lookup for a fresh domain from root to authoritative server. Then dig it yourself twice and watch the second answer come from cache."
+        }
+      }
+    },
+    {
+      "title": "Web, CDNs, and the Modern Stack",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/pages/lecture-notes/", "title": "MIT 6.829 — Web and CDNs" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/pages/assignments/", "title": "Assignments" },
+      "materials": {
+        "readingUrl": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/pages/lecture-notes/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/",
+        "practiceLabel": "Web stack problems",
+        "notes": {
+          "summary": "HTTP/1.1's head-of-line blocking birthed HTTP/2 multiplexing and HTTP/3 over QUIC (built on UDP, revisiting the smart-endpoint debate). CDNs move content to the edge via DNS and anycast. Every performance decision in the web apps you build (CS142's world) comes from this lecture's trade-offs.",
+          "concepts": ["HTTP versions and their problems", "Multiplexing and priorities", "QUIC over UDP", "CDN edge strategy", "Anycast", "TLS handshake costs"],
+          "focus": "Open dev tools on any site and list the performance costs per request this lecture explains. The web stack is a series of network-layer patches — see them."
+        }
+      }
+    },
+    {
+      "title": "Datacenter Networks and Network Security",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/pages/lecture-notes/", "title": "MIT 6.829 — Advanced topics" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/pages/assignments/", "title": "Assignments" },
+      "materials": {
+        "readingUrl": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/pages/lecture-notes/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/",
+        "practiceLabel": "Advanced topic problems",
+        "notes": {
+          "summary": "Two modern frontiers: datacenter topologies (fat trees, spine-leaf, and the East-West traffic of the cloud) and network security's adversarial view — DDoS, sybil attacks, and the defenses (anycast scrubbing, rate limits, TOR's anonymity design). Together they show the field's live edges where research and industry still collide.",
+          "concepts": ["Fat-tree and spine-leaf", "East-West vs North-South traffic", "Bisection bandwidth", "DDoS anatomy and defense", "Sybil attacks", "Onion routing"],
+          "focus": "Compute bisection bandwidth for a small fat tree. One arithmetic exercise turns topology diagrams from decoration into engineering."
+        }
+      }
+    },
+    {
+      "title": "Midterm: Protocol Analysis",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/pages/exams/", "title": "6.829 exams" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/pages/assignments/", "title": "Assignment set" },
+      "materials": {
+        "readingUrl": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/pages/lecture-notes/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/pages/exams/",
+        "practiceLabel": "Midterm: assignments 1-3",
+        "notes": {
+          "summary": "Checkpoint across layers: link, IP, routing, and transport. Work the assignments (they are analytical, not coding) and re-derive BGP policy routing and TCP's sawtooth from a blank page. The exam tradition in 6.829 is trace-and-explain — protocols you can narrate packet by packet.",
+          "concepts": ["Layer-by-layer tracing", "Routing policy reasoning", "Congestion dynamics", "Exam-style protocol narratives"],
+          "focus": "Redraw the 5-layer map from memory and annotate each layer with its failure mode. Failure modes are what exams and reality both test."
+        }
+      }
+    },
+    {
+      "title": "Final: SDN, Measurements, and Course Synthesis",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/pages/lecture-notes/", "title": "MIT 6.829 — final synthesis" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/pages/exams/", "title": "Final exam" },
+      "materials": {
+        "readingUrl": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/pages/lecture-notes/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-829-computer-networks-fall-2002/",
+        "practiceLabel": "Final exam + synthesis",
+        "notes": {
+          "summary": "The close: software-defined networking (centralizing the control plane), network measurement (what can actually be observed), and the full-course synthesis. Your 6.1810 user-level network driver and this course's theory combine into a complete picture — and 6.830's distributed databases next term assumes exactly this networking literacy.",
+          "concepts": ["SDN control/data plane split", "OpenFlow model", "Active measurement (traceroute, ping)", "Passive measurement", "The complete network map", "Prerequisites confirmed for 6.830"],
+          "focus": "Write the course's one-page map: layers, protocols, and one design lesson per layer. That map plus your xv6 network driver is your networking portfolio."
+        }
+      }
+    }
+  ]
+}

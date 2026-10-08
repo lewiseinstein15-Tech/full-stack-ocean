@@ -183,6 +183,7 @@ router.get('/lessons', async (req, res) => {
               isReview: Boolean(lesson.isReview),
               course: (lesson.metadata && lesson.metadata.course) || null,
               lectureNumber: (lesson.metadata && lesson.metadata.lectureNumber) || null,
+              practiceLink: lesson.practiceLink || null,
               week: week.weekNumber,
               day: day.dayOfWeek,
               date: day.date,
@@ -199,7 +200,7 @@ router.get('/lessons', async (req, res) => {
                 externalUrl: m.externalUrl || null,
               },
               hasVideo: Boolean(m.videoId),
-              hasPractice: Boolean(m.practicePdfUrl || m.practiceZipUrl),
+              hasPractice: Boolean(m.practicePdfUrl || m.practiceZipUrl || (lesson.practiceLink && lesson.practiceLink.url)),
             });
           }
         }

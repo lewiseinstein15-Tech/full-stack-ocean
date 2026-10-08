@@ -1,0 +1,235 @@
+{
+  "course": "18.01SC-B",
+  "term": 2,
+  "lessons": [
+    {
+      "title": "Adding Areas of Rectangles",
+      "lecture": { "url": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-3-the-definite-integral-and-its-applications/part-a-definition-of-the-definite-integral-and-first-fundamental-theorem/session-44-adding-areas-of-rectangles/", "title": "Session 44: Adding Areas of Rectangles" },
+      "practice": { "url": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-3-the-definite-integral-and-its-applications/exam-3/", "title": "Unit 3 exam materials" },
+      "materials": {
+        "videoId": "iHErQuZ8M-I",
+        "videoTitle": "MIT 18.01SC Session 44: Adding Areas of Rectangles",
+        "transcriptUrl": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/80be2141043181e93a49521b33936016_iHErQuZ8M-I.pdf",
+        "externalUrl": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-3-the-definite-integral-and-its-applications/part-a-definition-of-the-definite-integral-and-first-fundamental-theorem/session-44-adding-areas-of-rectangles/",
+        "practiceLabel": "Session 44 problems",
+        "notes": {
+          "summary": "Integration begins with a geometric question: how do we compute the area under an arbitrary curve? The answer starts crudely — chop the region into rectangles and add their areas. This session shows how sums of rectangle areas approach the true area as the slices narrow, motivating the definite integral before any notation is introduced.",
+          "concepts": ["Area as accumulated slices", "Left, right, and midpoint rectangles", "Refining the partition", "Sigma notation for sums", "Limits of sums (intuition)", "Signed area preview"],
+          "focus": "Estimate the area under a curve by hand with 4, then 8, rectangles. Watching the two estimates converge toward each other is the whole idea of the Riemann sum."
+        }
+      }
+    },
+    {
+      "title": "Riemann Sums",
+      "lecture": { "url": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-3-the-definite-integral-and-its-applications/part-a-definition-of-the-definite-integral-and-first-fundamental-theorem/session-46-riemann-sums/", "title": "Session 46: Riemann Sums" },
+      "practice": { "url": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-3-the-definite-integral-and-its-applications/exam-3/", "title": "Unit 3 exam materials" },
+      "materials": {
+        "videoId": "ELWqePHYjCk",
+        "videoTitle": "MIT 18.01SC Session 46: Riemann Sums",
+        "transcriptUrl": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/16b0fb222423a2f7192a9db97fab515e_ELWqePHYjCk.pdf",
+        "recitationVideoId": "QLo5dRFEyl8",
+        "externalUrl": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-3-the-definite-integral-and-its-applications/part-a-definition-of-the-definite-integral-and-first-fundamental-theorem/session-46-riemann-sums/",
+        "practiceLabel": "Session 46 problems",
+        "notes": {
+          "summary": "Riemann sums formalize the rectangle idea: partition the interval, sample the function, sum the areas, and take the limit as the partition refines. This session makes the definition precise and introduces the integral sign as compressed notation for that limit. The recitation video drills the mechanics of setting up sums for concrete functions.",
+          "concepts": ["Partitions and sample points", "Riemann sum definition", "The definite integral as a limit", "Notation: bounds, integrand, dx", "Integrability (informally)", "Signed and net area"],
+          "focus": "Write one Riemann sum fully in sigma notation before converting to integral notation. Being fluent in both directions is what makes later theorems readable."
+        }
+      }
+    },
+    {
+      "title": "Introduction to the Fundamental Theorem of Calculus",
+      "lecture": { "url": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-3-the-definite-integral-and-its-applications/part-a-definition-of-the-definite-integral-and-first-fundamental-theorem/session-47-introduction-of-the-fundamental-theorem-of-calculus/", "title": "Session 47: Introduction of the FTC" },
+      "practice": { "url": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-3-the-definite-integral-and-its-applications/exam-3/", "title": "Unit 3 exam materials" },
+      "materials": {
+        "videoId": "G5BP8mTzkyk",
+        "videoTitle": "MIT 18.01SC Session 47: Introduction of the Fundamental Theorem of Calculus",
+        "transcriptUrl": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/ea56a9926f8666003d44c207301ec313_G5BP8mTzkyk.pdf",
+        "externalUrl": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-3-the-definite-integral-and-its-applications/part-a-definition-of-the-definite-integral-and-first-fundamental-theorem/session-47-introduction-of-the-fundamental-theorem-of-calculus/",
+        "practiceLabel": "Session 47 problems",
+        "notes": {
+          "summary": "The Fundamental Theorem of Calculus is the hinge of the subject: it connects derivatives (rates) to integrals (accumulation). This session introduces Part 1 — that integration and differentiation are inverse operations — and shows why evaluating an antiderivative at the endpoints can replace computing a limit of sums. It is the single most important theorem of the term.",
+          "concepts": ["FTC Part 1: derivatives and antiderivatives", "Evaluating integrals via antiderivatives", "Why the theorem is 'fundamental'", "Accumulation vs rate", "Antiderivative notation F(x)", "The connection to velocity and distance"],
+          "focus": "After watching, state the theorem in your own words with a velocity/distance example. If you can explain why it is more than a computational shortcut, you have it."
+        }
+      }
+    },
+    {
+      "title": "Applications of the Fundamental Theorem of Calculus",
+      "lecture": { "url": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-3-the-definite-integral-and-its-applications/part-a-definition-of-the-definite-integral-and-first-fundamental-theorem/session-49-applications-of-the-fundamental-theorem-of-calculus/", "title": "Session 49: Applications of the FTC" },
+      "practice": { "url": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-3-the-definite-integral-and-its-applications/exam-3/", "title": "Unit 3 exam materials" },
+      "materials": {
+        "videoId": "C9luv3o6emw",
+        "videoTitle": "MIT 18.01SC Session 49: Applications of the FTC",
+        "transcriptUrl": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/215f94bf8619303d54eae70a6d1632f6_C9luv3o6emw.pdf",
+        "externalUrl": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-3-the-definite-integral-and-its-applications/part-a-definition-of-the-definite-integral-and-first-fundamental-theorem/session-49-applications-of-the-fundamental-theorem-of-calculus/",
+        "practiceLabel": "Session 49 problems",
+        "notes": {
+          "summary": "This session puts the FTC to work on concrete problems: computing definite integrals from known antiderivatives and reading word problems for the quantity being accumulated. You practice matching a physical quantity (distance, work, area) to the integral that models it, then evaluating cleanly with the theorem.",
+          "concepts": ["Computing definite integrals exactly", "Choosing the antiderivative", "Modeling accumulation in word problems", "Units and interpretation", "Common antiderivative table", "When the FTC applies (continuity)"],
+          "focus": "Solve three integrals start to finish without notes. Speed matters less than writing the correct antiderivative and handling the evaluation bounds carefully."
+        }
+      }
+    },
+    {
+      "title": "The Second Fundamental Theorem of Calculus",
+      "lecture": { "url": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-3-the-definite-integral-and-its-applications/part-b-second-fundamental-theorem-areas-volumes/session-51-the-second-fundamental-theorem-of-calculus/", "title": "Session 51: The Second FTC" },
+      "practice": { "url": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-3-the-definite-integral-and-its-applications/exam-3/", "title": "Unit 3 exam materials" },
+      "materials": {
+        "videoId": "TQTDkpZP02A",
+        "videoTitle": "MIT 18.01SC Session 51: The Second Fundamental Theorem of Calculus",
+        "transcriptUrl": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/6127905cce46c4269eb87a7cc2e3933a_TQTDkpZP02A.pdf",
+        "recitationVideoId": "lEOjMAmkI-U",
+        "externalUrl": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-3-the-definite-integral-and-its-applications/part-b-second-fundamental-theorem-areas-volumes/session-51-the-second-fundamental-theorem-of-calculus/",
+        "practiceLabel": "Session 51 problems",
+        "notes": {
+          "summary": "Part 2 of the FTC is subtler: it treats the integral itself as a function. Define F(x) as the accumulated area up to x and the theorem says F'(x) = f(x) — differentiation undoes integration. This is the idea that lets you differentiate functions defined by integrals, a construction that appears constantly in probability and physics.",
+          "concepts": ["Integrals with variable upper limits", "F(x) as an accumulation function", "Differentiating under the integral", "Why F' = f follows from area", "Functions defined by integrals", "Preview of probability CDFs"],
+          "focus": "Differentiate a function like x-integral of sqrt(1+t^3) dt with the theorem, not by evaluating. Then check your answer with the chain rule version that includes an inner function."
+        }
+      }
+    },
+    {
+      "title": "Volumes of Revolution",
+      "lecture": { "url": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-3-the-definite-integral-and-its-applications/part-b-second-fundamental-theorem-areas-volumes/session-59-volume-of-a-parabaloid-revolving-about-y-axis/", "title": "Session 59: Volume of a Parabaloid" },
+      "practice": { "url": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-3-the-definite-integral-and-its-applications/exam-3/", "title": "Unit 3 exam materials" },
+      "materials": {
+        "videoId": "ksAdC6Z99dE",
+        "videoTitle": "MIT 18.01SC Session 59: Volume of a Parabaloid, Revolving About y-axis",
+        "transcriptUrl": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/389631b71459c1847536a0fb1448b216_ksAdC6Z99dE.pdf",
+        "recitationVideoId": "MYXMC7koJyY",
+        "externalUrl": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-3-the-definite-integral-and-its-applications/part-b-second-fundamental-theorem-areas-volumes/session-59-volume-of-a-parabaloid-revolving-about-y-axis/",
+        "practiceLabel": "Session 59 problems",
+        "notes": {
+          "summary": "Slicing generalizes from area to volume: revolve a curve, add up disks or shells, and an integral produces the volume. This session works a full example (a paraboloid about the y-axis) and teaches the decision that students find hardest — when to slice into disks versus cylindrical shells, and how to set up the bounds either way.",
+          "concepts": ["Volumes by disk slicing", "Washer method", "Cylindrical shells", "Choosing the slicing axis", "Setting up bounds for revolution", "Cross-sectional area integration"],
+          "focus": "Take one region and compute its volume twice: once with disks, once with shells. Getting the same number two ways is the strongest possible check on your setup."
+        }
+      }
+    },
+    {
+      "title": "Trigonometric Integrals and Trig Substitution",
+      "lecture": { "url": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-4-techniques-of-integration/part-a-trigonometric-powers-trigonometric-substitution-and-completing-the-square/session-72-trig-substitution/", "title": "Session 72: Trig Substitution" },
+      "practice": { "url": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-4-techniques-of-integration/exam-4/", "title": "Unit 4 exam materials" },
+      "materials": {
+        "videoId": "Nv3C7q88MqA",
+        "videoTitle": "MIT 18.01SC Session 72: Trig Substitution",
+        "transcriptUrl": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/e48836bbd9b9e752abf7696e3653d016_Nv3C7q88MqA.pdf",
+        "readingUrl": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-4-techniques-of-integration/part-a-trigonometric-powers-trigonometric-substitution-and-completing-the-square/session-68-integral-of-sin-x-cos-x-odd-exponents/",
+        "externalUrl": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-4-techniques-of-integration/part-a-trigonometric-powers-trigonometric-substitution-and-completing-the-square/session-72-trig-substitution/",
+        "practiceLabel": "Session 68-73 problems",
+        "notes": {
+          "summary": "Some integrals only yield when you trade x for a trig identity: sqrt(1-x^2) begs for sine, sqrt(1+x^2) for tangent. This session covers the three standard trig substitutions and the back-substitution step, alongside the sin/cos power integrals from session 68 (the reading) that supply the identities you need.",
+          "concepts": ["Trig substitutions for radical forms", "Right-triangle back-substitution", "Integrals of sin^n cos^m", "Pythagorean identities", "Domain care in substitutions", "When NOT to use trig sub"],
+          "focus": "Build a reference card: which radical pairs with which substitution. Then work one full problem and draw the triangle you use to return to x."
+        }
+      }
+    },
+    {
+      "title": "Integration by Partial Fractions",
+      "lecture": { "url": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-4-techniques-of-integration/part-b-partial-fractions-integration-by-parts-arc-length-and-surface-area/session-75-advanced-partial-fractions/", "title": "Session 75: Advanced Partial Fractions" },
+      "practice": { "url": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-4-techniques-of-integration/exam-4/", "title": "Unit 4 exam materials" },
+      "materials": {
+        "videoId": "UsGBIfjUK7U",
+        "videoTitle": "MIT 18.01SC Session 75: Advanced Partial Fractions",
+        "transcriptUrl": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/ffe413d466bb5f13a846cdd139fb9706_UsGBIfjUK7U.pdf",
+        "readingUrl": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-4-techniques-of-integration/part-b-partial-fractions-integration-by-parts-arc-length-and-surface-area/session-74-integration-by-partial-fractions/",
+        "externalUrl": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-4-techniques-of-integration/part-b-partial-fractions-integration-by-parts-arc-length-and-surface-area/session-75-advanced-partial-fractions/",
+        "practiceLabel": "Session 74-75 problems",
+        "notes": {
+          "summary": "Rational functions integrate nicely after you split them: partial fractions decomposes P(x)/Q(x) into simple terms whose antiderivatives are logarithms and arctangents. This session covers the advanced cases — repeated factors and irreducible quadratics — with the basic setup (session 74) as reading. The technique is pure algebra, which makes it very mechanical once the pattern is set.",
+          "concepts": ["Decomposing rational functions", "Distinct linear factors", "Repeated factors", "Irreducible quadratic factors", "Solving for coefficients", "Log and arctan antiderivatives"],
+          "focus": "Do one decomposition with a repeated factor end to end. Check your coefficient algebra by plugging in a convenient value of x before integrating."
+        }
+      }
+    },
+    {
+      "title": "Integration by Parts",
+      "lecture": { "url": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-4-techniques-of-integration/part-b-partial-fractions-integration-by-parts-arc-length-and-surface-area/session-76-integration-by-parts/", "title": "Session 76: Integration by Parts" },
+      "practice": { "url": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-4-techniques-of-integration/exam-4/", "title": "Unit 4 exam materials" },
+      "materials": {
+        "videoId": "pWXh5t-37Qg",
+        "videoTitle": "MIT 18.01SC Session 76: Integration by Parts",
+        "transcriptUrl": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/f7f5cd50f849fd872fe5a364747ec02f_pWXh5t-37Qg.pdf",
+        "recitationVideoId": "hV5af_07ToE",
+        "externalUrl": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-4-techniques-of-integration/part-b-partial-fractions-integration-by-parts-arc-length-and-surface-area/session-76-integration-by-parts/",
+        "practiceLabel": "Session 76 problems",
+        "notes": {
+          "summary": "Integration by parts is the product rule run backwards, and it is the technique of last resort for integrals like x*e^x or ln(x). This session derives the formula, teaches the u/dv choice heuristic (choose u by LIATE), and shows repeated applications and the classic boomerang case where the original integral reappears and you solve for it algebraically.",
+          "concepts": ["The integration by parts formula", "Choosing u and dv (LIATE)", "Repeated parts: x^2 e^x", "The boomerang integral: e^x sin x", "Parts with definite integrals", "When parts makes things worse"],
+          "focus": "Integrate e^x sin(x) twice and watch the original integral come back. Solving for it algebraically feels like a trick the first time and a tool every time after."
+        }
+      }
+    },
+    {
+      "title": "Improper Integrals",
+      "lecture": { "url": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-5-exploring-the-infinite/part-a-lhospitals-rule-and-improper-integrals/session-91-improper-integrals/", "title": "Session 91: Improper Integrals" },
+      "practice": { "url": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/final-exam/", "title": "Final exam materials" },
+      "materials": {
+        "videoId": "bo8SFHppXZk",
+        "videoTitle": "MIT 18.01SC Session 91: Improper Integrals",
+        "transcriptUrl": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/19b6bb768766f15797133a0c77cf5699_bo8SFHppXZk.pdf",
+        "recitationVideoId": "owkMzpN8WDc",
+        "readingUrl": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-5-exploring-the-infinite/part-a-lhospitals-rule-and-improper-integrals/session-88-examples-of-lhospitals-rule/",
+        "externalUrl": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-5-exploring-the-infinite/part-a-lhospitals-rule-and-improper-integrals/session-91-improper-integrals/",
+        "practiceLabel": "Session 91 problems",
+        "notes": {
+          "summary": "What is the area under a curve that never ends? Improper integrals extend the definite integral to infinite bounds and to unbounded functions by taking limits. Some converge to finite values and some diverge — the p-integral family (1/x^p) is the reference chart for deciding. L'Hopital's rule (reading) supplies the limit tooling this unit leans on.",
+          "concepts": ["Infinite bounds as limits", "Unbounded integrands at a point", "Convergence vs divergence", "The p-integral threshold (p=1)", "L'Hopital's rule", "Comparison intuition"],
+          "focus": "For the integral of 1/x^p from 1 to infinity, work out the convergence condition yourself with a limit. One number, p=1, divides two very different worlds."
+        }
+      }
+    },
+    {
+      "title": "Infinite Series and Taylor's Series",
+      "lecture": { "url": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-5-exploring-the-infinite/part-b-taylor-series/session-98-taylors-series/", "title": "Session 98: Taylor's Series" },
+      "practice": { "url": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/final-exam/", "title": "Final exam materials" },
+      "materials": {
+        "videoId": "BSqNgPkeWIM",
+        "videoTitle": "MIT 18.01SC Session 98: Taylor's Series",
+        "transcriptUrl": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/de07f3427bd8f2d1431f8bba5ccd5475_BSqNgPkeWIM.pdf",
+        "readingUrl": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-5-exploring-the-infinite/part-b-taylor-series/session-94-infinite-series/",
+        "externalUrl": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-5-exploring-the-infinite/part-b-taylor-series/session-98-taylors-series/",
+        "practiceLabel": "Sessions 94-99 problems",
+        "notes": {
+          "summary": "Taylor series express a function as an infinite polynomial built from its derivatives at one point. This session constructs the series for e^x, sin, and cos, and shows how the partial polynomials approximate the function better and better. Combined with infinite series convergence (session 94, the reading), this is the grand payoff of the whole calculus sequence.",
+          "concepts": ["Taylor and Maclaurin series formulas", "Series for e^x, sin x, cos x, 1/(1-x)", "Partial sums as polynomial approximations", "Radius of convergence (intuition)", "Convergence of geometric series", "Approximation error thinking"],
+          "focus": "Derive the Maclaurin series for sin(x) yourself from the formula, then compare its 3-term polynomial against a calculator for small x. Approximation quality near the center point is the pattern to remember."
+        }
+      }
+    },
+    {
+      "title": "Midterm: Integration Techniques Review",
+      "lecture": { "url": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-4-techniques-of-integration/exam-4/", "title": "Unit 4 exam: techniques of integration" },
+      "practice": { "url": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-4-techniques-of-integration/exam-4/", "title": "Unit 4 exam problems + solutions" },
+      "materials": {
+        "externalUrl": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-4-techniques-of-integration/exam-4/",
+        "readingUrl": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-3-the-definite-integral-and-its-applications/exam-3/",
+        "practiceLabel": "Unit 3 + 4 exams",
+        "notes": {
+          "summary": "Checkpoint on the middle of the course: the definite integral, the FTC, volumes, and the full toolbox of techniques (substitution, trig, parts, partial fractions). Work the Unit 3 and 4 exam problems under time pressure before reading any solutions. Your technique-chooser — which method for which integrand — is the skill being tested.",
+          "concepts": ["Technique selection heuristics", "FTC fluency", "Volume setups", "Exam pacing", "Solution review method"],
+          "focus": "Make a one-page decision tree for integrals: form of integrand to technique. Then verify the tree against every problem on both exams."
+        }
+      }
+    },
+    {
+      "title": "Final: Series, Convergence, and the Infinite",
+      "lecture": { "url": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/final-exam/", "title": "18.01SC Final exam" },
+      "practice": { "url": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/final-exam/", "title": "Final exam problems + solutions" },
+      "materials": {
+        "videoId": "dGKvUUmMGoU",
+        "videoTitle": "MIT 18.01SC Session 95: Series Comparison",
+        "transcriptUrl": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/b743a17ffde5926a090a4f6e0fc5cfaa_1424365.pdf",
+        "externalUrl": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/final-exam/",
+        "readingUrl": "https://ocw.mit.edu/courses/18-01sc-single-variable-calculus-fall-2010/pages/unit-5-exploring-the-infinite/part-b-taylor-series/session-95-series-comparison/",
+        "practiceLabel": "Final exam + session 95 problems",
+        "notes": {
+          "summary": "The calculus finale: series comparison tests (the video), improper integrals, and Taylor approximations all in one exam. Work the official final under exam conditions, then close the loop by writing a one-page synthesis of the entire two-term arc: rate of change to accumulation to approximation. Next term, linear algebra replaces the single variable with systems.",
+          "concepts": ["Comparison and ratio intuition for series", "Improper integral convergence", "Taylor error estimates", "Full-course synthesis", "Exam execution"],
+          "focus": "Before opening the exam, write the course map from memory: limits, derivatives, applications, integrals, techniques, series. The gaps in your map are exactly what to review tonight."
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,213 @@
+{
+  "course": "CS61A",
+  "term": 3,
+  "lessons": [
+    {
+      "title": "Welcome: What is CS61A About?",
+      "lecture": { "url": "https://cs61a.org/fa26/lectures/01-welcome/", "title": "CS 61A Fall 2026 — Lecture 1: Welcome" },
+      "practice": { "url": "https://cs61a.org/fa26/hw/hw01/", "title": "Homework 1" },
+      "materials": {
+        "slidesUrl": "https://cs61a.org/fa26/assets/lec/01-Welcome.pdf",
+        "readingUrl": "https://www.composingprograms.com/pages/11-getting-started.html",
+        "externalUrl": "https://cs61a.org/fa26/lectures/01-welcome/",
+        "practiceLabel": "HW 01 + Lab 00 (setup)",
+        "notes": {
+          "summary": "CS 61A teaches programming as abstraction — managing complexity by hiding detail — using Python, Scheme, and SQL in one arc. The live Fall 2026 edition opens with the course's philosophy, the tools (Python 3, terminal, editor, ok autograder), and the first ideas: expressions, statements, and the read-eval loop. Everything is taught at the current course site, updated for this semester.",
+          "concepts": ["Abstraction as the course theme", "Expressions and evaluation", "Statements vs expressions", "The Python REPL and scripts", "Terminal and editor setup", "ok autograder workflow"],
+          "focus": "Complete lab 00 fully — environment setup done now pays off every week. Then write one expression and one statement and say out loud what each returns or does."
+        }
+      }
+    },
+    {
+      "title": "Functions",
+      "lecture": { "url": "https://cs61a.org/fa26/lectures/02-functions/", "title": "CS 61A Fall 2026 — Lecture 2: Functions" },
+      "practice": { "url": "https://cs61a.org/fa26/hw/hw01/", "title": "Homework 1: functions" },
+      "materials": {
+        "slidesUrl": "https://cs61a.org/fa26/assets/lec/02-Functions.pdf",
+        "readingUrl": "https://www.composingprograms.com/pages/12-elements-of-programming.html",
+        "externalUrl": "https://cs61a.org/fa26/lectures/02-functions/",
+        "practiceLabel": "HW 01: a, b, c",
+        "notes": {
+          "summary": "Functions are named abstractions: bind a name in the environment, define parameters, return a value. This lecture covers def statements, call expressions, the evaluation order (evaluate operator, then operands left to right, then apply), and pure vs non-pure functions like print. The environment model of names starts here and never stops growing.",
+          "concepts": ["def statements and return", "Call expression evaluation order", "Local names and formal parameters", "Pure vs non-pure functions", "None and the REPL", "Environment diagrams begin"],
+          "focus": "Draw the environment diagram for a two-function program by hand. Getting diagrams right now makes recursion diagrams trivial later."
+        }
+      }
+    },
+    {
+      "title": "Control",
+      "lecture": { "url": "https://cs61a.org/fa26/lectures/03-control/", "title": "CS 61A Fall 2026 — Lecture 3: Control" },
+      "practice": { "url": "https://cs61a.org/fa26/hw/hw02/", "title": "Homework 2" },
+      "materials": {
+        "slidesUrl": "https://cs61a.org/fa26/assets/lec/03-Control.pdf",
+        "readingUrl": "https://www.composingprograms.com/pages/13-defining-new-functions.html",
+        "externalUrl": "https://cs61a.org/fa26/lectures/03-control/",
+        "practiceLabel": "HW 02: control problems",
+        "notes": {
+          "summary": "Conditional statements and iteration: if/elif/else, boolean logic with and/or/not (short-circuiting), while loops, and the debugging discipline of print and assert. The lecture frames control as the shape of a program's execution and emphasizes writing loop invariants you can state in one sentence.",
+          "concepts": ["if / elif / else", "Boolean operators and short-circuit", "while loops and termination", "Iteration patterns (accumulation)", "assert and testing habits", "Tracing execution by hand"],
+          "focus": "Rewrite one while loop as a recursive function and back. Being bilingual between iteration and recursion is the core skill of the whole course."
+        }
+      }
+    },
+    {
+      "title": "Higher-Order Functions",
+      "lecture": { "url": "https://cs61a.org/fa26/lectures/04-higher-order-functions/", "title": "CS 61A Fall 2026 — Lecture 4: Higher-Order Functions" },
+      "practice": { "url": "https://cs61a.org/fa26/hw/hw02/", "title": "Homework 2: HOF problems" },
+      "materials": {
+        "slidesUrl": "https://cs61a.org/fa26/assets/lec/04-Higher-Order_Functions.pdf",
+        "readingUrl": "https://www.composingprograms.com/pages/14-designing-functions.html",
+        "externalUrl": "https://cs61a.org/fa26/lectures/04-higher-order-functions/",
+        "practiceLabel": "HW 02: higher-order problems",
+        "notes": {
+          "summary": "The first big idea of 61A: functions are values. They can be passed as arguments, returned from other functions, and nested inside closures that remember their enclosing names. Higher-order functions (map-like apply_twice, currying, and the famous lambdas) let you abstract patterns of computation, not just data.",
+          "concepts": ["Functions as first-class values", "Closures and lexical scope", "Lambda expressions", "Currying", "Functions that return functions", "The annuity of environment diagrams"],
+          "focus": "Write make_adder, then make_multiplier, then a general make_op without looking. Then write a one-line version of each with lambda."
+        }
+      }
+    },
+    {
+      "title": "Environments",
+      "lecture": { "url": "https://cs61a.org/fa26/lectures/05-environments/", "title": "CS 61A Fall 2026 — Lecture 5: Environments" },
+      "practice": { "url": "https://cs61a.org/fa26/hw/hw03/", "title": "Homework 3" },
+      "materials": {
+        "slidesUrl": "https://cs61a.org/fa26/assets/lec/05-Environments.pdf",
+        "readingUrl": "https://www.composingprograms.com/pages/16-higher-order-functions.html",
+        "externalUrl": "https://cs61a.org/fa26/lectures/05-environments/",
+        "practiceLabel": "HW 03: recursion preview",
+        "notes": {
+          "summary": "Environments are the precise model of names: global frame, local frames, and the parent chain that closures follow. This lecture walks nested def statements and shows exactly where every name is looked up. If you can predict lookup order (current frame, then parents), recursion's environment diagrams become mechanical.",
+          "concepts": ["Frames and the global frame", "Parent frames of nested functions", "Name lookup rules", "Nonlocal introduction", "Closures capturing environments", "Predicting before running"],
+          "focus": "For a function defined inside a function, list every name it can see when called. Then run the code and verify with a drawn diagram."
+        }
+      }
+    },
+    {
+      "title": "Recursion",
+      "lecture": { "url": "https://cs61a.org/fa26/lectures/09-recursion/", "title": "CS 61A Fall 2026 — Lecture 9: Recursion" },
+      "practice": { "url": "https://cs61a.org/fa26/hw/hw03/", "title": "Homework 3: recursion" },
+      "materials": {
+        "slidesUrl": "https://cs61a.org/fa26/assets/lec/09-Recursion.pdf",
+        "readingUrl": "https://www.composingprograms.com/pages/17-recursion.html",
+        "externalUrl": "https://cs61a.org/fa26/lectures/09-recursion/",
+        "practiceLabel": "HW 03 + Lab: recursion",
+        "notes": {
+          "summary": "Recursion solves a problem in terms of smaller copies of itself. The discipline: state the base case, state the recursive leap of faith, and never trace more than two levels. Environment diagrams for recursion show multiple frames of the same function — deep, but the rules are unchanged.",
+          "concepts": ["Base cases and recursive calls", "The leap of faith", "Recursive factorial and sum_digits", "Mutual recursion", "Recursion in environment diagrams", "Converting from iteration"],
+          "focus": "Implement is_prime recursively, then recursively reverse a string. If tempted to trace five levels, trace exactly two and trust the rest — that is the skill."
+        }
+      }
+    },
+    {
+      "title": "Tree Recursion",
+      "lecture": { "url": "https://cs61a.org/fa26/lectures/10-tree-recursion/", "title": "CS 61A Fall 2026 — Lecture 10: Tree Recursion" },
+      "practice": { "url": "https://cs61a.org/fa26/hw/hw04/", "title": "Homework 4" },
+      "materials": {
+        "slidesUrl": "https://cs61a.org/fa26/assets/lec/10-Tree_Recursion.pdf",
+        "readingUrl": "https://www.composingprograms.com/pages/17-recursion.html#section-1-7-3",
+        "externalUrl": "https://cs61a.org/fa26/lectures/10-tree-recursion/",
+        "practiceLabel": "HW 04: tree recursion",
+        "notes": {
+          "summary": "Tree recursion: a function that calls itself more than once. Fibonacci is the gateway, and counting the calls reveals exponential blowup — the motivation for memoization. This lecture also solves combinatorial counting problems (counting partitions) where tree recursion is the natural shape of the answer.",
+          "concepts": ["Multiple recursive calls", "Fibonacci's call tree", "Counting problems as tree recursion", "Memoization to kill exponential cost", "Reading recursion as a formula", "Tracing vs trusting"],
+          "focus": "Write a recursive count_partitions, then hand-count the calls for small inputs. Add memoization and feel the speedup — the same trick will return in 61B and every algorithms course."
+        }
+      }
+    },
+    {
+      "title": "Sequences and Containers",
+      "lecture": { "url": "https://cs61a.org/fa26/lectures/11-sequences/", "title": "CS 61A Fall 2026 — Lecture 11: Sequences" },
+      "practice": { "url": "https://cs61a.org/fa26/hw/hw04/", "title": "Homework 4: continued" },
+      "materials": {
+        "slidesUrl": "https://cs61a.org/fa26/assets/lec/11-Sequences.pdf",
+        "readingUrl": "https://www.composingprograms.com/pages/21-introduction.html",
+        "externalUrl": "https://cs61a.org/fa26/lectures/11-sequences/",
+        "practiceLabel": "HW 04 + lab: sequences",
+        "notes": {
+          "summary": "Sequences abstract ordered data: lists, tuples, ranges, strings, and 2D containers. The lecture covers slicing semantics (including negative indices), for over sequences, list comprehension, and the abstraction boundary — the same operations on any sequence type. The reading pairs with the containers lecture (12) for the full picture.",
+          "concepts": ["Lists, tuples, ranges", "Slicing and step", "Iteration patterns", "List comprehensions", "Nested/2D containers", "The sequence abstraction"],
+          "focus": "Predict slice results (x[1:4], x[::-1], x[::2]) before running. Then write one function that works on any sequence and say which operations needed the abstraction."
+        }
+      }
+    },
+    {
+      "title": "Objects and Mutable Data",
+      "lecture": { "url": "https://cs61a.org/fa26/lectures/13-objects/", "title": "CS 61A Fall 2026 — Lecture 13: Objects" },
+      "practice": { "url": "https://cs61a.org/fa26/hw/hw05/", "title": "Homework 5" },
+      "materials": {
+        "slidesUrl": "https://cs61a.org/fa26/assets/lec/13-Objects.pdf",
+        "readingUrl": "https://www.composingprograms.com/pages/22-data-abstraction.html",
+        "externalUrl": "https://cs61a.org/fa26/lectures/13-objects/",
+        "practiceLabel": "HW 05: OOP problems",
+        "notes": {
+          "summary": "Object-oriented programming arrives as a natural extension of data abstraction: classes bundle state (attributes) and behavior (methods) behind a constructor. You meet __init__, self, bound methods, and the class/object distinction. The mutable-state trade-off — shared data versus pure functions — is the design question the course keeps returning to.",
+          "concepts": ["Classes and instances", "__init__ and self", "Attribute lookup on objects and classes", "Bound methods", "Mutation and identity (is vs ==)", "Designing with state"],
+          "focus": "Implement a small class (Account) with deposit/withdraw guards. Then break it deliberately by aliasing two names to one object and observing shared mutation."
+        }
+      }
+    },
+    {
+      "title": "Trees and Data Abstraction",
+      "lecture": { "url": "https://cs61a.org/fa26/lectures/15-trees/", "title": "CS 61A Fall 2026 — Lecture 15: Trees" },
+      "practice": { "url": "https://cs61a.org/fa26/hw/hw05/", "title": "Homework 5: trees" },
+      "materials": {
+        "slidesUrl": "https://cs61a.org/fa26/assets/lec/15-Trees.pdf",
+        "readingUrl": "https://www.composingprograms.com/pages/23-sequences.html#section-2-3-4",
+        "externalUrl": "https://cs61a.org/fa26/lectures/15-trees/",
+        "practiceLabel": "HW 05 + lab: trees",
+        "notes": {
+          "summary": "Trees are the quintessential recursive data structure: a root and a list of subtrees, described entirely by a constructor (tree, label) and selectors (label, branches). The lecture covers recursive processing of trees — counting leaves, depth, pruning — while respecting the abstraction barrier. These skills map directly onto CS 61B's tree structures next course.",
+          "concepts": ["Constructor/selector discipline", "Recursive descent on trees", "Tree recursion on tree data", "Mapping and pruning trees", "Abstraction barriers", "Binary trees preview"],
+          "focus": "Write a function that counts tree leaves, then one that builds a tree of squares of the original labels. Both should read like two-line poems."
+        }
+      }
+    },
+    {
+      "title": "Mutation",
+      "lecture": { "url": "https://cs61a.org/fa26/lectures/18-mutation/", "title": "CS 61A Fall 2026 — Lecture 18: Mutation" },
+      "practice": { "url": "https://cs61a.org/fa26/hw/hw06/", "title": "Homework 6" },
+      "materials": {
+        "slidesUrl": "https://cs61a.org/fa26/assets/lec/18-Mutation.pdf",
+        "readingUrl": "https://www.composingprograms.com/pages/24-mutable-data.html",
+        "externalUrl": "https://cs61a.org/fa26/lectures/18-mutation/",
+        "practiceLabel": "HW 06: iterators and generators",
+        "notes": {
+          "summary": "Mutation week: mutable lists interacting with functions that hold state, nonlocal to rebind enclosing names, iterators as one-pass sequences, and generators that produce values lazily with yield. These tools — plus the mutation hazards that come with them — complete the Python core before the course pivots to Scheme and interpreters.",
+          "concepts": ["nonlocal and enclosing scope", "Stateful functions", "Iterators: next and iter", "Generators and yield", "Lazy vs eager evaluation", "Mutation during iteration hazards"],
+          "focus": "Write a generator that yields a running average. Then trigger the classic bug (mutating a list while looping) once on purpose to see it bite."
+        }
+      }
+    },
+    {
+      "title": "Midterm: Scheme and Interpreters Bridge",
+      "lecture": { "url": "https://cs61a.org/fa26/lectures/16-midterm-1-review/", "title": "CS 61A Fall 2026 — Midterm review" },
+      "practice": { "url": "https://cs61a.org/fa26/", "title": "Course hub: past exams" },
+      "materials": {
+        "slidesUrl": "https://cs61a.org/fa26/assets/lec/16-Midterm_2_Review.pdf",
+        "readingUrl": "https://www.composingprograms.com/pages/32-strings.html",
+        "externalUrl": "https://cs61a.org/fa26/",
+        "practiceLabel": "Midterm review + past exams",
+        "notes": {
+          "summary": "Checkpoint on the Python half: functions, environments, recursion, sequences, objects, and mutation. Work the current semester's review sheet and at least one past exam under time pressure. The second half of 61A — Scheme, SQL, and building an interpreter — assumes all of this is fluent.",
+          "concepts": ["Environment diagram exam questions", "Tree recursion fluency", "Past-exam pacing", "Scheme preview (reading)", "Self-diagnosis of weak units"],
+          "focus": "Grade your own past exam against the solutions and write down the rule you missed for each wrong answer. The rule, not the answer, is what transfers."
+        }
+      }
+    },
+    {
+      "title": "Final: Scheme, Interpreters, and Programs as Data",
+      "lecture": { "url": "https://cs61a.org/fa26/", "title": "CS 61A Fall 2026 — course hub (final topics)" },
+      "practice": { "url": "https://www.composingprograms.com/pages/35-exceptional-control-flow.html", "title": "Reading: interpreters chapter" },
+      "materials": {
+        "readingUrl": "https://www.composingprograms.com/pages/34-interpreters-for-languages-with-computation.html",
+        "externalUrl": "https://cs61a.org/fa26/",
+        "practiceLabel": "Scheme practice + interpreter project reading",
+        "notes": {
+          "summary": "The course finale is programs that read programs: you study a Scheme subset and how the 61A interpreter project evaluates it — parse, eval/apply, environments. Read the interpreters chapter of Composing Programs closely; then the ideas loop back to lecture 1. Abstraction, all the way down. This is also your bridge to CSE341 later in the path.",
+          "concepts": ["Scheme fundamentals", "Eval/apply core", "Programs as data (quote)", "Tail calls", "Interpreters as the course's thesis", "Language = abstraction stack"],
+          "focus": "Write one Scheme function (factorial) by hand. Then read the interpreter chapter and find YOUR earlier Python concepts inside it: environments, frames, closures — the whole course in one program."
+        }
+      }
+    }
+  ]
+}

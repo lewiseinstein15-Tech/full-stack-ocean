@@ -222,6 +222,18 @@ const Study = () => {
                 MIT OCW
               </a>
             )}
+            {lesson.practiceLink && (
+              <a
+                href={lesson.practiceLink.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-gold !py-2.5 !px-4 text-xs"
+                title={lesson.practiceLink.title || 'Open the practice problems'}
+              >
+                <FiPlay className="w-3.5 h-3.5" />
+                {lesson.practiceLink.title || 'Problem Set'}
+              </a>
+            )}
           </div>
         </div>
       </motion.div>
@@ -237,9 +249,9 @@ const Study = () => {
             This unit opens on the official course hub
           </h3>
           <p className="text-espresso-600 text-sm max-w-xl mx-auto mb-5">
-            Embedded video and PDF material is fully wired for Term 1 right now. Later terms point
-            to the official course pages — watch and read there, then come back and mark the lesson
-            complete to keep your streak.
+            This lesson's material lives on the official course hub (2026 editions where
+            available). Watch and read there, then come back and mark the lesson complete to keep
+            your streak.
           </p>
           <div className="flex flex-wrap justify-center gap-2.5">
             {mats.externalUrl && (
@@ -250,6 +262,11 @@ const Study = () => {
             {mats.readingUrl && (
               <a href={mats.readingUrl} target="_blank" rel="noopener noreferrer" className="btn btn-cream !py-2 !px-5 text-xs">
                 <FiBookOpen className="w-3.5 h-3.5" /> Textbook / notes
+              </a>
+            )}
+            {lesson.practiceLink && (
+              <a href={lesson.practiceLink.url} target="_blank" rel="noopener noreferrer" className="btn btn-gold !py-2 !px-5 text-xs">
+                <FiPlay className="w-3.5 h-3.5" /> {lesson.practiceLink.title || 'Problem Set'}
               </a>
             )}
           </div>

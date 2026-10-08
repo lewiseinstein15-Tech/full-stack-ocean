@@ -1,0 +1,369 @@
+{
+  "course": "6.036",
+  "term": 7,
+  "lessons": [
+    {
+      "title": "Introduction to Machine Learning",
+      "lecture": {
+        "url": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/course/",
+        "title": "MIT 6.036 (OLL) \u2014 Week 1: Introduction"
+      },
+      "practice": {
+        "url": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/course/",
+        "title": "OLL 6.036 interactive exercises"
+      },
+      "materials": {
+        "readingUrl": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/course/",
+        "externalUrl": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/about",
+        "practiceLabel": "Week 1 exercises: ML framing",
+        "notes": {
+          "summary": "Machine learning as function fitting from data: inputs, labels, loss, and the search for parameters. The Open Learning Library edition of MIT's 6.036 runs as a complete interactive course \u2014 reading, videos, and auto-graded exercises \u2014 which is why it's this curriculum's spine. This week builds the vocabulary every later lesson uses.",
+          "concepts": [
+            "Data, features, labels",
+            "Loss functions",
+            "Training vs testing",
+            "Regression vs classification",
+            "The ML workflow",
+            "Overfitting (preview)"
+          ],
+          "focus": "Write the 'ingredients' of an ML problem (data, hypothesis class, loss, optimizer) for spam classification. Framing precisely is half the job in practice."
+        }
+      }
+    },
+    {
+      "title": "Linear Classifiers and Vectors",
+      "lecture": {
+        "url": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/course/",
+        "title": "MIT 6.036 \u2014 Linear classifiers"
+      },
+      "practice": {
+        "url": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/course/",
+        "title": "OLL exercises: geometry"
+      },
+      "materials": {
+        "readingUrl": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/course/",
+        "externalUrl": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/about",
+        "practiceLabel": "Linear classifier exercises",
+        "notes": {
+          "summary": "The first model: a hyperplane separates classes. In 2D that's a line with weight vector theta and offset theta_0; signed distance decides class. Your 18.06 linear algebra returns immediately \u2014 dot products, norms, projections \u2014 the geometry of classification IS Strang's course applied.",
+          "concepts": [
+            "Hyperplane separators",
+            "Signed distance to boundary",
+            "theta and theta_0",
+            "Dot products as similarity",
+            "Normal vectors",
+            "2D intuition to n-D"
+          ],
+          "focus": "For a given (theta, theta_0), classify 5 points by hand AND compute their margins. Geometry first \u2014 formulas follow."
+        }
+      }
+    },
+    {
+      "title": "Gradient Descent and Loss Optimization",
+      "lecture": {
+        "url": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/course/",
+        "title": "MIT 6.036 \u2014 Gradient descent"
+      },
+      "practice": {
+        "url": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/course/",
+        "title": "OLL exercises: optimization"
+      },
+      "materials": {
+        "readingUrl": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/course/",
+        "externalUrl": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/about",
+        "practiceLabel": "Gradient descent exercises",
+        "notes": {
+          "summary": "How machines learn: define a smooth loss, compute its gradient, step downhill. Batch, mini-batch, and stochastic variants trade compute for noise; learning rate is the critical hyperparameter. This is the engine under every deep network you'll ever train \u2014 and every LLM you'll ever use.",
+          "concepts": [
+            "Gradients as directions",
+            "Learning rate selection",
+            "SGD vs batch descent",
+            "Convergence intuition",
+            "Loss surfaces",
+            "Numerical gradient checking"
+          ],
+          "focus": "Implement gradient descent for squared loss on 2 parameters and plot the trajectory on a contour plot. Seeing the zigzag cures learning-rate confusion."
+        }
+      }
+    },
+    {
+      "title": "Regression: Least Squares",
+      "lecture": {
+        "url": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/course/",
+        "title": "MIT 6.036 \u2014 Regression"
+      },
+      "practice": {
+        "url": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/course/",
+        "title": "OLL regression exercises"
+      },
+      "materials": {
+        "readingUrl": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/course/",
+        "externalUrl": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/about",
+        "practiceLabel": "Regression exercises",
+        "notes": {
+          "summary": "Continuous outputs: squared loss, the normal equations, and the closed-form solution (X^T X)^-1 X^T y \u2014 pure 18.06. Polynomial features add expressiveness; regularization (ridge) tames it. You also meet the bias-variance trade-off formally: capacity vs data.",
+          "concepts": [
+            "Squared loss",
+            "Normal equations derivation",
+            "Feature maps (polynomials)",
+            "Ridge regularization",
+            "Bias-variance decomposition",
+            "Overfitting, concretely"
+          ],
+          "focus": "Fit a degree-9 polynomial to 10 noisy points, once plain and once ridge. Plot both \u2014 overfitting stops being a word and becomes a picture."
+        }
+      }
+    },
+    {
+      "title": "Classification: Logistic Regression and SVM",
+      "lecture": {
+        "url": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/course/",
+        "title": "MIT 6.036 \u2014 Classification & margins"
+      },
+      "practice": {
+        "url": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/course/",
+        "title": "OLL classification exercises"
+      },
+      "materials": {
+        "readingUrl": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/course/",
+        "externalUrl": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/about",
+        "practiceLabel": "Logistic + SVM exercises",
+        "notes": {
+          "summary": "Probabilistic and margin-based classification: logistic regression squashes scores to probabilities and optimizes log loss; the perceptron and hinge-loss SVM maximize margins. All three are the same linear machine with different losses \u2014 a unification that makes 'which classifier' a design decision, not folklore.",
+          "concepts": [
+            "Logistic function and log loss",
+            "Maximum likelihood view",
+            "Perceptron updates",
+            "Hinge loss and margins",
+            "Loss comparison",
+            "Probability calibration"
+          ],
+          "focus": "Plot all three losses (squared, log, hinge) on one axis. One graph explains why SVMs care about the margin and logistic regression doesn't."
+        }
+      }
+    },
+    {
+      "title": "Neural Networks and Backpropagation",
+      "lecture": {
+        "url": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/course/",
+        "title": "MIT 6.036 \u2014 Neural networks"
+      },
+      "practice": {
+        "url": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/course/",
+        "title": "OLL neural network exercises"
+      },
+      "materials": {
+        "readingUrl": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/course/",
+        "externalUrl": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/about",
+        "practiceLabel": "Backprop exercises",
+        "notes": {
+          "summary": "Nonlinear function approximation: layers of affine transforms with nonlinearities, trained by backpropagation \u2014 the chain rule organized as reverse-mode differentiation. You implement a small network from scratch here, which permanently demystifies the frameworks (PyTorch is this, industrialized).",
+          "concepts": [
+            "Activations (ReLU, sigmoid)",
+            "Forward pass composition",
+            "Chain rule as backprop",
+            "Computational graphs",
+            "Gradient shapes",
+            "From scratch to framework"
+          ],
+          "focus": "Hand-compute backprop for a 2-layer network on ONE example with numbers. The arithmetic is tedious and the understanding is permanent."
+        }
+      }
+    },
+    {
+      "title": "Recurrent Networks and Sequence Models",
+      "lecture": {
+        "url": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/course/",
+        "title": "MIT 6.036 \u2014 RNNs"
+      },
+      "practice": {
+        "url": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/course/",
+        "title": "OLL sequence exercises"
+      },
+      "materials": {
+        "readingUrl": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/course/",
+        "externalUrl": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/about",
+        "practiceLabel": "RNN exercises",
+        "notes": {
+          "summary": "Sequences: RNNs carry hidden state across time steps, trained by backpropagation through time. The reading adds the modern arc \u2014 attention and transformers as the sequence model that scaled to LLMs. Understanding the RNN baseline makes attention's advantages precise rather than fashionable.",
+          "concepts": [
+            "Hidden state recurrence",
+            "BPTT unrolling",
+            "Vanishing gradients",
+            "Sequence tasks",
+            "Attention (conceptual)",
+            "Transformers as the modern baseline"
+          ],
+          "focus": "Unroll a 4-step RNN by hand and count the gradient paths. Seeing the path lengths makes the vanishing-gradient problem \u2014 and attention's fix \u2014 obvious."
+        }
+      }
+    },
+    {
+      "title": "Representation: Trees, kNN, and Clustering",
+      "lecture": {
+        "url": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/course/",
+        "title": "MIT 6.036 \u2014 Trees & clustering"
+      },
+      "practice": {
+        "url": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/course/",
+        "title": "OLL clustering exercises"
+      },
+      "materials": {
+        "readingUrl": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/course/",
+        "externalUrl": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/about",
+        "practiceLabel": "Trees + k-means exercises",
+        "notes": {
+          "summary": "Beyond linear and neural: decision trees split feature space (interpretable!), kNN memorizes, and k-means clusters without labels (unsupervised). Feature engineering \u2014 the human work of representation \u2014 matters more for these models than architecture. This is classical ML: still the right first tool for tabular data.",
+          "concepts": [
+            "Decision tree induction",
+            "kNN and the curse of dimensionality",
+            "k-means algorithm",
+            "Unsupervised vs supervised",
+            "Feature engineering",
+            "When classical beats deep"
+          ],
+          "focus": "Run k-means by hand on 8 points for 2 clusters, one full iteration. The geometric dance of centroids is the algorithm \u2014 nothing more."
+        }
+      }
+    },
+    {
+      "title": "Generalization: Regularization and Validation",
+      "lecture": {
+        "url": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/course/",
+        "title": "MIT 6.036 \u2014 Generalization"
+      },
+      "practice": {
+        "url": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/course/",
+        "title": "OLL validation exercises"
+      },
+      "materials": {
+        "readingUrl": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/course/",
+        "externalUrl": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/about",
+        "practiceLabel": "Validation exercises",
+        "notes": {
+          "summary": "The discipline that separates ML from curve fitting: train/validation/test splits, cross-validation, early stopping, and the model-selection protocol. Data leakage \u2014 the silent killer of real projects \u2014 gets explicit treatment. Every Kaggle disaster and production ML failure traces here.",
+          "concepts": [
+            "Train/val/test discipline",
+            "Cross-validation",
+            "Regularization strength selection",
+            "Early stopping",
+            "Data leakage patterns",
+            "Model selection protocols"
+          ],
+          "focus": "Design the evaluation protocol for a time-series prediction task. The wrong split (random instead of temporal) leaks \u2014 find why before reading on."
+        }
+      }
+    },
+    {
+      "title": "Deep Learning Practice and Modern Architectures",
+      "lecture": {
+        "url": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/course/",
+        "title": "MIT 6.036 \u2014 Deep learning week"
+      },
+      "practice": {
+        "url": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/course/",
+        "title": "Final OLL exercises"
+      },
+      "materials": {
+        "readingUrl": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/course/",
+        "externalUrl": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/about",
+        "practiceLabel": "Deep learning exercises",
+        "notes": {
+          "summary": "The modern layer: convolutions for spatial structure, embeddings for categorical data, and the transformer architecture behind the current AI wave. Also the practical craft \u2014 batch norm, dropout, optimizers (Adam) \u2014 that makes deep nets trainable at all. This connects your 6.036 foundation to the systems in the news.",
+          "concepts": [
+            "Convolutions and parameter sharing",
+            "Embeddings",
+            "Attention and transformers (architecture)",
+            "Regularization in practice (dropout, batchnorm)",
+            "Adam optimizer",
+            "Scaling behavior"
+          ],
+          "focus": "For a 28x28 image task, compare parameters: fully-connected layer vs conv 3x3. The 50x reduction is why vision went convolutional first."
+        }
+      }
+    },
+    {
+      "title": "Dimensionality Reduction: PCA",
+      "lecture": {
+        "url": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/course/",
+        "title": "MIT 6.036 - PCA & eigenfaces"
+      },
+      "practice": {
+        "url": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/course/",
+        "title": "OLL PCA exercises"
+      },
+      "materials": {
+        "readingUrl": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/course/",
+        "externalUrl": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/about",
+        "practiceLabel": "PCA exercises",
+        "notes": {
+          "summary": "High-dimensional data often hides in a low-dimensional subspace: PCA finds the directions of maximum variance via the SVD \u2014 your 18.06 training returning as a working tool. Eigenfaces (projecting face images onto principal components) is the classic demo, and dimensionality reduction becomes the bridge between raw features and every model you've trained.",
+          "concepts": [
+            "Variance-maximizing directions",
+            "SVD and principal components",
+            "Eigenfaces demo",
+            "Reconstruction from top-k components",
+            "Whitening (concept)",
+            "When PCA helps and hurts"
+          ],
+          "focus": "Compute PCA of a small 2D dataset by hand (center, covariance, eigenvectors). Then project and reconstruct \u2014 the residual IS the information you threw away."
+        }
+      }
+    },
+    {
+      "title": "Midterm: Models and Losses Check",
+      "lecture": {
+        "url": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/course/",
+        "title": "OLL 6.036 \u2014 review"
+      },
+      "practice": {
+        "url": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/course/",
+        "title": "Review exercises"
+      },
+      "materials": {
+        "readingUrl": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/course/",
+        "externalUrl": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/about",
+        "practiceLabel": "Midterm: weeks 1-6 review",
+        "notes": {
+          "summary": "Checkpoint across the classical core: geometry, gradient descent, regression, classifiers, and neural nets. Re-derive the gradient of log loss and the normal equations from a blank page \u2014 the derivations, memorized, are the exam. CS188 next door assumes this math is fluent.",
+          "concepts": [
+            "Loss derivations from memory",
+            "Gradient computations",
+            "Geometric reasoning",
+            "Normal equations recall",
+            "Model trade-off arguments"
+          ],
+          "focus": "Write the four losses (squared, log, hinge, perceptron) and their gradients side by side. One table, most of the course."
+        }
+      }
+    },
+    {
+      "title": "Final: ML Systems and Ethics",
+      "lecture": {
+        "url": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/course/",
+        "title": "MIT 6.036 \u2014 synthesis"
+      },
+      "practice": {
+        "url": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/course/",
+        "title": "Final exercises"
+      },
+      "materials": {
+        "readingUrl": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/course/",
+        "externalUrl": "https://openlearninglibrary.mit.edu/courses/course-v1:MITx+6.036+1T2019/about",
+        "practiceLabel": "Final: synthesis + project",
+        "notes": {
+          "summary": "The close: end-to-end ML projects, fairness and bias in learned systems, and the full-course map from linear separators to transformers. Your artifact: a small end-to-end project (data cleaning through evaluation) in a notebook \u2014 the exact portfolio piece employers and CS188's ML lectures assume.",
+          "concepts": [
+            "The end-to-end pipeline",
+            "Bias and fairness metrics",
+            "Reproducibility (seeds, data cards)",
+            "Course map: losses to layers",
+            "Where 6.036 ends and CS188 begins",
+            "Responsible deployment"
+          ],
+          "focus": "Ship that notebook project: clean data, trained model, honest validation, one-paragraph limitations. Honest ML is the whole discipline in miniature."
+        }
+      }
+    }
+  ]
+}

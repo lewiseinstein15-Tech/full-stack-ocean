@@ -1,0 +1,369 @@
+{
+  "course": "CS142",
+  "term": 8,
+  "lessons": [
+    {
+      "title": "Web Applications: JavaScript and the DOM",
+      "lecture": {
+        "url": "https://web.stanford.edu/class/cs142/",
+        "title": "Stanford CS142 \u2014 Course overview"
+      },
+      "practice": {
+        "url": "https://web.stanford.edu/class/cs142/",
+        "title": "Course hub: projects"
+      },
+      "materials": {
+        "readingUrl": "https://web.stanford.edu/class/cs142/",
+        "externalUrl": "https://web.stanford.edu/class/cs142/",
+        "practiceLabel": "Project 1: JavaScript exercises",
+        "notes": {
+          "summary": "CS142 is the payoff course: build real web applications with JavaScript, React, Node, and databases \u2014 the full architecture you've been using all along in Full Stack Ocean. This first unit is deep JavaScript: closures, prototypes, async, and the DOM. Your CS50 week 8 was the preview; this is the professional version.",
+          "concepts": [
+            "JavaScript the language (deep dive)",
+            "Closures and this",
+            "Async: promises, async/await",
+            "DOM manipulation",
+            "Events and handlers",
+            "Browser execution model"
+          ],
+          "focus": "Rewrite one CS50 week-8 exercise with modern JS (arrow functions, modules, fetch). Feeling the language's real expressiveness sets the term's tone."
+        }
+      }
+    },
+    {
+      "title": "React: Components and State",
+      "lecture": {
+        "url": "https://web.stanford.edu/class/cs142/",
+        "title": "CS142 \u2014 React"
+      },
+      "practice": {
+        "url": "https://web.stanford.edu/class/cs142/",
+        "title": "Project 2: React app"
+      },
+      "materials": {
+        "readingUrl": "https://web.stanford.edu/class/cs142/",
+        "externalUrl": "https://react.dev/learn",
+        "practiceLabel": "Project 2: build in React",
+        "notes": {
+          "summary": "Component architecture: props down, events up, state as the minimal mutable core, and the render cycle as a function of state. You study React's model (hooks, keys, lifting state) and the design judgment of decomposition. Full Stack Ocean's own frontend is React \u2014 study its source as a living lab.",
+          "concepts": [
+            "Component decomposition",
+            "useState and immutability",
+            "Props vs state boundaries",
+            "Keys and lists",
+            "Effects and lifecycle",
+            "Lifting state up"
+          ],
+          "focus": "Read Full Stack Ocean's Study.js (or Jobs.js) and diagram its component tree: state ownership, props flow, and event direction. A real app as a case study."
+        }
+      }
+    },
+    {
+      "title": "Node.js and Server Architecture",
+      "lecture": {
+        "url": "https://web.stanford.edu/class/cs142/",
+        "title": "CS142 \u2014 Node and servers"
+      },
+      "practice": {
+        "url": "https://web.stanford.edu/class/cs142/",
+        "title": "Project 3: Node server"
+      },
+      "materials": {
+        "readingUrl": "https://web.stanford.edu/class/cs142/",
+        "externalUrl": "https://nodejs.org/en/learn",
+        "practiceLabel": "Project 3: server work",
+        "notes": {
+          "summary": "JavaScript on the server: Node's event loop (single-threaded async I/O \u2014 your 6.829 queueing intuition applies), Express-style routing, middleware as function composition, and REST API design. This is the exact stack of this app's backend (Express + routes + middleware) \u2014 you can read the production code you use.",
+          "concepts": [
+            "The event loop",
+            "Async I/O and callbacks to promises",
+            "Routing and middleware",
+            "REST resource design",
+            "Error handling middleware",
+            "Project structure conventions"
+          ],
+          "focus": "Read this app's server.js and one route file (jobs.js). Every concept in this lesson is IN THERE \u2014 recognize the patterns in production code."
+        }
+      }
+    },
+    {
+      "title": "Databases in Web Apps",
+      "lecture": {
+        "url": "https://web.stanford.edu/class/cs142/",
+        "title": "CS142 \u2014 Web databases"
+      },
+      "practice": {
+        "url": "https://web.stanford.edu/class/cs142/",
+        "title": "Project: database layer"
+      },
+      "materials": {
+        "readingUrl": "https://web.stanford.edu/class/cs142/",
+        "externalUrl": "https://web.stanford.edu/class/cs142/",
+        "practiceLabel": "Project: DB integration",
+        "notes": {
+          "summary": "6.830's theory meets the web: schemas for application data, ORMs vs raw queries, transactions around multi-step operations, and indexes for query performance. Connection pooling and N+1 query pitfalls \u2014 the practical layer your database course deliberately left as an exercise.",
+          "concepts": [
+            "Application schema design",
+            "ORM trade-offs",
+            "Migrations",
+            "Transactions in request handlers",
+            "N+1 problems",
+            "Indexing for real queries"
+          ],
+          "focus": "Design the schema for an app you'd like to build, then write the three most important queries by hand. Own the SQL even if an ORM writes it."
+        }
+      }
+    },
+    {
+      "title": "Authentication, Sessions, and Security",
+      "lecture": {
+        "url": "https://web.stanford.edu/class/cs142/",
+        "title": "CS142 \u2014 Sessions and auth"
+      },
+      "practice": {
+        "url": "https://web.stanford.edu/class/cs142/",
+        "title": "Project: auth flows"
+      },
+      "materials": {
+        "readingUrl": "https://web.stanford.edu/class/cs142/",
+        "externalUrl": "https://web.stanford.edu/class/cs142/",
+        "practiceLabel": "Project: implement login",
+        "notes": {
+          "summary": "The web's identity layer: password storage (hash and salt \u2014 never plaintext), session cookies vs JWTs, OAuth delegation, and the CSRF/XSS defenses from 6.858 applied as CODE. Implementing login end to end (including the failure paths) is the assignment \u2014 and the most security-relevant code you'll ever ship.",
+          "concepts": [
+            "Password hashing (bcrypt/argon2)",
+            "Session management",
+            "JWT structure and trade-offs",
+            "OAuth flows",
+            "CSRF/XSS defenses in practice",
+            "Secure defaults"
+          ],
+          "focus": "Audit the login flow of an app you built against 6.858's checklist. Finding one real hardening gap (timing, token entropy, cookie flags) makes the audit real."
+        }
+      }
+    },
+    {
+      "title": "Asynchronous Clients: fetch, Promises, and State",
+      "lecture": {
+        "url": "https://web.stanford.edu/class/cs142/",
+        "title": "CS142 \u2014 Async web clients"
+      },
+      "practice": {
+        "url": "https://web.stanford.edu/class/cs142/",
+        "title": "Project: API integration"
+      },
+      "materials": {
+        "readingUrl": "https://web.stanford.edu/class/cs142/",
+        "externalUrl": "https://web.stanford.edu/class/cs142/",
+        "practiceLabel": "Project: client-server integration",
+        "notes": {
+          "summary": "The network in the UI: fetching from APIs, loading/error states as first-class UX, optimistic updates, and race conditions when requests overlap (stale responses arriving late). SWR/React-Query patterns formalize caching and revalidation. Every 'the app feels fast' trick is here.",
+          "concepts": [
+            "Fetch and promise composition",
+            "Loading and error states",
+            "Optimistic UI",
+            "Request races and cancellation",
+            "Client-side caching",
+            "Debounce and throttle"
+          ],
+          "focus": "Break your app deliberately: fire two overlapping requests and render the stale one. Then fix it with cancellation \u2014 race bugs you've SEEN are race bugs you'll never ship."
+        }
+      }
+    },
+    {
+      "title": "Testing Web Applications",
+      "lecture": {
+        "url": "https://web.stanford.edu/class/cs142/",
+        "title": "CS142 \u2014 Testing"
+      },
+      "practice": {
+        "url": "https://web.stanford.edu/class/cs142/",
+        "title": "Project: test suite"
+      },
+      "materials": {
+        "readingUrl": "https://web.stanford.edu/class/cs142/",
+        "externalUrl": "https://web.stanford.edu/class/cs142/",
+        "practiceLabel": "Project: write the tests",
+        "notes": {
+          "summary": "Quality at web scale: unit tests for logic, integration tests for API routes, and end-to-end browser tests (Playwright \u2014 the same tool family this study app was verified with). The testing pyramid, fixture design, and making async code testable. Your 61A/61B testing discipline scales up unchanged.",
+          "concepts": [
+            "Test pyramid economics",
+            "Unit vs integration vs E2E",
+            "Fixtures and factories",
+            "Mocking network boundaries",
+            "CI discipline",
+            "Testing async code"
+          ],
+          "focus": "Write a Playwright test that logs into a real app and asserts one behavior. That single E2E test guards more regressions than twenty unit tests."
+        }
+      }
+    },
+    {
+      "title": "Scaling: Caching, CDNs, and Load",
+      "lecture": {
+        "url": "https://web.stanford.edu/class/cs142/",
+        "title": "CS142 \u2014 Scaling"
+      },
+      "practice": {
+        "url": "https://web.stanford.edu/class/cs142/",
+        "title": "Scaling exercises"
+      },
+      "materials": {
+        "readingUrl": "https://web.stanford.edu/class/cs142/",
+        "externalUrl": "https://web.stanford.edu/class/cs142/",
+        "practiceLabel": "Capacity planning exercises",
+        "notes": {
+          "summary": "Architecture under load: the request path through CDN, load balancer, app tier, and database; caching at every layer (HTTP, Redis, memoization); horizontal scaling and statelessness. Your 6.829 (CDNs, queueing) and 6.830 (indexes, replication) courses supply the theory \u2014 this lecture deploys it.",
+          "concepts": [
+            "The production request path",
+            "Stateless app tiers",
+            "Cache keys and invalidation",
+            "CDN behavior",
+            "Load balancing strategies",
+            "Capacity back-of-envelope math"
+          ],
+          "focus": "Estimate: requests/sec for 1M daily users, then the machines needed at given latency budgets. The arithmetic IS capacity planning."
+        }
+      }
+    },
+    {
+      "title": "Deployment and Operations",
+      "lecture": {
+        "url": "https://web.stanford.edu/class/cs142/",
+        "title": "CS142 \u2014 Deployment"
+      },
+      "practice": {
+        "url": "https://web.stanford.edu/class/cs142/",
+        "title": "Project: deployment"
+      },
+      "materials": {
+        "readingUrl": "https://web.stanford.edu/class/cs142/",
+        "externalUrl": "https://web.stanford.edu/class/cs142/",
+        "practiceLabel": "Project: ship to production",
+        "notes": {
+          "summary": "Shipping as a discipline: build pipelines, environment configuration (the 12-factor rules), containerization basics, and observability \u2014 logs, metrics, and error budgets. Full Stack Ocean deploys on Render with exactly this pipeline; studying its deploys makes the abstraction concrete.",
+          "concepts": [
+            "Build and deploy pipelines",
+            "Config via environment",
+            "Container basics",
+            "Zero-downtime deploys",
+            "Logging and monitoring",
+            "Error budgets and rollback"
+          ],
+          "focus": "Write the deploy checklist for a web app: build, migrate, health-check, release, rollback trigger. The checklist is the difference between deploying and praying."
+        }
+      }
+    },
+    {
+      "title": "Modern Web: TypeScript and the Ecosystem",
+      "lecture": {
+        "url": "https://web.stanford.edu/class/cs142/",
+        "title": "CS142 \u2014 Modern toolchain"
+      },
+      "practice": {
+        "url": "https://web.stanford.edu/class/cs142/",
+        "title": "Project: tooling work"
+      },
+      "materials": {
+        "readingUrl": "https://web.stanford.edu/class/cs142/",
+        "externalUrl": "https://www.typescriptlang.org/docs/handbook/intro.html",
+        "practiceLabel": "Project: TypeScript conversion",
+        "notes": {
+          "summary": "The professional layer: TypeScript's types for large codebases (your 6.100L static-typing lesson, webbed), bundlers and the module graph, SSR vs SPA trade-offs, and the framework ecosystem's design space. Where CS50's Flask ended, this lecture makes you fluent in how real teams build.",
+          "concepts": [
+            "TypeScript for web code",
+            "Bundling and tree-shaking",
+            "SSR vs SPA",
+            "Framework trade-offs",
+            "Monorepos and packages",
+            "The web platform's direction"
+          ],
+          "focus": "Convert one JS module to TypeScript and let the types find one latent bug. That moment justifies the entire type system in production."
+        }
+      }
+    },
+    {
+      "title": "CSS, Layout, and Responsive Design",
+      "lecture": {
+        "url": "https://web.stanford.edu/class/cs142/",
+        "title": "CS142 - CSS and layout"
+      },
+      "practice": {
+        "url": "https://web.stanford.edu/class/cs142/",
+        "title": "Project: layout work"
+      },
+      "materials": {
+        "readingUrl": "https://web.stanford.edu/class/cs142/",
+        "externalUrl": "https://web.stanford.edu/class/cs142/",
+        "practiceLabel": "Project: responsive layout",
+        "notes": {
+          "summary": "The presentation layer done properly: the box model, flexbox and grid as layout systems, media queries and responsive breakpoints, and accessibility as a design constraint rather than an afterthought. Full Stack Ocean's espresso-and-champagne design system (glass, shadows, type scale) is a worked example \u2014 inspect it while you study.",
+          "concepts": [
+            "Box model and specificity (again)",
+            "Flexbox axes",
+            "Grid template areas",
+            "Responsive breakpoints",
+            "Design tokens/systems",
+            "Accessibility semantics"
+          ],
+          "focus": "Recreate a layout from a screenshot using grid only, then flexbox only. Fluency in both is what makes UI work fast \u2014 and fun."
+        }
+      }
+    },
+    {
+      "title": "Midterm: Full-Stack Check",
+      "lecture": {
+        "url": "https://web.stanford.edu/class/cs142/",
+        "title": "CS142 \u2014 review"
+      },
+      "practice": {
+        "url": "https://web.stanford.edu/class/cs142/",
+        "title": "Project progress review"
+      },
+      "materials": {
+        "readingUrl": "https://web.stanford.edu/class/cs142/",
+        "externalUrl": "https://web.stanford.edu/class/cs142/",
+        "practiceLabel": "Midterm: projects 1-3 integration",
+        "notes": {
+          "summary": "Checkpoint: your React client, Node server, and database working as one system with real auth. The midterm for a builder's course is the integration itself \u2014 every layer exercised end to end. Test every path a user can take, then fix what you find.",
+          "concepts": [
+            "End-to-end integration",
+            "Auth flow verification",
+            "Error path testing",
+            "Performance smoke check",
+            "Code review pass"
+          ],
+          "focus": "Have someone else USE your app for ten minutes while you watch silently. Every hesitation they make is your real midterm feedback."
+        }
+      }
+    },
+    {
+      "title": "Final: Ship a Complete Application",
+      "lecture": {
+        "url": "https://web.stanford.edu/class/cs142/",
+        "title": "CS142 \u2014 final project"
+      },
+      "practice": {
+        "url": "https://web.stanford.edu/class/cs142/",
+        "title": "Final project: build and present"
+      },
+      "materials": {
+        "readingUrl": "https://web.stanford.edu/class/cs142/",
+        "externalUrl": "https://web.stanford.edu/class/cs142/",
+        "practiceLabel": "Final: complete app + demo",
+        "notes": {
+          "summary": "The final: a deployed, tested, documented application of your own design \u2014 the course's answer to 'can you build software people can use?' Every course in the path contributed: languages, algorithms, systems, databases, security, and now delivery. This artifact (with the capstone project) becomes your professional portfolio's centerpiece.",
+          "concepts": [
+            "Project scoping (small, polished)",
+            "Production deployment",
+            "Documentation and README craft",
+            "Demo and narrative",
+            "Portfolio presentation",
+            "The full-stack identity"
+          ],
+          "focus": "Polish one feature until it delights instead of shipping five that merely work. Demo day rewards focus \u2014 and so does every code review for the rest of your career."
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,369 @@
+{
+  "course": "CAPSTONE",
+  "term": 8,
+  "lessons": [
+    {
+      "title": "Choosing Your Capstone",
+      "lecture": {
+        "url": "https://github.com/ossu/computer-science",
+        "title": "OSSU \u2014 capstone guidance"
+      },
+      "practice": {
+        "url": "https://github.com/ossu/computer-science/blob/master/README.md",
+        "title": "OSSU capstone requirements"
+      },
+      "materials": {
+        "readingUrl": "https://github.com/ossu/computer-science",
+        "externalUrl": "https://opensource.guide/",
+        "practiceLabel": "Write the project one-pager",
+        "notes": {
+          "summary": "The capstone is where the path proves itself: you scope a project big enough to matter and small enough to finish, then build it with everything you've learned. OSSU's guidance: choose a problem you personally care about, define done precisely, and prefer shipping a working small thing over a stalled grand one.",
+          "concepts": [
+            "Project scoping",
+            "Definition of done",
+            "Problem selection criteria",
+            "Portfolio goals",
+            "Timeline planning",
+            "Solo vs contribution"
+          ],
+          "focus": "Write the one-pager: problem, user, core feature, cut list, and 'done' test. If 'done' isn't testable, the project isn't scoped."
+        }
+      }
+    },
+    {
+      "title": "Design Doc and Architecture",
+      "lecture": {
+        "url": "https://opensource.guide/",
+        "title": "Open Source Guides \u2014 planning"
+      },
+      "practice": {
+        "url": "https://github.com/ossu/computer-science",
+        "title": "OSSU \u2014 requirements"
+      },
+      "materials": {
+        "readingUrl": "https://opensource.guide/starting-a-project/",
+        "externalUrl": "https://github.com/ossu/computer-science",
+        "practiceLabel": "Write the design doc",
+        "notes": {
+          "summary": "The design doc is a professional's superpower: architecture choices with rationale, the data model, the component map, and the risks \u2014 all before code. Your courses supply the checklists: security (6.858 threat model), data (6.830 schema), scaling (6.829/CS142), and the language choice by evidence, not fashion.",
+          "concepts": [
+            "Design doc structure",
+            "Architecture decision records",
+            "Data model first",
+            "Threat model section",
+            "Risk register",
+            "Build vs buy reasoning"
+          ],
+          "focus": "Write the two-page design doc and have one critical reader tear it apart before you build. Cheapest bug you'll ever fix \u2014 it hadn't been written yet."
+        }
+      }
+    },
+    {
+      "title": "Project Skeleton and Version Control Discipline",
+      "lecture": {
+        "url": "https://opensource.guide/how-to-contribute/",
+        "title": "Open Source Guides \u2014 contributing"
+      },
+      "practice": {
+        "url": "https://opensource.guide/",
+        "title": "Guide: best practices"
+      },
+      "materials": {
+        "readingUrl": "https://opensource.guide/best-practices/",
+        "externalUrl": "https://github.com/ossu/computer-science",
+        "practiceLabel": "Set up the repo properly",
+        "notes": {
+          "summary": "The professional skeleton: repository layout, README from day one, issue tracking, branch discipline, and CI running tests from the first commit. The Open Source Guides' best practices are the same habits paid teams enforce \u2014 adopted solo, they make your capstone feel like a product, not a homework folder.",
+          "concepts": [
+            "Repo hygiene",
+            "Meaningful commits",
+            "Issues as a backlog",
+            "CI from commit one",
+            "README and LICENSE",
+            "Branch and PR conventions"
+          ],
+          "focus": "Set up CI that runs a trivial test on push today. The discipline starts green and stays green \u2014 retro-fitting CI is a tax, starting it is free."
+        }
+      }
+    },
+    {
+      "title": "Vertical Slice: The First End-to-End Feature",
+      "lecture": {
+        "url": "https://github.com/ossu/computer-science",
+        "title": "OSSU \u2014 capstone"
+      },
+      "practice": {
+        "url": "https://github.com/ossu/computer-science",
+        "title": "Capstone requirements"
+      },
+      "materials": {
+        "readingUrl": "https://opensource.guide/",
+        "externalUrl": "https://github.com/ossu/computer-science",
+        "practiceLabel": "Build the walking skeleton",
+        "notes": {
+          "summary": "Build the thinnest possible slice that touches every layer: one feature from UI to database to deployed. The walking skeleton de-risks the whole project \u2014 integration surprises surface in week one, not month three. Every later feature is then 'add depth,' never 'make it work at all.'",
+          "concepts": [
+            "Vertical slices over layers",
+            "The walking skeleton pattern",
+            "Integration risk first",
+            "Deploy on day one",
+            "Feature flags basics",
+            "End-to-end automation"
+          ],
+          "focus": "Ship the skeleton to production today, however humble. A deployed 'hello' beats a perfect localhost \u2014 momentum is the real feature."
+        }
+      }
+    },
+    {
+      "title": "Data Layer: Schema, Migrations, and Integrity",
+      "lecture": {
+        "url": "https://github.com/ossu/computer-science",
+        "title": "OSSU \u2014 capstone"
+      },
+      "practice": {
+        "url": "https://github.com/ossu/computer-science",
+        "title": "Capstone requirements"
+      },
+      "materials": {
+        "readingUrl": "https://github.com/ossu/computer-science",
+        "externalUrl": "https://github.com/ossu/computer-science",
+        "practiceLabel": "Implement the data layer",
+        "notes": {
+          "summary": "The data layer gets the most care because it's the hardest to change later: normalized schema, migration discipline (never edit, always migrate), constraints at the DB level, and indexes matched to real query paths. Your 6.830 training turns 'it works' into 'it survives data you didn't predict.'",
+          "concepts": [
+            "Schema normalization trade-offs",
+            "Migrations as history",
+            "DB-level constraints",
+            "Indexing from query plans",
+            "Backups from day one",
+            "Seed data strategy"
+          ],
+          "focus": "Write the migration that would add a NOT NULL column to existing data \u2014 in a way that never locks or loses. That one migration exercises the whole discipline."
+        }
+      }
+    },
+    {
+      "title": "API and Service Layer Design",
+      "lecture": {
+        "url": "https://github.com/ossu/computer-science",
+        "title": "OSSU \u2014 capstone"
+      },
+      "practice": {
+        "url": "https://github.com/ossu/computer-science",
+        "title": "Capstone requirements"
+      },
+      "materials": {
+        "readingUrl": "https://github.com/ossu/computer-science",
+        "externalUrl": "https://github.com/ossu/computer-science",
+        "practiceLabel": "Implement the API surface",
+        "notes": {
+          "summary": "The service surface: resource-oriented endpoints, validation at the boundary, error responses with meaning, and pagination/limits from the start (never 'SELECT *'). Full Stack Ocean's Express routes are the pattern in production \u2014 measure twice, cut once on API design because clients depend on it.",
+          "concepts": [
+            "Resource design",
+            "Input validation layers",
+            "Error contracts",
+            "Pagination and limits",
+            "Rate limiting",
+            "API versioning"
+          ],
+          "focus": "Write the API's error contract (status codes + payload shapes) as documentation FIRST, then implement it. Contracts before code prevent client pain."
+        }
+      }
+    },
+    {
+      "title": "Security Hardening Pass",
+      "lecture": {
+        "url": "https://github.com/ossu/computer-science",
+        "title": "OSSU \u2014 capstone"
+      },
+      "practice": {
+        "url": "https://github.com/ossu/computer-science",
+        "title": "Capstone requirements"
+      },
+      "materials": {
+        "readingUrl": "https://github.com/ossu/computer-science",
+        "externalUrl": "https://owasp.org/www-project-top-ten/",
+        "practiceLabel": "Run the 6.858 checklist",
+        "notes": {
+          "summary": "The dedicated security pass \u2014 not sprinkled in, but focused: OWASP's top-ten audit, authZ on every endpoint, secrets hygiene, dependency scanning, and the threat model from your design doc re-checked against the code as it actually is. Shipping this pass is what separates a portfolio from a liability.",
+          "concepts": [
+            "OWASP audit discipline",
+            "Authorization on every route",
+            "Secrets management",
+            "Dependency CVEs",
+            "Input validation review",
+            "Rate limiting and abuse cases"
+          ],
+          "focus": "Run the OWASP top ten against your capstone and write the fix for each finding in the issue tracker \u2014 including the 'not applicable because...' justifications."
+        }
+      }
+    },
+    {
+      "title": "Testing Strategy",
+      "lecture": {
+        "url": "https://github.com/ossu/computer-science",
+        "title": "OSSU \u2014 capstone"
+      },
+      "practice": {
+        "url": "https://github.com/ossu/computer-science",
+        "title": "Capstone requirements"
+      },
+      "materials": {
+        "readingUrl": "https://github.com/ossu/computer-science",
+        "externalUrl": "https://github.com/ossu/computer-science",
+        "practiceLabel": "Build the test suite",
+        "notes": {
+          "summary": "Confidence engineering: unit tests for logic seams, integration tests for API behavior, a small E2E suite for user paths, and CI enforcing all of it on every push. Your 61B test-first habit, scaled to a system. Coverage is a map of what you trust, not a score to game.",
+          "concepts": [
+            "Test pyramid for the project",
+            "CI as gatekeeper",
+            "Flaky test quarantine",
+            "Testing data with factories",
+            "E2E critical paths only",
+            "Regression tests from bugs"
+          ],
+          "focus": "Every bug you find gets a regression test before the fix. One rule, applied for the whole project, is how quality compounds."
+        }
+      }
+    },
+    {
+      "title": "Documentation",
+      "lecture": {
+        "url": "https://opensource.guide/",
+        "title": "Open Source Guides \u2014 documentation"
+      },
+      "practice": {
+        "url": "https://opensource.guide/",
+        "title": "Documentation guide"
+      },
+      "materials": {
+        "readingUrl": "https://opensource.guide/best-practices/#writing-documentation",
+        "externalUrl": "https://github.com/ossu/computer-science",
+        "practiceLabel": "Write the README and docs",
+        "notes": {
+          "summary": "Docs as the product's front door: a README that lands the value in three lines, setup that a stranger can run in five minutes, and architecture docs for the reader you'll be in six months. The discipline of writing docs exposes incoherence the same way writing tests exposes bugs.",
+          "concepts": [
+            "README structure that converts",
+            "Quick-start instructions",
+            "Architecture docs",
+            "API documentation",
+            "Decision records",
+            "Docs for future-you"
+          ],
+          "focus": "Have a friend run ONLY your README's setup instructions. Every question they ask is a README bug \u2014 fix it before they ask twice."
+        }
+      }
+    },
+    {
+      "title": "Performance and Observability",
+      "lecture": {
+        "url": "https://github.com/ossu/computer-science",
+        "title": "OSSU \u2014 capstone"
+      },
+      "practice": {
+        "url": "https://github.com/ossu/computer-science",
+        "title": "Capstone requirements"
+      },
+      "materials": {
+        "readingUrl": "https://github.com/ossu/computer-science",
+        "externalUrl": "https://github.com/ossu/computer-science",
+        "practiceLabel": "Profile and instrument",
+        "notes": {
+          "summary": "The professional finishing pass: structured logs, real metrics (latency, errors, throughput), basic tracing of slow paths, and at least one measured optimization \u2014 profile first, optimize what the profile names, then prove it with numbers. 'It feels faster' is not a metric; before/after is.",
+          "concepts": [
+            "Structured logging",
+            "RED metrics (rate, errors, duration)",
+            "Profiling basics",
+            "N+1 hunting in practice",
+            "Caching a measured hot path",
+            "Latency budgets"
+          ],
+          "focus": "Profile one slow endpoint, find the top consumer, optimize it, and commit the before/after numbers in the PR description. That commit is interview gold."
+        }
+      }
+    },
+    {
+      "title": "User Testing and Iteration",
+      "lecture": {
+        "url": "https://github.com/ossu/computer-science",
+        "title": "OSSU - capstone guidance"
+      },
+      "practice": {
+        "url": "https://github.com/ossu/computer-science",
+        "title": "Capstone requirements"
+      },
+      "materials": {
+        "readingUrl": "https://github.com/ossu/computer-science",
+        "externalUrl": "https://github.com/ossu/computer-science",
+        "practiceLabel": "Run 3 user sessions",
+        "notes": {
+          "summary": "Ship, then watch: real users find the problems your tests never will. This lesson covers lightweight usability sessions (five users, focused tasks, silent observation), synthesizing feedback into prioritized fixes, and the iteration loop that separates products from demos. The Full Stack Ocean app you use daily improved through exactly this loop.",
+          "concepts": [
+            "Five-user usability sessions",
+            "Task-based testing scripts",
+            "Silent observation discipline",
+            "Issue triage: severity x frequency",
+            "Iterate, re-test, converge",
+            "Honest metrics over vanity metrics"
+          ],
+          "focus": "Run three five-minute sessions with people who have never seen the app. Watch in silence, note every hesitation, and fix the top two \u2014 then repeat once."
+        }
+      }
+    },
+    {
+      "title": "Midterm: Project Review",
+      "lecture": {
+        "url": "https://github.com/ossu/computer-science",
+        "title": "OSSU \u2014 review"
+      },
+      "practice": {
+        "url": "https://github.com/ossu/computer-science",
+        "title": "Capstone checklist"
+      },
+      "materials": {
+        "readingUrl": "https://github.com/ossu/computer-science",
+        "externalUrl": "https://github.com/ossu/computer-science",
+        "practiceLabel": "External review pass",
+        "notes": {
+          "summary": "Halfway checkpoint: the core feature works in production with tests and docs, and the remaining plan is honest. The exercise: external review. Show it to a developer who hasn't seen it \u2014 their confusion and delight are the truest progress metrics you can get.",
+          "concepts": [
+            "Honest status assessment",
+            "External review value",
+            "Scope triage (cut/scale)",
+            "Risk review",
+            "Demo-ability check"
+          ],
+          "focus": "Cut the feature list by one third, right now. The discipline of subtraction is what separates shipped capstones from beautiful repos."
+        }
+      }
+    },
+    {
+      "title": "Release, Polish, and Presentation",
+      "lecture": {
+        "url": "https://github.com/ossu/computer-science",
+        "title": "OSSU \u2014 final submission"
+      },
+      "practice": {
+        "url": "https://github.com/ossu/computer-science",
+        "title": "OSSU capstone submission"
+      },
+      "materials": {
+        "readingUrl": "https://github.com/ossu/computer-science",
+        "externalUrl": "https://github.com/ossu/computer-science",
+        "practiceLabel": "Ship + present the capstone",
+        "notes": {
+          "summary": "The release: final polish on the user path (errors, empty states, latency), the demo video or walkthrough, and the README that makes strangers care. Then step back: 8 terms, 24 courses, from counting problems to a shipped system. This project \u2014 visible, working, defended \u2014 is the proof the whole thing worked.",
+          "concepts": [
+            "Release checklist",
+            "Demo narrative (problem to proof)",
+            "Landing-page quality README",
+            "Retrospective writing",
+            "Portfolio placement",
+            "The complete path, closed"
+          ],
+          "focus": "Record the three-minute demo: the problem in one sentence, the working path in two, and what you'd build next. Then close the issue tracker and take the screenshot \u2014 you're done."
+        }
+      }
+    }
+  ]
+}

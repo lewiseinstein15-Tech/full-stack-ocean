@@ -1,0 +1,223 @@
+{
+  "course": "CS50x",
+  "term": 2,
+  "lessons": [
+    {
+      "title": "Week 0: Scratch",
+      "lecture": { "url": "https://cs50.harvard.edu/x/2026/weeks/0/", "title": "CS50x 2026 — Lecture 0: Scratch" },
+      "practice": { "url": "https://cs50.harvard.edu/x/2026/psets/0/", "title": "Problem Set 0: Scratch" },
+      "materials": {
+        "videoId": "UuIEbpQms8o",
+        "videoTitle": "CS50x 2026 — Lecture 0: Scratch",
+        "readingUrl": "https://cs50.harvard.edu/x/2026/notes/0/",
+        "externalUrl": "https://cs50.harvard.edu/x/2026/weeks/0/",
+        "practiceLabel": "Problem Set 0: Scratch project",
+        "notes": {
+          "summary": "CS50x 2026 opens with Scratch, a visual blocks language that teaches the core ideas of programming without syntax noise: statements, expressions, conditionals, loops, variables, functions, and events. You build animations and simple games by snapping blocks, which is exactly the control flow you will write in C two weeks from now. This is the newest 2026 edition of the course, taught by David Malan.",
+          "concepts": ["Statements and expressions", "Boolean expressions and conditionals", "Loops and events", "Variables and functions in blocks", "Threads and concurrency in Scratch", "Computational thinking before syntax"],
+          "focus": "Build one small Scratch project that uses a loop, a conditional, and a variable. The blocks you choose now map one-to-one onto C keywords later."
+        }
+      }
+    },
+    {
+      "title": "Week 1: C",
+      "lecture": { "url": "https://cs50.harvard.edu/x/2026/weeks/1/", "title": "CS50x 2026 — Lecture 1: C" },
+      "practice": { "url": "https://cs50.harvard.edu/x/2026/psets/1/", "title": "Problem Set 1: C" },
+      "materials": {
+        "videoId": "SlqjA04_dpk",
+        "videoTitle": "CS50x 2026 — Lecture 1: C",
+        "readingUrl": "https://cs50.harvard.edu/x/2026/notes/1/",
+        "externalUrl": "https://cs50.harvard.edu/x/2026/weeks/1/",
+        "practiceLabel": "Problem Set 1: Hello, Mario, Cash",
+        "notes": {
+          "summary": "Now the training wheels come off: you write your first C, using printf, format codes, variables, and the CS50 library's helper functions. The lecture walks through compiling with make (clang under the hood), the debugger, and integer types. C is unforgiving but it makes the machine visible: types, memory, and errors that other languages hide.",
+          "concepts": ["Compiling: source to binary", "printf and format strings", "Types: int, float, char, bool", "The CS50 library (get_int, get_string)", "Variables and arithmetic", "Using the debugger (debug50)"],
+          "focus": "Write hello.c from a blank file without looking, then compile it. Typing the boilerplate by hand builds the muscle memory for every future program."
+        }
+      }
+    },
+    {
+      "title": "Week 2: Arrays",
+      "lecture": { "url": "https://cs50.harvard.edu/x/2026/weeks/2/", "title": "CS50x 2026 — Lecture 2: Arrays" },
+      "practice": { "url": "https://cs50.harvard.edu/x/2026/psets/2/", "title": "Problem Set 2: Arrays" },
+      "materials": {
+        "videoId": "h5Gc1n8ZuU8",
+        "videoTitle": "CS50x 2026 — Lecture 2: Arrays",
+        "readingUrl": "https://cs50.harvard.edu/x/2026/notes/2/",
+        "externalUrl": "https://cs50.harvard.edu/x/2026/weeks/2/",
+        "practiceLabel": "Problem Set 2: Scrabble, Readability, Substitution",
+        "notes": {
+          "summary": "This lecture covers compiling in more depth (preprocessing, assembling, linking), debugging with arrays, and how memory is laid out as a sequence of bytes. Arrays and strings are the first data structures: contiguous memory you index into. Character arrays end with NUL, a detail that will explain many C bugs.",
+          "concepts": ["Compiling pipeline in four stages", "Memory as byte arrays", "Arrays and indexing", "Strings as char arrays ending in \\0", "Command-line arguments", "Exit codes"],
+          "focus": "Trace one of your arrays on paper: draw the boxes, write the indices, and mark where the NUL terminator sits. Most Week 2 bugs are off-by-one drawings."
+        }
+      }
+    },
+    {
+      "title": "Week 3: Algorithms",
+      "lecture": { "url": "https://cs50.harvard.edu/x/2026/weeks/3/", "title": "CS50x 2026 — Lecture 3: Algorithms" },
+      "practice": { "url": "https://cs50.harvard.edu/x/2026/psets/3/", "title": "Problem Set 3: Algorithms" },
+      "materials": {
+        "videoId": "6Svu_ae5ebk",
+        "videoTitle": "CS50x 2026 — Lecture 3: Algorithms",
+        "readingUrl": "https://cs50.harvard.edu/x/2026/notes/3/",
+        "externalUrl": "https://cs50.harvard.edu/x/2026/weeks/3/",
+        "practiceLabel": "Problem Set 3: Plurality, Runoff (Tideman)",
+        "notes": {
+          "summary": "The first real algorithms lecture: linear and binary search, selection and bubble sort, and merge sort with its recursion. Big-O notation arrives here in running time terms: O(n), O(n log n), and why binary search demands sorted data. The pset implements election algorithms, a natural home for arrays and loops.",
+          "concepts": ["Linear vs binary search", "Selection and bubble sort", "Merge sort and recursion", "Big-O, Big-Ω, Big-Θ", "Running time growth", "Structs (preview for elections)"],
+          "focus": "Implement binary search and deliberately run it on an unsorted array once. Seeing the wrong answer cements why the precondition matters."
+        }
+      }
+    },
+    {
+      "title": "Week 4: Memory",
+      "lecture": { "url": "https://cs50.harvard.edu/x/2026/weeks/4/", "title": "CS50x 2026 — Lecture 4: Memory" },
+      "practice": { "url": "https://cs50.harvard.edu/x/2026/psets/4/", "title": "Problem Set 4: Memory" },
+      "materials": {
+        "videoId": "db0H0U13YsA",
+        "videoTitle": "CS50x 2026 — Lecture 4: Memory",
+        "readingUrl": "https://cs50.harvard.edu/x/2026/notes/4/",
+        "externalUrl": "https://cs50.harvard.edu/x/2026/weeks/4/",
+        "practiceLabel": "Problem Set 4: Volume, Filter, Recover",
+        "notes": {
+          "summary": "Pointers, hex addresses, and the heap: this week is the rite of passage of C. You learn pointer syntax, malloc and free, memory leaks and valgrind, and how images and file formats are just bytes in memory. The pset manipulates raw image data (filters and file recovery), which makes the abstraction very concrete.",
+          "concepts": ["Pointers and the * operator", "& and address-of", "malloc / free and the heap", "Memory leaks and garbage collection", "Pointer arithmetic", "File I/O with raw bytes (BMP headers)"],
+          "focus": "For every malloc you write, write the matching free immediately. Draw the heap diagram after each pset step; valgrind should report zero leaks."
+        }
+      }
+    },
+    {
+      "title": "Week 5: Data Structures",
+      "lecture": { "url": "https://cs50.harvard.edu/x/2026/weeks/5/", "title": "CS50x 2026 — Lecture 5: Data Structures" },
+      "practice": { "url": "https://cs50.harvard.edu/x/2026/psets/5/", "title": "Problem Set 5: Data Structures" },
+      "materials": {
+        "videoId": "PmAI76OGE_E",
+        "videoTitle": "CS50x 2026 — Lecture 5: Data Structures",
+        "readingUrl": "https://cs50.harvard.edu/x/2026/notes/5/",
+        "externalUrl": "https://cs50.harvard.edu/x/2026/weeks/5/",
+        "practiceLabel": "Problem Set 5: Inheritance, Recursion, Runner",
+        "notes": {
+          "summary": "Pointers pay off: linked lists, hash tables, tries, and trees replace fixed arrays with structures that grow. Each is presented with its trade-offs in time and memory, building the vocabulary for every later CS course. The pset on linked structures (and the speller lab) is where pointers finally feel natural.",
+          "concepts": ["Linked lists: next pointers", "Hash tables and collisions (chaining)", "Tries and prefix trees", "Stacks and queues", "Trees: binary search trees", "Growth trade-offs: O(n) vs O(1) vs O(log n)"],
+          "focus": "Insert into a linked list three ways: head, tail, sorted. If you can keep the pointers straight in your head, the rest of CS data structures is a variation."
+        }
+      }
+    },
+    {
+      "title": "Week 6: Python",
+      "lecture": { "url": "https://cs50.harvard.edu/x/2026/weeks/6/", "title": "CS50x 2026 — Lecture 6: Python" },
+      "practice": { "url": "https://cs50.harvard.edu/x/2026/psets/6/", "title": "Problem Set 6: Python" },
+      "materials": {
+        "videoId": "Rl0ludWTLxs",
+        "videoTitle": "CS50x 2026 — Lecture 6: Python",
+        "readingUrl": "https://cs50.harvard.edu/x/2026/notes/6/",
+        "externalUrl": "https://cs50.harvard.edu/x/2026/weeks/6/",
+        "practiceLabel": "Problem Set 6: Hello, Lines, World (Sentences)",
+        "notes": {
+          "summary": "After C, Python feels like a gift: garbage collection, dynamic lists and dicts, and a fraction of the ceremony. The lecture re-implements earlier C programs in Python to show the same ideas with less syntax, and covers how interpreted differs from compiled. Interleaving with your 6.0001-style courses is natural here — the same language, a different lens.",
+          "concepts": ["Interpreters vs compilers", "Lists, dicts, and tuples", "Functions and modules", "String methods", "File and CSV processing", "Unit testing with pytest (from the lab)"],
+          "focus": "Port your Week 3 election program from C to Python and count the lines. Note which C bugs are now impossible — that list is Python's pitch."
+        }
+      }
+    },
+    {
+      "title": "Week 7: SQL",
+      "lecture": { "url": "https://cs50.harvard.edu/x/2026/weeks/7/", "title": "CS50x 2026 — Lecture 7: SQL" },
+      "practice": { "url": "https://cs50.harvard.edu/x/2026/psets/7/", "title": "Problem Set 7: SQL" },
+      "materials": {
+        "videoId": "oqRU2So6Z2Y",
+        "videoTitle": "CS50x 2026 — Lecture 7: SQL",
+        "readingUrl": "https://cs50.harvard.edu/x/2026/notes/7/",
+        "externalUrl": "https://cs50.harvard.edu/x/2026/weeks/7/",
+        "practiceLabel": "Problem Set 7: Songs, Movies, Fiftyville",
+        "notes": {
+          "summary": "Data outlives programs: SQL stores it in tables and queries it declaratively. The lecture covers tables, primary and foreign keys, SELECT with WHERE, JOINs, and how to drive SQLite from Python. Impersonation and injection make a cameo, previewing the security week of 6.858 much later in your path.",
+          "concepts": ["Tables, rows, and schemas", "SELECT / WHERE / ORDER BY", "Primary keys and foreign keys", "JOINs across tables", "SQL injection basics", "sqlite3 from Python"],
+          "focus": "Write a three-table JOIN by hand against the fiftyville database. When the result set is right, you have joined tables; when it is wrong, you have crossed them."
+        }
+      }
+    },
+    {
+      "title": "Week 8: HTML, CSS, and JavaScript",
+      "lecture": { "url": "https://cs50.harvard.edu/x/2026/weeks/8/", "title": "CS50x 2026 — Lecture 8: HTML, CSS, JavaScript" },
+      "practice": { "url": "https://cs50.harvard.edu/x/2026/psets/8/", "title": "Problem Set 8: Trivia / Homepage" },
+      "materials": {
+        "videoId": "yYst7puZXjw",
+        "videoTitle": "CS50x 2026 — Lecture 8: HTML, CSS, JavaScript",
+        "readingUrl": "https://cs50.harvard.edu/x/2026/notes/8/",
+        "externalUrl": "https://cs50.harvard.edu/x/2026/weeks/8/",
+        "practiceLabel": "Problem Set 8: Trivia, Homepage",
+        "notes": {
+          "summary": "The web stack arrives: HTML for structure, CSS for presentation, DOM events, and JavaScript in the browser. You see the request/response cycle, developer tools, and how a page is really a tree of nodes that scripts can query and mutate. This week pairs perfectly with the Full Stack Ocean app you use daily — inspect it with dev tools while you study.",
+          "concepts": ["HTML structure and semantic tags", "CSS selectors, cascade, specificity", "The DOM as a tree", "Events and event listeners", "JavaScript in the browser", "Developer tools and console"],
+          "focus": "Recreate one page from a site you admire in plain HTML and CSS, no frameworks. The DOM inspection skills transfer directly to every future web project."
+        }
+      }
+    },
+    {
+      "title": "Week 9: Flask",
+      "lecture": { "url": "https://cs50.harvard.edu/x/2026/weeks/9/", "title": "CS50x 2026 — Lecture 9: Flask" },
+      "practice": { "url": "https://cs50.harvard.edu/x/2026/psets/9/", "title": "Problem Set 9: Birthdays / Finance" },
+      "materials": {
+        "videoId": "am7POvSZ4GE",
+        "videoTitle": "CS50x 2026 — Lecture 9: Flask",
+        "readingUrl": "https://cs50.harvard.edu/x/2026/notes/9/",
+        "externalUrl": "https://cs50.harvard.edu/x/2026/weeks/9/",
+        "practiceLabel": "Problem Set 9: C$50 Finance",
+        "notes": {
+          "summary": "Full-stack at last: a Python web server with Flask routes, templates with Jinja, sessions, and a SQL database behind the scenes. The lecture also covers HTTP methods (GET vs POST) and cookies. By the end you can read the architecture of any server-rendered web app, including Express apps like this one's backend.",
+          "concepts": ["Routes and view functions", "GET vs POST", "Jinja2 templating", "Sessions and cookies", "Connecting SQL from the server", "CSRF concerns (preview)"],
+          "focus": "Build the finance pset without skipping the SQL layer: user data in tables, sessions for login. The MVC split you practice here is universal."
+        }
+      }
+    },
+    {
+      "title": "Week 10: Cybersecurity (and the new AI lecture)",
+      "lecture": { "url": "https://cs50.harvard.edu/x/2026/weeks/10/", "title": "CS50x 2026 — Lecture 10: Cybersecurity" },
+      "practice": { "url": "https://cs50.harvard.edu/x/2026/", "title": "Course wrap-up: labs and review" },
+      "materials": {
+        "videoId": "ApQTgFkf8TU",
+        "videoTitle": "CS50x 2026 — Lecture 10: Cybersecurity",
+        "readingUrl": "https://cs50.harvard.edu/x/2026/weeks/ai/",
+        "externalUrl": "https://cs50.harvard.edu/x/2026/weeks/10/",
+        "practiceLabel": "Wrap-up: finish remaining labs",
+        "notes": {
+          "summary": "CS50x closes with cybersecurity: passwords and hashing, phishing, and secure design habits, ending the tour from bits to systems. The 2026 edition also adds a new Artificial Intelligence lecture — how large language models work and how to use them well while learning — treat it as required reading this week.",
+          "concepts": ["Password hashing and salting", "Phishing and social engineering", "Two-factor authentication", "End-to-end security thinking", "LLMs and AI-assisted learning (2026 lecture)", "Ethics of AI tools in coursework"],
+          "focus": "Watch the 2026 AI lecture with the same notebook you use for technical lectures. Decide now which tasks you will do unassisted — learning compounds only when you struggle first."
+        }
+      }
+    },
+    {
+      "title": "Midterm: Problem Set Marathon",
+      "lecture": { "url": "https://cs50.harvard.edu/x/2026/psets/1/", "title": "CS50x 2026 — Problem sets hub" },
+      "practice": { "url": "https://cs50.harvard.edu/x/2026/psets/1/", "title": "Re-solve one pset from scratch" },
+      "materials": {
+        "readingUrl": "https://cs50.harvard.edu/x/2026/notes/",
+        "externalUrl": "https://cs50.harvard.edu/x/2026/psets/",
+        "practiceLabel": "Problem Set Marathon: C weeks",
+        "notes": {
+          "summary": "Consolidation checkpoint: re-solve one C problem set from a blank file with no references, then one Python one. The goal is fluency, not novelty: if you can rebuild Mario, Cash, and Runoff cold, the C half of CS50 is yours for good.",
+          "concepts": ["Self-testing without references", "Timing yourself under exam conditions", "Reviewing solutions after attempting", "Indexing weak spots across weeks"],
+          "focus": "Track which week's pset took longest to rebuild — that weakness is your review target before the final project."
+        }
+      }
+    },
+    {
+      "title": "Final: CS50x Final Project",
+      "lecture": { "url": "https://cs50.harvard.edu/x/2026/final/", "title": "CS50x 2026 — Final project spec" },
+      "practice": { "url": "https://cs50.harvard.edu/x/2026/final/", "title": "Ship your final project" },
+      "materials": {
+        "readingUrl": "https://cs50.harvard.edu/x/2026/notes/",
+        "externalUrl": "https://cs50.harvard.edu/x/2026/final/",
+        "practiceLabel": "Final Project: scope, build, ship",
+        "notes": {
+          "summary": "The CS50x final project is yours to define: a program that solves a real problem for a real person, built with anything the course taught. Scope it small enough to finish in a week and polish it enough to be proud of — then present it. This artifact is the bridge into CS61A's deeper programming next term.",
+          "concepts": ["Project scoping and MVP", "Choosing the right tool from the course", "Version control on a real project", "Written presentation of design decisions", "Shipping and demoing"],
+          "focus": "Write the one-paragraph project spec before writing any code: problem, user, features, and what you will cut when time runs short."
+        }
+      }
+    }
+  ]
+}

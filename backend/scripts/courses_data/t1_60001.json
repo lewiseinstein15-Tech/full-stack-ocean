@@ -1,0 +1,432 @@
+{
+ "_comment": "Term 1 6.0001 upgrade: F2016 -> 6.100L Fall 2022 (newest OCW edition of the same course). Matched by existing slug; titles + materials replaced, slugs preserved.",
+ "course": "6.0001",
+ "lessons": [
+  {
+   "slug": "6-0001-w1-l1",
+   "title": "Introduction to CS and Programming Using Python",
+   "lecture": {
+    "url": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/pages/lecture-1-introduction/",
+    "title": "MIT 6.100L Lecture 1 (Fall 2022)"
+   },
+   "practice": {
+    "url": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/mit6_100l_f22_ps0.pdf",
+    "title": "Problem Set 0: Setup"
+   },
+   "materials": {
+    "videoId": "xAcTmDO6NTI",
+    "videoTitle": "MIT 6.100L Lecture 1: Introduction to CS and Programming Using Python (F2022)",
+    "slidesUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/mit6_100l_f22_lec01.pdf",
+    "transcriptUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/1LrNFzx4f4UlMXOcxUUcqK2lCzQpaS-Bc_transcript.pdf",
+    "practicePdfUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/mit6_100l_f22_ps0.pdf",
+    "practiceLabel": "Problem Set 0 (2022 edition)",
+    "externalUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/pages/lecture-1-introduction/",
+    "notes": {
+     "summary": "Computation is about specifying procedures that solve problems. This opening lecture of the newest 6.100L edition introduces what computer science is, how programs express recipes as instructions, and how data is represented as objects with types. You will set up Python 3 and run your first expressions in the interpreter.",
+     "concepts": [
+      "Declarative vs imperative knowledge",
+      "Algorithms as recipes",
+      "Objects, types, and operators",
+      "Variables and assignment",
+      "The Python interpreter and IDLE",
+      "Errors as your friends"
+     ],
+     "focus": "Get Python running today and experiment with arithmetic expressions in the shell. The 'what vs how' distinction introduced here frames the entire course."
+    }
+   }
+  },
+  {
+   "slug": "6-0001-w1-l2",
+   "title": "Strings, Input/Output, and Branching",
+   "lecture": {
+    "url": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/pages/lecture-2-strings-inputoutput-branching/",
+    "title": "MIT 6.100L Lecture 2 (Fall 2022)"
+   },
+   "practice": {
+    "url": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/mit6_100l_f22_ps0.pdf",
+    "title": "Finish Problem Set 0"
+   },
+   "materials": {
+    "videoId": "UdEX0E9lIQM",
+    "videoTitle": "MIT 6.100L Lecture 2: Strings, Input/Output, and Branching (F2022)",
+    "slidesUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/mit6_100l_f22_lec02.pdf",
+    "transcriptUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/6100l-lecture-2-multi-version-4_1_transcript.pdf",
+    "readingUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/pages/lecture-3-iteration/",
+    "practiceLabel": "Problem Set 0 (2022 edition)",
+    "externalUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/pages/lecture-2-strings-inputoutput-branching/",
+    "notes": {
+     "summary": "Programs talk to the world: this lecture covers strings as objects, the print and input functions, and comparison operators that drive branching with if/elif/else. The follow-up lecture 3 extends the same ideas to iteration, so read it together with this one.",
+     "concepts": [
+      "Strings and string operations",
+      "print() and input()",
+      "Comparison and logic operators",
+      "if / elif / else branching",
+      "Indentation as structure",
+      "While loops (from lecture 3)"
+     ],
+     "focus": "Write a small program that asks the user a question and branches on the answer. Watch for the difference between '3' the string and 3 the number."
+    }
+   }
+  },
+  {
+   "slug": "6-0001-w1-practice",
+   "title": "Practice Day \u2014 Finish Problem Set 0",
+   "lecture": {
+    "url": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/pages/readings/",
+    "title": "Course readings hub"
+   },
+   "practice": {
+    "url": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/mit6_100l_f22_ps0.pdf",
+    "title": "Problem Set 0: submit"
+   },
+   "materials": {
+    "practicePdfUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/mit6_100l_f22_ps0.pdf",
+    "practiceLabel": "Problem Set 0 (2022 edition)",
+    "readingUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/pages/readings/",
+    "externalUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/pages/problem-sets/",
+    "notes": {
+     "summary": "Consolidation day: finish and submit Problem Set 0 from the 2022 edition. This pset walks you through installing Python, writing a first .py file, and running it. Use the readings hub to review any lecture segment that felt shaky.",
+     "concepts": [
+      "Python installation and running scripts",
+      "Writing and saving .py files",
+      "Reading error messages",
+      "Checking work against the solutions"
+     ],
+     "focus": "Do not peek at solutions until your program runs. Debugging your own setup is the real lesson of PS0."
+    }
+   }
+  },
+  {
+   "slug": "6-0001-w2-l3",
+   "title": "Loops over Strings, Guess-and-Check, and Binary",
+   "lecture": {
+    "url": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/pages/lecture-4-loops-over-strings-guess-and-check-binary/",
+    "title": "MIT 6.100L Lecture 4 (Fall 2022)"
+   },
+   "practice": {
+    "url": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/mit6_100l_f22_ps1.pdf",
+    "title": "Problem Set 1"
+   },
+   "materials": {
+    "videoId": "fWNZAw5Bmco",
+    "videoTitle": "MIT 6.100L Lecture 4: Loops over Strings, Guess-and-Check, and Binary (F2022)",
+    "slidesUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/mit6_100l_f22_lec04.pdf",
+    "transcriptUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/1SVVezlb4h8tA4fKRJ41pWjsyaqdGdXvs_transcript.pdf",
+    "practicePdfUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/mit6_100l_f22_ps1.pdf",
+    "practiceLabel": "Problem Set 1 (2022 edition)",
+    "externalUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/pages/lecture-4-loops-over-strings-guess-and-check-binary/",
+    "notes": {
+     "summary": "This lecture teaches exhaustion loops over strings, the guess-and-check paradigm (try candidates until one works), and how binary representation works for numbers. It also introduces approximate solutions and bisection thinking, which lecture 6 develops into a full search technique.",
+     "concepts": [
+      "for and while over strings",
+      "Guess-and-check iteration",
+      "Exhaustive enumeration",
+      "Binary number representation",
+      "Approximation and tolerance",
+      "float and int conversions"
+     ],
+     "focus": "Implement a guess-and-check cube-root finder by hand. Then convert a few numbers to binary on paper until the pattern is automatic."
+    }
+   }
+  },
+  {
+   "slug": "6-0001-w2-l4",
+   "title": "Decomposition, Abstraction, and Functions",
+   "lecture": {
+    "url": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/pages/lecture-7-decomposition-abstraction-functions/",
+    "title": "MIT 6.100L Lecture 7 (Fall 2022)"
+   },
+   "practice": {
+    "url": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/mit6_100l_f22_ps1.pdf",
+    "title": "Problem Set 1: continue"
+   },
+   "materials": {
+    "videoId": "Qf6OVR8MLnU",
+    "videoTitle": "MIT 6.100L Lecture 7: Decomposition, Abstraction, and Functions (F2022)",
+    "slidesUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/mit6_100l_f22_lec07.pdf",
+    "transcriptUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/1NWsD4yStlMPsvHXGgvg0oT1zF13vXErk_transcript.pdf",
+    "readingUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/pages/lecture-8-functions-as-objects/",
+    "practiceLabel": "Problem Set 1 (2022 edition)",
+    "externalUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/pages/lecture-7-decomposition-abstraction-functions/",
+    "notes": {
+     "summary": "Functions are the first big idea of programming: decompose a problem into pieces, then abstract each piece behind a name and a specification. This lecture covers def, parameters vs arguments, return values, and scope, plus why a good function contract lets you forget its internals.",
+     "concepts": [
+      "Decomposition and abstraction",
+      "def, parameters, arguments",
+      "return vs print",
+      "Local and global scope",
+      "Function specifications (docstrings)",
+      "Functions as first-class objects (lecture 8)"
+     ],
+     "focus": "Rewrite one of your earlier scripts as three small functions with clear docstrings. The spec, not the code, is what a caller should trust."
+    }
+   }
+  },
+  {
+   "slug": "6-0001-w3-l5",
+   "title": "Lists, Mutability, and Aliasing",
+   "lecture": {
+    "url": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/pages/lecture-10-lists-mutability/",
+    "title": "MIT 6.100L Lecture 10 (Fall 2022)"
+   },
+   "practice": {
+    "url": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/mit6_100l_f22_ps2.pdf",
+    "title": "Problem Set 2"
+   },
+   "materials": {
+    "videoId": "Z4bm7xzYpKM",
+    "videoTitle": "MIT 6.100L Lecture 10: Lists and Mutability (F2022)",
+    "slidesUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/mit6_100l_f22_lec10.pdf",
+    "transcriptUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/1thJR8x0QK8HpwQ3OqOE-MVtYg_P0QZ_T_transcript.pdf",
+    "readingUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/pages/lecture-11-aliasing-cloning/",
+    "practicePdfUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/mit6_100l_f22_ps2.pdf",
+    "practiceLabel": "Problem Set 2 (2022 edition)",
+    "externalUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/pages/lecture-10-lists-mutability/",
+    "notes": {
+     "summary": "Lists are Python's workhorse data structure and its first mutable object. This lecture covers indexing, slicing, iteration, and the crucial distinction between mutating an object and rebinding a name. Lecture 11 continues into aliasing (two names, one list) and cloning to avoid surprising side effects.",
+     "concepts": [
+      "Lists: indexing, slicing, appending",
+      "Mutability vs immutability",
+      "Aliasing: shared references",
+      "Cloning with list() or [:]",
+      "Side effects through mutation",
+      "Tuples as immutable cousins (lecture 9)"
+     ],
+     "focus": "Predict before running: what does b += [4] do when a = b? Draw the object-and-name diagram, then check yourself."
+    }
+   }
+  },
+  {
+   "slug": "6-0001-w3-l6",
+   "title": "Dictionaries (and Introduction to Recursion)",
+   "lecture": {
+    "url": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/pages/lecture-14-dictionaries/",
+    "title": "MIT 6.100L Lecture 14 (Fall 2022)"
+   },
+   "practice": {
+    "url": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/mit6_100l_f22_ps3.pdf",
+    "title": "Problem Set 3"
+   },
+   "materials": {
+    "videoId": "lTgLOuaQsvk",
+    "videoTitle": "MIT 6.100L Lecture 14: Dictionaries (F2022)",
+    "slidesUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/mit6_100l_f22_lec14.pdf",
+    "transcriptUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/1U0kBprsi-v9QhXIZdGgvCZd92936dmcz_transcript.pdf",
+    "readingUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/pages/lecture-15-recursion/",
+    "practicePdfUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/mit6_100l_f22_ps3.pdf",
+    "practiceLabel": "Problem Set 3 (2022 edition)",
+    "externalUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/pages/lecture-14-dictionaries/",
+    "notes": {
+     "summary": "Dictionaries store key-value pairs and give you near-constant-time lookup. This lecture pairs them with iteration patterns over keys and values, and shows dicts as the natural structure for counting and grouping. The reading sets up recursion (lecture 15), the course's next big idea.",
+     "concepts": [
+      "Key-value pairs",
+      "get() with defaults",
+      "Iterating keys, values, items",
+      "Counting and grouping patterns",
+      "Hashability of keys",
+      "Recursion as self-reference (reading)"
+     ],
+     "focus": "Build a word-frequency counter from scratch. Then watch lecture 15 and write a recursive factorial before next lesson."
+    }
+   }
+  },
+  {
+   "slug": "6-0001-w4-l7",
+   "title": "Testing, Debugging, Assertions, and Exceptions",
+   "lecture": {
+    "url": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/pages/lecture-12-list-comprehension-functions-as-objects-testing-debugging/",
+    "title": "MIT 6.100L Lecture 12 (Fall 2022)"
+   },
+   "practice": {
+    "url": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/mit6_100l_f22_ps3.pdf",
+    "title": "Problem Set 3: finish"
+   },
+   "materials": {
+    "videoId": "AZBxs3OvFrY",
+    "videoTitle": "MIT 6.100L Lecture 12: Testing, Debugging (F2022)",
+    "slidesUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/mit6_100l_f22_lec12.pdf",
+    "transcriptUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/1yicNRax_Y6uXUq1RhogtauUcSorMMd66_transcript.pdf",
+    "readingUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/pages/lecture-13-exceptions-assertions/",
+    "practiceLabel": "Problem Set 3 (2022 edition)",
+    "externalUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/pages/lecture-12-list-comprehension-functions-as-objects-testing-debugging/",
+    "notes": {
+     "summary": "Professional code is tested code. This lecture introduces unit testing, black-box vs glass-box testing, and a disciplined debugging loop, plus list comprehensions and functions as objects. The reading (lecture 13) adds assertions for internal invariants and exceptions for handling errors gracefully.",
+     "concepts": [
+      "Unit tests and test suites",
+      "Black-box vs glass-box testing",
+      "Debugging: hypothesis and experiment",
+      "Assertions",
+      "try / except / finally",
+      "List comprehensions"
+     ],
+     "focus": "Write three tests for one of your pset functions before looking at its grade. If a test fails, form one hypothesis at a time before changing code."
+    }
+   }
+  },
+  {
+   "slug": "6-0001-w4-l8",
+   "title": "Object-Oriented Programming: Python Classes",
+   "lecture": {
+    "url": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/pages/lecture-17-python-classes/",
+    "title": "MIT 6.100L Lecture 17 (Fall 2022)"
+   },
+   "practice": {
+    "url": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/mit6_100l_f22_ps4.pdf",
+    "title": "Problem Set 4"
+   },
+   "materials": {
+    "videoId": "tsMrUdynbQQ",
+    "videoTitle": "MIT 6.100L Lecture 17: Python Classes (F2022)",
+    "slidesUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/mit6_100l_f22_lec17.pdf",
+    "transcriptUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/1jlgqPffb0jTD1GJmYxnukqh0qw6RY0Wv_transcript.pdf",
+    "readingUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/pages/lecture-18-more-python-class-methods/",
+    "practicePdfUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/mit6_100l_f22_ps4.pdf",
+    "practiceLabel": "Problem Set 4 (2022 edition)",
+    "externalUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/pages/lecture-17-python-classes/",
+    "notes": {
+     "summary": "Classes bundle data and behavior into new programmer-defined types. This lecture covers class definitions, the __init__ constructor, instance attributes, and methods, with the classic fraction and coordinate examples. Lecture 18 adds dunder methods like __str__ and __eq__ that make your objects behave like built-ins.",
+     "concepts": [
+      "class and instance",
+      "__init__ and self",
+      "Instance attributes and methods",
+      " getters/setters vs direct access",
+      "__str__, __eq__ and other dunders",
+      "OOP as data abstraction"
+     ],
+     "focus": "Implement a Vector2D class with __add__, __eq__, and __str__. Every method should be testable in one line from the shell."
+    }
+   }
+  },
+  {
+   "slug": "6-0001-w5-l9",
+   "title": "Inheritance and Substitution",
+   "lecture": {
+    "url": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/pages/lecture-19-inheritance/",
+    "title": "MIT 6.100L Lecture 19 (Fall 2022)"
+   },
+   "practice": {
+    "url": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/mit6_100l_f22_ps4.pdf",
+    "title": "Problem Set 4: finish"
+   },
+   "materials": {
+    "videoId": "rgM7Z9BNm1s",
+    "videoTitle": "MIT 6.100L Lecture 19: Inheritance (F2022)",
+    "slidesUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/mit6_100l_f22_lec19.pdf",
+    "transcriptUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/1jicSeVbkfCJ6PQAOsX0o52Z998OZwDoD_transcript.pdf",
+    "readingUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/pages/lecture-20-fitness-tracker-object-oriented-programming-example/",
+    "practiceLabel": "Problem Set 4 (2022 edition)",
+    "externalUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/pages/lecture-19-inheritance/",
+    "notes": {
+     "summary": "Inheritance lets a subclass reuse and specialize a parent class's behavior. This lecture covers overriding, super(), the class hierarchy, and the substitution principle: anywhere a parent is expected, a child should work. The lecture 20 reading shows a full OOP design worked end to end.",
+     "concepts": [
+      "Subclasses and super()",
+      "Method overriding",
+      "Substitution principle",
+      "Class object and isinstance",
+      "Designing shallow hierarchies",
+      "Composition as an alternative"
+     ],
+     "focus": "Extend your Vector2D with a ColoredVector subclass that overrides __str__ but reuses __add__. Ask: is inheritance the right tool here?"
+    }
+   }
+  },
+  {
+   "slug": "6-0001-w5-l10",
+   "title": "Program Efficiency: Timing and Counting Operations",
+   "lecture": {
+    "url": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/pages/lecture-21-timing-programs-counting-operations/",
+    "title": "MIT 6.100L Lecture 21 (Fall 2022)"
+   },
+   "practice": {
+    "url": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/mit6_100l_f22_ps5.pdf",
+    "title": "Problem Set 5"
+   },
+   "materials": {
+    "videoId": "lvp4NfED6K4",
+    "videoTitle": "MIT 6.100L Lecture 21: Timing Programs and Counting Operations (F2022)",
+    "slidesUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/mit6_100l_f22_lec21.pdf",
+    "transcriptUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/1xvoC1C2Y-utkqO-wB9gc4lhFPNpM5Zjj_transcript.pdf",
+    "practicePdfUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/mit6_100l_f22_ps5.pdf",
+    "practiceLabel": "Problem Set 5 (2022 edition)",
+    "externalUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/pages/lecture-21-timing-programs-counting-operations/",
+    "notes": {
+     "summary": "How fast is a program, really? Wall-clock timing is machine-dependent, so computer scientists count operations instead. This lecture builds the intuition for measuring a program's work as a function of input size, the foundation for the asymptotic analysis in the next lesson.",
+     "concepts": [
+      "Timing vs counting",
+      "Operation counts as functions of n",
+      "Best, worst, and average cases",
+      "Why constants don't matter much",
+      "Benchmarking pitfalls",
+      "Amortized thinking preview"
+     ],
+     "focus": "Instrument a loop-heavy function with a counter and plot count vs input size. The shape of that curve is what Big-Oh will formalize."
+    }
+   }
+  },
+  {
+   "slug": "6-0001-w6-l11",
+   "title": "Big-Oh and Theta: Complexity Classes",
+   "lecture": {
+    "url": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/pages/lecture-22-big-oh-and-theta/",
+    "title": "MIT 6.100L Lecture 22 (Fall 2022)"
+   },
+   "practice": {
+    "url": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/mit6_100l_f22_ps5.pdf",
+    "title": "Problem Set 5: continue"
+   },
+   "materials": {
+    "videoId": "RJhoT5PEf_0",
+    "videoTitle": "MIT 6.100L Lecture 22: Big Oh and Theta (F2022)",
+    "slidesUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/mit6_100l_f22_lec22.pdf",
+    "transcriptUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/1A8qBYXfGlxrh1AzmvG-kNRw4M5bppdQ-_transcript.pdf",
+    "readingUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/pages/lecture-23-complexity-classes-examples/",
+    "practiceLabel": "Problem Set 5 (2022 edition)",
+    "externalUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/pages/lecture-22-big-oh-and-theta/",
+    "notes": {
+     "summary": "Big-Oh, Omega, and Theta give a machine-independent language for growth rates. This lecture defines them precisely and walks through the classic complexity classes from constant to exponential. The lecture 23 reading drills the skill on concrete Python examples, including the logarithmic classes that dominate efficient algorithms.",
+     "concepts": [
+      "O(f), Omega(f), Theta(f) definitions",
+      "Log, linear, log-linear, quadratic, exponential",
+      "Analyzing nested loops",
+      "Complexity of list and dict operations",
+      "Why O(log n) is almost as good as O(1)"
+     ],
+     "focus": "Classify every function you have written this term. If anything lands above O(n log n), think about whether a dictionary could save you."
+    }
+   }
+  },
+  {
+   "slug": "6-0001-w6-l12",
+   "title": "Searching and Sorting Algorithms",
+   "lecture": {
+    "url": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/pages/lecture-24-sorting-algorithms/",
+    "title": "MIT 6.100L Lecture 24 (Fall 2022)"
+   },
+   "practice": {
+    "url": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/pages/problem-sets/",
+    "title": "Finish remaining problem sets"
+   },
+   "materials": {
+    "videoId": "R8Rw9mIa7JQ",
+    "videoTitle": "MIT 6.100L Lecture 24: Sorting Algorithms (F2022)",
+    "slidesUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/mit6_100l_f22_lec24.pdf",
+    "transcriptUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/1VUHQTtGcGveZjWvzAwGFp2hH-QuimE7-_transcript.pdf",
+    "readingUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/pages/lecture-26-list-access-hashing-simulations-and-wrap-up/",
+    "practiceLabel": "Course wrap-up problem sets",
+    "externalUrl": "https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/pages/lecture-24-sorting-algorithms/",
+    "notes": {
+     "summary": "The course closes with its capstone algorithms: linear and binary search, bubble, selection, and merge sort, each analyzed with the Big-Oh toolkit from the previous lessons. Merge sort's divide-and-conquer recurrence is your first taste of the analysis style that 6.006 will formalize. The final lecture's reading (26) wraps the course with hashing and simulations.",
+     "concepts": [
+      "Linear vs binary search",
+      "Bubble and selection sort",
+      "Merge sort and divide-and-conquer",
+      "Recurrence analysis intuition",
+      "The n log n sorting barrier",
+      "Hashing for constant-time lookup (reading)"
+     ],
+     "focus": "Implement merge sort yourself and verify it beats bubble sort on a 10,000-element list. This single comparison is the whole point of complexity analysis."
+    }
+   }
+  }
+ ]
+}

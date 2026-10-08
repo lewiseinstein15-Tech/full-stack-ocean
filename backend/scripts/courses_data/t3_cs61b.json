@@ -1,0 +1,201 @@
+{
+  "course": "CS61B",
+  "term": 3,
+  "lessons": [
+    {
+      "title": "Course Overview, Java, and Compilation",
+      "lecture": { "url": "https://fa26.datastructur.es/", "title": "CS 61B Fall 2026 — Lecture 1 (course hub)" },
+      "practice": { "url": "https://fa26.datastructur.es/homeworks/hw01/", "title": "HW 01: Setup" },
+      "materials": {
+        "readingUrl": "https://joshhug.gitbooks.io/hug61b/content/chapter1/chapter1.html",
+        "externalUrl": "https://fa26.datastructur.es/",
+        "practiceLabel": "HW 01: Setup + HW 02: Java Intro",
+        "notes": {
+          "summary": "CS 61B turns you from a programmer into a computer scientist who knows what data structures cost. The live Fall 2026 edition opens with Java: static typing, compilation to bytecode, and the JVM. You set up IntelliJ and git — the same workflow professional Java teams use. Java's ceremony (types, visibility modifiers) is a feature: the compiler catches what Python lets slide.",
+          "concepts": ["Static vs dynamic typing", "Compilation to bytecode and the JVM", "IntelliJ workflow", "Java program anatomy: classes and main", "git basics for the course", "Hello, Java"],
+          "focus": "Finish HW01 setup completely — IntelliJ, Java 17+, git, and the grader. Every later project assumes this machinery works."
+        }
+      }
+    },
+    {
+      "title": "References, IntLists, and Recursion on Data",
+      "lecture": { "url": "https://fa26.datastructur.es/", "title": "CS 61B Fall 2026 — References & IntLists" },
+      "practice": { "url": "https://fa26.datastructur.es/homeworks/hw03/", "title": "HW 03: IntLists" },
+      "materials": {
+        "readingUrl": "https://joshhug.gitbooks.io/hug61b/content/chapter2/chapter2.html",
+        "externalUrl": "https://fa26.datastructur.es/homeworks/hw03/",
+        "practiceLabel": "HW 03: IntLists",
+        "notes": {
+          "summary": "Java's core memory model: every object lives behind a reference, and IntList (a naked recursive linked list) makes you feel it. You write recursive size, get, and ddestructive/non-destructive operations on lists of nodes. The box-and-pointer diagram is the course's lingua franca from here on.",
+          "concepts": ["References vs primitives", "Box-and-pointer diagrams", "IntList as recursive structure", "Destructive vs non-destructive", "Null and the singleton case", "Recursion on linked data"],
+          "focus": "Draw the box-and-pointer diagram before and after every HW03 function. If your drawing is wrong, your code will be too."
+        }
+      }
+    },
+    {
+      "title": "SLLists, Encapsulation, and Nested Classes",
+      "lecture": { "url": "https://fa26.datastructur.es/", "title": "CS 61B Fall 2026 — SLLists" },
+      "practice": { "url": "https://fa26.datastructur.es/labs/lab01/", "title": "Lab 1" },
+      "materials": {
+        "readingUrl": "https://joshhug.gitbooks.io/hug61b/content/chapter2/chapter2_1.html",
+        "externalUrl": "https://fa26.datastructur.es/labs/lab01/",
+        "practiceLabel": "Lab 1 + project 0 start",
+        "notes": {
+          "summary": "The IntList gets professional: an SLList hides the naked recursion behind a sentinel-guarded class, and users stop caring whether it's recursive at all. This is encapsulation as a design lesson — a data structure is its interface, not its representation. Nested classes, static members, and the size caching optimization round out the story.",
+          "concepts": ["Encapsulation and access control", "Sentinel nodes", "Nested and static nested classes", "Caching (size) and rep invariants", "API as the contract", "Immutability of IntNode design"],
+          "focus": "Modify SLList so first() can never NPE, then write the invariant it guarantees as a comment. Structures you can state in one sentence are structures you can debug."
+        }
+      }
+    },
+    {
+      "title": "Testing and Debugging",
+      "lecture": { "url": "https://fa26.datastructur.es/labs/lab02/", "title": "CS 61B Fall 2026 — Lab 2: Debugging" },
+      "practice": { "url": "https://fa26.datastructur.es/labs/lab02/", "title": "Lab 2: Debugging with IntelliJ" },
+      "materials": {
+        "readingUrl": "https://joshhug.gitbooks.io/hug61b/content/chapter4/chapter4.html",
+        "externalUrl": "https://fa26.datastructur.es/labs/lab02/",
+        "practiceLabel": "Lab 2: debugger drills",
+        "notes": {
+          "summary": "61B's engineering week: JUnit testing, the IntelliJ debugger (breakpoints, watches, stepping), and the discipline of writing the test before the fix. Every later project grades partly on tests. Learning the debugger deeply NOW converts hours of print-statement pain into minutes of inspection.",
+          "concepts": ["JUnit: @Test, assertions", "Test-first bug fixing", "IntelliJ debugger: breakpoints and watches", "Conditional breakpoints", "Reading stack traces", "Regression testing habit"],
+          "focus": "Do the lab's debug drills with zero print statements. When you can watch a reference reassign itself in the debugger, hidden bugs become visible."
+        }
+      }
+    },
+    {
+      "title": "Arrays and ArrayDeque: Resizing Arrays",
+      "lecture": { "url": "https://fa26.datastructur.es/projects/proj1a/", "title": "Project 1A: Deques" },
+      "practice": { "url": "https://fa26.datastructur.es/projects/proj1a/", "title": "Project 1A: ArrayDeque" },
+      "materials": {
+        "readingUrl": "https://joshhug.gitbooks.io/hug61b/content/chapter2/chapter2_2.html",
+        "externalUrl": "https://fa26.datastructur.es/projects/proj1a/",
+        "practiceLabel": "Project 1A: ArrayDeque and LinkedListDeque",
+        "notes": {
+          "summary": "Arrays are contiguous blocks of same-type memory — constant-time access, painful insertion. Project 1A's ArrayDeque teaches circular arrays with resizing (up 2x, down 1/4): the technique behind Python lists and Java ArrayLists. Building both array and linked deques with the same interface is the whole encapsulation lesson come full circle.",
+          "concepts": ["Arrays: creation, indexing, copying", "Circular buffer arithmetic (modulo)", "Resizing policy: grow 2x, shrink at 1/4", "Generic arrays with casts", "The Deque interface (both reps)", "Amortized thinking preview"],
+          "focus": "In ArrayDeque, draw the circular buffer after addFirst, addLast, removeFirst. If modulo arithmetic hurts, draw a clock face and wrap your indices around it."
+        }
+      }
+    },
+    {
+      "title": "Inheritance, Comparables, and Interfaces",
+      "lecture": { "url": "https://fa26.datastructur.es/labs/lab04/", "title": "CS 61B Fall 2026 — Lab 4: Comparables" },
+      "practice": { "url": "https://fa26.datastructur.es/labs/lab04/", "title": "Lab 4: Comparables and Comparators" },
+      "materials": {
+        "readingUrl": "https://joshhug.gitbooks.io/hug61b/content/chapter3/chapter3.html",
+        "externalUrl": "https://fa26.datastructur.es/labs/lab04/",
+        "practiceLabel": "Lab 4 + HW: inheritance",
+        "notes": {
+          "summary": "Java's subtype machinery: extends, overriding vs overloading, dynamic dispatch (which method actually runs), interfaces, and Comparable/Comparator for ordering. The lecture also covers the design rule the course keeps repeating — composition over inheritance when in doubt — with MaxComparator-style examples.",
+          "concepts": ["extends and super", "Overriding vs overloading", "Dynamic method dispatch", "Interfaces and implements", "Comparable vs Comparator", "Casting and instanceof (and why to avoid)"],
+          "focus": "Write a Comparator that sorts strings by length, then trace which method dispatches for a List<Something> declaration. The runtime type, not the compile-time type, decides."
+        }
+      }
+    },
+    {
+      "title": "Asymptotic Analysis I: Big-Theta",
+      "lecture": { "url": "https://fa26.datastructur.es/", "title": "CS 61B Fall 2026 — Asymptotics" },
+      "practice": { "url": "https://fa26.datastructur.es/homeworks/hw05/", "title": "HW 05" },
+      "materials": {
+        "readingUrl": "https://joshhug.gitbooks.io/hug61b/content/chapter8/chapter8.html",
+        "externalUrl": "https://fa26.datastructur.es/homeworks/hw05/",
+        "practiceLabel": "HW 05: asymptotics problems",
+        "notes": {
+          "summary": "How to answer 'how fast?' without a stopwatch: big-Theta (and O/Ω) describe growth as n grows, ignoring constants. The lecture builds the skill on nested loops and simple recursions, then ranks the classic classes: log, linear, n log n, quadratic, exponential. This is the vocabulary every later data structure is priced in.",
+          "concepts": ["Big-Theta definition", "Intuitive 'growth families'", "Nested loop analysis", "Log time: binary search", "The cost table: 61B operations", "Why constants are dropped"],
+          "focus": "Take every function you wrote in projects 0-1 and classify its runtime. The ones you can't classify instantly are your review targets."
+        }
+      }
+    },
+    {
+      "title": "Disjoint Sets and Amortized Analysis",
+      "lecture": { "url": "https://fa26.datastructur.es/labs/lab06/", "title": "CS 61B Fall 2026 — Lab 6: Disjoint Sets" },
+      "practice": { "url": "https://fa26.datastructur.es/labs/lab06/", "title": "Lab 6: Weighted Quick Union" },
+      "materials": {
+        "readingUrl": "https://joshhug.gitbooks.io/hug61b/content/chapter8/chapter8_2.html",
+        "externalUrl": "https://fa26.datastructur.es/labs/lab06/",
+        "practiceLabel": "Lab 6: union-find",
+        "notes": {
+          "summary": "Union-find is the course's first star data structure: track partitions with path compression and weighted quick union, and each operation costs nearly constant amortized time. You implement it in lab, then meet amortized analysis — average cost over a sequence of operations — the idea that justifies dynamic array resizing too.",
+          "concepts": ["Quick Find vs Quick Union", "Weighted union by rank", "Path compression", "Amortized analysis (informal)", "Inverse Ackermann intuition", "Applications: connectivity, Kruskal preview"],
+          "focus": "Implement weighted quick union with path compression and draw the forest after a scripted sequence of unions. The trees stay shockingly flat — that flatness is the theorem."
+        }
+      }
+    },
+    {
+      "title": "Binary Search Trees and Balanced Trees",
+      "lecture": { "url": "https://fa26.datastructur.es/", "title": "CS 61B Fall 2026 — BSTs & B-trees" },
+      "practice": { "url": "https://fa26.datastructur.es/projects/proj2/", "title": "Project 2: ArrayDeque61B (eng) / trees" },
+      "materials": {
+        "readingUrl": "https://joshhug.gitbooks.io/hug61b/content/chapter9/chapter9.html",
+        "externalUrl": "https://fa26.datastructur.es/projects/proj2/",
+        "practiceLabel": "Project 2 + exam prep problems",
+        "notes": {
+          "summary": "BSTs give ordered dictionaries with log-time operations when balanced — and linear-time when degenerate. The fix: B-trees (2-3 trees), which keep every root-to-leaf path the same length by splitting overflowing nodes. This idea — rebalancing on insert — underlies database indexes and every serious symbol table.",
+          "concepts": ["BST search and insert", "The degenerate-tree worst case", "In-order traversal = sorted order", "2-3 trees: overflow and split", "B-tree height invariant", "LLRB as a B-tree encoding"],
+          "focus": "Insert the same ascending sequence into a plain BST and a 2-3 tree. The BST becomes a linked list; the 2-3 tree stays a bush. That picture IS the argument for balancing."
+        }
+      }
+    },
+    {
+      "title": "Hashing: Hash Tables",
+      "lecture": { "url": "https://fa26.datastructur.es/", "title": "CS 61B Fall 2026 — Hashing" },
+      "practice": { "url": "https://fa26.datastructur.es/labs/lab07/", "title": "Lab 7: timing / hashing" },
+      "materials": {
+        "readingUrl": "https://joshhug.gitbooks.io/hug61b/content/chapter10/chapter10.html",
+        "externalUrl": "https://fa26.datastructur.es/labs/lab07/",
+        "practiceLabel": "Lab 7 + hashing exercises",
+        "notes": {
+          "summary": "Hash tables trade order for speed: hashCode buckets with separate chaining (or probing) give expected O(1) operations. You study what makes a good hashCode (uniform, consistent), equals/hashCode contracts, and Java's load-factor resizing. The dict from your Python courses finally gets opened up and explained.",
+          "concepts": ["hashCode and buckets", "Separate chaining", "Linear probing (concept)", "Load factor and resizing", "equals/hashCode contract", "Why immutability matters in keys"],
+          "focus": "Write a hashCode for a small class and test it: all distinct objects should land in different buckets. Then break the contract by changing a field after insertion and watch the object vanish."
+        }
+      }
+    },
+    {
+      "title": "Heaps and Priority Queues",
+      "lecture": { "url": "https://fa26.datastructur.es/", "title": "CS 61B Fall 2026 — Heaps" },
+      "practice": { "url": "https://fa26.datastructur.es/proj4/", "title": "Project 4 (queue-based)" },
+      "materials": {
+        "readingUrl": "https://joshhug.gitbooks.io/hug61b/content/chapter10/chapter10_1.html",
+        "externalUrl": "https://fa26.datastructur.es/",
+        "practiceLabel": "Heap exercises + project work",
+        "notes": {
+          "summary": "Priority queues answer 'give me the min' in O(log n): the binary heap is a complete tree stored flat in an array, with swim and sink operations restoring the heap invariant. You meet array-index arithmetic on trees (parent k/2, children 2k) — the same indexing that powers heapsort and Dijkstra's priority queue in 6.006.",
+          "concepts": ["Binary heap invariants", "Array representation of trees", "swim and sink", "Insert and remove-min costs", "Heapsort", "Where PQs appear: Dijkstra, schedulers"],
+          "focus": "Hand-simulate insert and removeMin on a 10-element heap, drawing the array AND the tree each step. Fluent heap-index arithmetic saves real time in exam settings."
+        }
+      }
+    },
+    {
+      "title": "Midterm: Graphs — BFS, DFS, Traversals",
+      "lecture": { "url": "https://fa26.datastructur.es/", "title": "CS 61B Fall 2026 — Graphs" },
+      "practice": { "url": "https://fa26.datastructur.es/", "title": "Course hub: past exams" },
+      "materials": {
+        "readingUrl": "https://joshhug.gitbooks.io/hug61b/content/chapter12/chapter12.html",
+        "externalUrl": "https://fa26.datastructur.es/",
+        "practiceLabel": "Midterm review + graph problems",
+        "notes": {
+          "summary": "Checkpoint across the whole toolbox: analysis, deques, union-find, trees, hashing, heaps. Then graphs begin — BFS and DFS, adjacency lists vs matrices, and what traversal order reveals (reachability, connected components). Graphs are 61B's final boss and the language of all later algorithms work.",
+          "concepts": ["Graph representations", "BFS with a fringe queue", "DFS with recursion/stack", "Marked arrays and revisits", "Connected components", "Exam synthesis of structures"],
+          "focus": "Do one past midterm cold, then BFS and DFS the same graph side by side. Write down what each order discovers that the other doesn't."
+        }
+      }
+    },
+    {
+      "title": "Final: Shortest Paths, MSTs, and Course Synthesis",
+      "lecture": { "url": "https://fa26.datastructur.es/", "title": "CS 61B Fall 2026 — final topics" },
+      "practice": { "url": "https://fa26.datastructur.es/proj4/", "title": "Project 4: final project" },
+      "materials": {
+        "readingUrl": "https://joshhug.gitbooks.io/hug61b/content/chapter13/chapter13.html",
+        "externalUrl": "https://fa26.datastructur.es/",
+        "practiceLabel": "Final projects + past exams",
+        "notes": {
+          "summary": "The close: shortest paths (Dijkstra and A*) and minimum spanning trees (Prim and Kruskal — union-find returns!), then the full-course map. Every structure you built was a point on a cost curve: constant, log, linear, trade memory for time. 61B ends where 6.006 begins next term — with asymptotics now in your hands, not just your notes.",
+          "concepts": ["Dijkstra with a priority queue", "A* and heuristics", "Prim's MST", "Kruskal with union-find", "Cut property", "The whole course cost table"],
+          "focus": "Trace Kruskal on a 6-node graph and watch union-find reject the cycle edges. Two structures from different weeks collaborating is the course in one picture."
+        }
+      }
+    }
+  ]
+}

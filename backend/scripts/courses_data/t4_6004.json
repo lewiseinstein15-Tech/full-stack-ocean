@@ -1,0 +1,222 @@
+{
+  "course": "6.004",
+  "term": 4,
+  "lessons": [
+    {
+      "title": "Basics of Information",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c1/", "title": "MIT 6.004 S17 — Chapter 1: Basics of Information" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c1/c1s2/c1s2v2/", "title": "Topic videos: Quantifying Information" },
+      "materials": {
+        "videoId": "qyBuzeUYs2M",
+        "videoTitle": "MIT 6.004: Quantifying Information",
+        "readingUrl": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c1/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/",
+        "practiceLabel": "Chapter 1 problems + exercises",
+        "notes": {
+          "summary": "Computation Structures begins where the machine begins: information itself. Bits measure surprise — entropy quantifies it — and encoding (like binary numbers) lets us transmit information reliably. Error detection and correction (parity, Hamming) close the chapter. The 6.191 course at MIT (its successor, live at 6191.mit.edu/fall26) covers the same arc this term.",
+          "concepts": ["Information and entropy", "Bits as choices", "Binary encodings", "Error detection with parity", "Error correction (Hamming)", "Noise and redundancy"],
+          "focus": "Compute the entropy of a biased coin for p = 0.5, 0.9, 0.99 and plot it. Seeing entropy collapse as certainty rises is the whole chapter in one graph."
+        }
+      }
+    },
+    {
+      "title": "The Digital Abstraction",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c2/", "title": "MIT 6.004 S17 — Chapter 2: The Digital Abstraction" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c2/c2s2/c2s2v3/", "title": "Topic videos: digital signaling" },
+      "materials": {
+        "videoId": "AlT3zLxcHmw",
+        "videoTitle": "MIT 6.004: Analog Signaling",
+        "readingUrl": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c2/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/",
+        "practiceLabel": "Chapter 2 exercises",
+        "notes": {
+          "summary": "The magic trick of digital systems: real voltages are messy analogs, but by declaring voltage ranges as '0' and '1' with a forbidden gap, noise gets squeezed out at every stage. The voltage discipline and the noise margins are the contract that makes digital logic possible — and combinational devices are defined as digital gates with no memory.",
+          "concepts": ["Analog vs digital signals", "Voltage thresholds and noise margins", "The combinational gate contract", "Static discipline", "Why digital wins", "Signal energy and noise"],
+          "focus": "Draw the voltage transfer curve of a buffer and mark VIL, VIH, VOL, VOH. The gaps between them are the noise immunity you rely on for every gate."
+        }
+      }
+    },
+    {
+      "title": "MOSFET Switches and CMOS",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c3/", "title": "MIT 6.004 S17 — Chapter 3: MOSFETs" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c3/c3s2/c3s2v2/", "title": "Topic videos: CMOS" },
+      "materials": {
+        "videoId": "2JxUXSG9rKo",
+        "videoTitle": "MIT 6.004: CMOS Recipe",
+        "readingUrl": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c3/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/",
+        "practiceLabel": "Chapter 3 exercises",
+        "notes": {
+          "summary": "Transistors as voltage-controlled switches: nMOS pulls low, pMOS pulls high, and the CMOS recipe — pull-up network of pMOS, complementary pull-down of nMOS — builds any inverting gate. You learn to synthesize NAND/NOR gates from Boolean expressions and see why CMOS draws power mostly on switching.",
+          "concepts": ["nMOS and pMOS operation", "The CMOS pull-up/pull-down pattern", "Series/parallel complementary networks", "NAND and NOR synthesis", "Static power vs dynamic power", "Gate as voltage-controlled switch"],
+          "focus": "Draw the transistor schematic for a 2-input NAND from the recipe, then check: is the pull-down exactly complementary to the pull-up? It must be."
+        }
+      }
+    },
+    {
+      "title": "Combinational Logic and Boolean Algebra",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c4/", "title": "MIT 6.004 S17 — Chapter 4: Gates & Boolean logic" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c4/c4s3/c4s3v2/", "title": "Topic videos: logic simplification" },
+      "materials": {
+        "videoId": "r6Tk1-jZxzg",
+        "videoTitle": "MIT 6.004: Logic Simplification",
+        "readingUrl": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c4/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/",
+        "practiceLabel": "Chapter 4 exercises",
+        "notes": {
+          "summary": "Boolean algebra as the simplification calculus: truth tables to expressions to sum-of-products and product-of-sums forms, with axioms and theorems doing the reduction. Then the move from theory to hardware: gates as physical devices with propagation delays — logic that costs time.",
+          "concepts": ["Boolean axioms and theorems", "Sum-of-products canonical form", "Simplification strategy", "Propagation delay (tPD)", "Truth table to circuit", "Gate count vs depth trade-offs"],
+          "focus": "Simplify one Boolean expression two ways — algebraically and via truth table — and confirm they agree. Then compute the propagation delay of your circuit from its depth."
+        }
+      }
+    },
+    {
+      "title": "Sequential Logic: Registers and Clocks",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c5/", "title": "MIT 6.004 S17 — Chapter 5: Sequential logic" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c5/c5s2/c5s2v2/", "title": "Topic videos: D register" },
+      "materials": {
+        "videoId": "CcInkh1mKZA",
+        "videoTitle": "MIT 6.004: D Register",
+        "readingUrl": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c5/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/",
+        "practiceLabel": "Chapter 5 exercises",
+        "notes": {
+          "summary": "Memory enters the machine: latches sample the input while enabled; edge-triggered D registers capture on clock edges. Timing discipline — setup, hold, and the clock period budget — is the price of state. This is where hardware becomes sequential, and the clock period becomes the speed limit of everything.",
+          "concepts": ["D latch vs D register", "Edge triggering", "Setup and hold windows", "Contamination vs propagation delay", "Clock period budget", "Why timing constraints matter"],
+          "focus": "Draw the timing budget for a register-to-register path. If you can explain why the clock period must exceed tPD + tSETUP, sequential timing holds no mysteries."
+        }
+      }
+    },
+    {
+      "title": "Finite State Machines",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c6/", "title": "MIT 6.004 S17 — Chapter 6: FSMs" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c6/c6s2/c6s2v2/", "title": "Topic videos: FSM design" },
+      "materials": {
+        "videoId": "UDow47-q5KI",
+        "videoTitle": "MIT 6.004: State Transition Diagrams",
+        "readingUrl": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c6/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/",
+        "practiceLabel": "Chapter 6 exercises",
+        "notes": {
+          "summary": "FSMs tame time: state registers hold history, combinational logic computes the next state and outputs. You design Moore vs Mealy machines from specifications, and meet the course's famous roboant — a line-following robot whose brain is an FSM you can fully analyze. This is the same machine model CS188 will borrow for MDPs.",
+          "concepts": ["Moore vs Mealy outputs", "State transition diagrams", "Excitation/transition tables", "State minimization", "FSM as register + logic", "The roboant example"],
+          "focus": "Design an FSM for a sequence detector (e.g., recognize 101) with a full transition table, then trace it through the input to prove it works."
+        }
+      }
+    },
+    {
+      "title": "Pipelining and Parallelism",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c7/", "title": "MIT 6.004 S17 — Chapter 7: Pipelining" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c7/c7s2/c7s2v2/", "title": "Topic videos: pipelining methodology" },
+      "materials": {
+        "videoId": "CbcJFO6VtsY",
+        "readingUrl": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c7/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/",
+        "practiceLabel": "Chapter 7 exercises",
+        "notes": {
+          "summary": "Pipelining divides a slow stage chain into balanced shorter stages: throughput rises even though single-item latency doesn't. Register overhead per stage, stage balancing, and the classic K-stage speedup formula appear here — the same economics that drive CPU pipelines and GPU shader stages in 6.1810's world.",
+          "concepts": ["Latency vs throughput", "K-stage pipeline timing", "Pipeline registers and overhead", "Balancing stages", "Optimal stage count", "Parallelism as an alternative"],
+          "focus": "Compute the throughput of a 3-stage pipeline with register overhead, then find the k that maximizes it. The calculus is trivial and the insight is universal."
+        }
+      }
+    },
+    {
+      "title": "Arithmetic Circuits and Datapaths",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c8/", "title": "MIT 6.004 S17 — Chapter 8: Datapaths" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c8/c8s2/c8s2v2/", "title": "Topic videos: adders" },
+      "materials": {
+        "videoId": "GBL28_Tw6UQ",
+        "readingUrl": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c8/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/",
+        "practiceLabel": "Chapter 8 exercises",
+        "notes": {
+          "summary": "Building the machine's arithmetic: ripple-carry adders are slow, carry-lookahead buys speed with logic, carry-select trades area. Fixed-point representations (two's complement!) let these circuits subtract and detect overflow. The programmable datapath — an ALU plus registers and a control input — is the skeleton of every computer.",
+          "concepts": ["Ripple-carry vs carry-lookahead", "Carry-select adders", "Two's complement representation", "Overflow detection", "ALU design", "Fixed-point arithmetic"],
+          "focus": "Convert a few numbers to two's complement by hand and add a negative to a positive. When you can predict overflow on paper, the arithmetic unit is demystified."
+        }
+      }
+    },
+    {
+      "title": "The von Neumann Model and the Beta ISA",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c9/", "title": "MIT 6.004 S17 — Chapter 9: von Neumann" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c9/c9s3/c9s3v2/", "title": "Topic videos: von Neumann model" },
+      "materials": {
+        "videoId": "nlKV2hX1AZs",
+        "readingUrl": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c9/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/",
+        "practiceLabel": "Chapter 9-10 exercises",
+        "notes": {
+          "summary": "The stored-program computer: instructions live in memory, the Beta ISA is the course's clean 32-bit RISC design, and its fetch-execute cycle is microcoded control. Every program you have ever run is this loop. You'll write Beta assembly next and watch the exact instructions a compiler would emit.",
+          "concepts": ["Stored program concept", "Fetch-execute cycle", "The Beta registers and instruction format", "PC and addressing modes", "Control logic as an FSM", "RISC design philosophy"],
+          "focus": "Trace one load instruction through fetch, decode, and execute on the Beta datapath diagram. One instruction, fully traced, is worth a hundred skimmed."
+        }
+      }
+    },
+    {
+      "title": "Assembly Language and the Stack",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c12/", "title": "MIT 6.004 S17 — Chapter 12: Stack frames" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c12/c12s2/c12s2v2/", "title": "Topic videos: stack frames" },
+      "materials": {
+        "videoId": "3eQh_W8YF_g",
+        "videoTitle": "MIT 6.004: Activation Records and Stacks",
+        "readingUrl": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c12/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/",
+        "practiceLabel": "Chapter 12-13 exercises",
+        "notes": {
+          "summary": "Programming the machine: Beta assembly for arithmetic, control flow, and procedure calls. Activation records — the stack frame of saved registers, locals, and the return address — make recursion possible at the hardware level. The compiler chapters (11) translate expressions into exactly the instructions you write by hand here.",
+          "concepts": ["Beta assembly programming", "Procedure calls and returns", "Activation records and stack frames", "Saving/restoring registers", "Recursion at machine level", "Caller vs callee conventions"],
+          "focus": "Hand-assemble a recursive factorial into Beta assembly with correct stack frames. Then trace the stack growing and shrinking — recursion you can SEE."
+        }
+      }
+    },
+    {
+      "title": "Memory Hierarchy and Caches",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c14/", "title": "MIT 6.004 S17 — Chapter 14: Memory" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c14/c14s3/c14s3v2/", "title": "Topic videos: caches" },
+      "materials": {
+        "videoId": "9eWKuWyXYKY",
+        "videoTitle": "MIT 6.004: DRAM",
+        "readingUrl": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c14/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/",
+        "practiceLabel": "Chapter 14-15 exercises",
+        "notes": {
+          "summary": "The gap between CPU speed and memory speed is bridged by hierarchy: registers, SRAM caches, DRAM, disk. Direct-mapped caches use address bits for index and tag; LRU approximations and write policies tune hit rates. The classic analysis — average access time as a weighted hit/miss mix — applies to every cache in every system you will ever profile.",
+          "concepts": ["Memory hierarchy economics", "Cache index/tag/offset", "Direct-mapped vs associative", "LRU and evictions", "Write-through vs write-back", "Average memory access time"],
+          "focus": "For a given address stream and cache geometry, compute the hit rate by hand. Draw the address split (tag|index|offset) first — the rest follows mechanically."
+        }
+      }
+    },
+    {
+      "title": "Midterm: The Machine So Far",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/quizzes/", "title": "6.004 quizzes" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/design-problems/", "title": "Design problems" },
+      "materials": {
+        "readingUrl": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/",
+        "practiceLabel": "Quiz 1 + design problems",
+        "notes": {
+          "summary": "Checkpoint from bits to the von Neumann machine: digital abstraction, CMOS, Boolean simplification, sequential timing, FSMs, pipelining, and datapaths. The exam tests design judgment — choosing representations and circuits for a spec — so drill the design problems, not just exercises.",
+          "concepts": ["Design problem patterns", "Timing constraint problems", "FSM synthesis under time", "Representation choices", "Quiz synthesis"],
+          "focus": "Redo the weakest chapter's design problem from a blank page. 6.004 exams reward clean derivations over clever guesses."
+        }
+      }
+    },
+    {
+      "title": "Final: Virtual Memory and the OS Interface",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c17/", "title": "MIT 6.004 S17 — Chapter 17: Virtual memory" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/quizzes/", "title": "Final practice" },
+      "materials": {
+        "videoId": "6XV3uLfKzog",
+        "videoTitle": "MIT 6.004: Data Hazards",
+        "readingUrl": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/c17/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/",
+        "practiceLabel": "Final quiz + synthesis",
+        "notes": {
+          "summary": "The course closes with virtual memory (page maps, TLBs, protection) and the interrupt-driven handoff to operating systems — exactly where 6.1810 picks up next term with xv6. Pipeline hazards (the video) recap why hardware and compilers co-evolve. From entropy to a virtual machine: you have now built the whole conceptual machine stack.",
+          "concepts": ["Virtual addresses and page tables", "TLB as address cache", "Protection rings and kernels", "Interrupts and exceptions", "Pipeline hazards recap", "The full machine stack"],
+          "focus": "Translate one virtual address through a 2-level page table by hand. When that works, the OS's memory tricks in 6.1810 will feel like old friends."
+        }
+      }
+    }
+  ]
+}

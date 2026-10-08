@@ -1,0 +1,227 @@
+{
+  "course": "6.006",
+  "term": 4,
+  "lessons": [
+    {
+      "title": "Algorithms and Computation",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-1-algorithms-and-computation/", "title": "MIT 6.006 Spring 2020 — Lecture 1" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/problem-set-1/", "title": "Problem Set 1" },
+      "materials": {
+        "videoId": "ZA-tUyM_y7s",
+        "videoTitle": "MIT 6.006 S20 Lecture 1: Algorithms and Computation",
+        "readingUrl": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/pages/lecture-notes/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-1-algorithms-and-computation/",
+        "practiceLabel": "Problem Set 1",
+        "notes": {
+          "summary": "The Spring 2020 edition opens with the course's core contract: an algorithm is a finite procedure with a proof of correctness and an analysis of running time. You review the asymptotic language (Big-O, Theta) and meet the course's three big families: algorithmic thinking, data structures, and graph algorithms. This semester's recorded lectures by Devadas, Demaine, and Soloviev are the newest full-video edition of 6.006 available.",
+          "concepts": ["What makes an algorithm", "Correctness proofs", "Asymptotic analysis review", "Model of computation (word-RAM)", "The course roadmap", "Document distance as running example"],
+          "focus": "Rewrite your 61B asymptotics notes in 6.006's notation before starting PS1 — the courses share vocabulary, but 6.006 uses it more precisely."
+        }
+      }
+    },
+    {
+      "title": "Data Structures and Dynamic Arrays",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-2-data-structures-and-dynamic-arrays/", "title": "MIT 6.006 S20 — Lecture 2" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/problem-set-2/", "title": "Problem Set 2" },
+      "materials": {
+        "videoId": "CHhwJjR0mZA",
+        "videoTitle": "MIT 6.006 S20 Lecture 2: Data Structures and Dynamic Arrays",
+        "readingUrl": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-notes/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-2-data-structures-and-dynamic-arrays/",
+        "practiceLabel": "Problem Set 2",
+        "notes": {
+          "summary": "Sets and sequences as the two interface families, and the data structures that implement them. The dynamic array (your 61B ArrayDeque) gets its amortized analysis done rigorously: table doubling gives O(1) amortized append. The interface/implementation split is 6.006's way of thinking about every structure that follows.",
+          "concepts": ["Set vs sequence interfaces", "Static and dynamic arrays", "Amortized analysis (aggregate method)", "Table doubling", "Linked lists vs arrays trade-offs", "Pointer-based structures"],
+          "focus": "Prove amortized O(1) append via the bank/potential argument in your own words. This proof template returns for splay trees and hash resizing."
+        }
+      }
+    },
+    {
+      "title": "Sets and Sorting",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-3-sets-and-sorting/", "title": "MIT 6.006 S20 — Lecture 3" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/problem-set-2/", "title": "Problem Set 2: continued" },
+      "materials": {
+        "videoId": "oS9aPzUNG-s",
+        "videoTitle": "MIT 6.006 S20 Lecture 3: Sets and Sorting",
+        "readingUrl": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-notes/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-3-sets-and-sorting/",
+        "practiceLabel": "Problem Set 2: sorting problems",
+        "notes": {
+          "summary": "Sorting as the entry to algorithm design: comparison sorts, the permutation sort's n! lower bound, and mergesort's divide-and-conquer recurrence T(n) = 2T(n/2) + O(n) = O(n log n). You also meet insertion sort and the decision-tree view of why comparison sorting can't beat n log n.",
+          "concepts": ["Comparison sorting model", "Permutation sort and n!", "Merge sort recurrence", "Decision-tree lower bound", "Insertion sort best/worst cases", "Divide and conquer pattern"],
+          "focus": "Solve the merge sort recurrence with a recursion tree, not the master theorem. Trees make the O(n log n) obvious; the theorem only certifies it."
+        }
+      }
+    },
+    {
+      "title": "Hashing",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-4-hashing/", "title": "MIT 6.006 S20 — Lecture 4" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/problem-set-3/", "title": "Problem Set 3" },
+      "materials": {
+        "videoId": "Nu8YGneFCWE",
+        "videoTitle": "MIT 6.006 S20 Lecture 4: Hashing",
+        "readingUrl": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-notes/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-4-hashing/",
+        "practiceLabel": "Problem Set 3",
+        "notes": {
+          "summary": "Hashing buys expected O(1) set operations by trading order for speed. Universal hashing — choosing a hash family at random — is the theory that makes the guarantee hold against adversarial inputs, and chaining resolves collisions. This is the deeper version of what 61B showed you: here you prove the adversary can't win.",
+          "concepts": ["Hash tables with chaining", "Simple uniform hashing", "Universal hashing families", "Expected chain length", "Adversarial inputs defeated", "Load factor analysis"],
+          "focus": "Compute the expected lookup cost for a table at load factor alpha, then explain to yourself why randomizing the hash function matters only against adversaries."
+        }
+      }
+    },
+    {
+      "title": "Linear Sorting",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-5-linear-sorting/", "title": "MIT 6.006 S20 — Lecture 5" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/problem-set-3/", "title": "Problem Set 3: continued" },
+      "materials": {
+        "videoId": "yndgIDO0zQQ",
+        "videoTitle": "MIT 6.006 S20 Lecture 5: Linear Sorting",
+        "readingUrl": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-notes/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-5-linear-sorting/",
+        "practiceLabel": "Problem Set 3: linear sorts",
+        "notes": {
+          "summary": "Beating the comparison bound by exploiting structure: counting sort runs in O(n + u) when keys are small integers, and radix sort pipelines counting sort per digit for O(nk). The lesson generalizes — lower bounds apply to a model, and changing the model (word-level operations) changes the game.",
+          "concepts": ["Counting sort", "Radix sort (LSD)", "Stability and why it matters", "Model of computation shifts", "When linear sorting applies", "The u (universe) parameter"],
+          "focus": "Implement radix sort over counting sort for 32-bit integers and reason about the k passes. Then ask: why doesn't this violate the decision-tree theorem?"
+        }
+      }
+    },
+    {
+      "title": "Binary Trees: BSTs and AVL Balance",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-7-binary-trees-part-2-avl/", "title": "MIT 6.006 S20 — Lecture 7: AVL trees" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/problem-set-4/", "title": "Problem Set 4" },
+      "materials": {
+        "videoId": "U1JYwHcFfso",
+        "videoTitle": "MIT 6.006 S20 Lecture 7: Binary Trees Part 2: AVL",
+        "readingUrl": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-6-binary-trees-part-1/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-7-binary-trees-part-2-avl/",
+        "practiceLabel": "Problem Set 4",
+        "notes": {
+          "summary": "Binary search trees implement ordered sets with logarithmic operations — IF they stay balanced. Lecture 6 (reading) covers BST mechanics; this lecture builds AVL trees, whose height invariant triggers rotations on insert. Rotations are the surgical move that every balanced-tree variant (B-trees, red-black) reuses with different bookkeeping.",
+          "concepts": ["BST operations and height", "Height invariant |h(L)-h(R)| <= 1", "Left/right rotations", "Rebalancing on insert", "Log height guarantee", "Rotations as local surgery"],
+          "focus": "Insert a sorted sequence into an AVL by hand and watch each rotation fire. Then do the same insertions into a plain BST — the contrast is the entire point."
+        }
+      }
+    },
+    {
+      "title": "Binary Heaps and Priority Queues",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-8-binary-heaps/", "title": "MIT 6.006 S20 — Lecture 8" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/problem-set-4/", "title": "Problem Set 4: continued" },
+      "materials": {
+        "videoId": "Xnpo1atN-Iw",
+        "videoTitle": "MIT 6.006 S20 Lecture 8: Binary Heaps",
+        "readingUrl": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-notes/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-8-binary-heaps/",
+        "practiceLabel": "Problem Set 4: heaps",
+        "notes": {
+          "summary": "The binary heap implements a priority queue with O(log n) insert and delete-min and O(1) find-min, all in a flat array. Building a heap from n items bottom-up costs O(n) — a classic surprise — and heapsort falls out for free. Heaps return as the engine of Dijkstra in a few lessons.",
+          "concepts": ["Heap order and completeness", "Array indexing for trees", "swim / sink operations", "Bottom-up heapify in O(n)", "Heapsort", "Priority queue interface"],
+          "focus": "Prove the O(n) build-heap bound by summing per-level work. The series sums to a constant — seeing that sum is a rite of passage."
+        }
+      }
+    },
+    {
+      "title": "Breadth-First and Depth-First Search",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-10-depth-first-search/", "title": "MIT 6.006 S20 — Lecture 10: DFS" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/problem-set-5/", "title": "Problem Set 5" },
+      "materials": {
+        "videoId": "IBfWDYSffUU",
+        "videoTitle": "MIT 6.006 S20 Lecture 10: Depth-First Search",
+        "readingUrl": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-9-breadth-first-search/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-10-depth-first-search/",
+        "practiceLabel": "Problem Set 5",
+        "notes": {
+          "summary": "Graph traversal, the course's pivot point. BFS (lecture 9, reading) explores level by level and computes shortest unweighted paths; DFS (this lecture) dives deep first, with white/gray/black timestamps that expose edge classification: tree, back, forward, cross. Cycle detection and topological sort come free from DFS's structure.",
+          "concepts": ["BFS levels and shortest paths", "DFS preorder/postorder", "Edge classification", "Cycle detection via back edges", "Topological sort via DFS", "O(V+E) running times"],
+          "focus": "Run DFS on a digraph and label every edge type. Then find the topological order from postorder numbers — one algorithm, two products."
+        }
+      }
+    },
+    {
+      "title": "Shortest Paths: Dijkstra",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-13-dijkstra/", "title": "MIT 6.006 S20 — Lecture 13: Dijkstra" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/problem-set-5/", "title": "Problem Set 5: continued" },
+      "materials": {
+        "videoId": "NSHizBK9JD8",
+        "videoTitle": "MIT 6.006 S20 Lecture 13: Dijkstra",
+        "readingUrl": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-11-weighted-shortest-paths/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-13-dijkstra/",
+        "practiceLabel": "Problem Set 5: shortest paths",
+        "notes": {
+          "summary": "Weighted shortest paths, in order: the relaxation framework (lecture 11, reading), Bellman-Ford's general-but-slow O(VE) (lecture 12), and Dijkstra's heap-driven O(E log V) for nonnegative weights. The priority queue from the heap lesson becomes the engine — course material compounding exactly as designed.",
+          "concepts": ["Relaxation as the universal move", "Bellman-Ford and negative edges", "Dijkstra's greedy invariant", "Why nonnegativity is required", "Heap-backed priority queue", "O(E log V) analysis"],
+          "focus": "Trace Dijkstra on a small graph where a negative edge would break it. One hand-trace of the failing case cures 'when can I use Dijkstra' forever."
+        }
+      }
+    },
+    {
+      "title": "Dynamic Programming I",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-15-dynamic-programming-part-1-srtbot-fib-dags/", "title": "MIT 6.006 S20 — Lecture 15: DP I" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/problem-session-8/", "title": "Problem Session 8" },
+      "materials": {
+        "videoId": "r4-cftqTcdI",
+        "videoTitle": "MIT 6.006 S20 Lecture 15: Dynamic Programming Part 1",
+        "readingUrl": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-notes/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-15-dynamic-programming-part-1-srtbot-fib-dags/",
+        "practiceLabel": "Problem Session 8 + PS 6",
+        "notes": {
+          "summary": "The course's crown jewel: dynamic programming. The SRTBOT recipe — Subproblem, Relate, Topological order, Base case, Original problem, Time — turns exponential recursion into polynomial tabulation. Fibonacci and DAG paths are the worked examples; the memoization vs bottom-up distinction is drawn carefully.",
+          "concepts": ["SRTBOT recipe", "Subproblem design", "Memoization vs bottom-up", "Fibonacci as DP", "DAG shortest paths as DP", "Exponential to polynomial"],
+          "focus": "Apply SRTBOT on paper to a problem you've only solved recursively. Write the RELATE line first — it is the theorem; everything else is bookkeeping."
+        }
+      }
+    },
+    {
+      "title": "Dynamic Programming II",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-16-dynamic-programming-part-2-lcs-lis-coins/", "title": "MIT 6.006 S20 — Lecture 16: DP II" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/problem-session-9/", "title": "Problem Session 9" },
+      "materials": {
+        "videoId": "KLBCUx1is2c",
+        "videoTitle": "MIT 6.006 S20 Lecture 16: Dynamic Programming Part 2",
+        "readingUrl": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-notes/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-16-dynamic-programming-part-2-lcs-lis-coins/",
+        "practiceLabel": "Problem Session 9 + PS 6",
+        "notes": {
+          "summary": "DP on strings and sequences: longest common subsequence and longest increasing subsequence show suffix-subproblem design, and coin-change shows parenthesization-style ranges. The pattern to internalize: identify what varies (suffix? pair of suffixes? interval?) and define subproblems over exactly that.",
+          "concepts": ["Suffix subproblems", "LCS recurrence and cost", "LIS as DP on prefixes", "Coin change intervals", "Reconstructing solutions", "Reading the DP table"],
+          "focus": "Build the full LCS table for two short strings and recover the actual subsequence by walking backwards. The table is the algorithm; reading it is the skill."
+        }
+      }
+    },
+    {
+      "title": "Midterm: Problem Session Marathon",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/quiz-1-review/", "title": "MIT 6.006 S20 — Quiz 1 review" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/problem-session-3/", "title": "Problem Session 3" },
+      "materials": {
+        "videoId": "e98MPnMHLxE",
+        "videoTitle": "MIT 6.006 S20 Quiz 1 Review",
+        "readingUrl": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/quiz-2-review/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/quiz-1-review/",
+        "practiceLabel": "Quiz 1 + 2 reviews",
+        "notes": {
+          "summary": "Checkpoint on the first two-thirds: data structures, sorting, hashing, trees, heaps, and graph algorithms. Work the two quiz-review videos pause-first — commit to an answer before the instructor solves it. The remaining week covers advanced DP, so fluency here compounds immediately.",
+          "concepts": ["Quiz-review problem patterns", "Data structure selection under constraints", "Graph algorithm tracing", "Amortized analysis recall", "Timed practice"],
+          "focus": "Keep a wrong-answer log across both reviews. Every miss maps to one lecture — rewatch only those instead of everything."
+        }
+      }
+    },
+    {
+      "title": "Final: Complexity and Course Review",
+      "lecture": { "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-20-course-review/", "title": "MIT 6.006 S20 — Lecture 20: Course review" },
+      "practice": { "url": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/quiz-3-review/", "title": "Quiz 3 review" },
+      "materials": {
+        "videoId": "2NMtS1ecb3o",
+        "videoTitle": "MIT 6.006 S20 Lecture 20: Course Review",
+        "readingUrl": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-19-complexity/",
+        "externalUrl": "https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/resources/lecture-20-course-review/",
+        "practiceLabel": "Quiz 3 + final review",
+        "notes": {
+          "summary": "The finale opens the door to the theory that follows: lecture 19 (reading) sketches complexity classes and reductions — the P vs NP question that 6.046J formalizes next. The review lecture sweeps the whole toolkit. Your takeaway artifact: one page mapping each problem type to its algorithm and cost, which becomes your 6.046J cheat sheet.",
+          "concepts": ["Complexity classes preview", "Reductions as translations", "Full course map", "Problem-to-algorithm pattern table", "What 6.046J adds", "Exam synthesis"],
+          "focus": "Build that one-page cost table from memory. If a cell is blank, that lecture is your review target — the table is the course."
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,201 @@
+{
+  "course": "N2T",
+  "term": 5,
+  "lessons": [
+    {
+      "title": "Project 1: Boolean Logic",
+      "lecture": { "url": "https://www.nand2tetris.org/project01", "title": "Nand2Tetris Project 1: Boolean Logic" },
+      "practice": { "url": "https://www.nand2tetris.org/project01", "title": "Build the 15 elementary gates" },
+      "materials": {
+        "readingUrl": "https://www.nand2tetris.org/book",
+        "externalUrl": "https://www.nand2tetris.org/project01",
+        "practiceLabel": "Project 1: HDL gates",
+        "notes": {
+          "summary": "The journey from Nand to Tetris starts with one gate and a rule: every chip in the course is specified by an API (interface) and implemented in HDL by composing other chips. You build Not, And, Or, Mux, Dmux and the bus versions from nothing but Nand. The hardware simulator grades you — behavior, not syntax, is what counts.",
+          "concepts": ["Nand as the universal gate", "HDL: parts, pins, buses", "Interface vs implementation", "Canonical representation", "Multi-bit buses (16-bit versions)", "The simulator workflow"],
+          "focus": "Derive Not from Nand on paper before typing any HDL. If you can prove it with Boolean algebra, the remaining gates are variations."
+        }
+      }
+    },
+    {
+      "title": "Project 2: Boolean Arithmetic",
+      "lecture": { "url": "https://www.nand2tetris.org/project02", "title": "Nand2Tetris Project 2: Boolean Arithmetic" },
+      "practice": { "url": "https://www.nand2tetris.org/project02", "title": "Build the HalfAdder, FullAdder, ALU" },
+      "materials": {
+        "readingUrl": "https://www.nand2tetris.org/book",
+        "externalUrl": "https://www.nand2tetris.org/project02",
+        "practiceLabel": "Project 2: the ALU",
+        "notes": {
+          "summary": "Adders from logic gates: half adder (sum + carry), full adder (carry-in), and the ripple 16-bit adder. The centerpiece is the Hack ALU — which computes arithmetic by bitwise trickery (negation flags) rather than dedicated circuits. Building it proves computation is just logic, and it's the heart of the computer you'll assemble in project 5.",
+          "concepts": ["Half and full adders", "Ripple-carry addition", "Two's complement by XOR", "The Hack ALU control bits", "Arithmetic from bitwise ops", "Spec-driven construction"],
+          "focus": "The ALU's zx/nx/zy/ny/f/no bits look cryptic — work the truth table for a few flag combinations until each bit's job is obvious."
+        }
+      }
+    },
+    {
+      "title": "Project 3: Sequential Logic",
+      "lecture": { "url": "https://www.nand2tetris.org/project03", "title": "Nand2Tetris Project 3: Sequential Logic" },
+      "practice": { "url": "https://www.nand2tetris.org/project03", "title": "Build bit, register, PC, RAM8K" },
+      "materials": {
+        "readingUrl": "https://www.nand2tetris.org/book",
+        "externalUrl": "https://www.nand2tetris.org/project03",
+        "practiceLabel": "Project 3: registers and RAM",
+        "notes": {
+          "summary": "Time enters the machine: DFFs (given) make bits persist, registers stack a bit behind a load gate, and RAM is an array of registers addressed by a mux/demux tree. You build the program counter — the register that jumps. Clock discipline from 6.004 returns here, but now you build the state hardware yourself.",
+          "concepts": ["Data flip-flops as state", "Bit and register chips", "Mux-based addressing", "RAM8, RAM64, ... RAM16K", "The program counter", "Clocked simulation"],
+          "focus": "Write RAM8's HDL by composing registers with an 8-way mux. Address decoding is the pattern; get it right once at small scale and RAM16K is identical."
+        }
+      }
+    },
+    {
+      "title": "Project 4: Machine Language",
+      "lecture": { "url": "https://www.nand2tetris.org/project04", "title": "Nand2Tetris Project 4: Machine Language" },
+      "practice": { "url": "https://www.nand2tetris.org/project04", "title": "Write Hack assembly programs" },
+      "materials": {
+        "readingUrl": "https://www.nand2tetris.org/book",
+        "externalUrl": "https://www.nand2tetris.org/project04",
+        "practiceLabel": "Project 4: assembly programs",
+        "notes": {
+          "summary": "You program the Hack computer before it exists: the 16-bit instruction set (A-instructions set addresses, C-instructions compute), the three pseudo-commands, and the CPU emulator. Writing multiplication and I/O programs in raw assembly builds the mental model that makes the assembler (project 6) and the VM translator (projects 7-8) obvious.",
+          "concepts": ["A and C instruction formats", "Labels and pseudo-commands", "Addressing through the A register", "Jumps and the CPU loop", "The CPU emulator tool", "Screen and keyboard memory maps"],
+          "focus": "Hand-simulate a loop in the CPU emulator, watching the PC and A register. When the jump mechanism clicks, the whole machine language becomes readable."
+        }
+      }
+    },
+    {
+      "title": "Project 5: Computer Architecture",
+      "lecture": { "url": "https://www.nand2tetris.org/project05", "title": "Nand2Tetris Project 5: Computer Architecture" },
+      "practice": { "url": "https://www.nand2tetris.org/project05", "title": "Build the CPU and the Hack computer" },
+      "materials": {
+        "readingUrl": "https://www.nand2tetris.org/book",
+        "externalUrl": "https://www.nand2tetris.org/project05",
+        "practiceLabel": "Project 5: the Hack computer",
+        "notes": {
+          "summary": "The summit of the hardware half: you wire the ALU, registers, and PC into a complete CPU, then attach ROM32K, RAM16K, screen, and keyboard into the Hack computer — a stored-program machine you built gate by gate. Running your project-4 assembly ON your project-5 computer is one of the great moments in this entire study path.",
+          "concepts": ["CPU datapath control", "Instruction decoding logic", "The von Neumann cycle in HDL", "Memory-mapped I/O", "Reset handling", "Integration testing"],
+          "focus": "Decode one C-instruction field by field and trace the control bits to the parts they drive. The CPU is just a decoder wired to components you already trust."
+        }
+      }
+    },
+    {
+      "title": "Project 6: The Assembler",
+      "lecture": { "url": "https://www.nand2tetris.org/project06", "title": "Nand2Tetris Project 6: The Assembler" },
+      "practice": { "url": "https://www.nand2tetris.org/project06", "title": "Write the Hack assembler" },
+      "materials": {
+        "readingUrl": "https://www.nand2tetris.org/book",
+        "externalUrl": "https://www.nand2tetris.org/project06",
+        "practiceLabel": "Project 6: assembler in Python/Java",
+        "notes": {
+          "summary": "The software half begins: a two-pass assembler that parses Hack assembly, resolves symbols (labels and variables), and emits binary. It's your first real translator program, and its architecture — parse, symbol table, code generation — is exactly the shape of the Jack compiler you build in projects 10-11.",
+          "concepts": ["Two-pass translation", "Parsing with a grammar", "Symbol tables", "Binary code emission", "Line-by-line syntax analysis", "Testing against the supplied assembler"],
+          "focus": "Build the parser first with unit tests on tiny programs. The two passes are easy to conflate — keeping them separate is what makes the code clean."
+        }
+      }
+    },
+    {
+      "title": "Project 7: VM Translator I",
+      "lecture": { "url": "https://www.nand2tetris.org/project07", "title": "Nand2Tetris Project 7: VM Translator — Stack Arithmetic" },
+      "practice": { "url": "https://www.nand2tetris.org/project07", "title": "Translate stack commands to assembly" },
+      "materials": {
+        "readingUrl": "https://www.nand2tetris.org/book",
+        "externalUrl": "https://www.nand2tetris.org/project07",
+        "practiceLabel": "Project 7: arithmetic/logical VM ops",
+        "notes": {
+          "summary": "The virtual machine concept: compilers target an abstract stack machine, and the VM translator lowers push/pop/arithmetic commands into Hack assembly. You implement the command parser and code writer for arithmetic and logical operations. This two-tier compilation design is how Java, .NET, and WebAssembly all work.",
+          "concepts": ["Stack-based machine model", "push and pop semantics", "VM arithmetic commands", "Code generation templates", "Bootstrap of a translator", "Why VMs exist (portability)"],
+          "focus": "Write the assembly template for 'add' by hand first — then your code writer just stamps it. Template thinking makes translation programs almost boring, which is the point."
+        }
+      }
+    },
+    {
+      "title": "Project 8: VM Translator II",
+      "lecture": { "url": "https://www.nand2tetris.org/project08", "title": "Nand2Tetris Project 8: VM Translator — Program Control" },
+      "practice": { "url": "https://www.nand2tetris.org/project08", "title": "Translate branches, functions, calls" },
+      "materials": {
+        "readingUrl": "https://www.nand2tetris.org/book",
+        "externalUrl": "https://www.nand2tetris.org/project08",
+        "practiceLabel": "Project 8: functions and calls",
+        "notes": {
+          "summary": "The VM's hard core: branching (label/goto/if-goto), functions with arguments and locals, and the call/return protocol that pushes frames. The generated bootstrap code starts the ball rolling. Recursion works when this works — which means your 6.100L-era mental model of stack frames is now something you EMIT.",
+          "concepts": ["Call frames in VM terms", "Argument/local/pointer segments", "Return value protocol", "Bootstrap code", "Label generation", "Recursion end-to-end"],
+          "focus": "Trace one VM call through your generated assembly with the VM emulator. Watching a recursive Fibonacci stack grow in code YOU generated is the payoff."
+        }
+      }
+    },
+    {
+      "title": "Project 9: The Jack Language",
+      "lecture": { "url": "https://www.nand2tetris.org/project09", "title": "Nand2Tetris Project 9: Jack" },
+      "practice": { "url": "https://www.nand2tetris.org/project09", "title": "Write a Jack application" },
+      "materials": {
+        "readingUrl": "https://www.nand2tetris.org/book",
+        "externalUrl": "https://www.nand2tetris.org/project09",
+        "practiceLabel": "Project 9: write a Jack program",
+        "notes": {
+          "summary": "A taste of the other side: Jack, a simple Java-like OO language you will soon compile. You write a small application (a game or tool) in Jack and run it on the platform you built. Using your own machine as a user reveals exactly what a language needs: classes, methods, arrays, strings — and what a compiler must handle.",
+          "concepts": ["Jack syntax and semantics", "Classes, fields, methods", "The standard library (Math, Screen, Keyboard)", "Program structure", "Designing before compiling", "Dogfooding your platform"],
+          "focus": "Write something fun and small (a Snake game). You'll hit every language feature naturally, which is exactly the test suite your compiler needs."
+        }
+      }
+    },
+    {
+      "title": "Project 10: Compiler I — Syntax Analysis",
+      "lecture": { "url": "https://www.nand2tetris.org/project10", "title": "Nand2Tetris Project 10: Syntax Analysis" },
+      "practice": { "url": "https://www.nand2tetris.org/project10", "title": "Build the Jack parser" },
+      "materials": {
+        "readingUrl": "https://www.nand2tetris.org/book",
+        "externalUrl": "https://www.nand2tetris.org/project10",
+        "practiceLabel": "Project 10: tokenizer + parser",
+        "notes": {
+          "summary": "Compilation begins: the tokenizer turns Jack source into a token stream, and a recursive-descent parser validates it against the Jack grammar, emitting an XML parse tree. This is the same front-end architecture Stanford's CS143 formalizes — you are building it two terms early, at toy scale, by hand.",
+          "concepts": ["Tokenization/lexing", "Recursive descent parsing", "Grammar to code correspondence", "Parse trees", "Syntax validation", "Handling expressions (precedence)"],
+          "focus": "Map each grammar rule to one parsing function. When the grammar and code look identical in shape, you have written a parser the way professionals do."
+        }
+      }
+    },
+    {
+      "title": "Project 11: Compiler II — Code Generation",
+      "lecture": { "url": "https://www.nand2tetris.org/project11", "title": "Nand2Tetris Project 11: Code Generation" },
+      "practice": { "url": "https://www.nand2tetris.org/project11", "title": "Emit VM code from the parse tree" },
+      "materials": {
+        "readingUrl": "https://www.nand2tetris.org/book",
+        "externalUrl": "https://www.nand2tetris.org/project11",
+        "practiceLabel": "Project 11: the full compiler",
+        "notes": {
+          "summary": "The compiler's back end: walk the parse tree and emit VM code — expressions as stack operations, variables as segments, methods as functions with this as argument zero, and objects as heap blocks. String literals, symbol tables with scope, and the standard library's implicit calls complete the pipeline from Jack source to running program.",
+          "concepts": ["Code generation from trees", "Symbol tables with scopes", "Objects as heap references", "this and field segments", "String and array allocation", "The full compilation pipeline"],
+          "focus": "Compile a hello-world Jack program and run the pipeline end to end: your compiler, your VM translator, your hardware. Trace one print statement the whole way down."
+        }
+      }
+    },
+    {
+      "title": "Midterm: The Operating System (Project 12)",
+      "lecture": { "url": "https://www.nand2tetris.org/project12", "title": "Nand2Tetris Project 12: OS" },
+      "practice": { "url": "https://www.nand2tetris.org/project12", "title": "Build the Jack OS: memory, screen, keyboard" },
+      "materials": {
+        "readingUrl": "https://www.nand2tetris.org/book",
+        "externalUrl": "https://www.nand2tetris.org/project12",
+        "practiceLabel": "Project 12: OS modules",
+        "notes": {
+          "summary": "Project 12 is the OS half checkpoint: the Jack runtime library — memory management (alloc/free with a free list), screen drawing (line, circle, text), keyboard input, string and Math routines — all written in Jack itself. You are writing the layer your compiler's programs depend on, and discovering that an OS is just a library with privileges.",
+          "concepts": ["Memory management with free lists", "Fragmentation intuition", "Bitmap and vector graphics routines", "Sys.wait and clock ticks", "Math.multiply/divide in software", "Sys.init as the entry point"],
+          "focus": "Implement Memory.alloc with a first-fit free list and draw the heap's state after a scripted alloc/free sequence. That picture is a real malloc in miniature."
+        }
+      }
+    },
+    {
+      "title": "Final: Platform Integration and Review",
+      "lecture": { "url": "https://www.nand2tetris.org/", "title": "Nand2Tetris — the complete platform" },
+      "practice": { "url": "https://www.nand2tetris.org/project12", "title": "Finish the OS and run Tetris" },
+      "materials": {
+        "readingUrl": "https://www.nand2tetris.org/book",
+        "externalUrl": "https://www.nand2tetris.org/course",
+        "practiceLabel": "Final: run your Tetris game",
+        "notes": {
+          "summary": "The finish line: with the OS complete, the full toolchain — hardware, assembler, VM translator, compiler, OS — runs the course's Tetris game, every layer built by you. Review the full stack bottom-up, then write the one-page diagram of how a Jack statement becomes a gate transition. That diagram is your ticket to 6.1810's xv6 next.",
+          "concepts": ["The full N2T stack", "Layer-by-layer compilation", "What an OS kernel really is", "Trade-offs at each abstraction", "Tetris as integration test", "The complete mental machine"],
+          "focus": "Play the Tetris game you compiled on the machine you built. Then write that one-page stack diagram from memory — it is the course, compressed."
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,227 @@
+{
+  "course": "STAT110",
+  "term": 3,
+  "lessons": [
+    {
+      "title": "Probability and Counting",
+      "lecture": { "url": "https://projects.iq.harvard.edu/stat110/home", "title": "Harvard Stat 110 — Lecture 1" },
+      "practice": { "url": "https://projects.iq.harvard.edu/stat110/home", "title": "Stat 110 problem sets" },
+      "materials": {
+        "videoId": "KbB0FjPg0mw",
+        "videoTitle": "Harvard Stat 110 Lecture 1: Probability and Counting",
+        "readingUrl": "https://projects.iq.harvard.edu/stat110/home",
+        "externalUrl": "https://projects.iq.harvard.edu/stat110/home",
+        "practiceLabel": "Strategic Practice 1",
+        "notes": {
+          "summary": "Joe Blitzstein starts Stat 110 with the two pillars: a sample space (all possible outcomes of an experiment) and counting (how many outcomes have the property you care about). The multiplication rule and the choose function (n choose k) are introduced as the workhorses of the entire course. Everything later — conditioning, expectation, distributions — stands on this combinatorial foundation.",
+          "concepts": ["Sample spaces and events", "The multiplication rule", "Permutations vs combinations", "n choose k and factorials", "Sampling with/without replacement", "Naive definition of probability"],
+          "focus": "Solve one birthday-style counting problem two ways — direct counting and its complement. The complement trick will save you repeatedly all term."
+        }
+      }
+    },
+    {
+      "title": "Story Proofs and the Axioms of Probability",
+      "lecture": { "url": "https://projects.iq.harvard.edu/stat110/home", "title": "Harvard Stat 110 — Lecture 2" },
+      "practice": { "url": "https://projects.iq.harvard.edu/stat110/home", "title": "Stat 110 problem sets" },
+      "materials": {
+        "videoId": "FJd_1H3rZGg",
+        "videoTitle": "Harvard Stat 110 Lecture 2: Story Proofs, Axioms of Probability",
+        "readingUrl": "https://projects.iq.harvard.edu/stat110/home",
+        "externalUrl": "https://projects.iq.harvard.edu/stat110/home",
+        "practiceLabel": "Strategic Practice 2",
+        "notes": {
+          "summary": "Story proofs — counting the same set by two different narratives — prove identities like Vandermonde's convolution without algebra. Then the axioms: nonnegativity, total probability 1, and countable additivity. From three axioms Blitzstein derives inclusion-exclusion and the complements rule, making probability a theorem system rather than folklore.",
+          "concepts": ["Story proofs (double counting)", "Vandermonde's identity", "The three axioms", "Inclusion-exclusion", "Complement rule", "Countable additivity"],
+          "focus": "Prove a binomial identity by story this week. If you can tell a counting story that convinces a skeptic, the algebra will always take care of itself."
+        }
+      }
+    },
+    {
+      "title": "The Birthday Problem and Properties of Probability",
+      "lecture": { "url": "https://projects.iq.harvard.edu/stat110/home", "title": "Harvard Stat 110 — Lecture 3" },
+      "practice": { "url": "https://projects.iq.harvard.edu/stat110/home", "title": "Stat 110 problem sets" },
+      "materials": {
+        "videoId": "LZ5Wergp_PA",
+        "videoTitle": "Harvard Stat 110 Lecture 3: Birthday Problem, Properties of Probability",
+        "readingUrl": "https://projects.iq.harvard.edu/stat110/home",
+        "externalUrl": "https://projects.iq.harvard.edu/stat110/home",
+        "practiceLabel": "Strategic Practice 3",
+        "notes": {
+          "summary": "The famous birthday problem: with just 23 people, a shared birthday is more likely than not. The lesson is deeper than the party trick — independence assumptions make exact computation feasible, and 'coincidences' are common because the number of pairs grows quadratically. This lecture cements the probability properties you will use daily.",
+          "concepts": ["Birthday problem mechanics", "Independence (intuitive)", "Pairwise vs mutual independence", "Probability of unions", "Complement-first strategy", "The quadratically many pairs insight"],
+          "focus": "Redo the birthday calculation for a shared birth MONTH and check it against 23. Generalizing the problem is the fastest way to own the pattern."
+        }
+      }
+    },
+    {
+      "title": "Conditional Probability and Bayes' Rule",
+      "lecture": { "url": "https://projects.iq.harvard.edu/stat110/home", "title": "Harvard Stat 110 — Lecture 4" },
+      "practice": { "url": "https://projects.iq.harvard.edu/stat110/home", "title": "Stat 110 problem sets" },
+      "materials": {
+        "videoId": "P7NE4WF8j-Q",
+        "videoTitle": "Harvard Stat 110 Lecture 4: Conditional Probability",
+        "readingUrl": "https://projects.iq.harvard.edu/stat110/home",
+        "externalUrl": "https://projects.iq.harvard.edu/stat110/home",
+        "practiceLabel": "Strategic Practice 4",
+        "notes": {
+          "summary": "Conditioning is the course's superpower: P(A|B) restricts the universe to B and renormalizes. From the definition flow the multiplication rule, the law of total probability, and Bayes' rule — the machinery for updating beliefs with evidence. Medical-test problems (base rates matter!) make the difference between intuition and correctness vivid.",
+          "concepts": ["Definition of conditional probability", "Multiplication rule (chains)", "Law of total probability", "Bayes' rule", "Base rate fallacies", "Peek at data, update beliefs"],
+          "focus": "Work a medical screening problem twice — once with natural frequencies (counts out of 10,000), once with Bayes' formula. Frequencies make Bayes feel obvious; that is the point."
+        }
+      }
+    },
+    {
+      "title": "Conditioning Continued and Monty Hall",
+      "lecture": { "url": "https://projects.iq.harvard.edu/stat110/home", "title": "Harvard Stat 110 — Lecture 5" },
+      "practice": { "url": "https://projects.iq.harvard.edu/stat110/home", "title": "Stat 110 problem sets" },
+      "materials": {
+        "videoId": "JzDvVgNDxo8",
+        "videoTitle": "Harvard Stat 110 Lecture 5: Conditioning Continued, Law of Total Probability",
+        "readingUrl": "https://projects.iq.harvard.edu/stat110/home",
+        "externalUrl": "https://projects.iq.harvard.edu/stat110/home",
+        "practiceLabel": "Strategic Practice 5",
+        "notes": {
+          "summary": "Advanced conditioning: partition the sample space, weight by conditionals, and first-step analysis for processes that unfold in stages (gambler's ruin preview). The techniques here convert 'I don't know where to start' problems into 'condition on the first step' recipes — the single most productive habit in this course.",
+          "concepts": ["Partitions and weighting", "First-step analysis", "Conditioning on a partition", "Two-stage experiments", "Simpson's paradox preview", "Recursive probability equations"],
+          "focus": "Take one two-stage game and solve it purely by first-step conditioning. Then sanity-check with a brute-force enumeration — both should agree."
+        }
+      }
+    },
+    {
+      "title": "Monty Hall and Simpson's Paradox",
+      "lecture": { "url": "https://projects.iq.harvard.edu/stat110/home", "title": "Harvard Stat 110 — Lecture 6" },
+      "practice": { "url": "https://projects.iq.harvard.edu/stat110/home", "title": "Stat 110 problem sets" },
+      "materials": {
+        "videoId": "fDcjhAKuhqQ",
+        "videoTitle": "Harvard Stat 110 Lecture 6: Monty Hall, Simpson's Paradox",
+        "readingUrl": "https://projects.iq.harvard.edu/stat110/home",
+        "externalUrl": "https://projects.iq.harvard.edu/stat110/home",
+        "practiceLabel": "Strategic Practice 6",
+        "notes": {
+          "summary": "Two famous paradoxes, both resolved by conditioning carefully. Monty Hall: switching wins 2/3 because Monty's choice is informative, not random. Simpson's: aggregated trends can reverse across subgroups when a confounder is ignored. Both are the same lesson — the data-generating story matters as much as the numbers.",
+          "concepts": ["Monty Hall and informative conditioning", "The host's protocol matters", "Confounding variables", "Aggregation reversal", "Thinking conditionally as a reflex", "Stories vs data"],
+          "focus": "Explain to someone non-technical why switching in Monty Hall wins. If you can do that in under a minute, you truly understand conditioning."
+        }
+      }
+    },
+    {
+      "title": "Gambler's Ruin and Random Variables",
+      "lecture": { "url": "https://projects.iq.harvard.edu/stat110/home", "title": "Harvard Stat 110 — Lecture 7" },
+      "practice": { "url": "https://projects.iq.harvard.edu/stat110/home", "title": "Stat 110 problem sets" },
+      "materials": {
+        "videoId": "PNrqCdslGi4",
+        "videoTitle": "Harvard Stat 110 Lecture 7: Gambler's Ruin and Random Variables",
+        "readingUrl": "https://projects.iq.harvard.edu/stat110/home",
+        "externalUrl": "https://projects.iq.harvard.edu/stat110/home",
+        "practiceLabel": "Strategic Practice 7",
+        "notes": {
+          "summary": "Gambler's ruin — will a random walk hit the boundary before going broke? — is solved with first-step conditioning and difference equations. Then the course pivots to its central object: the random variable, a numerical function on the sample space. From here on, the subject becomes the study of distributions.",
+          "concepts": ["Random walks", "First-step equations for ruin", "Difference equations", "Random variables as functions", "Discrete vs continuous r.v.s", "Bernoulli and indicator variables"],
+          "focus": "Derive the gambler's ruin probability for a fair coin yourself using first-step analysis. It is the template for Markov-chain problems in CS188 later in your path."
+        }
+      }
+    },
+    {
+      "title": "Random Variables and Their Distributions",
+      "lecture": { "url": "https://projects.iq.harvard.edu/stat110/home", "title": "Harvard Stat 110 — Lecture 8" },
+      "practice": { "url": "https://projects.iq.harvard.edu/stat110/home", "title": "Stat 110 problem sets" },
+      "materials": {
+        "videoId": "k2BB0p8byGA",
+        "videoTitle": "Harvard Stat 110 Lecture 8: Random Variables and Their Distributions",
+        "readingUrl": "https://projects.iq.harvard.edu/stat110/home",
+        "externalUrl": "https://projects.iq.harvard.edu/stat110/home",
+        "practiceLabel": "Strategic Practice 8",
+        "notes": {
+          "summary": "Distributions describe what a random variable does: the PMF lists P(X = k), the CDF accumulates P(X <= k). You meet the named families — Binomial (fixed trials), Geometric (waiting time), and the story each distribution tells. Choosing the right named distribution is a pattern-matching skill this lecture trains directly.",
+          "concepts": ["PMFs and their properties", "CDFs and how to read them", "Binomial distribution", "Geometric distribution", "Distribution stories", "Independence of r.v.s"],
+          "focus": "For each named distribution, write its story in one sentence (n trials, k successes...). When you can match problem to story instantly, the formulas follow."
+        }
+      }
+    },
+    {
+      "title": "Expectation and Linearity",
+      "lecture": { "url": "https://projects.iq.harvard.edu/stat110/home", "title": "Harvard Stat 110 — Lecture 9" },
+      "practice": { "url": "https://projects.iq.harvard.edu/stat110/home", "title": "Stat 110 problem sets" },
+      "materials": {
+        "videoId": "LX2q356N2rU",
+        "videoTitle": "Harvard Stat 110 Lecture 9: Expectation, Indicator R.V.s, Linearity",
+        "readingUrl": "https://projects.iq.harvard.edu/stat110/home",
+        "externalUrl": "https://projects.iq.harvard.edu/stat110/home",
+        "practiceLabel": "Strategic Practice 9",
+        "notes": {
+          "summary": "Expectation is the long-run average, and linearity of expectation — E(X+Y) = E(X)+E(Y) with NO independence required — is the most useful theorem in the course. The method of indicators decomposes hard problems into 0/1 pieces: count successes by summing 'did this particular event happen' variables. The birthday problem falls to indicators without a single factorial.",
+          "concepts": ["Expected value definition", "Linearity of expectation", "Indicator random variables", "Fundamental bridge (intro)", "Expectation of named distributions", "No independence needed"],
+          "focus": "Recompute the expected number of matching birthday pairs with indicators only. Then use the same trick on a matching-hats problem — the pattern generalizes."
+        }
+      }
+    },
+    {
+      "title": "Expectation Continued: Variance Preview",
+      "lecture": { "url": "https://projects.iq.harvard.edu/stat110/home", "title": "Harvard Stat 110 — Lecture 10" },
+      "practice": { "url": "https://projects.iq.harvard.edu/stat110/home", "title": "Stat 110 problem sets" },
+      "materials": {
+        "videoId": "P1fSFvhPf7Q",
+        "videoTitle": "Harvard Stat 110 Lecture 10: Expectation Continued",
+        "readingUrl": "https://projects.iq.harvard.edu/stat110/home",
+        "externalUrl": "https://projects.iq.harvard.edu/stat110/home",
+        "practiceLabel": "Strategic Practice 10",
+        "notes": {
+          "summary": "Expectation techniques stack: LOTUS (E(g(X)) needs no distribution of g), negative binomial waiting times, and the St. Petersburg paradox show the reach of the toolkit. Variance enters as the expected squared deviation — the course's measure of spread — and the shortcut Var(X) = E(X^2) - (E X)^2 makes it computable.",
+          "concepts": ["LOTUS", "St. Petersburg paradox", "Negative binomial", "Variance definition and shortcut", "Geometric series fluency", "When expectation misleads"],
+          "focus": "Compute the variance of a die roll by the shortcut formula. Then ask what variance would mean if you played the game 100 times — spread is about experience, not expectation."
+        }
+      }
+    },
+    {
+      "title": "The Poisson Distribution",
+      "lecture": { "url": "https://projects.iq.harvard.edu/stat110/home", "title": "Harvard Stat 110 — Lecture 11" },
+      "practice": { "url": "https://projects.iq.harvard.edu/stat110/home", "title": "Stat 110 problem sets" },
+      "materials": {
+        "videoId": "TD1N4hxqMzY",
+        "videoTitle": "Harvard Stat 110 Lecture 11: The Poisson Distribution",
+        "readingUrl": "https://projects.iq.harvard.edu/stat110/home",
+        "externalUrl": "https://projects.iq.harvard.edu/stat110/home",
+        "practiceLabel": "Strategic Practice 11",
+        "notes": {
+          "summary": "Poisson approximates Binomial when n is huge and p is tiny: rare events over a continuum. Its clean variance-equals-mean property and e^-lambda lambda^k formula make it the default model for counts of emails, typos, and website hits. The approximation theorem connects the two stories elegantly.",
+          "concepts": ["Poisson as rare-event limit", "Law of rare events (approximation)", "Variance = mean for Poisson", "Counting events in time/space", "Choosing Binomial vs Poisson", "Approximation error intuition"],
+          "focus": "Estimate a real-world count problem (typos per page) with Poisson and check the Binomial it approximates. When n is large enough, the numbers are indistinguishable."
+        }
+      }
+    },
+    {
+      "title": "Midterm: Continuous Distributions Bridge",
+      "lecture": { "url": "https://projects.iq.harvard.edu/stat110/home", "title": "Stat 110 — review resources" },
+      "practice": { "url": "https://projects.iq.harvard.edu/stat110/home", "title": "Strategic practices 1-11" },
+      "materials": {
+        "videoId": "Tci---bVs60",
+        "videoTitle": "Harvard Stat 110 Lecture 12: Discrete vs. Continuous, the Uniform",
+        "readingUrl": "https://projects.iq.harvard.edu/stat110/home",
+        "externalUrl": "https://projects.iq.harvard.edu/stat110/home",
+        "practiceLabel": "Midterm: strategic practice consolidation",
+        "notes": {
+          "summary": "The bridge lecture doubles as your consolidation checkpoint: continuous random variables replace PMFs with PDFs and sums with integrals, with the Uniform distribution as the first example. Before watching, redo three strategic practices cold — conditioning, indicators, and a named-distribution choice — since the continuous half assumes all of it.",
+          "concepts": ["PMF to PDF transition", "Integrals replace sums", "Uniform(a, b)", "Units: density vs probability", "CDFs for continuous r.v.s", "Midterm self-assessment"],
+          "focus": "Convert one discrete problem you already solved into its continuous analog (uniform instead of fair die). The translation itself is the lesson."
+        }
+      }
+    },
+    {
+      "title": "Final: The Normal Distribution",
+      "lecture": { "url": "https://projects.iq.harvard.edu/stat110/home", "title": "Stat 110 — final topics" },
+      "practice": { "url": "https://projects.iq.harvard.edu/stat110/home", "title": "Strategic practices 12+" },
+      "materials": {
+        "videoId": "72QjzHnYvL0",
+        "videoTitle": "Harvard Stat 110 Lecture 13: Normal Distribution",
+        "readingUrl": "https://projects.iq.harvard.edu/stat110/home",
+        "externalUrl": "https://projects.iq.harvard.edu/stat110/home",
+        "practiceLabel": "Final: normal + course synthesis",
+        "notes": {
+          "summary": "The normal distribution closes the term: symmetry, the 68-95-99.7 rule, standardization with Z-scores, and the reason the bell curve appears everywhere (the CLT, arriving in the continuation). From counting to conditioning to expectation to continuous families, you now hold the full probabilist's toolkit that 6.006's randomized algorithms and 6.036's ML will silently assume.",
+          "concepts": ["Normal density", "Standardization and Z-scores", "The empirical rule (68/95/99.7)", "Why normal arises (CLT preview)", "Sums of independent normals", "Course map: counting to normal"],
+          "focus": "Write the course map from memory — counting, conditioning, random variables, expectation, distributions — and place one worked problem next to each node. That map is your final artifact."
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,392 @@
+{
+  "course": "CS188",
+  "term": 7,
+  "lessons": [
+    {
+      "title": "Intro to AI and Rational Agents",
+      "lecture": {
+        "url": "https://inst.eecs.berkeley.edu/~cs188/",
+        "title": "CS 188 (Berkeley) \u2014 LEC01"
+      },
+      "practice": {
+        "url": "https://inst.eecs.berkeley.edu/~cs188/",
+        "title": "Course hub: homework"
+      },
+      "materials": {
+        "videoId": "NG3MHjcvk2A",
+        "videoTitle": "[CS188 SP24] LEC01 - Intro to AI, Rational Agents",
+        "readingUrl": "https://inst.eecs.berkeley.edu/~cs188/",
+        "externalUrl": "https://inst.eecs.berkeley.edu/~cs188/",
+        "practiceLabel": "HW 1: search foundations",
+        "notes": {
+          "summary": "CS188 opens with the field's framing: AI as rational agents \u2014 perceive, decide, act \u2014 evaluated by expected utility. The Berkeley Spring 2024 lecture recordings (the newest public edition, on the department's official channel) structure the term around the agent progression: search agents, game agents, Markov agents, and learning agents. This is the modern survey course for everything happening in AI.",
+          "concepts": [
+            "Rational agents and utility",
+            "PEAS descriptions",
+            "Environment types",
+            "Search as the first agent",
+            "The course arc",
+            "State spaces"
+          ],
+          "focus": "Formalize a familiar game (chess-lite) as state, actions, transition, goal. Restating the world as search space is the course's first skill."
+        }
+      }
+    },
+    {
+      "title": "Uninformed Search",
+      "lecture": {
+        "url": "https://inst.eecs.berkeley.edu/~cs188/",
+        "title": "CS 188 \u2014 LEC02: State spaces, uninformed search"
+      },
+      "practice": {
+        "url": "https://inst.eecs.berkeley.edu/~cs188/",
+        "title": "Course hub: homework"
+      },
+      "materials": {
+        "videoId": "PU6VQbV49_g",
+        "videoTitle": "[CS188 SP24] LEC02 - Search: State Spaces, Uninformed Search",
+        "readingUrl": "https://inst.eecs.berkeley.edu/~cs188/",
+        "externalUrl": "https://inst.eecs.berkeley.edu/~cs188/",
+        "practiceLabel": "HW 1: BFS/DFS/UCS",
+        "notes": {
+          "summary": "Systematic state-space exploration: BFS (shallowest), DFS (deepest, not optimal), uniform-cost (cheapest by g(n)), with the frontier mechanics, the explored set, and completeness/optimality guarantees. Your 6.006 BFS/DFS lectures are the direct prerequisite \u2014 CS188 adds the optimality lens.",
+          "concepts": [
+            "Frontiers as queues/stacks/priority queues",
+            "BFS optimality (unit costs)",
+            "UCS and g(n)",
+            "Completeness conditions",
+            "Explored vs frontier",
+            "Admissibility of graph search"
+          ],
+          "focus": "For one weighted graph, run UCS by hand and note the pop order. The pattern 'cheap nodes pop first' is everything Dijkstra taught you, agent-ified."
+        }
+      }
+    },
+    {
+      "title": "Informed Search: Heuristics and A*",
+      "lecture": {
+        "url": "https://inst.eecs.berkeley.edu/~cs188/",
+        "title": "CS 188 \u2014 LEC03: A* and heuristics"
+      },
+      "practice": {
+        "url": "https://inst.eecs.berkeley.edu/~cs188/",
+        "title": "Course hub: homework"
+      },
+      "materials": {
+        "videoId": "zRFZwAUQT8U",
+        "videoTitle": "[CS188 SP24] LEC03 - Search: Informed Search, A*, Heuristics",
+        "readingUrl": "https://inst.eecs.berkeley.edu/~cs188/",
+        "externalUrl": "https://inst.eecs.berkeley.edu/~cs188/",
+        "practiceLabel": "HW 1: A* problems",
+        "notes": {
+          "summary": "A* = UCS + admissible heuristic: f(n) = g(n) + h(n), optimal when h never overestimates. Consistency for graph search, dominance relations comparing heuristics, and the craft of designing heuristics (relaxations). This single lecture's machinery runs game pathfinding, robot motion planning, and puzzle solvers worldwide.",
+          "concepts": [
+            "Admissibility and optimality proofs",
+            "Consistency",
+            "Tree vs graph search subtleties",
+            "Heuristic dominance",
+            "Designing heuristics by relaxation",
+            "A* expansion efficiency"
+          ],
+          "focus": "Prove A* tree-search optimality with an admissible h, in writing. Then design TWO heuristics for the 8-puzzle and show which dominates."
+        }
+      }
+    },
+    {
+      "title": "Local Search and Optimization",
+      "lecture": {
+        "url": "https://inst.eecs.berkeley.edu/~cs188/",
+        "title": "CS 188 \u2014 LEC04: Local search"
+      },
+      "practice": {
+        "url": "https://inst.eecs.berkeley.edu/~cs188/",
+        "title": "Course hub: homework"
+      },
+      "materials": {
+        "videoId": "Wqmd_i0coLc",
+        "videoTitle": "[CS188 SP24] LEC04 - Search: Local Search",
+        "readingUrl": "https://inst.eecs.berkeley.edu/~cs188/",
+        "externalUrl": "https://inst.eecs.berkeley.edu/~cs188/",
+        "practiceLabel": "HW 2: local search problems",
+        "notes": {
+          "summary": "When the path doesn't matter, only the goal: hill climbing, simulated annealing (accepting bad moves on a temperature schedule), genetic algorithms, and beam search. Local search scales to huge spaces (chip layout, timetabling) where systematic search dies. This is also your first metaheuristic vocabulary.",
+          "concepts": [
+            "Hill climbing and local minima",
+            "Simulated annealing schedules",
+            "Genetic algorithms' vocabulary",
+            "Beam search",
+            "When path doesn't matter",
+            "Optimization landscapes"
+          ],
+          "focus": "Implement hill climbing for 8-queens, then count restarts needed. The restart statistics teach more about local minima than any diagram."
+        }
+      }
+    },
+    {
+      "title": "Adversarial Search: Minimax and Pruning",
+      "lecture": {
+        "url": "https://inst.eecs.berkeley.edu/~cs188/",
+        "title": "CS 188 \u2014 LEC05: Games"
+      },
+      "practice": {
+        "url": "https://inst.eecs.berkeley.edu/~cs188/",
+        "title": "Course hub: homework"
+      },
+      "materials": {
+        "videoId": "h8Tz4knj-vM",
+        "videoTitle": "[CS188 SP24] LEC05 - Games: Trees, Minimax, Pruning",
+        "readingUrl": "https://inst.eecs.berkeley.edu/~cs188/",
+        "externalUrl": "https://inst.eecs.berkeley.edu/~cs188/",
+        "practiceLabel": "HW 2: minimax problems",
+        "notes": {
+          "summary": "Games add an opponent: minimax computes each player's best move assuming optimal opposition. Alpha-beta pruning cuts the tree dramatically with zero risk of changing the answer. Depth-limited search with evaluation functions scales minimax to real games \u2014 the exact design of classical chess engines.",
+          "concepts": [
+            "Minimax recursion",
+            "Alpha-beta bounds and pruning",
+            "Move ordering effects",
+            "Evaluation functions",
+            "Depth-limited games",
+            "Why pruning is free"
+          ],
+          "focus": "Hand-run alpha-beta on a 3-level game tree and mark pruned branches. Then shuffle child order and re-run \u2014 the pruning count change is the move-ordering lesson."
+        }
+      }
+    },
+    {
+      "title": "Expectimax and Monte Carlo Methods",
+      "lecture": {
+        "url": "https://inst.eecs.berkeley.edu/~cs188/",
+        "title": "CS 188 \u2014 LEC06: Expectimax, MCTS"
+      },
+      "practice": {
+        "url": "https://inst.eecs.berkeley.edu/~cs188/",
+        "title": "Course hub: homework"
+      },
+      "materials": {
+        "videoId": "_-xH1CAfoxM",
+        "videoTitle": "[CS188 SP24] LEC06 - Games: Expectimax, Monte Carlo Tree Search",
+        "readingUrl": "https://inst.eecs.berkeley.edu/~cs188/",
+        "externalUrl": "https://inst.eecs.berkeley.edu/~cs188/",
+        "practiceLabel": "HW 2: expectimax problems",
+        "notes": {
+          "summary": "Chance enters the tree: expectimax averages over probabilistic outcomes instead of minimizing over adversaries. Monte Carlo Tree Search (the idea behind AlphaGo's rollout phase) samples instead of enumerating. The minimax-expectimax contrast also previews 6.036's probabilistic reasoning.",
+          "concepts": [
+            "Expectimax nodes and averaging",
+            "Risk-sensitive behavior",
+            "MCTS: selection, expansion, simulation, backprop",
+            "UCB exploration",
+            "Sampling vs enumeration",
+            "Games of chance"
+          ],
+          "focus": "Solve one expectimax tree by hand, then change one chance node's probabilities and re-solve. Watching the optimal move flip IS probabilistic planning."
+        }
+      }
+    },
+    {
+      "title": "Markov Decision Processes",
+      "lecture": {
+        "url": "https://inst.eecs.berkeley.edu/~cs188/",
+        "title": "CS 188 \u2014 MDPs"
+      },
+      "practice": {
+        "url": "https://inst.eecs.berkeley.edu/~cs188/",
+        "title": "Course hub: homework"
+      },
+      "materials": {
+        "videoId": "lJ7nHubyahw",
+        "readingUrl": "https://inst.eecs.berkeley.edu/~cs188/",
+        "externalUrl": "https://inst.eecs.berkeley.edu/~cs188/",
+        "practiceLabel": "HW 3: MDPs",
+        "notes": {
+          "summary": "The mathematical heart of AI decision-making: MDPs formalize sequential decisions under uncertainty with states, actions, transitions, rewards, and discounting. The Bellman equation defines optimal value recursively. Every RL headline you've read is an MDP plus a learning rule \u2014 this lecture is the foundation.",
+          "concepts": [
+            "MDP formalism",
+            "Discounting and horizons",
+            "The Bellman equation",
+            "Value of a state",
+            "Policies",
+            "Exit states"
+          ],
+          "focus": "Write the Bellman equation for a 2-state MDP and solve it exactly. The linear system is small \u2014 solve it and you've solved RL's core object."
+        }
+      }
+    },
+    {
+      "title": "Value Iteration, Policy Iteration, and Reinforcement Learning",
+      "lecture": {
+        "url": "https://inst.eecs.berkeley.edu/~cs188/",
+        "title": "CS 188 \u2014 Solving MDPs + RL"
+      },
+      "practice": {
+        "url": "https://inst.eecs.berkeley.edu/~cs188/",
+        "title": "Course hub: homework"
+      },
+      "materials": {
+        "videoId": "FW9XbSGcR4Q",
+        "videoTitle": "[CS188 SP24] LEC12 - Bayes Nets: Inference",
+        "readingUrl": "https://inst.eecs.berkeley.edu/~cs188/",
+        "externalUrl": "https://inst.eecs.berkeley.edu/~cs188/",
+        "practiceLabel": "HW 3-4: MDPs + RL",
+        "notes": {
+          "summary": "Solving MDPs: value iteration (repeated Bellman backup to fixed point) and policy iteration (evaluate, improve, repeat). Then model-free RL: Q-learning's update when the model is unknown, exploration vs exploitation, and the difference between on- and off-policy. This unit is the engine room of modern RL.",
+          "concepts": [
+            "Value iteration convergence",
+            "Policy iteration mechanics",
+            "Q-learning update",
+            "Exploration (epsilon-greedy)",
+            "Model-based vs model-free",
+            "Off-policy learning"
+          ],
+          "focus": "Run 3 sweeps of value iteration on a tiny gridworld by hand and watch V converge. Then write the Q-update for one transition \u2014 RL in one line."
+        }
+      }
+    },
+    {
+      "title": "Probabilistic Inference: Bayes Nets Representation",
+      "lecture": {
+        "url": "https://inst.eecs.berkeley.edu/~cs188/",
+        "title": "CS 188 \u2014 LEC11: Bayes nets"
+      },
+      "practice": {
+        "url": "https://inst.eecs.berkeley.edu/~cs188/",
+        "title": "Course hub: homework"
+      },
+      "materials": {
+        "videoId": "DkgxBR_43AI",
+        "videoTitle": "[CS188 SP24] LEC13 - Bayes Nets: Sampling",
+        "readingUrl": "https://inst.eecs.berkeley.edu/~cs188/",
+        "externalUrl": "https://inst.eecs.berkeley.edu/~cs188/",
+        "practiceLabel": "HW 4: Bayes nets",
+        "notes": {
+          "summary": "Structured probability: Bayes nets encode joint distributions compactly via DAGs where each node's distribution depends only on its parents. D-separation reads conditional independencies off the graph. Your Stat 110 conditioning returns as a GRAPH you can reason over \u2014 the representation behind real diagnostic and language systems.",
+          "concepts": [
+            "Compact joint factorization",
+            "Conditional independence",
+            "D-separation",
+            "Causal vs diagnostic reasoning",
+            "CPTs",
+            "Inference by enumeration"
+          ],
+          "focus": "For a 3-node network, compute a full joint by hand, then answer two conditional queries by marginalizing. Enumeration is exponential \u2014 you'll WANT the efficient algorithms next."
+        }
+      }
+    },
+    {
+      "title": "Inference Algorithms and Sampling",
+      "lecture": {
+        "url": "https://inst.eecs.berkeley.edu/~cs188/",
+        "title": "CS 188 \u2014 Inference + HMMs"
+      },
+      "practice": {
+        "url": "https://inst.eecs.berkeley.edu/~cs188/",
+        "title": "Course hub: homework"
+      },
+      "materials": {
+        "videoId": "rzcZqPAeWVs",
+        "videoTitle": "[CS188 SP24] LEC10 - Intro to Probability",
+        "readingUrl": "https://inst.eecs.berkeley.edu/~cs188/",
+        "externalUrl": "https://inst.eecs.berkeley.edu/~cs188/",
+        "practiceLabel": "HW 4: inference problems",
+        "notes": {
+          "summary": "Efficient inference: variable elimination factors (your 6.046J join intuition, probabilistically), forward-backward for HMMs over time, and particle filtering for tracking. Rejection, likelihood weighting, and Gibbs sampling approximate when exact inference is intractable \u2014 the toolset every real probabilistic system uses.",
+          "concepts": [
+            "Factors and elimination order",
+            "HMMs: transition and emission",
+            "Forward-backward recursions",
+            "Particle filtering",
+            "Sampling error vs speed",
+            "When exact is hopeless"
+          ],
+          "focus": "Run variable elimination on a small network, tracking factor sizes. The elimination ORDER's effect on cost is the lecture's one deep lesson."
+        }
+      }
+    },
+    {
+      "title": "Logic: Propositional Logic and Planning",
+      "lecture": {
+        "url": "https://inst.eecs.berkeley.edu/~cs188/",
+        "title": "CS 188 - LEC07: Logic"
+      },
+      "practice": {
+        "url": "https://inst.eecs.berkeley.edu/~cs188/",
+        "title": "Course hub: homework"
+      },
+      "materials": {
+        "videoId": "WVaBk3ldQIo",
+        "videoTitle": "[CS188 SP24] LEC07 - Logic: Propositional Logic and Planning",
+        "readingUrl": "https://inst.eecs.berkeley.edu/~cs188/",
+        "externalUrl": "https://inst.eecs.berkeley.edu/~cs188/",
+        "practiceLabel": "HW: logic problems",
+        "notes": {
+          "summary": "Knowledge-based agents: propositional logic as a formal language (syntax, semantics, entailment), inference rules, and SAT-solving as search over assignments. Situation calculus and planning tie logic back to the agent story \u2014 deciding what to DO from what you KNOW. Your 18.404J theory and 6.046J NP-completeness meet here: SAT is NP-complete AND the practical engine of planners.",
+          "concepts": [
+            "Propositions and connectives",
+            "Entailment and models",
+            "Resolution inference",
+            "SAT solvers (DPLL idea)",
+            "Planning via logic",
+            "Wumpus world"
+          ],
+          "focus": "Write a small KB (4 facts, 2 rules) and check entailment by truth table, then by resolution. Both agreeing is your first verified inference."
+        }
+      }
+    },
+    {
+      "title": "Midterm: Agents and Decisions Review",
+      "lecture": {
+        "url": "https://inst.eecs.berkeley.edu/~cs188/",
+        "title": "CS 188 \u2014 review"
+      },
+      "practice": {
+        "url": "https://inst.eecs.berkeley.edu/~cs188/",
+        "title": "Past exams (hub)"
+      },
+      "materials": {
+        "readingUrl": "https://inst.eecs.berkeley.edu/~cs188/",
+        "externalUrl": "https://inst.eecs.berkeley.edu/~cs188/",
+        "practiceLabel": "Midterm: search through MDPs",
+        "notes": {
+          "summary": "Checkpoint across the agent progression: search (uninformed, informed, adversarial, expectimax), MDPs, and RL. Berkeley's exam style is trace-and-derive: hand-run algorithms on small instances and prove small properties. Your 6.006 + Stat 110 training makes this exam very winnable.",
+          "concepts": [
+            "Algorithm tracing fluency",
+            "Bellman derivations",
+            "Pruning correctness arguments",
+            "Admissibility proofs",
+            "Exam pacing"
+          ],
+          "focus": "Work two past exam problems per unit with a timer. The gap between 'can solve' and 'can solve in 12 minutes' is what this exam tests."
+        }
+      }
+    },
+    {
+      "title": "Final: Learning Agents and Course Synthesis",
+      "lecture": {
+        "url": "https://inst.eecs.berkeley.edu/~cs188/",
+        "title": "CS 188 \u2014 final topics"
+      },
+      "practice": {
+        "url": "https://inst.eecs.berkeley.edu/~cs188/",
+        "title": "Final review"
+      },
+      "materials": {
+        "videoId": "hY3JEKiCcOU",
+        "videoTitle": "[CS188 SP24] LEC16 - Utility Theory, Rationality, Decision Networks",
+        "readingUrl": "https://inst.eecs.berkeley.edu/~cs188/",
+        "externalUrl": "https://inst.eecs.berkeley.edu/~cs188/",
+        "practiceLabel": "Final: synthesis + past finals",
+        "notes": {
+          "summary": "The close: decision networks unifying probabilities with utilities (VPI quantifies information's worth), learning agents connecting to 6.036's models, and the synthesis \u2014 the whole course is one arc: from searching state spaces to learning value functions. The final artifact: your agent-progression map, each stage adding one capability.",
+          "concepts": [
+            "Decision networks",
+            "Value of perfect information",
+            "Utilities and rationality axioms",
+            "The agent progression map",
+            "Where the field is moving",
+            "Course synthesis"
+          ],
+          "focus": "Write the agent progression from memory (search -> games -> MDP -> RL -> inference -> decisions). Each arrow adds uncertainty or learning \u2014 that's AI's history in one line."
+        }
+      }
+    }
+  ]
+}

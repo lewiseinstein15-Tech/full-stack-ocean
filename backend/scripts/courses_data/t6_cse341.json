@@ -1,0 +1,369 @@
+{
+  "course": "CSE341",
+  "term": 6,
+  "lessons": [
+    {
+      "title": "What are Programming Languages?",
+      "lecture": {
+        "url": "https://www.plai.org/",
+        "title": "PLAI \u2014 Chapter 1: Introduction"
+      },
+      "practice": {
+        "url": "https://courses.cs.washington.edu/courses/cse341/",
+        "title": "UW CSE341 course hub"
+      },
+      "materials": {
+        "readingUrl": "https://www.plai.org/",
+        "externalUrl": "https://courses.cs.washington.edu/courses/cse341/",
+        "practiceLabel": "Setup + PLAI ch. 1-2 exercises",
+        "notes": {
+          "summary": "Why study languages when you already know a few? Because every language is a bundle of design decisions \u2014 evaluation order, typing discipline, memory model \u2014 and understanding the design space makes you a better programmer in ANY language. CSE341 (Dan Grossman's celebrated UW course) studies programming languages by building interpreters, using the PLAI book as its spine.",
+          "concepts": [
+            "Language design dimensions",
+            "Syntax vs semantics",
+            "Interpreters as the lab instrument",
+            "Why study many paradigms",
+            "Static vs dynamic typing (preview)",
+            "The PLAI approach"
+          ],
+          "focus": "Install Racket (plt.org) and DrRacket today \u2014 the entire course happens inside it. Then read PLAI chapter 1 and note the three dimensions Grossman says matter most."
+        }
+      }
+    },
+    {
+      "title": "Racket Fundamentals: S-expressions and Evaluation",
+      "lecture": {
+        "url": "https://www.plai.org/",
+        "title": "PLAI \u2014 Core Racket"
+      },
+      "practice": {
+        "url": "https://courses.cs.washington.edu/courses/cse341/",
+        "title": "CSE341 section problems"
+      },
+      "materials": {
+        "readingUrl": "https://docs.racket-lang.org/quick/index.html",
+        "externalUrl": "https://www.plai.org/",
+        "practiceLabel": "Racket drills",
+        "notes": {
+          "summary": "Racket's prefix syntax is s-expressions \u2014 trees written as text. You learn the core forms (define, cond, let, lambda), evaluation as substitution, and the REPL workflow. The parens stop being noise once you see them as the AST printed directly: no operator precedence, ever.",
+          "concepts": [
+            "S-expressions as trees",
+            "define and bindings",
+            "cond and recursion",
+            "let and scoping",
+            "Anonymous functions (lambda)",
+            "Prefix notation benefits"
+          ],
+          "focus": "Rewrite three Python functions in Racket. The friction you feel IS the course's first lesson \u2014 different designs expose different ideas."
+        }
+      }
+    },
+    {
+      "title": "Functions, Closures, and Higher-Order Patterns",
+      "lecture": {
+        "url": "https://www.plai.org/",
+        "title": "PLAI \u2014 Functions & scope"
+      },
+      "practice": {
+        "url": "https://courses.cs.washington.edu/courses/cse341/",
+        "title": "CSE341 section problems"
+      },
+      "materials": {
+        "readingUrl": "https://www.plai.org/",
+        "externalUrl": "https://www.plai.org/",
+        "practiceLabel": "Higher-order function exercises",
+        "notes": {
+          "summary": "First-class functions, deeply: lexical scope, closures capturing environments, and the classic higher-order combinators (map/filter/fold as USER-defined, not built-ins). This extends CS61A's treatment with a key new lens: you will soon implement closures yourself in your own interpreter.",
+          "concepts": [
+            "Lexical scope mechanics",
+            "Closures as (code, env) pairs",
+            "foldl/foldr differences",
+            "Currying in a functional language",
+            "Recursion over lists",
+            "Defining control abstractions"
+          ],
+          "focus": "Define map, filter, and fold from scratch in Racket, then compose them to process a nested list. When abstractions become user-defined, you own them."
+        }
+      }
+    },
+    {
+      "title": "Datatypes and Pattern Matching",
+      "lecture": {
+        "url": "https://www.plai.org/",
+        "title": "PLAI \u2014 Structured data"
+      },
+      "practice": {
+        "url": "https://courses.cs.washington.edu/courses/cse341/",
+        "title": "CSE341 section problems"
+      },
+      "materials": {
+        "readingUrl": "https://www.plai.org/",
+        "externalUrl": "https://www.plai.org/",
+        "practiceLabel": "Datatype exercises",
+        "notes": {
+          "summary": "Variant datatypes (one of several shapes) with pattern matching: define once, destruct everywhere, with the compiler checking exhaustiveness. This is the ML/Rust/enum pattern that eliminates whole classes of null/flag bugs. Racket structs and match give you the full experience.",
+          "concepts": [
+            "Variant/sum types",
+            "Constructors and predicates",
+            "Pattern matching syntax",
+            "Exhaustiveness checking",
+            "Recursive datatypes (trees)",
+            "Why match beats cond-chains"
+          ],
+          "focus": "Define an arithmetic-expression datatype (num/add/mul) and write eval with match. You've just built the AST your compiler in N2T used \u2014 now in 10 lines."
+        }
+      }
+    },
+    {
+      "title": "Recursion, Tail Calls, and Accumulators",
+      "lecture": {
+        "url": "https://www.plai.org/",
+        "title": "PLAI \u2014 Recursion patterns"
+      },
+      "practice": {
+        "url": "https://courses.cs.washington.edu/courses/cse341/",
+        "title": "CSE341 section problems"
+      },
+      "materials": {
+        "readingUrl": "https://www.plai.org/",
+        "externalUrl": "https://www.plai.org/",
+        "practiceLabel": "Tail recursion exercises",
+        "notes": {
+          "summary": "Tail calls: when the recursive result needs no further work, the language reuses the stack frame \u2014 iteration and recursion unify. Accumulator-passing style turns naive tree-recursive functions into tail-recursive ones. Functional languages run loops as recursion by design, and now you know the mechanism.",
+          "concepts": [
+            "Tail position definition",
+            "Tail-call optimization",
+            "Accumulators",
+            "Continuation style (preview)",
+            "Stack growth analysis",
+            "Converting loops to recursion"
+          ],
+          "focus": "Rewrite length and reverse with accumulators, then explain why the naive reverse is O(n^2). The accumulator insight generalizes to every traversal."
+        }
+      }
+    },
+    {
+      "title": "Types: Inference and Polymorphism",
+      "lecture": {
+        "url": "https://www.plai.org/",
+        "title": "PLAI \u2014 Type systems"
+      },
+      "practice": {
+        "url": "https://courses.cs.washington.edu/courses/cse341/",
+        "title": "CSE341 type exercises"
+      },
+      "materials": {
+        "readingUrl": "https://www.plai.org/",
+        "externalUrl": "https://www.plai.org/",
+        "practiceLabel": "Type inference exercises",
+        "notes": {
+          "summary": "Hindley-Milner type inference: write no annotations, get full static types \u2014 unification over constraints does the work. Polymorphic types ('a -> 'a) fall out for free. You learn what your 6.100L-era Java generics actually mean, and why ML's type system catches nulls at compile time.",
+          "concepts": [
+            "Type judgments",
+            "Unification",
+            "Inference algorithm intuition",
+            "Polymorphic types",
+            "Let-polymorphism",
+            "Types as theorems, programs as proofs"
+          ],
+          "focus": "Hand-infer the type of a compose function by writing constraints and unifying. Ten minutes of inference by hand makes compilers' error messages legible."
+        }
+      }
+    },
+    {
+      "title": "Mutation, State, and Ownership",
+      "lecture": {
+        "url": "https://www.plai.org/",
+        "title": "PLAI \u2014 Mutation and state"
+      },
+      "practice": {
+        "url": "https://courses.cs.washington.edu/courses/cse341/",
+        "title": "CSE341 state exercises"
+      },
+      "materials": {
+        "readingUrl": "https://www.plai.org/",
+        "externalUrl": "https://www.plai.org/",
+        "practiceLabel": "Mutation exercises",
+        "notes": {
+          "summary": "Adding state to a functional core: boxes/cells, aliasing (your 6.100L term-1 lesson returning), equality vs identity, and the reasoning cost mutation imposes. The lecture frames purity as a DESIGN choice with real benefits (equational reasoning, parallelism) \u2014 the argument that produced Rust's ownership later.",
+          "concepts": [
+            "Explicit state (boxes)",
+            "Aliasing diagrams",
+            "Reference semantics",
+            "Equational reasoning loss",
+            "When state is worth it",
+            "Ownership preview"
+          ],
+          "focus": "Write a counter with a closure over a box, then draw the aliasing when two counters share a cell. State diagrams never go out of style."
+        }
+      }
+    },
+    {
+      "title": "Laziness and Evaluation Order",
+      "lecture": {
+        "url": "https://www.plai.org/",
+        "title": "PLAI \u2014 Laziness"
+      },
+      "practice": {
+        "url": "https://courses.cs.washington.edu/courses/cse341/",
+        "title": "CSE341 laziness exercises"
+      },
+      "materials": {
+        "readingUrl": "https://www.plai.org/",
+        "externalUrl": "https://www.plai.org/",
+        "practiceLabel": "Laziness exercises",
+        "notes": {
+          "summary": "Call-by-value vs call-by-name vs call-by-need: when do arguments evaluate? Lazy evaluation makes infinite streams first-class (cons with thunks), memoizing as it goes. Haskell's purity exists largely to make laziness safe \u2014 evaluation order as a visible design decision, not an implementation detail.",
+          "concepts": [
+            "Evaluation strategies",
+            "Thunks",
+            "Call-by-need memoization",
+            "Infinite streams",
+            "Strictness annotations",
+            "Why laziness demands purity"
+          ],
+          "focus": "Define an infinite stream of naturals in lazy Racket and take the first 10. Infinite data that works is the moment laziness clicks permanently."
+        }
+      }
+    },
+    {
+      "title": "Interpreters: Substitution and Environments",
+      "lecture": {
+        "url": "https://www.plai.org/",
+        "title": "PLAI \u2014 First interpreter"
+      },
+      "practice": {
+        "url": "https://www.plai.org/",
+        "title": "PLAI interpreter exercises"
+      },
+      "materials": {
+        "readingUrl": "https://www.plai.org/",
+        "externalUrl": "https://www.plai.org/",
+        "practiceLabel": "Build a core interpreter",
+        "notes": {
+          "summary": "The course's centerpiece: implement an interpreter for a small functional language. Substitution model first (clean but slow), then environments (closures capture them). You wrote a Scheme interpreter's cousin in CS61A \u2014 this one goes deeper, with each design decision (shadowing, recursion) an explicit choice.",
+          "concepts": [
+            "The eval loop",
+            "Substitution semantics",
+            "Environments as substitution optimization",
+            "Closures in the interpreter",
+            "Recursion via environments",
+            "Testing a language"
+          ],
+          "focus": "Implement your interpreter's environment lookup, then add let shadowing. Watching scope rules appear as LINES OF CODE demystifies every language you know."
+        }
+      }
+    },
+    {
+      "title": "Dynamic Typing, Scripts, and OOP",
+      "lecture": {
+        "url": "https://www.plai.org/",
+        "title": "PLAI \u2014 Paradigm contrast"
+      },
+      "practice": {
+        "url": "https://courses.cs.washington.edu/courses/cse341/",
+        "title": "CSE341 exercises"
+      },
+      "materials": {
+        "readingUrl": "https://www.plai.org/",
+        "externalUrl": "https://courses.cs.washington.edu/courses/cse341/",
+        "practiceLabel": "Paradigm comparison exercises",
+        "notes": {
+          "summary": "The grand comparison: dynamic typing's flexibility vs static typing's guarantees; OOP's subtype hierarchies vs functional pattern matching; Ruby-style classes vs closures. No winner is declared \u2014 the point is the ability to argue both sides with evidence, choosing per project.",
+          "concepts": [
+            "Dynamic vs static typing trade-offs",
+            "Subtyping and LSP",
+            "Duck typing",
+            "Pattern matching vs visitors",
+            "Multi-paradigm judgment",
+            "Choosing per problem"
+          ],
+          "focus": "Write the same data-processing program twice \u2014 once OO with inheritance, once functional with match \u2014 and list where each hurt. Your own pain data beats any textbook claim."
+        }
+      }
+    },
+    {
+      "title": "Modules, Contracts, and Abstract Types",
+      "lecture": {
+        "url": "https://www.plai.org/",
+        "title": "PLAI - Modules and state"
+      },
+      "practice": {
+        "url": "https://courses.cs.washington.edu/courses/cse341/",
+        "title": "CSE341 exercises"
+      },
+      "materials": {
+        "readingUrl": "https://www.plai.org/",
+        "externalUrl": "https://www.plai.org/",
+        "practiceLabel": "Module/contract exercises",
+        "notes": {
+          "summary": "Structuring programs beyond functions: modules as namespaces with sealed implementations, abstract data types enforced by signatures (ML's opaque ascription), and contracts as runtime-checked interfaces between components. The design lesson generalizes across every language you know \u2014 from Java packages to TypeScript modules to API boundaries.",
+          "concepts": [
+            "Modules and signatures",
+            "Opaque vs transparent ascription",
+            "Abstract data types",
+            "Contracts and blame",
+            "Sealing representations",
+            "Interface design discipline"
+          ],
+          "focus": "Take one datatype you've built and hide its representation behind a module signature. Then try to break the abstraction from outside \u2014 failing to is the exercise."
+        }
+      }
+    },
+    {
+      "title": "Midterm: Language Design Review",
+      "lecture": {
+        "url": "https://courses.cs.washington.edu/courses/cse341/",
+        "title": "CSE341 resources"
+      },
+      "practice": {
+        "url": "https://courses.cs.washington.edu/courses/cse341/",
+        "title": "Section + past material"
+      },
+      "materials": {
+        "readingUrl": "https://www.plai.org/",
+        "externalUrl": "https://courses.cs.washington.edu/courses/cse341/",
+        "practiceLabel": "Midterm: core language concepts",
+        "notes": {
+          "summary": "Checkpoint across the functional core: evaluation, closures, datatypes, inference, laziness, and your interpreter's environment model. The exam style here is 'what does this program evaluate to, and WHY' \u2014 semantic reasoning, written precisely. Your CS61A and interpreter work are the direct prerequisites.",
+          "concepts": [
+            "Evaluation tracing",
+            "Closure capture rules",
+            "Type inference practice",
+            "Interpreter semantics",
+            "Written semantic arguments"
+          ],
+          "focus": "For five tricky programs, predict the result BEFORE running. The gap between prediction and reality is precisely your midterm study list."
+        }
+      }
+    },
+    {
+      "title": "Final: Macros, Metaprogramming, and Synthesis",
+      "lecture": {
+        "url": "https://www.plai.org/",
+        "title": "PLAI \u2014 Metaprogramming"
+      },
+      "practice": {
+        "url": "https://www.plai.org/",
+        "title": "Final synthesis exercises"
+      },
+      "materials": {
+        "readingUrl": "https://www.plai.org/",
+        "externalUrl": "https://www.plai.org/",
+        "practiceLabel": "Final: macros + course map",
+        "notes": {
+          "summary": "The finale: macros as programs writing programs (Racket's superpower), and the course synthesis \u2014 every paradigm you studied is a point in the design space, and YOU can now build a language choosing any of them. Your CS143 compilers course next term is the natural continuation: interpreters there, translation here.",
+          "concepts": [
+            "Macros vs functions",
+            "Hygiene basics",
+            "Language-oriented programming",
+            "The design space map",
+            "Interpreter to compiler bridge",
+            "Course synthesis"
+          ],
+          "focus": "Write one macro (unless) and reflect: you just extended the language itself. Then draw the course map \u2014 evaluation, types, state, paradigms \u2014 as your final artifact."
+        }
+      }
+    }
+  ]
+}
