@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import {
   FiGrid, FiSun, FiCalendar, FiBookOpen, FiEdit3,
   FiTrendingUp, FiUser, FiLogOut, FiMenu, FiX, FiChevronsLeft, FiChevronsRight, FiAward,
+  FiBriefcase,
 } from 'react-icons/fi';
 import { MdWaves } from 'react-icons/md';
 import { useAuth } from 'contexts/AuthContext';
@@ -30,6 +31,12 @@ const NAV = [
     ],
   },
   {
+    category: 'Career',
+    items: [
+      { to: '/jobs', icon: FiBriefcase, label: 'Jobs', end: true },
+    ],
+  },
+  {
     category: 'Insights',
     items: [{ to: '/progress', icon: FiTrendingUp, label: 'Progress' }],
   },
@@ -46,6 +53,7 @@ const PAGE_TITLES = {
   '/courses': 'Courses',
   '/practice': 'Practice',
   '/library': 'Library',
+  '/jobs': 'Jobs',
   '/progress': 'Progress',
   '/profile': 'Profile',
 };

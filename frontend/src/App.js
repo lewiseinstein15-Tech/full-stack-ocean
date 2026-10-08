@@ -23,6 +23,7 @@ import Courses from 'pages/Courses';
 import Study from 'pages/Study';
 import CourseDetail from 'pages/CourseDetail';
 import Library from 'pages/Library';
+import Jobs from 'pages/Jobs';
 
 const CenterSpinner = () => (
   <div className="min-h-screen flex items-center justify-center">
@@ -77,6 +78,7 @@ const App = () => {
           <Route path="/courses/:courseCode" element={<CourseDetail />} />
           <Route path="/practice" element={<Practice />} />
           <Route path="/library" element={<Library />} />
+          <Route path="/jobs" element={<Jobs />} />
           <Route path="/progress" element={<Progress />} />
           <Route path="/profile" element={<Profile />} />
         </Route>

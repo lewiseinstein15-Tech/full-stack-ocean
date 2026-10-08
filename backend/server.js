@@ -100,11 +100,13 @@ const curriculumRoutes = require('./routes/curriculum');
 const progressRoutes = require('./routes/progress');
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/user');
+const jobsRoutes = require('./routes/jobs');
 
 app.use('/api/auth', authRoutes);
 app.use('/api/curriculum', curriculumRoutes);
 app.use('/api/progress', progressRoutes);
 app.use('/api/user', userRoutes);
+app.use('/api/jobs', jobsRoutes);
 
 // 404 Handler
 app.use('*', (req, res) => {
