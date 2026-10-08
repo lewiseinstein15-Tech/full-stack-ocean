@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   FiArrowLeft, FiClock, FiAward, FiBookOpen, FiCheck, FiPlay,
-  FiChevronRight, FiFileText, FiPackage, FiLayers, FiCalendar, FiTarget,
+  FiChevronRight, FiFileText, FiPackage, FiLayers, FiCalendar, FiTarget, FiExternalLink,
 } from 'react-icons/fi';
 import { useAuth } from 'contexts/AuthContext';
 import { Stagger, StaggerItem } from 'components/motion/motion';
@@ -259,6 +259,36 @@ const CourseDetail = () => {
                     daily streak either way.
                   </p>
                 </div>
+
+                {(course.resources?.lectures?.length > 0 || course.resources?.assignments?.length > 0 || course.resources?.exams?.length > 0) && (
+                  <div className="glass rounded-3xl p-6 sm:p-8">
+                    <h3 className="font-display text-xl font-bold text-espresso-800 mb-4 flex items-center gap-2">
+                      <FiLayers className="w-5 h-5 text-honey-600" />
+                      Official course hub
+                    </h3>
+                    <div className="flex flex-wrap gap-2.5">
+                      {course.resources.lectures?.map((r, i) => (
+                        <a key={`lec${i}`} href={r.url} target="_blank" rel="noopener noreferrer" className="btn btn-gold !py-2 !px-4 text-xs">
+                          <FiExternalLink className="w-3.5 h-3.5" /> {r.title || 'Video hub'}
+                        </a>
+                      ))}
+                      {course.resources.assignments?.map((r, i) => (
+                        <a key={`asg${i}`} href={r.url} target="_blank" rel="noopener noreferrer" className="btn btn-cream !py-2 !px-4 text-xs">
+                          <FiTarget className="w-3.5 h-3.5" /> {r.title || 'Practice archive'}
+                        </a>
+                      ))}
+                      {course.resources.exams?.map((r, i) => (
+                        <a key={`exm${i}`} href={r.url} target="_blank" rel="noopener noreferrer" className="btn btn-cream !py-2 !px-4 text-xs">
+                          <FiBookOpen className="w-3.5 h-3.5" /> {r.title || 'Textbook / notes'}
+                        </a>
+                      ))}
+                    </div>
+                    <p className="text-xs text-espresso-500 mt-3">
+                      This course's lectures and exercises live on the official hub — open these
+                      whenever a unit points to the source material.
+                    </p>
+                  </div>
+                )}
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   <div className="glass rounded-3xl p-6 text-center">

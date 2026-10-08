@@ -144,15 +144,15 @@ const Courses = () => {
             <span className="course-tag">Catalog</span>
             <span className="inline-flex items-center gap-1 text-xs font-bold text-espresso-500">
               <FiCalendar className="w-3 h-3" />
-              Term 1 · 7 weeks · Oct 2026 →
+              8 terms · 24 courses · from Oct 8, 2026
             </span>
           </div>
           <h1 className="font-display text-3xl sm:text-4xl font-bold text-espresso-800 text-balance">
             Your MIT Course Lineup
           </h1>
           <p className="text-espresso-600 mt-2.5 max-w-2xl">
-            Three MIT OpenCourseWare courses, scheduled week by week with videos, slides,
-            transcripts and problem sets embedded right in the app.
+            Twenty-four courses across eight terms — the complete path from foundations to
+            capstone, two lessons every day, dated from your real start.
           </p>
         </div>
       </motion.div>
@@ -232,9 +232,7 @@ const Courses = () => {
                     >
                       {c.code}
                     </span>
-                    <span className="status-badge status-completed">
-                      <FiPlay className="w-3 h-3" /> Active
-                    </span>
+                    <span className="status-badge">{c.term}</span>
                   </div>
 
                   <h3 className="relative font-display text-lg font-bold text-espresso-800 leading-snug group-hover:text-honey-700 transition-colors">
