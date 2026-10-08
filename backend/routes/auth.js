@@ -125,10 +125,6 @@ router.post('/login', [
       });
     }
 
-    // Update last active
-    user.progress.lastActive = new Date();
-    await user.save();
-
     // Create token
     const token = user.getSignedJwtToken();
 
