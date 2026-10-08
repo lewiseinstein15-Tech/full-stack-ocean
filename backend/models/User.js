@@ -97,9 +97,8 @@ const UserSchema = new mongoose.Schema({
       default: Date.now
     },
     completedLessons: [{
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Curriculum'
-    }],
+      type: String
+    }], // lesson slugs, e.g. '6-0001-w1-l1'
     totalHours: {
       type: Number,
       default: 0

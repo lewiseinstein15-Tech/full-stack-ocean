@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const { seedCurriculum } = require('./curriculumData');
+const { applyMaterials } = require('../scripts/applyMaterials');
 
 // Load environment variables
 dotenv.config();
@@ -13,9 +14,16 @@ mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/fullstackoc
     process.exit(1);
   });
 
-// Run seed
+// Run seed, then attach in-app study materials to every lesson
 seedCurriculum()
-  .then(() => {
+  .then(async () => {
+    const { Curriculum } = require('../models/Curriculum');
+    const curriculum = await Curriculum.findOne();
+    if (curriculum) {
+      const result = await applyMaterials(curriculum);
+      console.log(`Materials applied: ${result.applied} lessons` +
+        (result.missed.length ? `, missed: ${result.missed.join('; ')}` : ''));
+    }
     console.log('Seeding completed!');
     process.exit(0);
   })

@@ -46,6 +46,7 @@ const LessonSchema = new mongoose.Schema({
     required: true
   },
   description: String,
+  slug: String, // stable id for deep links, e.g. 6-0001-w1-l1
   lectureLink: LinkSchema,
   practiceLink: LinkSchema,
   duration: {
@@ -63,6 +64,24 @@ const LessonSchema = new mongoose.Schema({
   metadata: {
     type: mongoose.Schema.Types.Mixed,
     default: {}
+  },
+  materials: {
+    videoId: String,
+    videoTitle: String,
+    recitationVideoId: String,
+    transcriptUrl: String,
+    slidesUrl: String,
+    readingUrl: String,
+    practicePdfUrl: String,
+    practiceSolUrl: String,
+    practiceZipUrl: String,
+    practiceLabel: String,
+    externalUrl: String,
+    notes: {
+      summary: String,
+      concepts: [String],
+      focus: String
+    }
   }
 }, { _id: false });
 

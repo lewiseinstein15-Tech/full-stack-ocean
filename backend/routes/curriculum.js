@@ -112,6 +112,52 @@ router.get('/today', protect, async (req, res) => {
   }
 });
 
+// @route   GET /api/curriculum/lesson/:slug
+// @desc    Get single lesson by slug (with in-app materials)
+// @access  Public
+router.get('/lesson/:slug', async (req, res) => {
+  try {
+    const curriculum = await Curriculum.findOne({ isActive: true });
+    if (!curriculum) {
+      return res.status(404).json({
+        success: false,
+        error: 'No active curriculum found'
+      });
+    }
+    const { slug } = req.params;
+    for (const term of curriculum.terms) {
+      for (const week of term.weeks) {
+        for (const day of week.days) {
+          const lesson = day.lessons.find((l) => l.slug === slug);
+          if (lesson) {
+            return res.json({
+              success: true,
+              lesson,
+              context: {
+                term: term.termNumber,
+                week: week.weekNumber,
+                date: day.date,
+                dayOfWeek: day.dayOfWeek,
+                courses: term.courses
+              }
+            });
+          }
+        }
+      }
+    }
+    return res.status(404).json({
+      success: false,
+      error: 'Lesson not found'
+    });
+  } catch (error) {
+    console.error('Get lesson error:', error.message);
+    res.status(500).json({
+      success: false,
+      error: 'Server error'
+    });
+  }
+});
+
 // @route   GET /api/curriculum/:id
 // @desc    Get single curriculum with full details
 // @access  Public

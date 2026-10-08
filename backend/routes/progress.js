@@ -10,7 +10,6 @@ router.get('/', require('../middleware/auth').protect, async (req, res) => {
   try {
     const User = require('../models/User');
     const user = await User.findById(req.user.id)
-      .populate('progress.completedLessons')
       .select('progress preferences');
 
     if (!user) {
@@ -30,9 +29,8 @@ router.get('/', require('../middleware/auth').protect, async (req, res) => {
     weekEnd.setDate(weekStart.getDate() + 6);
     weekEnd.setHours(23, 59, 59, 999);
 
-    const weeklyLessons = user.progress.completedLessons.filter(lesson => {
-      return lesson && new Date(lesson.createdAt) >= weekStart && new Date(lesson.createdAt) <= weekEnd;
-    });
+    // completedLessons are lesson slugs (strings)
+    const weeklyLessons = user.progress.completedLessons.filter((slug) => typeof slug === 'string');
 
     res.json({
       success: true,
@@ -45,7 +43,8 @@ router.get('/', require('../middleware/auth').protect, async (req, res) => {
         achievements: user.progress.achievements,
         weekly: {
           lessonsCompleted: weeklyLessons.length,
-          hoursLogged: weeklyLessons.reduce((sum, lesson) => sum + (lesson.metadata?.estimatedHours || 1.5), 0)
+          completedSlugs: weeklyLessons,
+          hoursLogged: Math.round((user.progress.totalHours || 0) * 10) / 10
         }
       }
     });
