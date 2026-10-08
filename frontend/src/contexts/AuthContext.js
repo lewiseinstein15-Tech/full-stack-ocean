@@ -147,6 +147,10 @@ export const AuthProvider = ({ children }) => {
     try {
       const res = await axios.post(`/progress/lesson/${lessonId}/complete`, { hours });
       toast.success('Lesson completed! Keep going!');
+      try {
+        const me = await axios.get('/auth/me');
+        if (me.data && me.data.user) setUser(me.data.user);
+      } catch (_) { /* stats refresh is best-effort */ }
       return res.data;
     } catch (error) {
       const message = error.response?.data?.error || 'Failed to mark complete';
@@ -158,6 +162,10 @@ export const AuthProvider = ({ children }) => {
   const uncompleteLesson = async (lessonId, hours = 1.5) => {
     try {
       await axios.delete(`/progress/lesson/${lessonId}/complete?hours=${hours}`);
+      try {
+        const me = await axios.get('/auth/me');
+        if (me.data && me.data.user) setUser(me.data.user);
+      } catch (_) { /* stats refresh is best-effort */ }
       return true;
     } catch (error) {
       return false;
