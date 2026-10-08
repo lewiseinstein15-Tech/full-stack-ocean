@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   FiBookOpen, FiExternalLink, FiX, FiDownload, FiLayers, FiTarget,
-  FiTool, FiZap, FiCheck, FiArrowRight, FiFileText,
+  FiTool, FiZap, FiArrowRight, FiFileText, FiGrid, FiMap, FiCheckCircle,
 } from 'react-icons/fi';
 import { useAuth } from 'contexts/AuthContext';
 import { Stagger, StaggerItem } from 'components/motion/motion';
@@ -46,10 +46,12 @@ const Reader = ({ book, onClose }) => {
           </div>
         </div>
         <div className="flex items-center gap-2">
-          <a href={book.src} download={book.downloadName} className="btn btn-cream !py-1.5 !px-3 text-[11px]">
-            <FiDownload className="w-3.5 h-3.5" />
-            Save
-          </a>
+          {book.downloadName && (
+            <a href={book.src} download={book.downloadName} className="btn btn-cream !py-1.5 !px-3 text-[11px]">
+              <FiDownload className="w-3.5 h-3.5" />
+              Save
+            </a>
+          )}
           <button onClick={onClose} className="btn btn-gold !py-1.5 !px-3 text-[11px]">
             <FiX className="w-3.5 h-3.5" />
             Close
@@ -112,10 +114,215 @@ const EMBEDDED_BOOKS = [
   },
 ];
 
+/* The full course bookshelf: 8 terms, 24 courses, every course with books.
+   b.t title · b.a author/source · b.src in-app file (embedded) · b.url free online book */
+const SHELF = [
+  {
+    term: 1,
+    name: 'Foundations I',
+    courses: [
+      {
+        code: '6.0001', title: 'Intro to CS & Python',
+        books: [
+          { t: 'Think Python 2e', a: 'Downey · Green Tea Press · CC BY-NC', src: '/books/thinkpython2.pdf', dl: 'thinkpython2.pdf', accent: 'from-sage-300 to-sage-500' },
+        ],
+      },
+      {
+        code: '18.01SC', title: 'Single Variable Calculus — 1A',
+        books: [
+          { t: 'Calculus', a: 'Gilbert Strang · MIT OCW · CC BY-NC-SA', src: '/books/calculus-strang.pdf', dl: 'calculus-strang.pdf', accent: 'from-honey-300 to-honey-600' },
+        ],
+      },
+      {
+        code: '6.042J', title: 'Mathematics for Computer Science',
+        books: [
+          { t: 'Mathematics for Computer Science', a: 'Lehman, Leighton & Meyer · MIT OCW · CC BY-NC-SA', src: '/books/mcs.pdf', dl: 'mcs.pdf', accent: 'from-blush-300 to-blush-500' },
+        ],
+      },
+    ],
+  },
+  {
+    term: 2,
+    name: 'Foundations II',
+    courses: [
+      {
+        code: 'CS50X', title: "CS50's Introduction to CS",
+        books: [
+          { t: "Beej's Guide to C Programming", a: 'Brian "Beej" Hall · beej.us · free edition', src: '/books/beejc.pdf', dl: 'beejc.pdf', accent: 'from-espresso-300 to-espresso-600' },
+          { t: 'Think Python 2e', a: 'Downey · pairs with the Python weeks', src: '/books/thinkpython2.pdf', dl: 'thinkpython2.pdf', accent: 'from-sage-300 to-sage-500' },
+        ],
+      },
+      {
+        code: '18.01SC-B', title: 'Single Variable Calculus — 1B',
+        books: [
+          { t: 'Calculus (integration & series chapters)', a: 'Gilbert Strang · MIT OCW · CC BY-NC-SA', src: '/books/calculus-strang.pdf', dl: 'calculus-strang.pdf', accent: 'from-honey-300 to-honey-600' },
+        ],
+      },
+      {
+        code: '18.06', title: 'Linear Algebra',
+        books: [
+          { t: 'Linear Algebra', a: 'Cherney, Denton & Waldron · UC Davis · free edition', src: '/books/linear-algebra.pdf', dl: 'linear-algebra.pdf', accent: 'from-sage-300 to-sage-500' },
+        ],
+      },
+    ],
+  },
+  {
+    term: 3,
+    name: 'Core Programming',
+    courses: [
+      {
+        code: 'CS61A', title: 'Structure & Interpretation',
+        books: [
+          { t: 'SICP — full text', a: 'Abelson, Sussman & Sussman · MIT Press', src: '/books/sicp/full-text/book/book-Z-H-1.html', dl: null, k: 'html', accent: 'from-honey-300 to-honey-600' },
+          { t: 'Composing Programs', a: 'Harvey · the official CS61A text · free online', url: 'https://composingprograms.com/', accent: 'from-blush-300 to-blush-500' },
+        ],
+      },
+      {
+        code: 'CS61B', title: 'Data Structures',
+        books: [
+          { t: 'Open Data Structures (Java edition)', a: 'Pat Morin · opendatastructures.org · CC', src: '/books/opends-java.pdf', dl: 'opends-java.pdf', accent: 'from-sage-300 to-sage-500' },
+        ],
+      },
+      {
+        code: 'STAT110', title: 'Probability',
+        books: [
+          { t: 'Introduction to Probability', a: 'Grinstead & Snell · GNU FDL · free edition', src: '/books/prob.pdf', dl: 'prob.pdf', accent: 'from-honey-300 to-honey-600' },
+        ],
+      },
+    ],
+  },
+  {
+    term: 4,
+    name: 'Algorithms & Hardware',
+    courses: [
+      {
+        code: '6.006', title: 'Introduction to Algorithms',
+        books: [
+          { t: 'MIT 6.006 Lecture Notes Reader', a: 'MIT OCW Spring 2020 · CC BY-NC-SA', src: '/books/6006-notes.pdf', dl: '6006-notes.pdf', accent: 'from-espresso-300 to-espresso-600' },
+        ],
+      },
+      {
+        code: '6.046J', title: 'Design & Analysis of Algorithms',
+        books: [
+          { t: 'MIT 6.046J Lecture Notes Reader', a: 'MIT OCW Spring 2015 · CC BY-NC-SA', src: '/books/6046-notes.pdf', dl: '6046-notes.pdf', accent: 'from-blush-300 to-blush-500' },
+        ],
+      },
+      {
+        code: '6.004', title: 'Computation Structures',
+        books: [
+          { t: 'MIT 6.004 Lecture Notes Reader', a: 'MIT OCW Spring 2009 · CC BY-NC-SA', src: '/books/6004-notes.pdf', dl: '6004-notes.pdf', accent: 'from-sage-300 to-sage-500' },
+        ],
+      },
+    ],
+  },
+  {
+    term: 5,
+    name: 'Computer Systems',
+    courses: [
+      {
+        code: 'N2T', title: 'Nand to Tetris',
+        books: [
+          { t: 'Nand2Tetris Projects Reader', a: 'Nisan & Schocken · nand2tetris.org · official booklets', src: '/books/n2t-projects.pdf', dl: 'n2t-projects.pdf', accent: 'from-honey-300 to-honey-600' },
+        ],
+      },
+      {
+        code: '6.828', title: 'Operating System Engineering',
+        books: [
+          { t: 'Operating Systems: Three Easy Pieces', a: 'Arpaci-Dusseau & Arpaci-Dusseau · free edition', src: '/books/ostep.pdf', dl: 'ostep.pdf', accent: 'from-blush-300 to-blush-500' },
+          { t: 'xv6 Book', a: 'Cox, Kaashoek & Morris · MIT PDOS', src: '/books/xv6-book-rev11.pdf', dl: 'xv6-book-rev11.pdf', accent: 'from-espresso-300 to-espresso-600' },
+        ],
+      },
+      {
+        code: '6.829', title: 'Computer Networks',
+        books: [
+          { t: 'Computer Networks: A Systems Approach', a: 'Peterson & Davie 6e · CC BY 4.0', src: '/books/networks-systems-approach.pdf', dl: 'networks-systems-approach.pdf', accent: 'from-sage-300 to-sage-500' },
+        ],
+      },
+    ],
+  },
+  {
+    term: 6,
+    name: 'Theory & Data',
+    courses: [
+      {
+        code: '6.830', title: 'Database Systems',
+        books: [
+          { t: 'Foundations of Databases', a: 'Abiteboul, Hull & Vianu · free official edition', src: '/books/foundations-databases.pdf', dl: 'foundations-databases.pdf', accent: 'from-honey-300 to-honey-600' },
+          { t: 'Readings in Database Systems', a: 'Hellerstein et al. · the Redbook · free online', url: 'https://www.redbook.io/', accent: 'from-blush-300 to-blush-500' },
+        ],
+      },
+      {
+        code: '6.045J', title: 'Automata, Computability & Complexity',
+        books: [
+          { t: 'MIT 6.045J Lecture Notes Reader', a: 'MIT OCW Spring 2011 · CC BY-NC-SA', src: '/books/6045-notes.pdf', dl: '6045-notes.pdf', accent: 'from-espresso-300 to-espresso-600' },
+        ],
+      },
+      {
+        code: 'CSE341', title: 'Programming Languages',
+        books: [
+          { t: 'PLAI — Programming Languages: Application & Interpretation', a: 'Krishnamurthi · CC BY-NC-SA 4.0', src: '/books/plai.pdf', dl: 'plai.pdf', accent: 'from-sage-300 to-sage-500' },
+        ],
+      },
+    ],
+  },
+  {
+    term: 7,
+    name: 'AI & Security',
+    courses: [
+      {
+        code: '6.036', title: 'Introduction to Machine Learning',
+        books: [
+          { t: 'Introduction to Statistical Learning (ISLR)', a: 'James, Hastie, Tibshirani & Witten · free official', src: '/books/isl.pdf', dl: 'isl.pdf', accent: 'from-honey-300 to-honey-600' },
+        ],
+      },
+      {
+        code: 'CS188', title: 'Introduction to Artificial Intelligence',
+        books: [
+          { t: 'Reinforcement Learning: An Introduction', a: 'Sutton & Barto 2e · MIT Press · free edition', src: '/books/rlbook.pdf', dl: 'rlbook.pdf', accent: 'from-blush-300 to-blush-500' },
+        ],
+      },
+      {
+        code: '6.858', title: 'Computer Systems Security',
+        books: [
+          { t: 'Web Security Testing Guide', a: 'OWASP WSTG 4.2 · CC BY-SA', src: '/books/wstg.pdf', dl: 'wstg.pdf', accent: 'from-espresso-300 to-espresso-600' },
+        ],
+      },
+    ],
+  },
+  {
+    term: 8,
+    name: 'Software Engineering & Capstone',
+    courses: [
+      {
+        code: 'CS143', title: 'Compilers',
+        books: [
+          { t: 'Basics of Compiler Design', a: 'Torben Mogensen · DIKU · free edition', src: '/books/compiler-basics.pdf', dl: 'compiler-basics.pdf', accent: 'from-sage-300 to-sage-500' },
+        ],
+      },
+      {
+        code: 'CS142', title: 'Web Applications',
+        books: [
+          { t: 'Eloquent JavaScript 3e', a: 'Marijn Haverbeke · CC BY-NC', src: '/books/eloquentjs.pdf', dl: 'eloquentjs.pdf', accent: 'from-honey-300 to-honey-600' },
+        ],
+      },
+      {
+        code: 'CAPSTONE', title: 'Senior Capstone Project',
+        books: [
+          { t: 'Pro Git 2e', a: 'Chacon & Straub · CC BY-NC-SA', src: '/books/progit.pdf', dl: 'progit.pdf', accent: 'from-blush-300 to-blush-500' },
+          { t: 'Software Engineering at Google', a: 'Winters, Manshreck & Wright · free online', url: 'https://www.abseil.io/resources/swe-book', accent: 'from-espresso-300 to-espresso-600' },
+        ],
+      },
+    ],
+  },
+];
+
 const RECOMMENDED_BOOKS = [
   { title: 'Computer Systems: A Programmer\u2019s Perspective', note: 'CSAPP — the systems deep-dive. Pairs with Terms 4-6.', url: 'https://csapp.cs.cmu.edu/' },
   { title: 'Introduction to Algorithms (CLRS)', note: 'The standard algorithms reference for Terms 4-5.', url: 'https://mitpress.mit.edu/9780262046305/introduction-to-algorithms/' },
   { title: 'Designing Data-Intensive Applications', note: 'DDIA — modern systems design. Read after Term 5-6.', url: 'https://dataintensive.net/' },
+  { title: 'Computer Networking: A Top-Down Approach', note: 'Kurose & Ross — the classic networks companion (Term 5).', url: 'https://gaia.cs.umass.edu/kurose_ross/' },
+  { title: 'Introduction to the Theory of Computation', note: 'Sipser — the beloved theory of computation text (Term 6).', url: 'https://math.mit.edu/~sipser/book.html' },
+  { title: 'Artificial Intelligence: A Modern Approach', note: 'AIMA — the CS188 companion (Term 7).', url: 'https://aima.cs.berkeley.edu/' },
 ];
 
 const PLATFORMS = [
@@ -143,12 +350,12 @@ const TOOLS = [
 ];
 
 const QUICK_START = [
-  'Skim the course catalog so you know where every official video, book and problem set lives.',
+  'Every course in your 8-term path has books right here — open the bookshelf below.',
   'Follow Today — two lessons per day, every day. Consistency beats intensity.',
+  'Read the matching book chapters as you go; the readers are built into this page.',
   'Do the problem sets. Watching lectures alone is not enough.',
   'Mark lessons complete to build your streak — the dashboard tracks everything.',
-  'After Term 4, mix in LeetCode / Project Euler for deliberate practice.',
-  'This Library is optional enrichment — pick what matches your goals.',
+  'The commercial classics are listed as recommended companions, never required.',
   'Term 8 is where you prove you can build something real. Start thinking early.',
 ];
 
@@ -176,8 +383,89 @@ const LinkCard = ({ name, note, url }) => (
   </a>
 );
 
+/* One book row on the shelf */
+const ShelfBook = ({ b, onOpen }) => {
+  if (b.url) {
+    return (
+      <a
+        href={b.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="w-full text-left rounded-2xl p-3 flex items-center gap-3 group hover:-translate-y-0.5 transition-transform"
+        style={{ background: 'rgba(255,255,255,.5)', boxShadow: 'inset 0 1px 0 #fff, 0 3px 9px rgba(92,65,28,.08)' }}
+      >
+        <div className={`w-9 h-12 rounded-lg shrink-0 bg-gradient-to-br ${b.accent} flex items-center justify-center`}
+          style={{ boxShadow: 'inset 0 1px 0 rgba(255,255,255,.5), 0 4px 10px rgba(92,65,28,.2)' }}>
+          <FiBookOpen className="w-4 h-4 text-white drop-shadow" />
+        </div>
+        <div className="min-w-0 flex-1">
+          <div className="font-bold text-espresso-800 text-sm leading-snug group-hover:text-honey-700 transition-colors">{b.t}</div>
+          <div className="text-[11px] text-espresso-500 truncate">{b.a}</div>
+        </div>
+        <span className="text-[10px] font-bold text-honey-700 shrink-0 flex items-center gap-1">
+          ONLINE <FiExternalLink className="w-3 h-3" />
+        </span>
+      </a>
+    );
+  }
+  return (
+    <button
+      onClick={() => onOpen(b)}
+      className="w-full text-left rounded-2xl p-3 flex items-center gap-3 group hover:-translate-y-0.5 transition-transform"
+      style={{ background: 'rgba(255,255,255,.5)', boxShadow: 'inset 0 1px 0 #fff, 0 3px 9px rgba(92,65,28,.08)' }}
+    >
+      <div className={`w-9 h-12 rounded-lg shrink-0 bg-gradient-to-br ${b.accent} flex items-center justify-center`}
+        style={{ boxShadow: 'inset 0 1px 0 rgba(255,255,255,.5), 0 4px 10px rgba(92,65,28,.2)' }}>
+        <FiBookOpen className="w-4 h-4 text-white drop-shadow" />
+      </div>
+      <div className="min-w-0 flex-1">
+        <div className="font-bold text-espresso-800 text-sm leading-snug group-hover:text-honey-700 transition-colors">{b.t}</div>
+        <div className="text-[11px] text-espresso-500 truncate">{b.a}</div>
+      </div>
+      <span className="text-[10px] font-bold text-honey-700 shrink-0 flex items-center gap-1">
+        READ <FiBookOpen className="w-3 h-3" />
+      </span>
+    </button>
+  );
+};
+
+const CourseCard = ({ c, onOpen }) => (
+  <div
+    className="rounded-3xl p-4"
+    style={{
+      background: 'linear-gradient(180deg, #fffbf0, #fdeec4)',
+      border: '1px solid rgba(255,255,255,.75)',
+      boxShadow: 'inset 0 1px 0 #fff, 0 3px 9px rgba(92,65,28,.1)',
+    }}
+  >
+    <div className="flex items-center gap-2 mb-3">
+      <span
+        className="shrink-0 text-[10px] font-display font-bold uppercase tracking-wide px-2.5 py-1 rounded-lg text-espresso-800"
+        style={{ background: 'linear-gradient(180deg, #f2d894, #d9a441)', boxShadow: 'inset 0 1px 0 rgba(255,255,255,.6)' }}
+      >
+        {c.code}
+      </span>
+      <span className="font-bold text-espresso-800 text-sm truncate">{c.title}</span>
+    </div>
+    <div className="space-y-2">
+      {c.books.map((b) => <ShelfBook key={b.t} b={b} onOpen={onOpen} />)}
+    </div>
+  </div>
+);
+
 const Library = () => {
   const [reading, setReading] = useState(null);
+  const [activeTerm, setActiveTerm] = useState(1);
+
+  const openBook = (b) => setReading({
+    title: b.t,
+    author: b.a,
+    src: b.src,
+    downloadName: b.dl,
+    kind: b.k || 'pdf',
+  });
+
+  const term = SHELF.find((s) => s.term === activeTerm) || SHELF[0];
 
   return (
     <div className="space-y-6">
@@ -200,20 +488,21 @@ const Library = () => {
             <span className="course-tag">Library</span>
             <span className="inline-flex items-center gap-1 text-xs font-bold text-espresso-500">
               <FiLayers className="w-3 h-3" />
-              4 embedded books · 24 course hubs
+              24 in-app books · 24 courses · 8 terms
             </span>
           </div>
           <h1 className="font-display text-3xl sm:text-4xl font-bold text-espresso-800 text-balance">
             Books, Right Inside the App
           </h1>
           <p className="text-espresso-600 mt-2.5 max-w-2xl">
-            The core textbooks of your curriculum — downloaded into Full Stack Ocean and readable
-            in the built-in reader. No downloads to manage, no external sites.
+            Every course on your path now has its books — downloaded into Full Stack Ocean and
+            readable in the built-in reader. MIT textbooks, official course readers and free
+            editions, organized term by term. No downloads to manage, no external sites.
           </p>
         </div>
       </motion.div>
 
-      {/* ---------- Embedded books ---------- */}
+      {/* ---------- Featured books ---------- */}
       <Stagger className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {EMBEDDED_BOOKS.map((b) => (
           <StaggerItem key={b.id}>
@@ -248,21 +537,99 @@ const Library = () => {
         ))}
       </Stagger>
 
+      {/* ---------- Course bookshelf ---------- */}
+      <motion.div
+        className="glass-strong rounded-3xl p-6 sm:p-8"
+        initial={{ opacity: 0, y: 18 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.08, ease: EASE }}
+      >
+        <div className="flex items-start justify-between gap-4 flex-wrap mb-5">
+          <div>
+            <h2 className="font-display text-xl sm:text-2xl font-bold text-espresso-800 flex items-center gap-2">
+              <FiGrid className="w-5 h-5 text-honey-600" />
+              The Course Bookshelf
+            </h2>
+            <p className="text-sm text-espresso-500 mt-1">
+              All 8 terms · all 24 courses · every single one has books waiting for you.
+            </p>
+          </div>
+          <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-honey-700 bg-honey-100/60 rounded-full px-3 py-1.5">
+            <FiCheckCircle className="w-3.5 h-3.5" />
+            100% course coverage
+          </span>
+        </div>
+
+        {/* Term selector */}
+        <div className="flex flex-wrap gap-2 mb-5">
+          {SHELF.map((s) => (
+            <button
+              key={s.term}
+              onClick={() => setActiveTerm(s.term)}
+              className={`px-3.5 py-2 rounded-2xl text-xs font-bold transition-all ${
+                activeTerm === s.term
+                  ? 'text-espresso-900'
+                  : 'text-espresso-500 hover:text-espresso-700'
+              }`}
+              style={
+                activeTerm === s.term
+                  ? {
+                      background: 'linear-gradient(180deg, #f2d894, #d9a441)',
+                      boxShadow: 'inset 0 1px 0 rgba(255,255,255,.6), 0 3px 9px rgba(138,100,34,.3)',
+                    }
+                  : { background: 'rgba(255,255,255,.5)', boxShadow: 'inset 0 1px 0 #fff' }
+              }
+            >
+              Term {s.term} · {s.name}
+            </button>
+          ))}
+        </div>
+
+        {/* Courses of the active term */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={term.term}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.3, ease: EASE }}
+          >
+            <div className="flex items-center gap-2 mb-3 text-espresso-600">
+              <span className="w-8 h-8 rounded-xl flex items-center justify-center font-display font-bold text-espresso-900 text-sm"
+                style={{ background: 'linear-gradient(180deg, #f2d894, #d9a441)', boxShadow: 'inset 0 1px 0 rgba(255,255,255,.6)' }}>
+                {term.term}
+              </span>
+              <span className="font-display font-bold">{term.name}</span>
+              <FiMap className="w-3.5 h-3.5 text-espresso-400" />
+              <span className="text-xs text-espresso-500">3 courses</span>
+            </div>
+            <Stagger className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {term.courses.map((c) => (
+                <StaggerItem key={c.code}>
+                  <CourseCard c={c} onOpen={openBook} />
+                </StaggerItem>
+              ))}
+            </Stagger>
+          </motion.div>
+        </AnimatePresence>
+      </motion.div>
+
       {/* ---------- Recommended (not free) ---------- */}
       <motion.div
         className="glass rounded-3xl p-6"
         initial={{ opacity: 0, y: 18 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.08, ease: EASE }}
+        transition={{ duration: 0.5, delay: 0.1, ease: EASE }}
       >
         <h2 className="font-display text-xl font-bold text-espresso-800 mb-1 flex items-center gap-2">
           <FiFileText className="w-5 h-5 text-honey-600" />
           Recommended companions
         </h2>
         <p className="text-sm text-espresso-500 mb-4">
-          These three are commercial books (not free to redistribute) — worth owning for the deep dives.
+          These are commercial books (not free to redistribute) — worth owning for the deep dives.
+          The free editions above already cover every course.
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
           {RECOMMENDED_BOOKS.map((b) => (
             <a
               key={b.title}
@@ -287,7 +654,7 @@ const Library = () => {
         className="glass rounded-3xl p-6 sm:p-8"
         initial={{ opacity: 0, y: 18 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.1, ease: EASE }}
+        transition={{ duration: 0.5, delay: 0.12, ease: EASE }}
       >
         <h2 className="font-display text-xl font-bold text-espresso-800 mb-4 flex items-center gap-2">
           <FiZap className="w-5 h-5 text-honey-600" />
@@ -326,7 +693,7 @@ const Library = () => {
           className="glass rounded-3xl p-5"
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.12, ease: EASE }}
+          transition={{ duration: 0.5, delay: 0.14, ease: EASE }}
         >
           <h3 className="font-display font-bold text-espresso-800 mb-3 flex items-center gap-2">
             <FiTarget className="w-4 h-4 text-honey-600" /> Practice platforms
@@ -339,7 +706,7 @@ const Library = () => {
           className="glass rounded-3xl p-5"
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.15, ease: EASE }}
+          transition={{ duration: 0.5, delay: 0.16, ease: EASE }}
         >
           <h3 className="font-display font-bold text-espresso-800 mb-3 flex items-center gap-2">
             <FiLayers className="w-4 h-4 text-honey-600" /> Extra modern courses
@@ -364,9 +731,10 @@ const Library = () => {
       </div>
 
       <p className="text-center text-[11px] text-espresso-400 leading-relaxed px-6">
-        Books hosted here are the official free editions from MIT Press, Green Tea Press, MIT PDOS and
-        the OSTEP authors. All course materials remain the property of their respective institutions
-        and authors.
+        Books hosted here are the official free editions — MIT OCW (CC BY-NC-SA), MIT Press free
+        editions, Green Tea Press, MIT PDOS, Brown University (PLAI), UC Davis, the OSTEP authors,
+        Beej, OWASP (CC BY-SA), Systems Approach (CC BY), INRIA and the respective authors. All
+        materials remain the property of their institutions and authors.
       </p>
 
       {/* ---------- Reader overlay ---------- */}
