@@ -191,6 +191,9 @@ UserSchema.methods.updateStreak = function() {
     this.progress.streak += 1;
   } else if (diffDays > 1) {
     this.progress.streak = 0;
+  } else if (diffDays === 0 && this.progress.streak === 0) {
+    // First recorded activity of a fresh streak
+    this.progress.streak = 1;
   }
 
   this.progress.lastActive = now;
