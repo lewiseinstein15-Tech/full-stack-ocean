@@ -158,6 +158,61 @@ router.get('/lesson/:slug', async (req, res) => {
   }
 });
 
+// @route   GET /api/curriculum/lessons
+// @desc    Get all lessons from the active curriculum (flat list with material info)
+// @access  Public
+router.get('/lessons', async (req, res) => {
+  try {
+    const cur = await Curriculum.findOne({ isActive: true });
+    if (!cur) {
+      return res.json({ success: true, count: 0, lessons: [] });
+    }
+    const lessons = [];
+    for (const term of cur.terms || []) {
+      for (const week of term.weeks || []) {
+        for (const day of week.days || []) {
+          for (const lesson of day.lessons || []) {
+            if (!lesson) continue;
+            const m = lesson.materials || {};
+            lessons.push({
+              slug: lesson.slug || null,
+              title: lesson.title,
+              description: lesson.description || null,
+              duration: lesson.duration || 90,
+              order: lesson.order,
+              isReview: Boolean(lesson.isReview),
+              course: (lesson.metadata && lesson.metadata.course) || null,
+              lectureNumber: (lesson.metadata && lesson.metadata.lectureNumber) || null,
+              week: week.weekNumber,
+              day: day.dayOfWeek,
+              date: day.date,
+              term: term.termNumber,
+              materials: {
+                videoId: m.videoId || null,
+                videoTitle: m.videoTitle || null,
+                slidesUrl: m.slidesUrl || null,
+                transcriptUrl: m.transcriptUrl || null,
+                practicePdfUrl: m.practicePdfUrl || null,
+                practiceZipUrl: m.practiceZipUrl || null,
+                practiceSolUrl: m.practiceSolUrl || null,
+                practiceLabel: m.practiceLabel || null,
+                externalUrl: m.externalUrl || null,
+              },
+              hasVideo: Boolean(m.videoId),
+              hasPractice: Boolean(m.practicePdfUrl || m.practiceZipUrl),
+            });
+          }
+        }
+      }
+    }
+    lessons.sort((a, b) => (a.week - b.week) || ((a.order || 0) - (b.order || 0)));
+    res.json({ success: true, count: lessons.length, lessons });
+  } catch (error) {
+    console.error('Get lessons error:', error.message);
+    res.status(500).json({ success: false, error: 'Server error' });
+  }
+});
+
 // @route   GET /api/curriculum/:id
 // @desc    Get single curriculum with full details
 // @access  Public

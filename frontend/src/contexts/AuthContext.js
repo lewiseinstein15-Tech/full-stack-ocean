@@ -208,6 +208,15 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const fetchLessons = async () => {
+    try {
+      const res = await axios.get(`/curriculum/lessons`);
+      return res.data.lessons;
+    } catch (error) {
+      return null;
+    }
+  };
+
   const value = {
     user,
     loading,
@@ -226,6 +235,7 @@ export const AuthProvider = ({ children }) => {
     fetchCurriculum,
     fetchWeek,
     fetchCourse,
+    fetchLessons,
   };
 
   return (

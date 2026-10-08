@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   FiClock, FiCheck, FiFileText, FiBookOpen, FiChevronLeft, FiExternalLink,
@@ -74,7 +74,16 @@ const Study = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [completed, setCompleted] = useState(false);
-  const [activeTab, setActiveTab] = useState('notes');
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [activeTab, setActiveTab] = useState(() => searchParams.get('tab') || 'notes');
+
+  const changeTab = (id) => {
+    setActiveTab(id);
+    const next = new URLSearchParams(searchParams);
+    if (id && id !== 'notes') next.set('tab', id);
+    else next.delete('tab');
+    setSearchParams(next, { replace: true });
+  };
 
   useEffect(() => {
     let alive = true;
@@ -249,7 +258,7 @@ const Study = () => {
 
       {/* ---------- Tabs + material ---------- */}
       <div className="space-y-5">
-        <TabBar tabs={tabs} active={activeTab} onChange={setActiveTab} />
+        <TabBar tabs={tabs} active={activeTab} onChange={changeTab} />
 
         <AnimatePresence mode="wait">
           <motion.div
