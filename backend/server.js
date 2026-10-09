@@ -4,6 +4,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const morgan = require('morgan');
+const compression = require('compression');
 const dotenv = require('dotenv');
 
 dotenv.config();
@@ -12,6 +13,9 @@ const app = express();
 
 // Trust proxy for Render (needed for rate limiting and correct IPs)
 app.set('trust proxy', 1);
+
+// Gzip responses (the 841-lesson curriculum payload is ~550KB raw -> ~90KB gzipped)
+app.use(compression());
 
 // Connect to MongoDB
 const mongoUri = process.env.MONGO_URI;

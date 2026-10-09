@@ -12,13 +12,40 @@ export const useAuth = () => {
   return context;
 };
 
+// Messages for free-tier cold starts (server asleep = requests hang, not fail)
+const SERVER_WAKING_MSG = 'Server is waking up — this can take a minute. Retrying automatically…';
+const SERVER_UNREACHABLE_MSG = 'Could not reach the server. It may still be waking up — please try again in a minute.';
+
+const isNetworkError = (error) => !error.response; // no HTTP response = server cold/unreachable/timeout
+
+// Run a request; on network-level failure, tell the user and retry once with a long timeout
+// (the retry usually lands after the server finishes waking up).
+const withWakeRetry = async (config) => {
+  try {
+    return await axios({ ...config, timeout: 20000 });
+  } catch (error) {
+    if (!isNetworkError(error)) throw error;
+    toast.info(SERVER_WAKING_MSG);
+    await new Promise((resolve) => setTimeout(resolve, 5000));
+    try {
+      return await axios({ ...config, timeout: 150000 });
+    } catch (retryError) {
+      if (!isNetworkError(retryError)) throw retryError;
+      const unreachable = new Error(SERVER_UNREACHABLE_MSG);
+      unreachable.network = true;
+      throw unreachable;
+    }
+  }
+};
+
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  // Set axios default base URL
+  // Set axios default base URL + a global timeout so no request hangs forever
   axios.defaults.baseURL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
+  axios.defaults.timeout = 60000;
 
   // Load user on mount
   useEffect(() => {
@@ -30,13 +57,19 @@ export const AuthProvider = ({ children }) => {
       const token = localStorage.getItem('token');
       if (token) {
         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-        const res = await axios.get('/auth/me');
+        const res = await withWakeRetry({ method: 'get', url: '/auth/me' });
         setUser(res.data.user);
         setIsAuthenticated(true);
       }
     } catch (error) {
-      localStorage.removeItem('token');
-      delete axios.defaults.headers.common['Authorization'];
+      if (error.response) {
+        // The SERVER answered and rejected the token (401) — real logout.
+        localStorage.removeItem('token');
+        delete axios.defaults.headers.common['Authorization'];
+      } else if (localStorage.getItem('token')) {
+        // Network-level failure (server waking up / unreachable) — keep the session!
+        toast.info('Could not reach the server — it may be waking up. Refresh in a moment.');
+      }
     } finally {
       setLoading(false);
     }
@@ -44,18 +77,19 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const res = await axios.post('/auth/login', { email, password });
+      const res = await withWakeRetry({ method: 'post', url: '/auth/login', data: { email, password } });
       const { token, user } = res.data;
-      
+
       localStorage.setItem('token', token);
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
       setUser(user);
       setIsAuthenticated(true);
-      
+
       toast.success('Welcome back!');
       return { success: true, user };
     } catch (error) {
-      const message = error.response?.data?.error || 'Login failed';
+      const message = error.response?.data?.error
+        || (error.network ? SERVER_UNREACHABLE_MSG : 'Login failed');
       toast.error(message);
       return { success: false, error: message };
     }
@@ -63,20 +97,23 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (username, email, password, firstName, lastName) => {
     try {
-      const res = await axios.post('/auth/register', { 
-        username, email, password, firstName, lastName 
+      const res = await withWakeRetry({
+        method: 'post',
+        url: '/auth/register',
+        data: { username, email, password, firstName, lastName }
       });
       const { token, user } = res.data;
-      
+
       localStorage.setItem('token', token);
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
       setUser(user);
       setIsAuthenticated(true);
-      
+
       toast.success('Account created successfully!');
       return { success: true, user };
     } catch (error) {
-      const message = error.response?.data?.error || 'Registration failed';
+      const message = error.response?.data?.error
+        || (error.network ? SERVER_UNREACHABLE_MSG : 'Registration failed');
       toast.error(message);
       return { success: false, error: message };
     }
