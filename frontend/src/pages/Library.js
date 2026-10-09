@@ -236,6 +236,12 @@ const SHELF = [
           { t: 'Linear Algebra', a: 'Cherney, Denton & Waldron · UC Davis · free edition', src: '/books/linear-algebra.pdf', dl: 'linear-algebra.pdf', accent: 'from-sage-300 to-sage-500' },
         ],
       },
+      {
+        code: '18.02', title: 'Multivariable Calculus',
+        books: [
+          { t: '18.02 Course Materials (Auroux)', a: 'MIT OCW Fall 2007 · full video lectures + notes · free online', url: 'https://ocw.mit.edu/courses/18-02-multivariable-calculus-fall-2007/', accent: 'from-honey-300 to-honey-600' },
+        ],
+      },
     ],
   },
   {
@@ -261,6 +267,12 @@ const SHELF = [
           { t: 'Introduction to Probability', a: 'Grinstead & Snell · GNU FDL · free edition', src: '/books/prob.pdf', dl: 'prob.pdf', accent: 'from-honey-300 to-honey-600' },
         ],
       },
+      {
+        code: '18.03', title: 'Differential Equations',
+        books: [
+          { t: '18.03 Course Materials (Mattuck)', a: 'MIT OCW Spring 2010 · full video lectures + notes · free online', url: 'https://ocw.mit.edu/courses/18-03-differential-equations-spring-2010/', accent: 'from-blush-300 to-blush-500' },
+        ],
+      },
     ],
   },
   {
@@ -283,6 +295,12 @@ const SHELF = [
         code: '6.004', title: 'Computation Structures',
         books: [
           { t: 'MIT 6.004 Lecture Notes Reader', a: 'MIT OCW Spring 2009 · CC BY-NC-SA', src: '/books/6004-notes.pdf', dl: '6004-notes.pdf', accent: 'from-sage-300 to-sage-500' },
+        ],
+      },
+      {
+        code: '6.1020', title: 'Software Construction',
+        books: [
+          { t: '6.031: Software Construction — Readings', a: 'MIT 6.031 sp21 · the complete official readings · free online', url: 'https://web.mit.edu/6.031/www/sp21/', accent: 'from-espresso-300 to-espresso-600' },
         ],
       },
     ],
@@ -560,7 +578,7 @@ const Library = () => {
             <span className="course-tag">Library</span>
             <span className="inline-flex items-center gap-1 text-xs font-bold text-espresso-500">
               <FiLayers className="w-3 h-3" />
-              24 in-app books · 24 courses · 8 terms
+              27 books & companions · 27 courses · 8 terms
             </span>
           </div>
           <h1 className="font-display text-3xl sm:text-4xl font-bold text-espresso-800 text-balance">
