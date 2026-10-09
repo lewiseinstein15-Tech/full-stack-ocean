@@ -46,4 +46,4 @@ coverage/
 
 # Miscellaneous
 dist/
-.eslintcache
+.eslintcachebackend/.env*
