@@ -25,8 +25,10 @@ const VideoSchema = new mongoose.Schema({
   title: String,
   url: String,
   playlistId: String,
+  videoId: String,
   source: String,
   note: String,
+  playlistOverview: Boolean,
   embeddable: {
     type: Boolean,
     default: true

@@ -13,7 +13,7 @@ const { books } = require('../seeds/ossuBooks');
 const { courseVideos } = require('../seeds/ossuVideos');
 const { introCs, cs50p, py4e, classBased } = require('../seeds/ossuLectureVideos');
 
-const VERSION = '4.3.0-ossu';
+const VERSION = '4.3.1-ossu';
 
 // INTRO-CS: one item per lecture of MIT 6.100L (video ids scraped from the
 // OCW lecture pages), inserted right after the course's "Lectures" hub module.
