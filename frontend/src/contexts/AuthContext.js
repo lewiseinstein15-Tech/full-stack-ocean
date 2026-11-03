@@ -275,9 +275,12 @@ export const AuthProvider = ({ children }) => {
     fetchLessons,
   };
 
+  // Children always render: the app paints instantly and auth hydrates in the
+  // background. What is visible while `loading` is decided by the route guards
+  // in App.js, not here — a waking free-tier server must never blank the app.
   return (
     <AuthContext.Provider value={value}>
-      {!loading && children}
+      {children}
     </AuthContext.Provider>
   );
 };

@@ -25,18 +25,15 @@ import CourseDetail from 'pages/CourseDetail';
 import Library from 'pages/Library';
 import Jobs from 'pages/Jobs';
 
-const CenterSpinner = () => (
-  <div className="min-h-screen flex items-center justify-center">
-    <div className="gold-spinner" />
-  </div>
-);
+const hasToken = () => Boolean(localStorage.getItem('token'));
 
-/* Auth gate: renders sidebar shell (with <Outlet/>) when signed in,
-   otherwise redirects to the sign-in entry. */
+/* Auth gate: renders the sidebar shell (with <Outlet/>) immediately and lets
+   auth hydrate in the background — the server may be waking from a free-tier
+   cold start, and waiting for it would leave a blank screen. Redirect to the
+   sign-in entry only once the server has actually rejected the session. */
 const ProtectedShell = () => {
   const { user, loading } = useAuth();
-  if (loading) return <CenterSpinner />;
-  if (!user) return <Navigate to="/login" replace />;
+  if (!user && !loading) return <Navigate to="/login" replace />;
   return <Layout />;
 };
 
@@ -47,13 +44,12 @@ const App = () => {
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
-        {/* Entry: sign in or create account first */}
+        {/* Entry: straight into the app when a session token exists (the shell
+            paints instantly, auth hydrates in the background); sign-in otherwise */}
         <Route
           path="/"
           element={
-            loading ? (
-              <CenterSpinner />
-            ) : user ? (
+            user || (loading && hasToken()) ? (
               <Navigate to="/dashboard" replace />
             ) : (
               <Navigate to="/login" replace />
