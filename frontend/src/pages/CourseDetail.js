@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   FiArrowLeft, FiClock, FiAward, FiBookOpen, FiCheck, FiPlay,
-  FiChevronRight, FiFileText, FiPackage, FiLayers, FiCalendar, FiTarget, FiExternalLink,
+  FiChevronRight, FiFileText, FiPackage, FiLayers, FiCalendar, FiTarget, FiExternalLink, FiYoutube,
 } from 'react-icons/fi';
 import { useAuth } from 'contexts/AuthContext';
 import { Stagger, StaggerItem } from 'components/motion/motion';
@@ -130,9 +130,16 @@ const CourseDetail = () => {
     );
   }
 
+  const videoResources = course.videos || [];
+  const playlistEmbed = videoResources.find((v) => v.playlistId && v.embeddable !== false);
+  const lessonVideos = courseLessons.filter((l) => l.hasVideo).length;
+
   const tabs = [
     { id: 'overview', label: 'Overview', icon: FiBookOpen },
     { id: 'lectures', label: `Lectures (${courseLessons.length})`, icon: FiPlay },
+    ...(videoResources.length
+      ? [{ id: 'videos', label: `Videos (${videoResources.length})`, icon: FiYoutube }]
+      : []),
     { id: 'practice', label: `Practice (${practiceItems.length})`, icon: FiTarget },
   ];
 
@@ -382,6 +389,85 @@ const CourseDetail = () => {
                   <div className="glass rounded-3xl p-10 text-center text-espresso-600">
                     No lessons scheduled for this course yet.
                   </div>
+                )}
+              </Stagger>
+            )}
+
+            {/* ---------- Videos ---------- */}
+            {activeTab === 'videos' && (
+              <Stagger className="space-y-5">
+                {playlistEmbed && (
+                  <StaggerItem key="embed">
+                    <div className="glass-strong rounded-3xl p-2 sm:p-3">
+                      <div
+                        className="w-full rounded-2xl overflow-hidden bg-espresso-900/10"
+                        style={{ aspectRatio: '16 / 9' }}
+                      >
+                        <iframe
+                          src={`https://www.youtube.com/embed/videoseries?list=${playlistEmbed.playlistId}&rel=0`}
+                          title={playlistEmbed.title || 'Lecture videos'}
+                          className="w-full h-full border-0"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          allowFullScreen
+                        />
+                      </div>
+                      <div className="flex items-center justify-between gap-3 px-3 pt-2.5 pb-1 flex-wrap">
+                        <div className="min-w-0">
+                          <h4 className="font-bold text-espresso-800 truncate">{playlistEmbed.title}</h4>
+                          <p className="text-[11px] font-bold uppercase tracking-wide text-espresso-500">
+                            {playlistEmbed.source || 'YouTube'} — plays right here, {playlistEmbed.note || 'all lectures in order'}
+                          </p>
+                        </div>
+                        <a href={playlistEmbed.url} target="_blank" rel="noopener noreferrer" className="btn btn-cream !py-1.5 !px-3 text-[11px] shrink-0">
+                          <FiExternalLink className="w-3 h-3" /> Open on YouTube
+                        </a>
+                      </div>
+                    </div>
+                  </StaggerItem>
+                )}
+
+                {videoResources.map((v) => (
+                  <StaggerItem key={v.url}>
+                    <div className="glass rounded-3xl p-4 sm:p-5 flex items-center gap-4 flex-wrap sm:flex-nowrap">
+                      <span
+                        className="w-11 h-11 rounded-2xl flex items-center justify-center shrink-0"
+                        style={{
+                          background: 'linear-gradient(180deg, #f2d894, #d9a441)',
+                          boxShadow: 'inset 0 1px 0 rgba(255,255,255,.6)',
+                        }}
+                      >
+                        {v.playlistId && v.embeddable !== false
+                          ? <FiPlay className="w-5 h-5 text-espresso-900" />
+                          : <FiExternalLink className="w-5 h-5 text-espresso-900" />}
+                      </span>
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <span className="text-[11px] font-bold text-espresso-500">{v.source || 'YouTube'}</span>
+                          <span className="status-badge">
+                            {v.playlistId
+                              ? (v.embeddable === false ? 'Opens on YouTube' : 'Full playlist')
+                              : 'Video hub'}
+                          </span>
+                        </div>
+                        <h4 className="font-bold text-espresso-800 mt-0.5">{v.title}</h4>
+                        {v.note && <p className="text-sm text-espresso-500 mt-0.5">{v.note}</p>}
+                      </div>
+                      <a href={v.url} target="_blank" rel="noopener noreferrer" className="btn btn-gold !py-2 !px-4 text-xs shrink-0">
+                        <FiPlay className="w-3.5 h-3.5" />
+                        Watch
+                        <FiChevronRight className="w-3.5 h-3.5" />
+                      </a>
+                    </div>
+                  </StaggerItem>
+                ))}
+
+                {lessonVideos > 0 && (
+                  <StaggerItem key="hint">
+                    <p className="text-xs text-espresso-500 px-2 pb-1">
+                      Plus {lessonVideos} individual lecture{lessonVideos === 1 ? '' : 's'} embedded
+                      right on their study pages — see the Lectures tab.
+                    </p>
+                  </StaggerItem>
                 )}
               </Stagger>
             )}

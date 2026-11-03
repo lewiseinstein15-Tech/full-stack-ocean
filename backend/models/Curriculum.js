@@ -18,6 +18,21 @@ const LinkSchema = new mongoose.Schema({
   }
 }, { _id: false });
 
+// Video Schema — a lecture-video resource attached to a course:
+// an embeddable YouTube playlist (playlistId set) or an external video hub
+// the student opens in a new tab.
+const VideoSchema = new mongoose.Schema({
+  title: String,
+  url: String,
+  playlistId: String,
+  source: String,
+  note: String,
+  embeddable: {
+    type: Boolean,
+    default: true
+  }
+}, { _id: false });
+
 // Item Schema — a single study unit inside a course module
 // (a lecture, lab, assignment, project, reading or checkpoint).
 // Slugs are the stable ids used by progress tracking, e.g. 'cs50p-w0'.
@@ -119,6 +134,7 @@ const CourseSchema = new mongoose.Schema({
     assignments: [LinkSchema],
     exams: [LinkSchema]
   },
+  videos: [VideoSchema],
   modules: [ModuleSchema],
   createdAt: {
     type: Date,
