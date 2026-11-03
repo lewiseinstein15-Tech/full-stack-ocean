@@ -408,13 +408,15 @@ const CourseDetail = () => {
                         style={{ aspectRatio: '16 / 9' }}
                       >
                         <iframe
-                          key={playing ? playing.videoId : 'playlist'}
+                          key={playing ? playing.videoId : (playlistEmbed ? (playlistEmbed.videoId && !playlistEmbed.playlistOverview ? playlistEmbed.videoId : 'playlist') : 'first')}
                           src={
                             playing
                               ? `https://www.youtube.com/embed/${playing.videoId}?rel=0`
-                              : playlistEmbed
-                                ? `https://www.youtube.com/embed/videoseries?list=${playlistEmbed.playlistId}&rel=0`
-                                : `https://www.youtube.com/embed/${firstLecture.videoId}?rel=0`
+                              : playlistEmbed && playlistEmbed.videoId && !playlistEmbed.playlistOverview
+                                ? `https://www.youtube.com/embed/${playlistEmbed.videoId}?rel=0`
+                                : playlistEmbed
+                                  ? `https://www.youtube.com/embed/videoseries?list=${playlistEmbed.playlistId}&rel=0`
+                                  : `https://www.youtube.com/embed/${firstLecture.videoId}?rel=0`
                           }
                           title={playing
                             ? playing.title
@@ -445,7 +447,7 @@ const CourseDetail = () => {
                               : `https://www.youtube.com/watch?v=${firstLecture.videoId}`)}
                           target="_blank" rel="noopener noreferrer" className="btn btn-cream !py-1.5 !px-3 text-[11px] shrink-0"
                         >
-                          <FiExternalLink className="w-3 h-3" /> {playlistEmbed ? 'Open playlist on YouTube' : 'Open on YouTube'}
+                          <FiExternalLink className="w-3 h-3" /> {playlistEmbed && playlistEmbed.playlistOverview ? 'Open playlist on YouTube' : 'Open on YouTube'}
                         </a>
                       </div>
                     </div>
