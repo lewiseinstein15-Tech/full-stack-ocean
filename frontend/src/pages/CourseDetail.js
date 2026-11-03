@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -50,6 +50,8 @@ const CourseDetail = () => {
   const [course, setCourse] = useState(undefined); // undefined = loading, null = not found
   const [lessons, setLessons] = useState(null);
   const [activeTab, setActiveTab] = useState('overview');
+  const [playing, setPlaying] = useState(null); // { videoId, title, source } — lecture playing in-page
+  const embedRef = useRef(null);
 
   useEffect(() => {
     let alive = true;
@@ -131,7 +133,9 @@ const CourseDetail = () => {
   }
 
   const videoResources = course.videos || [];
-  const playlistEmbed = videoResources.find((v) => v.playlistId && v.embeddable !== false);
+  const playlistEmbed = videoResources.find((v) => v.playlistOverview)
+    || videoResources.find((v) => v.playlistId && v.embeddable !== false);
+  const firstLecture = videoResources.find((v) => v.videoId && v.embeddable !== false);
   const lessonVideos = courseLessons.filter((l) => l.hasVideo).length;
 
   const tabs = [
@@ -396,16 +400,25 @@ const CourseDetail = () => {
             {/* ---------- Videos ---------- */}
             {activeTab === 'videos' && (
               <Stagger className="space-y-5">
-                {playlistEmbed && (
+                {(playlistEmbed || firstLecture) && (
                   <StaggerItem key="embed">
-                    <div className="glass-strong rounded-3xl p-2 sm:p-3">
+                    <div ref={embedRef} className="glass-strong rounded-3xl p-2 sm:p-3 scroll-mt-24">
                       <div
                         className="w-full rounded-2xl overflow-hidden bg-espresso-900/10"
                         style={{ aspectRatio: '16 / 9' }}
                       >
                         <iframe
-                          src={`https://www.youtube.com/embed/videoseries?list=${playlistEmbed.playlistId}&rel=0`}
-                          title={playlistEmbed.title || 'Lecture videos'}
+                          key={playing ? playing.videoId : 'playlist'}
+                          src={
+                            playing
+                              ? `https://www.youtube.com/embed/${playing.videoId}?rel=0`
+                              : playlistEmbed
+                                ? `https://www.youtube.com/embed/videoseries?list=${playlistEmbed.playlistId}&rel=0`
+                                : `https://www.youtube.com/embed/${firstLecture.videoId}?rel=0`
+                          }
+                          title={playing
+                            ? playing.title
+                            : (playlistEmbed || firstLecture).title || 'Lecture videos'}
                           className="w-full h-full border-0"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                           allowFullScreen
@@ -413,21 +426,34 @@ const CourseDetail = () => {
                       </div>
                       <div className="flex items-center justify-between gap-3 px-3 pt-2.5 pb-1 flex-wrap">
                         <div className="min-w-0">
-                          <h4 className="font-bold text-espresso-800 truncate">{playlistEmbed.title}</h4>
+                          <h4 className="font-bold text-espresso-800 truncate">
+                            {playing
+                              ? playing.title
+                              : (playlistEmbed || firstLecture).title}
+                          </h4>
                           <p className="text-[11px] font-bold uppercase tracking-wide text-espresso-500">
-                            {playlistEmbed.source || 'YouTube'} — plays right here, {playlistEmbed.note || 'all lectures in order'}
+                            {playing
+                              ? `${playing.source || 'YouTube'} — playing right here, pick another lecture below`
+                              : `${(playlistEmbed || firstLecture).source || 'YouTube'} — plays right here, ${(playlistEmbed && playlistEmbed.note) || 'every lecture in order'}`}
                           </p>
                         </div>
-                        <a href={playlistEmbed.url} target="_blank" rel="noopener noreferrer" className="btn btn-cream !py-1.5 !px-3 text-[11px] shrink-0">
-                          <FiExternalLink className="w-3 h-3" /> Open on YouTube
+                        <a
+                          href={playing
+                            ? `https://www.youtube.com/watch?v=${playing.videoId}`
+                            : (playlistEmbed
+                              ? playlistEmbed.url
+                              : `https://www.youtube.com/watch?v=${firstLecture.videoId}`)}
+                          target="_blank" rel="noopener noreferrer" className="btn btn-cream !py-1.5 !px-3 text-[11px] shrink-0"
+                        >
+                          <FiExternalLink className="w-3 h-3" /> {playlistEmbed ? 'Open playlist on YouTube' : 'Open on YouTube'}
                         </a>
                       </div>
                     </div>
                   </StaggerItem>
                 )}
 
-                {videoResources.map((v) => (
-                  <StaggerItem key={v.url}>
+                {videoResources.filter((v) => !v.playlistOverview).map((v) => (
+                  <StaggerItem key={v.videoId ? `v-${v.videoId}` : v.url}>
                     <div className="glass rounded-3xl p-4 sm:p-5 flex items-center gap-4 flex-wrap sm:flex-nowrap">
                       <span
                         className="w-11 h-11 rounded-2xl flex items-center justify-center shrink-0"
@@ -436,7 +462,7 @@ const CourseDetail = () => {
                           boxShadow: 'inset 0 1px 0 rgba(255,255,255,.6)',
                         }}
                       >
-                        {v.playlistId && v.embeddable !== false
+                        {v.videoId || (v.playlistId && v.embeddable !== false)
                           ? <FiPlay className="w-5 h-5 text-espresso-900" />
                           : <FiExternalLink className="w-5 h-5 text-espresso-900" />}
                       </span>
@@ -444,19 +470,36 @@ const CourseDetail = () => {
                         <div className="flex items-center gap-2 flex-wrap">
                           <span className="text-[11px] font-bold text-espresso-500">{v.source || 'YouTube'}</span>
                           <span className="status-badge">
-                            {v.playlistId
-                              ? (v.embeddable === false ? 'Opens on YouTube' : 'Full playlist')
-                              : 'Video hub'}
+                            {v.videoId
+                              ? (playing && playing.videoId === v.videoId ? 'Now playing' : 'Lecture — watch here')
+                              : v.playlistId
+                                ? (v.embeddable === false ? 'Opens on YouTube' : 'Full playlist')
+                                : 'Video hub'}
                           </span>
                         </div>
                         <h4 className="font-bold text-espresso-800 mt-0.5">{v.title}</h4>
                         {v.note && <p className="text-sm text-espresso-500 mt-0.5">{v.note}</p>}
                       </div>
-                      <a href={v.url} target="_blank" rel="noopener noreferrer" className="btn btn-gold !py-2 !px-4 text-xs shrink-0">
-                        <FiPlay className="w-3.5 h-3.5" />
-                        Watch
-                        <FiChevronRight className="w-3.5 h-3.5" />
-                      </a>
+                      {v.videoId && v.embeddable !== false ? (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setPlaying({ videoId: v.videoId, title: v.title, source: v.source });
+                            if (embedRef.current) embedRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                          }}
+                          className="btn btn-gold !py-2 !px-4 text-xs shrink-0"
+                        >
+                          <FiPlay className="w-3.5 h-3.5" />
+                          Watch here
+                          <FiChevronRight className="w-3.5 h-3.5" />
+                        </button>
+                      ) : (
+                        <a href={v.url} target="_blank" rel="noopener noreferrer" className="btn btn-gold !py-2 !px-4 text-xs shrink-0">
+                          <FiPlay className="w-3.5 h-3.5" />
+                          Watch
+                          <FiChevronRight className="w-3.5 h-3.5" />
+                        </a>
+                      )}
                     </div>
                   </StaggerItem>
                 ))}
