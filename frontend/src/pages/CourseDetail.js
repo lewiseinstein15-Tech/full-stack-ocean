@@ -133,7 +133,7 @@ const CourseDetail = () => {
   }
 
   const videoResources = course.videos || [];
-  const playlistEmbed = videoResources.find((v) => v.playlistOverview)
+  const playlistEmbed = videoResources.find((v) => v.playlistOverview && v.embeddable !== false)
     || videoResources.find((v) => v.playlistId && v.embeddable !== false);
   const firstLecture = videoResources.find((v) => v.videoId && v.embeddable !== false);
   const lessonVideos = courseLessons.filter((l) => l.hasVideo).length;
@@ -452,7 +452,7 @@ const CourseDetail = () => {
                   </StaggerItem>
                 )}
 
-                {videoResources.filter((v) => !v.playlistOverview).map((v) => (
+                {videoResources.filter((v) => !v.playlistOverview || v.embeddable === false).map((v) => (
                   <StaggerItem key={v.videoId ? `v-${v.videoId}` : v.url}>
                     <div className="glass rounded-3xl p-4 sm:p-5 flex items-center gap-4 flex-wrap sm:flex-nowrap">
                       <span

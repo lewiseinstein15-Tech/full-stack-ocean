@@ -4218,6 +4218,7 @@ const courseVideos = {
       "playlistId": "PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "url": "https://www.youtube.com/watch?v=fWUJKH0RNFE&list=PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "source": "YouTube (community)",
+      "embeddable": false,
       "note": "From the \"xv6 source-code walkthroughs\" playlist — Excellent video series walking through much of the xv6 code, as linked by OSSU.",
       "alternativeEdition": true
     },
@@ -4227,6 +4228,7 @@ const courseVideos = {
       "playlistId": "PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "url": "https://www.youtube.com/watch?v=yfqxa-TYdFU&list=PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "source": "YouTube (community)",
+      "embeddable": false,
       "note": "From the \"xv6 source-code walkthroughs\" playlist — Excellent video series walking through much of the xv6 code, as linked by OSSU.",
       "alternativeEdition": true
     },
@@ -4236,6 +4238,7 @@ const courseVideos = {
       "playlistId": "PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "url": "https://www.youtube.com/watch?v=6hhJ6JN95As&list=PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "source": "YouTube (community)",
+      "embeddable": false,
       "note": "From the \"xv6 source-code walkthroughs\" playlist — Excellent video series walking through much of the xv6 code, as linked by OSSU.",
       "alternativeEdition": true
     },
@@ -4245,6 +4248,7 @@ const courseVideos = {
       "playlistId": "PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "url": "https://www.youtube.com/watch?v=gQdflOUZQvA&list=PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "source": "YouTube (community)",
+      "embeddable": false,
       "note": "From the \"xv6 source-code walkthroughs\" playlist — Excellent video series walking through much of the xv6 code, as linked by OSSU.",
       "alternativeEdition": true
     },
@@ -4254,6 +4258,7 @@ const courseVideos = {
       "playlistId": "PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "url": "https://www.youtube.com/watch?v=wPXE08HBNnE&list=PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "source": "YouTube (community)",
+      "embeddable": false,
       "note": "From the \"xv6 source-code walkthroughs\" playlist — Excellent video series walking through much of the xv6 code, as linked by OSSU.",
       "alternativeEdition": true
     },
@@ -4263,6 +4268,7 @@ const courseVideos = {
       "playlistId": "PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "url": "https://www.youtube.com/watch?v=RdxHGyeoyqI&list=PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "source": "YouTube (community)",
+      "embeddable": false,
       "note": "From the \"xv6 source-code walkthroughs\" playlist — Excellent video series walking through much of the xv6 code, as linked by OSSU.",
       "alternativeEdition": true
     },
@@ -4272,6 +4278,7 @@ const courseVideos = {
       "playlistId": "PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "url": "https://www.youtube.com/watch?v=-S0Z0CmwkEk&list=PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "source": "YouTube (community)",
+      "embeddable": false,
       "note": "From the \"xv6 source-code walkthroughs\" playlist — Excellent video series walking through much of the xv6 code, as linked by OSSU.",
       "alternativeEdition": true
     },
@@ -4281,6 +4288,7 @@ const courseVideos = {
       "playlistId": "PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "url": "https://www.youtube.com/watch?v=g7B0WS5Xu-A&list=PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "source": "YouTube (community)",
+      "embeddable": false,
       "note": "From the \"xv6 source-code walkthroughs\" playlist — Excellent video series walking through much of the xv6 code, as linked by OSSU.",
       "alternativeEdition": true
     },
@@ -4290,6 +4298,7 @@ const courseVideos = {
       "playlistId": "PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "url": "https://www.youtube.com/watch?v=hSjJ94PoLXc&list=PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "source": "YouTube (community)",
+      "embeddable": false,
       "note": "From the \"xv6 source-code walkthroughs\" playlist — Excellent video series walking through much of the xv6 code, as linked by OSSU.",
       "alternativeEdition": true
     },
@@ -4299,6 +4308,7 @@ const courseVideos = {
       "playlistId": "PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "url": "https://www.youtube.com/watch?v=1sSanF_y8FY&list=PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "source": "YouTube (community)",
+      "embeddable": false,
       "note": "From the \"xv6 source-code walkthroughs\" playlist — Excellent video series walking through much of the xv6 code, as linked by OSSU.",
       "alternativeEdition": true
     },
@@ -4308,6 +4318,7 @@ const courseVideos = {
       "playlistId": "PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "url": "https://www.youtube.com/watch?v=NWicJxVENjg&list=PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "source": "YouTube (community)",
+      "embeddable": false,
       "note": "From the \"xv6 source-code walkthroughs\" playlist — Excellent video series walking through much of the xv6 code, as linked by OSSU.",
       "alternativeEdition": true
     },
@@ -4317,6 +4328,7 @@ const courseVideos = {
       "playlistId": "PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "url": "https://www.youtube.com/watch?v=ZW0BHOYDYFc&list=PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "source": "YouTube (community)",
+      "embeddable": false,
       "note": "From the \"xv6 source-code walkthroughs\" playlist — Excellent video series walking through much of the xv6 code, as linked by OSSU.",
       "alternativeEdition": true
     },
@@ -4326,6 +4338,7 @@ const courseVideos = {
       "playlistId": "PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "url": "https://www.youtube.com/watch?v=GGY_1efenvs&list=PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "source": "YouTube (community)",
+      "embeddable": false,
       "note": "From the \"xv6 source-code walkthroughs\" playlist — Excellent video series walking through much of the xv6 code, as linked by OSSU.",
       "alternativeEdition": true
     },
@@ -4335,6 +4348,7 @@ const courseVideos = {
       "playlistId": "PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "url": "https://www.youtube.com/watch?v=k4f2vHCV5iQ&list=PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "source": "YouTube (community)",
+      "embeddable": false,
       "note": "From the \"xv6 source-code walkthroughs\" playlist — Excellent video series walking through much of the xv6 code, as linked by OSSU.",
       "alternativeEdition": true
     },
@@ -4344,6 +4358,7 @@ const courseVideos = {
       "playlistId": "PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "url": "https://www.youtube.com/watch?v=_p_MvMnwJbE&list=PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "source": "YouTube (community)",
+      "embeddable": false,
       "note": "From the \"xv6 source-code walkthroughs\" playlist — Excellent video series walking through much of the xv6 code, as linked by OSSU.",
       "alternativeEdition": true
     },
@@ -4353,6 +4368,7 @@ const courseVideos = {
       "playlistId": "PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "url": "https://www.youtube.com/watch?v=-O_JX5mMMHY&list=PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "source": "YouTube (community)",
+      "embeddable": false,
       "note": "From the \"xv6 source-code walkthroughs\" playlist — Excellent video series walking through much of the xv6 code, as linked by OSSU.",
       "alternativeEdition": true
     },
@@ -4362,6 +4378,7 @@ const courseVideos = {
       "playlistId": "PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "url": "https://www.youtube.com/watch?v=rUSEYGBF3PY&list=PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "source": "YouTube (community)",
+      "embeddable": false,
       "note": "From the \"xv6 source-code walkthroughs\" playlist — Excellent video series walking through much of the xv6 code, as linked by OSSU.",
       "alternativeEdition": true
     },
@@ -4371,6 +4388,7 @@ const courseVideos = {
       "playlistId": "PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "url": "https://www.youtube.com/watch?v=ec8A0u6SjDg&list=PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "source": "YouTube (community)",
+      "embeddable": false,
       "note": "From the \"xv6 source-code walkthroughs\" playlist — Excellent video series walking through much of the xv6 code, as linked by OSSU.",
       "alternativeEdition": true
     },
@@ -4380,6 +4398,7 @@ const courseVideos = {
       "playlistId": "PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "url": "https://www.youtube.com/watch?v=rhq08Lr-Yo4&list=PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "source": "YouTube (community)",
+      "embeddable": false,
       "note": "From the \"xv6 source-code walkthroughs\" playlist — Excellent video series walking through much of the xv6 code, as linked by OSSU.",
       "alternativeEdition": true
     },
@@ -4389,6 +4408,7 @@ const courseVideos = {
       "playlistId": "PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "url": "https://www.youtube.com/watch?v=BB0Tbyu3XMQ&list=PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "source": "YouTube (community)",
+      "embeddable": false,
       "note": "From the \"xv6 source-code walkthroughs\" playlist — Excellent video series walking through much of the xv6 code, as linked by OSSU.",
       "alternativeEdition": true
     },
@@ -4398,6 +4418,7 @@ const courseVideos = {
       "playlistId": "PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "url": "https://www.youtube.com/watch?v=Grv5HTe4560&list=PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "source": "YouTube (community)",
+      "embeddable": false,
       "note": "From the \"xv6 source-code walkthroughs\" playlist — Excellent video series walking through much of the xv6 code, as linked by OSSU.",
       "alternativeEdition": true
     },
@@ -4407,6 +4428,7 @@ const courseVideos = {
       "playlistId": "PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "url": "https://www.youtube.com/watch?v=w7Q66ItKrn8&list=PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "source": "YouTube (community)",
+      "embeddable": false,
       "note": "From the \"xv6 source-code walkthroughs\" playlist — Excellent video series walking through much of the xv6 code, as linked by OSSU.",
       "alternativeEdition": true
     },
@@ -4416,6 +4438,7 @@ const courseVideos = {
       "playlistId": "PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "url": "https://www.youtube.com/watch?v=MnTQi1IZTUM&list=PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "source": "YouTube (community)",
+      "embeddable": false,
       "note": "From the \"xv6 source-code walkthroughs\" playlist — Excellent video series walking through much of the xv6 code, as linked by OSSU.",
       "alternativeEdition": true
     },
@@ -4425,6 +4448,7 @@ const courseVideos = {
       "playlistId": "PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "url": "https://www.youtube.com/watch?v=ZHc8CHqi3Ws&list=PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "source": "YouTube (community)",
+      "embeddable": false,
       "note": "From the \"xv6 source-code walkthroughs\" playlist — Excellent video series walking through much of the xv6 code, as linked by OSSU.",
       "alternativeEdition": true
     },
@@ -4434,6 +4458,7 @@ const courseVideos = {
       "playlistId": "PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "url": "https://www.youtube.com/watch?v=nc03pTD53Ro&list=PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "source": "YouTube (community)",
+      "embeddable": false,
       "note": "From the \"xv6 source-code walkthroughs\" playlist — Excellent video series walking through much of the xv6 code, as linked by OSSU.",
       "alternativeEdition": true
     },
@@ -4443,6 +4468,7 @@ const courseVideos = {
       "playlistId": "PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "url": "https://www.youtube.com/watch?v=Aj3DLErovD8&list=PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "source": "YouTube (community)",
+      "embeddable": false,
       "note": "From the \"xv6 source-code walkthroughs\" playlist — Excellent video series walking through much of the xv6 code, as linked by OSSU.",
       "alternativeEdition": true
     },
@@ -4461,6 +4487,7 @@ const courseVideos = {
       "playlistId": "PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "url": "https://www.youtube.com/watch?v=1ajlGSLOqJE&list=PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "source": "YouTube (community)",
+      "embeddable": false,
       "note": "From the \"xv6 source-code walkthroughs\" playlist — Excellent video series walking through much of the xv6 code, as linked by OSSU.",
       "alternativeEdition": true
     },
@@ -4470,6 +4497,7 @@ const courseVideos = {
       "playlistId": "PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "url": "https://www.youtube.com/watch?v=MCc4Wpwekno&list=PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "source": "YouTube (community)",
+      "embeddable": false,
       "note": "From the \"xv6 source-code walkthroughs\" playlist — Excellent video series walking through much of the xv6 code, as linked by OSSU.",
       "alternativeEdition": true
     },
@@ -4479,6 +4507,7 @@ const courseVideos = {
       "playlistId": "PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "url": "https://www.youtube.com/watch?v=o9sYiWj1F28&list=PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "source": "YouTube (community)",
+      "embeddable": false,
       "note": "From the \"xv6 source-code walkthroughs\" playlist — Excellent video series walking through much of the xv6 code, as linked by OSSU.",
       "alternativeEdition": true
     },
@@ -4488,6 +4517,7 @@ const courseVideos = {
       "playlistId": "PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "url": "https://www.youtube.com/watch?v=yzyCoL9SA2M&list=PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "source": "YouTube (community)",
+      "embeddable": false,
       "note": "From the \"xv6 source-code walkthroughs\" playlist — Excellent video series walking through much of the xv6 code, as linked by OSSU.",
       "alternativeEdition": true
     },
@@ -4497,6 +4527,7 @@ const courseVideos = {
       "playlistId": "PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "url": "https://www.youtube.com/watch?v=LTAOiYPemZM&list=PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "source": "YouTube (community)",
+      "embeddable": false,
       "note": "From the \"xv6 source-code walkthroughs\" playlist — Excellent video series walking through much of the xv6 code, as linked by OSSU.",
       "alternativeEdition": true
     },
@@ -4506,6 +4537,7 @@ const courseVideos = {
       "playlistId": "PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "url": "https://www.youtube.com/watch?v=yCYf0NnWfVs&list=PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "source": "YouTube (community)",
+      "embeddable": false,
       "note": "From the \"xv6 source-code walkthroughs\" playlist — Excellent video series walking through much of the xv6 code, as linked by OSSU.",
       "alternativeEdition": true
     },
@@ -4515,6 +4547,7 @@ const courseVideos = {
       "playlistId": "PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "url": "https://www.youtube.com/watch?v=krO7ZdPzQ_M&list=PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "source": "YouTube (community)",
+      "embeddable": false,
       "note": "From the \"xv6 source-code walkthroughs\" playlist — Excellent video series walking through much of the xv6 code, as linked by OSSU.",
       "alternativeEdition": true
     },
@@ -4524,6 +4557,7 @@ const courseVideos = {
       "playlistId": "PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "url": "https://www.youtube.com/watch?v=oWuVGDese4k&list=PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "source": "YouTube (community)",
+      "embeddable": false,
       "note": "From the \"xv6 source-code walkthroughs\" playlist — Excellent video series walking through much of the xv6 code, as linked by OSSU.",
       "alternativeEdition": true
     },
@@ -4533,6 +4567,7 @@ const courseVideos = {
       "playlistId": "PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "url": "https://www.youtube.com/watch?v=Mq-3HA3FimI&list=PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "source": "YouTube (community)",
+      "embeddable": false,
       "note": "From the \"xv6 source-code walkthroughs\" playlist — Excellent video series walking through much of the xv6 code, as linked by OSSU.",
       "alternativeEdition": true
     },
@@ -4542,6 +4577,7 @@ const courseVideos = {
       "playlistId": "PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "url": "https://www.youtube.com/watch?v=TYmHsRS_JWI&list=PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "source": "YouTube (community)",
+      "embeddable": false,
       "note": "From the \"xv6 source-code walkthroughs\" playlist — Excellent video series walking through much of the xv6 code, as linked by OSSU.",
       "alternativeEdition": true
     },
@@ -4551,6 +4587,7 @@ const courseVideos = {
       "playlistId": "PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "url": "https://www.youtube.com/watch?v=bp0qo4-ozEg&list=PLbtzT1TYeoMhTPzyTZboW_j7TPAnjv9XB",
       "source": "YouTube (community)",
+      "embeddable": false,
       "note": "From the \"xv6 source-code walkthroughs\" playlist — Excellent video series walking through much of the xv6 code, as linked by OSSU.",
       "alternativeEdition": true
     }
@@ -22348,7 +22385,8 @@ const courseVideos = {
       "url": "https://www.youtube.com/playlist?list=PLF1Z-APd9zK7usPMx3LGMZEHrECUGodd3",
       "source": "Graham Hutton (Univ. of Nottingham)",
       "note": "17 lectures by the author of Programming in Haskell — linked from Nottingham’s own course page.",
-      "playlistOverview": true
+      "playlistOverview": true,
+      "embeddable": false
     },
     {
       "title": "FP 1 - Course Overview",
@@ -22356,6 +22394,7 @@ const courseVideos = {
       "playlistId": "PLF1Z-APd9zK7usPMx3LGMZEHrECUGodd3",
       "url": "https://www.youtube.com/watch?v=qThX0aoW9YI&list=PLF1Z-APd9zK7usPMx3LGMZEHrECUGodd3",
       "source": "Graham Hutton (Univ. of Nottingham)",
+      "embeddable": false,
       "note": "From the \"Functional Programming in Haskell — full course\" playlist — 17 lectures by the author of Programming in Haskell — linked from Nottingham’s own course page.",
       "alternativeEdition": true
     },
@@ -22365,6 +22404,7 @@ const courseVideos = {
       "playlistId": "PLF1Z-APd9zK7usPMx3LGMZEHrECUGodd3",
       "url": "https://www.youtube.com/watch?v=Qmi6T2AKA3k&list=PLF1Z-APd9zK7usPMx3LGMZEHrECUGodd3",
       "source": "Graham Hutton (Univ. of Nottingham)",
+      "embeddable": false,
       "note": "From the \"Functional Programming in Haskell — full course\" playlist — 17 lectures by the author of Programming in Haskell — linked from Nottingham’s own course page.",
       "alternativeEdition": true
     },
@@ -22374,6 +22414,7 @@ const courseVideos = {
       "playlistId": "PLF1Z-APd9zK7usPMx3LGMZEHrECUGodd3",
       "url": "https://www.youtube.com/watch?v=RS3X-KpefdE&list=PLF1Z-APd9zK7usPMx3LGMZEHrECUGodd3",
       "source": "Graham Hutton (Univ. of Nottingham)",
+      "embeddable": false,
       "note": "From the \"Functional Programming in Haskell — full course\" playlist — 17 lectures by the author of Programming in Haskell — linked from Nottingham’s own course page.",
       "alternativeEdition": true
     },
@@ -22383,6 +22424,7 @@ const courseVideos = {
       "playlistId": "PLF1Z-APd9zK7usPMx3LGMZEHrECUGodd3",
       "url": "https://www.youtube.com/watch?v=7hM4LrJVxDk&list=PLF1Z-APd9zK7usPMx3LGMZEHrECUGodd3",
       "source": "Graham Hutton (Univ. of Nottingham)",
+      "embeddable": false,
       "note": "From the \"Functional Programming in Haskell — full course\" playlist — 17 lectures by the author of Programming in Haskell — linked from Nottingham’s own course page.",
       "alternativeEdition": true
     },
@@ -22392,6 +22434,7 @@ const courseVideos = {
       "playlistId": "PLF1Z-APd9zK7usPMx3LGMZEHrECUGodd3",
       "url": "https://www.youtube.com/watch?v=6w38pf__nZk&list=PLF1Z-APd9zK7usPMx3LGMZEHrECUGodd3",
       "source": "Graham Hutton (Univ. of Nottingham)",
+      "embeddable": false,
       "note": "From the \"Functional Programming in Haskell — full course\" playlist — 17 lectures by the author of Programming in Haskell — linked from Nottingham’s own course page.",
       "alternativeEdition": true
     },
@@ -22401,6 +22444,7 @@ const courseVideos = {
       "playlistId": "PLF1Z-APd9zK7usPMx3LGMZEHrECUGodd3",
       "url": "https://www.youtube.com/watch?v=xBeI-TftpF8&list=PLF1Z-APd9zK7usPMx3LGMZEHrECUGodd3",
       "source": "Graham Hutton (Univ. of Nottingham)",
+      "embeddable": false,
       "note": "From the \"Functional Programming in Haskell — full course\" playlist — 17 lectures by the author of Programming in Haskell — linked from Nottingham’s own course page.",
       "alternativeEdition": true
     },
@@ -22410,6 +22454,7 @@ const courseVideos = {
       "playlistId": "PLF1Z-APd9zK7usPMx3LGMZEHrECUGodd3",
       "url": "https://www.youtube.com/watch?v=oq7-RPLp3sI&list=PLF1Z-APd9zK7usPMx3LGMZEHrECUGodd3",
       "source": "Graham Hutton (Univ. of Nottingham)",
+      "embeddable": false,
       "note": "From the \"Functional Programming in Haskell — full course\" playlist — 17 lectures by the author of Programming in Haskell — linked from Nottingham’s own course page.",
       "alternativeEdition": true
     },
@@ -22419,6 +22464,7 @@ const courseVideos = {
       "playlistId": "PLF1Z-APd9zK7usPMx3LGMZEHrECUGodd3",
       "url": "https://www.youtube.com/watch?v=RB2Ca7uqsUg&list=PLF1Z-APd9zK7usPMx3LGMZEHrECUGodd3",
       "source": "Graham Hutton (Univ. of Nottingham)",
+      "embeddable": false,
       "note": "From the \"Functional Programming in Haskell — full course\" playlist — 17 lectures by the author of Programming in Haskell — linked from Nottingham’s own course page.",
       "alternativeEdition": true
     },
@@ -22428,6 +22474,7 @@ const courseVideos = {
       "playlistId": "PLF1Z-APd9zK7usPMx3LGMZEHrECUGodd3",
       "url": "https://www.youtube.com/watch?v=NpsUylZCVSA&list=PLF1Z-APd9zK7usPMx3LGMZEHrECUGodd3",
       "source": "Graham Hutton (Univ. of Nottingham)",
+      "embeddable": false,
       "note": "From the \"Functional Programming in Haskell — full course\" playlist — 17 lectures by the author of Programming in Haskell — linked from Nottingham’s own course page.",
       "alternativeEdition": true
     },
@@ -22437,6 +22484,7 @@ const courseVideos = {
       "playlistId": "PLF1Z-APd9zK7usPMx3LGMZEHrECUGodd3",
       "url": "https://www.youtube.com/watch?v=4cqtYzG1Tfw&list=PLF1Z-APd9zK7usPMx3LGMZEHrECUGodd3",
       "source": "Graham Hutton (Univ. of Nottingham)",
+      "embeddable": false,
       "note": "From the \"Functional Programming in Haskell — full course\" playlist — 17 lectures by the author of Programming in Haskell — linked from Nottingham’s own course page.",
       "alternativeEdition": true
     },
@@ -22446,6 +22494,7 @@ const courseVideos = {
       "playlistId": "PLF1Z-APd9zK7usPMx3LGMZEHrECUGodd3",
       "url": "https://www.youtube.com/watch?v=14corMR2sQ4&list=PLF1Z-APd9zK7usPMx3LGMZEHrECUGodd3",
       "source": "Graham Hutton (Univ. of Nottingham)",
+      "embeddable": false,
       "note": "From the \"Functional Programming in Haskell — full course\" playlist — 17 lectures by the author of Programming in Haskell — linked from Nottingham’s own course page.",
       "alternativeEdition": true
     },
@@ -22455,6 +22504,7 @@ const courseVideos = {
       "playlistId": "PLF1Z-APd9zK7usPMx3LGMZEHrECUGodd3",
       "url": "https://www.youtube.com/watch?v=JDrMF0ondUU&list=PLF1Z-APd9zK7usPMx3LGMZEHrECUGodd3",
       "source": "Graham Hutton (Univ. of Nottingham)",
+      "embeddable": false,
       "note": "From the \"Functional Programming in Haskell — full course\" playlist — 17 lectures by the author of Programming in Haskell — linked from Nottingham’s own course page.",
       "alternativeEdition": true
     },
@@ -22464,6 +22514,7 @@ const courseVideos = {
       "playlistId": "PLF1Z-APd9zK7usPMx3LGMZEHrECUGodd3",
       "url": "https://www.youtube.com/watch?v=rQ0AoSV90QQ&list=PLF1Z-APd9zK7usPMx3LGMZEHrECUGodd3",
       "source": "Graham Hutton (Univ. of Nottingham)",
+      "embeddable": false,
       "note": "From the \"Functional Programming in Haskell — full course\" playlist — 17 lectures by the author of Programming in Haskell — linked from Nottingham’s own course page.",
       "alternativeEdition": true
     },
@@ -22473,6 +22524,7 @@ const courseVideos = {
       "playlistId": "PLF1Z-APd9zK7usPMx3LGMZEHrECUGodd3",
       "url": "https://www.youtube.com/watch?v=oDqHNkQK97k&list=PLF1Z-APd9zK7usPMx3LGMZEHrECUGodd3",
       "source": "Graham Hutton (Univ. of Nottingham)",
+      "embeddable": false,
       "note": "From the \"Functional Programming in Haskell — full course\" playlist — 17 lectures by the author of Programming in Haskell — linked from Nottingham’s own course page.",
       "alternativeEdition": true
     },
@@ -22482,6 +22534,7 @@ const courseVideos = {
       "playlistId": "PLF1Z-APd9zK7usPMx3LGMZEHrECUGodd3",
       "url": "https://www.youtube.com/watch?v=LOxP_jxI4KI&list=PLF1Z-APd9zK7usPMx3LGMZEHrECUGodd3",
       "source": "Graham Hutton (Univ. of Nottingham)",
+      "embeddable": false,
       "note": "From the \"Functional Programming in Haskell — full course\" playlist — 17 lectures by the author of Programming in Haskell — linked from Nottingham’s own course page.",
       "alternativeEdition": true
     },
@@ -22491,6 +22544,7 @@ const courseVideos = {
       "playlistId": "PLF1Z-APd9zK7usPMx3LGMZEHrECUGodd3",
       "url": "https://www.youtube.com/watch?v=84bwnE2KZiA&list=PLF1Z-APd9zK7usPMx3LGMZEHrECUGodd3",
       "source": "Graham Hutton (Univ. of Nottingham)",
+      "embeddable": false,
       "note": "From the \"Functional Programming in Haskell — full course\" playlist — 17 lectures by the author of Programming in Haskell — linked from Nottingham’s own course page.",
       "alternativeEdition": true
     },
@@ -26083,6 +26137,7 @@ const courseVideos = {
       "playlistId": "PL7XJSuT7Dq_XPK_qmYMqfiBjbtHJRWigD",
       "url": "https://www.youtube.com/watch?v=aLIFzIBNM_8&list=PL7XJSuT7Dq_XPK_qmYMqfiBjbtHJRWigD",
       "source": "Inside Cloud and Security (Pete Zerger)",
+      "embeddable": false,
       "note": "From the \"CISSP full course — Domain 1: Security & Risk Management\" playlist — Alternative: the governance/policy/compliance domain of a complete free CISSP course.",
       "alternativeEdition": true
     },
@@ -26092,6 +26147,7 @@ const courseVideos = {
       "playlistId": "PL7XJSuT7Dq_XPK_qmYMqfiBjbtHJRWigD",
       "url": "https://www.youtube.com/watch?v=_nyZhYnCNLA&list=PL7XJSuT7Dq_XPK_qmYMqfiBjbtHJRWigD",
       "source": "Inside Cloud and Security (Pete Zerger)",
+      "embeddable": false,
       "note": "From the \"CISSP full course — Domain 1: Security & Risk Management\" playlist — Alternative: the governance/policy/compliance domain of a complete free CISSP course.",
       "alternativeEdition": true
     },
@@ -26101,6 +26157,7 @@ const courseVideos = {
       "playlistId": "PL7XJSuT7Dq_XPK_qmYMqfiBjbtHJRWigD",
       "url": "https://www.youtube.com/watch?v=XZr2wLKdoVc&list=PL7XJSuT7Dq_XPK_qmYMqfiBjbtHJRWigD",
       "source": "Inside Cloud and Security (Pete Zerger)",
+      "embeddable": false,
       "note": "From the \"CISSP full course — Domain 1: Security & Risk Management\" playlist — Alternative: the governance/policy/compliance domain of a complete free CISSP course.",
       "alternativeEdition": true
     },
@@ -26110,6 +26167,7 @@ const courseVideos = {
       "playlistId": "PL7XJSuT7Dq_XPK_qmYMqfiBjbtHJRWigD",
       "url": "https://www.youtube.com/watch?v=vfC9OLsCqgk&list=PL7XJSuT7Dq_XPK_qmYMqfiBjbtHJRWigD",
       "source": "Inside Cloud and Security (Pete Zerger)",
+      "embeddable": false,
       "note": "From the \"CISSP full course — Domain 1: Security & Risk Management\" playlist — Alternative: the governance/policy/compliance domain of a complete free CISSP course.",
       "alternativeEdition": true
     },
@@ -26119,6 +26177,7 @@ const courseVideos = {
       "playlistId": "PL7XJSuT7Dq_XPK_qmYMqfiBjbtHJRWigD",
       "url": "https://www.youtube.com/watch?v=ttOKJYOedNo&list=PL7XJSuT7Dq_XPK_qmYMqfiBjbtHJRWigD",
       "source": "Inside Cloud and Security (Pete Zerger)",
+      "embeddable": false,
       "note": "From the \"CISSP full course — Domain 1: Security & Risk Management\" playlist — Alternative: the governance/policy/compliance domain of a complete free CISSP course.",
       "alternativeEdition": true
     },
@@ -26128,6 +26187,7 @@ const courseVideos = {
       "playlistId": "PL7XJSuT7Dq_XPK_qmYMqfiBjbtHJRWigD",
       "url": "https://www.youtube.com/watch?v=D89-7rTFgw4&list=PL7XJSuT7Dq_XPK_qmYMqfiBjbtHJRWigD",
       "source": "Inside Cloud and Security (Pete Zerger)",
+      "embeddable": false,
       "note": "From the \"CISSP full course — Domain 1: Security & Risk Management\" playlist — Alternative: the governance/policy/compliance domain of a complete free CISSP course.",
       "alternativeEdition": true
     },
@@ -26137,6 +26197,7 @@ const courseVideos = {
       "playlistId": "PL7XJSuT7Dq_XPK_qmYMqfiBjbtHJRWigD",
       "url": "https://www.youtube.com/watch?v=nQhLY2sV2DU&list=PL7XJSuT7Dq_XPK_qmYMqfiBjbtHJRWigD",
       "source": "Inside Cloud and Security (Pete Zerger)",
+      "embeddable": false,
       "note": "From the \"CISSP full course — Domain 1: Security & Risk Management\" playlist — Alternative: the governance/policy/compliance domain of a complete free CISSP course.",
       "alternativeEdition": true
     },
@@ -26146,6 +26207,7 @@ const courseVideos = {
       "playlistId": "PL7XJSuT7Dq_XPK_qmYMqfiBjbtHJRWigD",
       "url": "https://www.youtube.com/watch?v=8_NLPDRLfg4&list=PL7XJSuT7Dq_XPK_qmYMqfiBjbtHJRWigD",
       "source": "Inside Cloud and Security (Pete Zerger)",
+      "embeddable": false,
       "note": "From the \"CISSP full course — Domain 1: Security & Risk Management\" playlist — Alternative: the governance/policy/compliance domain of a complete free CISSP course.",
       "alternativeEdition": true
     },
@@ -26155,6 +26217,7 @@ const courseVideos = {
       "playlistId": "PL7XJSuT7Dq_XPK_qmYMqfiBjbtHJRWigD",
       "url": "https://www.youtube.com/watch?v=tdtbZc2w8JM&list=PL7XJSuT7Dq_XPK_qmYMqfiBjbtHJRWigD",
       "source": "Inside Cloud and Security (Pete Zerger)",
+      "embeddable": false,
       "note": "From the \"CISSP full course — Domain 1: Security & Risk Management\" playlist — Alternative: the governance/policy/compliance domain of a complete free CISSP course.",
       "alternativeEdition": true
     },
@@ -26164,6 +26227,7 @@ const courseVideos = {
       "playlistId": "PL7XJSuT7Dq_XPK_qmYMqfiBjbtHJRWigD",
       "url": "https://www.youtube.com/watch?v=sjsmjOfa3bw&list=PL7XJSuT7Dq_XPK_qmYMqfiBjbtHJRWigD",
       "source": "Inside Cloud and Security (Pete Zerger)",
+      "embeddable": false,
       "note": "From the \"CISSP full course — Domain 1: Security & Risk Management\" playlist — Alternative: the governance/policy/compliance domain of a complete free CISSP course.",
       "alternativeEdition": true
     },
@@ -26182,6 +26246,7 @@ const courseVideos = {
       "playlistId": "PL7XJSuT7Dq_XPK_qmYMqfiBjbtHJRWigD",
       "url": "https://www.youtube.com/watch?v=mLuLtIsDjK8&list=PL7XJSuT7Dq_XPK_qmYMqfiBjbtHJRWigD",
       "source": "Inside Cloud and Security (Pete Zerger)",
+      "embeddable": false,
       "note": "From the \"CISSP full course — Domain 1: Security & Risk Management\" playlist — Alternative: the governance/policy/compliance domain of a complete free CISSP course.",
       "alternativeEdition": true
     },
@@ -26191,6 +26256,7 @@ const courseVideos = {
       "playlistId": "PL7XJSuT7Dq_XPK_qmYMqfiBjbtHJRWigD",
       "url": "https://www.youtube.com/watch?v=iZTOstBx1ac&list=PL7XJSuT7Dq_XPK_qmYMqfiBjbtHJRWigD",
       "source": "Inside Cloud and Security (Pete Zerger)",
+      "embeddable": false,
       "note": "From the \"CISSP full course — Domain 1: Security & Risk Management\" playlist — Alternative: the governance/policy/compliance domain of a complete free CISSP course.",
       "alternativeEdition": true
     },
@@ -26200,6 +26266,7 @@ const courseVideos = {
       "playlistId": "PL7XJSuT7Dq_XPK_qmYMqfiBjbtHJRWigD",
       "url": "https://www.youtube.com/watch?v=7FQp3jekUlM&list=PL7XJSuT7Dq_XPK_qmYMqfiBjbtHJRWigD",
       "source": "Inside Cloud and Security (Pete Zerger)",
+      "embeddable": false,
       "note": "From the \"CISSP full course — Domain 1: Security & Risk Management\" playlist — Alternative: the governance/policy/compliance domain of a complete free CISSP course.",
       "alternativeEdition": true
     },
@@ -26209,6 +26276,7 @@ const courseVideos = {
       "playlistId": "PL7XJSuT7Dq_XPK_qmYMqfiBjbtHJRWigD",
       "url": "https://www.youtube.com/watch?v=CJa-HAaMEik&list=PL7XJSuT7Dq_XPK_qmYMqfiBjbtHJRWigD",
       "source": "Inside Cloud and Security (Pete Zerger)",
+      "embeddable": false,
       "note": "From the \"CISSP full course — Domain 1: Security & Risk Management\" playlist — Alternative: the governance/policy/compliance domain of a complete free CISSP course.",
       "alternativeEdition": true
     },
@@ -26218,6 +26286,7 @@ const courseVideos = {
       "playlistId": "PL7XJSuT7Dq_XPK_qmYMqfiBjbtHJRWigD",
       "url": "https://www.youtube.com/watch?v=LGqZbiitiDw&list=PL7XJSuT7Dq_XPK_qmYMqfiBjbtHJRWigD",
       "source": "Inside Cloud and Security (Pete Zerger)",
+      "embeddable": false,
       "note": "From the \"CISSP full course — Domain 1: Security & Risk Management\" playlist — Alternative: the governance/policy/compliance domain of a complete free CISSP course.",
       "alternativeEdition": true
     }
