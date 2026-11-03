@@ -18,7 +18,6 @@ const Header = () => {
 
   const protectedNavigation = [
     { name: 'Dashboard', href: '/dashboard', icon: FiBarChart2 },
-    { name: 'Today', href: '/today', icon: FiCalendar },
     { name: 'Progress', href: '/progress', icon: FiTrendingUp },
     { name: 'Practice', href: '/practice', icon: FiBook },
     { name: 'Profile', href: '/profile', icon: FiUser },

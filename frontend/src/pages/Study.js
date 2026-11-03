@@ -6,7 +6,6 @@ import {
   FiDownload, FiTarget, FiSun, FiPlay,
 } from 'react-icons/fi';
 import { useAuth } from 'contexts/AuthContext';
-import { format } from 'date-fns';
 import { Stagger, StaggerItem } from 'components/motion/motion';
 
 const EASE = [0.22, 1, 0.36, 1];
@@ -152,7 +151,6 @@ const Study = () => {
 
   const courseTag = lesson.metadata?.course || 'Course';
   const durationChip = `${lesson.duration || 90} min`;
-  const dateLabel = ctx?.date ? format(new Date(ctx.date), 'EEEE, MMMM d') : '';
 
   return (
     <div className="space-y-6">
@@ -172,15 +170,15 @@ const Study = () => {
         />
         <div className="relative">
           <div className="flex items-center gap-2 flex-wrap mb-4">
-            <Link to="/today" className="btn btn-cream !py-1.5 !px-3 text-[11px]">
+            <Link to="/courses" className="btn btn-cream !py-1.5 !px-3 text-[11px]">
               <FiChevronLeft className="w-3 h-3" />
-              Today
+              Courses
             </Link>
             <span className="course-tag">{courseTag}</span>
-            {ctx && (
+            {ctx?.module && (
               <span className="inline-flex items-center gap-1 text-xs font-bold text-espresso-500">
                 <FiSun className="w-3 h-3" />
-                Week {ctx.week} · {dateLabel}
+                {ctx.module.title}
               </span>
             )}
             <span className="inline-flex items-center gap-1 text-xs font-bold text-espresso-500">

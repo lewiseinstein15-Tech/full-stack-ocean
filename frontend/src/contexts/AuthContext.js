@@ -171,15 +171,6 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const fetchToday = async () => {
-    try {
-      const res = await axios.get('/curriculum/today');
-      return res.data.today;
-    } catch (error) {
-      return null;
-    }
-  };
-
   const completeLesson = async (lessonId, hours = 1.5) => {
     try {
       const res = await axios.post(`/progress/lesson/${lessonId}/complete`, { hours });
@@ -227,15 +218,6 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const fetchWeek = async (curriculumId, termId, weekId) => {
-    try {
-      const res = await axios.get(`/curriculum/${curriculumId}/term/${termId}/week/${weekId}`);
-      return res.data.week;
-    } catch (error) {
-      return null;
-    }
-  };
-
   const fetchCourse = async (courseCode) => {
     try {
       const res = await axios.get(`/curriculum/course/${courseCode}`);
@@ -254,6 +236,15 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const fetchBooks = async () => {
+    try {
+      const res = await axios.get(`/curriculum/books`);
+      return res.data;
+    } catch (error) {
+      return null;
+    }
+  };
+
   const value = {
     user,
     loading,
@@ -264,15 +255,14 @@ export const AuthProvider = ({ children }) => {
     updateProfile,
     updateUserPreferences,
     fetchProgress,
-    fetchToday,
     fetchLesson,
     completeLesson,
     uncompleteLesson,
     checkLessonCompleted,
     fetchCurriculum,
-    fetchWeek,
     fetchCourse,
     fetchLessons,
+    fetchBooks,
   };
 
   // Children always render: the app paints instantly and auth hydrates in the

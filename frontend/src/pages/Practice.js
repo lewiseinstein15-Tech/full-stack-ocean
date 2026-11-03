@@ -51,8 +51,8 @@ const Practice = () => {
           label,
           lessonTitle: l.title,
           description: l.description,
-          week: l.week,
-          day: l.day,
+          module: l.module,
+          moduleIndex: l.moduleIndex ?? 0,
           duration: l.duration || 90,
           isPdf: Boolean(m.practicePdfUrl),
           isZip: Boolean(m.practiceZipUrl),
@@ -63,7 +63,7 @@ const Practice = () => {
     const items = [...seen.values()];
     items.sort((a, b) =>
       (COURSE_ORDER.indexOf(a.course) - COURSE_ORDER.indexOf(b.course)) ||
-      (a.week - b.week) ||
+      (a.moduleIndex - b.moduleIndex) ||
       a.label.localeCompare(b.label)
     );
     return items;
@@ -243,7 +243,7 @@ const Practice = () => {
                       <span className="course-tag">{p.course}</span>
                       <span className="inline-flex items-center gap-1 text-[11px] font-bold text-espresso-500">
                         <FiClock className="w-3 h-3" />
-                        Week {p.week} · ≈{p.duration} min
+                        {p.module ? `${p.module} · ` : ''}≈{p.duration} min
                       </span>
                     </div>
                     <h3 className={`font-display text-lg font-bold text-espresso-800 ${isCompleted ? 'line-through opacity-70' : ''}`}>

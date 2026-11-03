@@ -9,8 +9,8 @@ const Home = () => {
   const features = [
     {
       icon: <FiCalendar className="h-8 w-8 text-primary-600" />,
-      title: 'Daily Schedule',
-      description: 'Follow a structured daily timetable with lectures and practice problems'
+      title: 'Self-Paced Curriculum',
+      description: 'No timetable and no deadlines — study any course, in any order, at your own pace'
     },
     {
       icon: <FiTrendingUp className="h-8 w-8 text-primary-600" />,
@@ -19,8 +19,8 @@ const Home = () => {
     },
     {
       icon: <FiPlay className="h-8 w-8 text-primary-600" />,
-      title: 'MIT OCW Content',
-      description: 'All lectures and materials sourced from MIT OpenCourseWare'
+      title: 'World-Class Content',
+      description: 'MIT, Harvard, Stanford and more — curated by the OSSU curriculum'
     },
     {
       icon: <FiAward className="h-8 w-8 text-primary-600" />,
@@ -31,19 +31,19 @@ const Home = () => {
 
   const courses = [
     {
-      code: '6.0001',
-      title: 'Introduction to Computer Science and Programming in Python',
-      description: 'Programming fundamentals, algorithms, and data structures'
+      code: 'INTRO-CS',
+      title: 'Introduction to Computer Science and Programming using Python',
+      description: 'Computation, imperative programming and basic data structures — the flavor of CS'
     },
     {
-      code: '18.01SC',
-      title: 'Single Variable Calculus',
-      description: 'Limits, derivatives, integrals, and infinite series'
+      code: 'CS50P',
+      title: 'CS50P: Introduction to Programming with Python',
+      description: 'Hands-on, exercise-driven Python from the CS50 team — the gentle on-ramp'
     },
     {
-      code: '6.042J',
-      title: 'Mathematics for Computer Science',
-      description: 'Mathematical reasoning, discrete structures, and probability'
+      code: 'SPD',
+      title: 'Systematic Program Design',
+      description: 'A systematic method, not a language — program well in any language'
     },
   ];
 
@@ -58,11 +58,11 @@ const Home = () => {
           </span>
         </div>
         <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary-600 via-secondary-600 to-ocean-600 bg-clip-text text-transparent">
-          Master Computer Science Daily
+          Master Computer Science, Your Way
         </h1>
         <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-          A comprehensive daily study timetable covering Python, Calculus, and Mathematics for Computer Science.
-          Based on MIT OpenCourseWare, designed for consistent daily progress.
+          A complete, self-paced computer-science education from MIT, Harvard, Stanford and more —
+          curated by the OSSU curriculum. No schedule, no deadlines: study what you want, when you want.
         </p>
         <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
           {user ? (
@@ -115,7 +115,7 @@ const Home = () => {
       {/* Courses Section */}
       <section>
         <h2 className="text-3xl font-bold text-center mb-8">
-          Current Courses (Term 1)
+          Start Here — Intro CS
         </h2>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {courses.map((course) => (
@@ -190,7 +190,7 @@ const Home = () => {
             Ready to Start Your Journey?
           </h2>
           <p className="text-lg mb-6 opacity-90">
-            Join thousands of learners mastering computer science daily with MIT OCW content.
+            Join thousands of learners earning a computer-science education with OSSU.
           </p>
           <Link
             to="/register"

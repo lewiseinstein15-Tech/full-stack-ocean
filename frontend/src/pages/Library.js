@@ -544,8 +544,20 @@ const CourseCard = ({ c, onOpen }) => (
 );
 
 const Library = () => {
+  const { fetchBooks } = useAuth();
   const [reading, setReading] = useState(null);
   const [activeTerm, setActiveTerm] = useState(1);
+  const [ossuBooks, setOssuBooks] = useState(null);
+
+  useEffect(() => {
+    let alive = true;
+    fetchBooks().then((data) => {
+      if (alive) setOssuBooks(data?.books || []);
+    });
+    return () => {
+      alive = false;
+    };
+  }, [fetchBooks]);
 
   const openBook = (b) => setReading({
     title: b.t,
@@ -578,7 +590,7 @@ const Library = () => {
             <span className="course-tag">Library</span>
             <span className="inline-flex items-center gap-1 text-xs font-bold text-espresso-500">
               <FiLayers className="w-3 h-3" />
-              27 books & companions · 27 courses · 8 terms
+              Embedded books · OSSU Great Readings · self-paced library
             </span>
           </div>
           <h1 className="font-display text-3xl sm:text-4xl font-bold text-espresso-800 text-balance">
@@ -819,6 +831,49 @@ const Library = () => {
           </div>
         </motion.div>
       </div>
+
+      {/* ---------- OSSU Great Readings ---------- */}
+      {ossuBooks && ossuBooks.length > 0 && (
+        <motion.div
+          className="glass rounded-3xl p-6 sm:p-8"
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.13, ease: EASE }}
+        >
+          <h3 className="font-display text-xl font-bold text-espresso-800 mb-1 flex items-center gap-2">
+            <FiBookOpen className="w-5 h-5 text-honey-600" />
+            Great Readings — the OSSU bookshelf
+          </h3>
+          <p className="text-sm text-espresso-500 mb-5">
+            {ossuBooks.length} classic books and articles every computer scientist should read,
+            straight from the curriculum's readings list. Free editions first.
+          </p>
+          <div className="space-y-6">
+            {Object.entries(
+              ossuBooks.reduce((acc, b) => {
+                (acc[b.category] = acc[b.category] || []).push(b);
+                return acc;
+              }, {})
+            ).map(([category, list]) => (
+              <div key={category}>
+                <h4 className="text-xs font-black uppercase tracking-[0.2em] text-espresso-400 mb-3">
+                  {category}
+                </h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
+                  {list.map((b) => (
+                    <LinkCard
+                      key={`${b.category}-${b.title}`}
+                      name={b.title}
+                      note={b.authors}
+                      url={b.url}
+                    />
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+      )}
 
       <p className="text-center text-[11px] text-espresso-400 leading-relaxed px-6">
         Books hosted here are the official free editions — MIT OCW (CC BY-NC-SA), MIT Press free

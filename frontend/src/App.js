@@ -14,8 +14,6 @@ import ForgotPassword from 'pages/auth/ForgotPassword';
 
 // Protected Pages
 import Dashboard from 'pages/Dashboard';
-import Today from 'pages/Today';
-import WeekView from 'pages/WeekView';
 import Progress from 'pages/Progress';
 import Profile from 'pages/Profile';
 import Practice from 'pages/Practice';
@@ -68,8 +66,6 @@ const App = () => {
         <Route element={<ProtectedShell />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/study/:slug" element={<Study />} />
-          <Route path="/today" element={<Today />} />
-          <Route path="/week/:weekId?" element={<WeekView />} />
           <Route path="/courses" element={<Courses />} />
           <Route path="/courses/:courseCode" element={<CourseDetail />} />
           <Route path="/practice" element={<Practice />} />

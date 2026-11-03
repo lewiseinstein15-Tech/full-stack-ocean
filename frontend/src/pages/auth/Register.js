@@ -175,7 +175,7 @@ const Register = () => {
             Create your account
           </h2>
           <p className="text-center text-espresso-500 text-sm mb-8">
-            Start your daily study ritual today
+            Start your self-paced CS education today
           </p>
 
           <Shake trigger={!!serverError}>

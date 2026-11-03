@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
-  FiGrid, FiSun, FiCalendar, FiBookOpen, FiEdit3,
+  FiGrid, FiSun, FiBookOpen, FiEdit3,
   FiTrendingUp, FiUser, FiLogOut, FiMenu, FiX, FiChevronsLeft, FiChevronsRight, FiAward,
   FiBriefcase,
 } from 'react-icons/fi';
@@ -18,13 +18,11 @@ const NAV = [
     category: 'Overview',
     items: [
       { to: '/dashboard', icon: FiGrid, label: 'Dashboard', end: true },
-      { to: '/today', icon: FiSun, label: 'Today', end: true },
     ],
   },
   {
     category: 'Study',
     items: [
-      { to: '/week', icon: FiCalendar, label: 'Week View' },
       { to: '/courses', icon: FiBookOpen, label: 'Courses', end: true },
       { to: '/practice', icon: FiEdit3, label: 'Practice' },
       { to: '/library', icon: FiBookOpen, label: 'Library' },
@@ -48,8 +46,6 @@ const NAV = [
 
 const PAGE_TITLES = {
   '/dashboard': 'Dashboard',
-  '/today': 'Today',
-  '/week': 'Week View',
   '/courses': 'Courses',
   '/practice': 'Practice',
   '/library': 'Library',
@@ -85,9 +81,7 @@ const Brand = ({ collapsed }) => (
 const NavItem = ({ item, collapsed, onNavigate }) => {
   const { pathname } = useLocation();
   const active =
-    item.to === '/week'
-      ? pathname.startsWith('/week')
-      : item.end
+    item.end
       ? pathname === item.to
       : pathname.startsWith(item.to);
   return (

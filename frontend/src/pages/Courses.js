@@ -3,14 +3,12 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
   FiSearch, FiClock, FiUsers, FiAward, FiBookOpen, FiCheck,
-  FiChevronRight, FiPlay, FiLayers, FiCalendar,
+  FiChevronRight, FiPlay, FiLayers, FiGlobe,
 } from 'react-icons/fi';
 import { useAuth } from 'contexts/AuthContext';
 import { Stagger, StaggerItem } from 'components/motion/motion';
 
 const EASE = [0.22, 1, 0.36, 1];
-
-const COURSE_ORDER = ['6.0001', '18.01SC', '6.042J'];
 
 const Courses = () => {
   const { user, fetchCurriculum, fetchLessons, fetchCourse } = useAuth();
@@ -28,19 +26,21 @@ const Courses = () => {
 
       if (!alive) return;
 
-      // Real courses from the active curriculum (terms.courses is populated)
+      // Courses grouped by section from the active curriculum
       const seen = new Map();
-      for (const cur of curData?.curricula || []) {
-        for (const term of cur.terms || []) {
-          for (const c of term.courses || []) {
-            if (c && c.courseCode && !seen.has(c.courseCode)) {
-              seen.set(c.courseCode, {
-                code: c.courseCode,
-                title: c.title,
-                description: c.description,
-                term: `Term ${term.termNumber}`,
-              });
-            }
+      for (const section of curData?.curriculum?.sections || []) {
+        for (const c of section.courses || []) {
+          if (c && c.courseCode && !seen.has(c.courseCode)) {
+            seen.set(c.courseCode, {
+              code: c.courseCode,
+              title: c.title,
+              description: c.description,
+              section: section.title,
+              sectionKey: section.key,
+              url: c.url,
+              effort: c.effort,
+              provider: c.provider,
+            });
           }
         }
       }
@@ -52,15 +52,15 @@ const Courses = () => {
         const code = (l.course || '').toLowerCase();
         if (!code) continue;
         if (l.slug) s2c[l.slug] = code;
-        if (!stats[code]) stats[code] = { total: 0, hours: 0, weeks: new Set(), practice: 0 };
+        if (!stats[code]) stats[code] = { total: 0, hours: 0, modules: new Set(), practice: 0 };
         stats[code].total += 1;
         stats[code].hours += (l.duration || 90) / 60;
-        stats[code].weeks.add(l.week);
+        stats[code].modules.add(l.moduleIndex);
         if (l.hasPractice) stats[code].practice += 1;
       }
       Object.values(stats).forEach((s) => {
         s.hours = Math.round(s.hours * 10) / 10;
-        s.weeks = s.weeks.size;
+        s.modules = s.modules.size;
       });
 
       setSlugToCourse(s2c);
@@ -72,7 +72,7 @@ const Courses = () => {
     return () => { alive = false; };
   }, [fetchCurriculum, fetchLessons]);
 
-  // Course extras (instructor, weekly hours) straight from the Course docs
+  // Course extras (provider, effort) straight from the Course docs
   useEffect(() => {
     let alive = true;
     if (!courses) return;
@@ -83,7 +83,7 @@ const Courses = () => {
       setCourses((prev) =>
         (prev || []).map((c) => {
           const hit = results.find((r) => r.code === c.code);
-          return hit?.doc ? { ...c, instructor: hit.doc.instructor, weeklyHours: hit.doc.weeklyHours } : c;
+          return hit?.doc ? { ...c, provider: hit.doc.provider, effort: hit.doc.effort } : c;
         })
       );
     });
@@ -143,16 +143,17 @@ const Courses = () => {
           <div className="flex items-center gap-2 flex-wrap mb-3">
             <span className="course-tag">Catalog</span>
             <span className="inline-flex items-center gap-1 text-xs font-bold text-espresso-500">
-              <FiCalendar className="w-3 h-3" />
-              8 terms · 24 courses · from Oct 8, 2026
+              <FiBookOpen className="w-3 h-3" />
+              {new Set((courses || []).map((c) => c.sectionKey)).size} sections · {courses.length} courses
             </span>
           </div>
           <h1 className="font-display text-3xl sm:text-4xl font-bold text-espresso-800 text-balance">
-            Your MIT Course Lineup
+            The Complete CS Curriculum
           </h1>
           <p className="text-espresso-600 mt-2.5 max-w-2xl">
-            Twenty-four courses across eight terms — the complete path from foundations to
-            capstone, two lessons every day, dated from your real start.
+            Fully self-paced and aligned with the OSSU computer-science curriculum — from Intro CS
+            through Core and Advanced to the final project. No calendar, no schedule: study any
+            course, in any order, at whatever pace suits you.
           </p>
         </div>
       </motion.div>
@@ -232,7 +233,7 @@ const Courses = () => {
                     >
                       {c.code}
                     </span>
-                    <span className="status-badge">{c.term}</span>
+                    <span className="status-badge">{c.sectionKey}</span>
                   </div>
 
                   <h3 className="relative font-display text-lg font-bold text-espresso-800 leading-snug group-hover:text-honey-700 transition-colors">
@@ -278,8 +279,8 @@ const Courses = () => {
 
                   <div className="relative mt-4 pt-4 border-t border-white/50 flex items-center justify-between">
                     <span className="inline-flex items-center gap-1.5 text-xs font-bold text-espresso-500">
-                      <FiAward className="w-3.5 h-3.5" />
-                      {c.instructor || 'MIT Faculty'}
+                      <FiGlobe className="w-3.5 h-3.5" />
+                      {c.provider || 'Self-paced'}
                     </span>
                     <span className="btn btn-gold !py-1.5 !px-3.5 text-[11px]">
                       Open
@@ -316,26 +317,27 @@ const Courses = () => {
           <FiLayers className="w-6 h-6 text-espresso-900" />
         </div>
         <div className="flex-1">
-          <h3 className="font-display font-bold text-espresso-800">The ocean gets deeper</h3>
+          <h3 className="font-display font-bold text-espresso-800">Go at your own depth</h3>
           <p className="text-sm text-espresso-600 mt-1">
-            More MIT courses unlock as you advance through terms. Your current focus is Term 1 —
-            keep the daily streak alive on the <Link to="/today" className="underline font-bold text-honey-700">Today page</Link>.
+            Core CS is required; Advanced CS is electives — choose the subjects you want to master.
+            Everything is tracked automatically on your{' '}
+            <Link to="/progress" className="underline font-bold text-honey-700">Progress page</Link>.
           </p>
         </div>
         <FiClock className="w-5 h-5 text-espresso-400 shrink-0 hidden sm:block" />
       </motion.div>
 
       <p className="text-center text-[11px] text-espresso-400 leading-relaxed px-6">
-        Course materials © Massachusetts Institute of Technology, licensed{' '}
+        Curriculum aligned with{' '}
         <a
-          href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
+          href="https://github.com/lewiseinstein15-Tech/computer-science"
           target="_blank"
           rel="noopener noreferrer"
           className="underline hover:text-espresso-600"
         >
-          CC BY-NC-SA 4.0
+          OSSU computer-science
         </a>
-        , via MIT OpenCourseWare.
+        . All course materials belong to their respective providers.
       </p>
     </div>
   );

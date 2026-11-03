@@ -128,6 +128,11 @@ app.use((err, req, res, next) => {
 const PORT = process.env.PORT || 5000;
 const startServer = async () => {
   await connectDB();
+  // Fill the database with the OSSU-aligned curriculum on first boot
+  // (idempotent — skipped when the current version is already present).
+  if (process.env.MONGO_URI && !process.env.MONGO_URI.includes('placeholder')) {
+    require('./scripts/seedOssu').seedIfEmpty();
+  }
   const server = app.listen(PORT, () => {
     console.log(`Server running in ${process.env.NODE_ENV || 'production'} mode on port ${PORT}`);
   });

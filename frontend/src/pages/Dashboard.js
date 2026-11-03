@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FiCalendar, FiClock, FiCheck, FiPlay, FiFileText, FiAward, FiTrendingUp, FiSun, FiZap, FiBookOpen } from 'react-icons/fi';
+import { FiClock, FiCheck, FiPlay, FiAward, FiTrendingUp, FiZap, FiBookOpen, FiArrowRight } from 'react-icons/fi';
 import { motion } from 'framer-motion';
 import { useAuth } from 'contexts/AuthContext';
-import { format, isToday, isTomorrow } from 'date-fns';
 import { Stagger, StaggerItem, CountUp } from 'components/motion/motion';
 
 const EASE = [0.22, 1, 0.36, 1];
@@ -46,44 +45,46 @@ const StatCard = ({ icon: Icon, value, label, tone, delay }) => {
 };
 
 const Dashboard = () => {
-  const { user, fetchToday, completeLesson, uncompleteLesson, checkLessonCompleted } = useAuth();
-  const [today, setToday] = useState(null);
+  const { user, fetchLessons, completeLesson, uncompleteLesson } = useAuth();
+  const [lessons, setLessons] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [lessonStatus, setLessonStatus] = useState({});
+  const [doneOverride, setDoneOverride] = useState({});
 
   useEffect(() => {
-    const loadToday = async () => {
-      setLoading(true);
-      const data = await fetchToday();
-      setToday(data);
-      if (data?.lessons) {
-        const status = {};
-        for (const lesson of data.lessons) {
-          status[lesson.slug || lesson._id || lesson.id] = await checkLessonCompleted(lesson.slug || lesson._id || lesson.id);
-        }
-        setLessonStatus(status);
-      }
+    let alive = true;
+    setLoading(true);
+    fetchLessons().then((data) => {
+      if (!alive) return;
+      setLessons(data || []);
       setLoading(false);
+    });
+    return () => {
+      alive = false;
     };
-    loadToday();
-  }, [fetchToday, checkLessonCompleted]);
+  }, [fetchLessons]);
+
+  const done = new Set([
+    ...((user?.progress?.completedLessons) || []),
+    ...Object.keys(doneOverride).filter((k) => doneOverride[k]),
+  ]);
+  // Remove anything explicitly un-completed this session
+  for (const [k, v] of Object.entries(doneOverride)) {
+    if (!v) done.delete(k);
+  }
+
+  const upNext = (lessons || []).filter((l) => l.slug && !done.has(l.slug)).slice(0, 5);
+  const totalItems = (lessons || []).length;
+  const doneCount = (lessons || []).filter((l) => l.slug && done.has(l.slug)).length;
+  const percent = totalItems ? Math.round((doneCount / totalItems) * 100) : 0;
 
   const handleCompleteLesson = async (lessonId, hours) => {
     await completeLesson(lessonId, hours);
-    setLessonStatus((prev) => ({ ...prev, [lessonId]: true }));
+    setDoneOverride((prev) => ({ ...prev, [lessonId]: true }));
   };
 
   const handleUncompleteLesson = async (lessonId, hours) => {
     await uncompleteLesson(lessonId, hours);
-    setLessonStatus((prev) => ({ ...prev, [lessonId]: false }));
-  };
-
-  const getDayLabel = (date) => {
-    if (!date) return '';
-    const d = new Date(date);
-    if (isToday(d)) return 'Today';
-    if (isTomorrow(d)) return 'Tomorrow';
-    return format(d, 'EEEE, MMMM d');
+    setDoneOverride((prev) => ({ ...prev, [lessonId]: false }));
   };
 
   const firstName = user?.firstName || user?.username || 'friend';
@@ -107,19 +108,17 @@ const Dashboard = () => {
         <div className="relative flex flex-wrap items-center gap-6 justify-between">
           <div>
             <p className="text-xs font-black uppercase tracking-[0.2em] text-espresso-400 mb-2">
-              {user?.progress?.currentWeek
-                ? `TERM ${user.progress.currentTerm || 1} · WEEK ${user.progress.currentWeek}`
-                : 'YOUR DAILY RITUAL'}
+              Self-paced · OSSU computer science
             </p>
             <h2 className="font-display text-3xl sm:text-4xl font-bold text-espresso-800 text-balance">
               Welcome back, <em className="text-honey-600 shimmer-text">{firstName}</em>
             </h2>
             <p className="text-espresso-600 mt-2.5 max-w-md">
               {loading
-                ? "Preparing today's lessons…"
-                : today?.lessons?.length
-                ? `${today.lessons.length} lesson${today.lessons.length === 1 ? '' : 's'} waiting for you today.`
-                : 'No lessons scheduled — enjoy the calm sea.'}
+                ? 'Loading your progress…'
+                : totalItems
+                ? `${doneCount} of ${totalItems} study items done (${percent}%) — nothing is scheduled; study whatever you like, whenever you like.`
+                : 'The curriculum is still seeding — check back in a minute.'}
             </p>
           </div>
 
@@ -129,7 +128,7 @@ const Dashboard = () => {
             transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
           >
             <div
-              className="w-24 h-24 rounded-3xl flex items-center justify-center"
+              className="w-24 h-24 rounded-3xl flex items-center justify-center relative"
               style={{
                 background: 'linear-gradient(145deg, #f2d894 0%, #d9a441 55%, #c9932f 100%)',
                 border: '1px solid rgba(138,100,34,.5)',
@@ -137,7 +136,7 @@ const Dashboard = () => {
                   '0 12px 28px rgba(138,100,34,.35), inset 0 2px 0 rgba(255,255,255,.7), inset 0 -3px 0 rgba(92,65,28,.2)',
               }}
             >
-              <FiSun className="w-11 h-11 text-espresso-800" />
+              <FiBookOpen className="w-11 h-11 text-espresso-800" />
             </div>
           </motion.div>
         </div>
@@ -146,12 +145,7 @@ const Dashboard = () => {
       {/* ---------- Stats ---------- */}
       <Stagger className="grid grid-cols-2 lg:grid-cols-4 gap-4" delay={0.08}>
         <StatCard icon={FiZap} value={user?.progress?.streak || 0} label="Day streak" tone="honey" />
-        <StatCard
-          icon={FiCheck}
-          value={user?.progress?.completedLessons?.length || 0}
-          label="Lessons done"
-          tone="sage"
-        />
+        <StatCard icon={FiCheck} value={doneCount} label="Items done" tone="sage" />
         <StatCard
           icon={FiClock}
           value={Math.round(user?.progress?.totalHours || 0)}
@@ -166,13 +160,13 @@ const Dashboard = () => {
         />
       </Stagger>
 
-      {/* ---------- Today's schedule ---------- */}
+      {/* ---------- Continue learning ---------- */}
       <section>
         <div className="flex items-center justify-between mb-4">
-          <h3 className="font-display text-2xl font-bold text-espresso-800">Today's Schedule</h3>
-          <Link to="/today" className="btn btn-cream !py-2 !px-4 text-xs">
-            <FiCalendar className="w-3.5 h-3.5" />
-            Open Today
+          <h3 className="font-display text-2xl font-bold text-espresso-800">Continue Learning</h3>
+          <Link to="/courses" className="btn btn-cream !py-2 !px-4 text-xs">
+            Browse Courses
+            <FiArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>
 
@@ -180,147 +174,116 @@ const Dashboard = () => {
           <div className="glass rounded-3xl p-10 flex justify-center">
             <div className="gold-spinner" />
           </div>
-        ) : today?.upcoming ? (
+        ) : !lessons || lessons.length === 0 ? (
+          <div className="glass rounded-3xl p-8 text-center text-espresso-600">
+            No study items available yet.
+          </div>
+        ) : upNext.length === 0 ? (
           <motion.div className="glass rounded-3xl p-8 text-center" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
             <p className="text-espresso-600">
-              No lessons scheduled for today. Next up:{' '}
-              <strong className="text-honey-700">{getDayLabel(today.date)}</strong>
+              Everything is marked done — extraordinary. Explore the{' '}
+              <Link to="/library" className="text-honey-700 font-bold">Library</Link> or start a new{' '}
+              <Link to="/courses" className="text-honey-700 font-bold">course</Link>.
             </p>
           </motion.div>
-        ) : today ? (
-          <div className="space-y-4">
-            <div className="flex items-center gap-3 flex-wrap">
-              <h4 className="font-display text-lg font-bold text-espresso-800">
-                {getDayLabel(today.date)}
-              </h4>
-              {today.isReviewDay && (
-                <span className="status-badge status-review">
-                  <FiSun className="w-3 h-3" />
-                  Review Day
-                </span>
-              )}
-            </div>
-
-            {today.isReviewDay ? (
-              <div className="glass rounded-3xl p-6">
-                <h5 className="font-bold text-espresso-800 mb-2 flex items-center gap-2">
-                  <FiCalendar className="w-4 h-4 text-honey-600" />
-                  Review Notes
-                </h5>
-                <p className="text-espresso-600">{today.reviewNotes}</p>
-              </div>
-            ) : (
-              <Stagger className="space-y-4" delay={0.1}>
-                {today.lessons.map((lesson, idx) => {
-                  const lessonId = lesson.slug || lesson._id || lesson.id;
-                  const completed = lessonStatus[lessonId];
-                  return (
-                    <StaggerItem key={lessonId || idx}>
-                      <motion.div
-                        className={`glass rounded-3xl p-5 sm:p-6 relative overflow-hidden ${
-                          completed ? 'completed' : ''
-                        }`}
-                        whileHover={{ y: -4 }}
-                        transition={{ type: 'spring', stiffness: 320, damping: 24 }}
-                      >
-                        <div className="flex items-start justify-between gap-4">
-                          <div className="flex-1 min-w-0">
-                            <div className="flex items-center gap-2 mb-2.5 flex-wrap">
-                              <span className="course-tag">
-                                {lesson.metadata?.course || 'Course'}
-                              </span>
-                              <span className="inline-flex items-center gap-1 text-xs font-bold text-espresso-500">
-                                <FiClock className="w-3.5 h-3.5" />
-                                {lesson.duration || 90} min
-                              </span>
-                              {completed && (
-                                <span className="status-badge status-completed">
-                                  <FiCheck className="w-3 h-3" />
-                                  Done
-                                </span>
-                              )}
-                            </div>
-                            <h5 className="font-display text-lg font-bold text-espresso-800 mb-1">
-                              {lesson.title}
-                            </h5>
-                            {lesson.description && (
-                              <p className="text-sm text-espresso-600 mb-4">
-                                {lesson.description}
-                              </p>
-                            )}
-                            <div className="flex flex-wrap gap-3">
-                              {lesson.slug ? (
-                                <Link
-                                  to={`/study/${lesson.slug}`}
-                                  className="btn btn-gold !py-2 !px-4 text-xs"
-                                >
-                                  <FiBookOpen className="w-3.5 h-3.5" />
-                                  Start Studying
-                                </Link>
-                              ) : (
-                                <>
-                                  {lesson.lectureLink && (
-                                    <a
-                                      href={lesson.lectureLink.url}
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      className="btn btn-gold !py-2 !px-4 text-xs"
-                                    >
-                                      <FiPlay className="w-3.5 h-3.5" />
-                                      Watch Lecture
-                                    </a>
-                                  )}
-                                  {lesson.practiceLink && (
-                                    <a
-                                      href={lesson.practiceLink.url}
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      className="btn btn-cream !py-2 !px-4 text-xs"
-                                    >
-                                      <FiFileText className="w-3.5 h-3.5" />
-                                      Practice
-                                    </a>
-                                  )}
-                                </>
-                              )}
-                            </div>
-                          </div>
-
-                          {/* Complete toggle */}
-                          <button
-                            onClick={() =>
-                              completed
-                                ? handleUncompleteLesson(lessonId, (lesson.duration || 90) / 60)
-                                : handleCompleteLesson(lessonId, (lesson.duration || 90) / 60)
-                            }
-                            className={`btn-round w-11 h-11 shrink-0 ${
-                              completed ? '!text-sage-600' : ''
-                            }`}
-                            style={
-                              completed
-                                ? {
-                                    background: 'linear-gradient(180deg, #e7f0e9, #bfd8c8)',
-                                    border: '1px solid rgba(95,138,109,.4)',
-                                  }
-                                : undefined
-                            }
-                            title={completed ? 'Mark as incomplete' : 'Mark as complete'}
-                            aria-label={completed ? 'Mark as incomplete' : 'Mark as complete'}
-                          >
-                            <FiCheck className="w-5 h-5" />
-                          </button>
-                        </div>
-                      </motion.div>
-                    </StaggerItem>
-                  );
-                })}
-              </Stagger>
-            )}
-          </div>
         ) : (
-          <div className="glass rounded-3xl p-8 text-center text-espresso-600">
-            No lessons available for today.
-          </div>
+          <>
+            <p className="text-sm text-espresso-500 mb-3">
+              Up next in curriculum order — start any of them, in any order you like.
+            </p>
+            <Stagger className="space-y-4" delay={0.1}>
+              {upNext.map((lesson, idx) => {
+                const lessonId = lesson.slug;
+                const completed = done.has(lessonId);
+                return (
+                  <StaggerItem key={lessonId || idx}>
+                    <motion.div
+                      className={`glass rounded-3xl p-5 sm:p-6 relative overflow-hidden ${
+                        completed ? 'completed' : ''
+                      }`}
+                      whileHover={{ y: -4 }}
+                      transition={{ type: 'spring', stiffness: 320, damping: 24 }}
+                    >
+                      <div className="flex items-start justify-between gap-4">
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2 mb-2.5 flex-wrap">
+                            <span className="course-tag">
+                              {lesson.courseTitle || lesson.course || 'Course'}
+                            </span>
+                            {lesson.module && (
+                              <span className="text-xs text-espresso-400 font-bold uppercase tracking-wider">
+                                {lesson.module}
+                              </span>
+                            )}
+                            <span className="inline-flex items-center gap-1 text-xs font-bold text-espresso-500">
+                              <FiClock className="w-3.5 h-3.5" />
+                              {lesson.duration || 90} min
+                            </span>
+                            {completed && (
+                              <span className="status-badge status-completed">
+                                <FiCheck className="w-3 h-3" />
+                                Done
+                              </span>
+                            )}
+                          </div>
+                          <h5 className="font-display text-lg font-bold text-espresso-800 mb-1">
+                            {lesson.title}
+                          </h5>
+                          {lesson.description && (
+                            <p className="text-sm text-espresso-600 mb-4">{lesson.description}</p>
+                          )}
+                          <div className="flex flex-wrap gap-3">
+                            <Link
+                              to={`/study/${lesson.slug}`}
+                              className="btn btn-gold !py-2 !px-4 text-xs"
+                            >
+                              <FiPlay className="w-3.5 h-3.5" />
+                              Start Studying
+                            </Link>
+                            {lesson.materials?.externalUrl && (
+                              <a
+                                href={lesson.materials.externalUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="btn btn-cream !py-2 !px-4 text-xs"
+                              >
+                                <FiBookOpen className="w-3.5 h-3.5" />
+                                Open Material
+                              </a>
+                            )}
+                          </div>
+                        </div>
+
+                        {/* Complete toggle */}
+                        <button
+                          onClick={() =>
+                            completed
+                              ? handleUncompleteLesson(lessonId, (lesson.duration || 90) / 60)
+                              : handleCompleteLesson(lessonId, (lesson.duration || 90) / 60)
+                          }
+                          className={`btn-round w-11 h-11 shrink-0 ${
+                            completed ? '!text-sage-600' : ''
+                          }`}
+                          style={
+                            completed
+                              ? {
+                                  background: 'linear-gradient(180deg, #e7f0e9, #bfd8c8)',
+                                  border: '1px solid rgba(95,138,109,.4)',
+                                }
+                              : undefined
+                          }
+                          title={completed ? 'Mark as incomplete' : 'Mark as complete'}
+                          aria-label={completed ? 'Mark as incomplete' : 'Mark as complete'}
+                        >
+                          <FiCheck className="w-5 h-5" />
+                        </button>
+                      </div>
+                    </motion.div>
+                  </StaggerItem>
+                );
+              })}
+            </Stagger>
+          </>
         )}
       </section>
 
@@ -333,7 +296,7 @@ const Dashboard = () => {
               to: '/courses',
               icon: FiPlay,
               title: 'Browse Courses',
-              sub: 'Explore the full MIT lineup',
+              sub: 'The complete OSSU catalog',
             },
             {
               to: '/progress',

@@ -1,22 +1,42 @@
 const express = require('express');
 const { Curriculum, Course } = require('../models/Curriculum');
+const Book = require('../models/Book');
 const { protect, authorize } = require('../middleware/auth');
 
 const router = express.Router();
 
 // @route   GET /api/curriculum
-// @desc    Get all curricula
+// @desc    Get the curriculum: sections with their courses (self-paced, no dates)
 // @access  Public
 router.get('/', async (req, res) => {
   try {
-    const curricula = await Curriculum.find({ isActive: true })
-      .populate('terms.courses', 'courseCode title description')
-      .select('-terms.weeks.days.lessons');
+    const curriculum = await Curriculum.findOne({ isActive: true })
+      .populate('terms.courses', 'courseCode title description section url altUrl provider duration effort prerequisites notes order')
+      .select('-createdBy');
+
+    if (!curriculum) {
+      return res.status(404).json({
+        success: false,
+        error: 'No active curriculum found'
+      });
+    }
 
     res.json({
       success: true,
-      count: curricula.length,
-      curricula
+      curriculum: {
+        title: curriculum.title,
+        description: curriculum.description,
+        source: curriculum.source,
+        version: curriculum.version,
+        sections: (curriculum.terms || []).map((t) => ({
+          termNumber: t.termNumber,
+          key: t.key,
+          title: t.title,
+          description: t.description,
+          topics: t.topics,
+          courses: t.courses
+        }))
+      }
     });
   } catch (error) {
     console.error('Get curricula error:', error.message);
@@ -27,128 +47,110 @@ router.get('/', async (req, res) => {
   }
 });
 
-// @route   GET /api/curriculum/today
-// @desc    Get today's lessons
-// @access  Private
-router.get('/today', protect, async (req, res) => {
+// @route   GET /api/curriculum/books
+// @desc    Get the Great Readings bookshelf, grouped by category
+// @access  Public
+router.get('/books', async (req, res) => {
   try {
-    // Find the active curriculum
-    const curriculum = await Curriculum.findOne({ isActive: true });
-
-    if (!curriculum) {
-      return res.status(404).json({
-        success: false,
-        error: 'No active curriculum found'
-      });
+    const books = await Book.find().sort({ category: 1, order: 1 }).lean();
+    const grouped = {};
+    for (const b of books) {
+      (grouped[b.category] = grouped[b.category] || []).push(b);
     }
-
-    // Get today's date
-    const today = new Date();
-    const todayString = today.toDateString();
-
-    // Find today's day in any term/week
-    let todayLessons = null;
-    
-    for (const term of curriculum.terms) {
-      for (const week of term.weeks) {
-        for (const day of week.days) {
-          const dayDate = new Date(day.date);
-          if (dayDate.toDateString() === todayString) {
-            todayLessons = {
-              term: term.termNumber,
-              week: week.weekNumber,
-              date: day.date,
-              dayOfWeek: day.dayOfWeek,
-              lessons: day.lessons,
-              isReviewDay: day.isReviewDay,
-              reviewNotes: day.reviewNotes,
-              courses: term.courses
-            };
-            break;
-          }
-        }
-        if (todayLessons) break;
-      }
-      if (todayLessons) break;
-    }
-
-    // If no lessons for today (future or not scheduled), find the next upcoming lessons
-    if (!todayLessons) {
-      for (const term of curriculum.terms) {
-        for (const week of term.weeks) {
-          for (const day of week.days) {
-            const dayDate = new Date(day.date);
-            if (dayDate > today) {
-              todayLessons = {
-                term: term.termNumber,
-                week: week.weekNumber,
-                date: day.date,
-                dayOfWeek: day.dayOfWeek,
-                lessons: day.lessons,
-                isReviewDay: day.isReviewDay,
-                reviewNotes: day.reviewNotes,
-                courses: term.courses,
-                upcoming: true
-              };
-              break;
-            }
-          }
-          if (todayLessons) break;
-        }
-        if (todayLessons) break;
-      }
-    }
-
     res.json({
       success: true,
-      today: todayLessons
+      count: books.length,
+      categories: Object.keys(grouped),
+      books
     });
   } catch (error) {
-    console.error('Get today error:', error.message);
-    res.status(500).json({
-      success: false,
-      error: 'Server error'
-    });
+    console.error('Get books error:', error.message);
+    res.status(500).json({ success: false, error: 'Server error' });
+  }
+});
+
+// @route   GET /api/curriculum/lessons
+// @desc    Get all study items from all courses (flat list, curriculum order)
+// @access  Public
+router.get('/lessons', async (req, res) => {
+  try {
+    const docs = await Course.find().sort({ section: 1, order: 1 }).lean();
+    const lessons = [];
+    for (const doc of docs) {
+      for (const [mi, mod] of (doc.modules || []).entries()) {
+        for (const item of mod.items || []) {
+          const m = item.materials || {};
+          lessons.push({
+            slug: item.slug,
+            title: item.title,
+            description: item.description || null,
+            duration: item.duration || 90,
+            order: item.order,
+            kind: item.kind || 'lecture',
+            isReview: Boolean(item.isReview),
+            course: doc.courseCode,
+            courseTitle: doc.title,
+            module: mod.title,
+            moduleIndex: mi,
+            materials: {
+              videoId: m.videoId || null,
+              videoTitle: m.videoTitle || null,
+              slidesUrl: m.slidesUrl || null,
+              transcriptUrl: m.transcriptUrl || null,
+              readingUrl: m.readingUrl || null,
+              practiceUrl: m.practiceUrl || null,
+              externalUrl: item.url || m.externalUrl || null,
+            },
+            hasVideo: Boolean(m.videoId),
+            hasPractice: Boolean(m.practiceUrl)
+          });
+        }
+      }
+    }
+    res.json({ success: true, count: lessons.length, lessons });
+  } catch (error) {
+    console.error('Get lessons error:', error.message);
+    res.status(500).json({ success: false, error: 'Server error' });
   }
 });
 
 // @route   GET /api/curriculum/lesson/:slug
-// @desc    Get single lesson by slug (with in-app materials)
+// @desc    Get a single study item (with its course + module context)
 // @access  Public
 router.get('/lesson/:slug', async (req, res) => {
   try {
-    const curriculum = await Curriculum.findOne({ isActive: true });
-    if (!curriculum) {
+    const course = await Course.findOne({ 'modules.items.slug': req.params.slug }).lean();
+    if (!course) {
       return res.status(404).json({
         success: false,
-        error: 'No active curriculum found'
+        error: 'Lesson not found'
       });
     }
-    const { slug } = req.params;
-    for (const term of curriculum.terms) {
-      for (const week of term.weeks) {
-        for (const day of week.days) {
-          const lesson = day.lessons.find((l) => l.slug === slug);
-          if (lesson) {
-            return res.json({
-              success: true,
-              lesson,
-              context: {
-                term: term.termNumber,
-                week: week.weekNumber,
-                date: day.date,
-                dayOfWeek: day.dayOfWeek,
-                courses: term.courses
-              }
-            });
+
+    for (const mod of course.modules || []) {
+      const item = (mod.items || []).find((l) => l.slug === req.params.slug);
+      if (item) {
+        return res.json({
+          success: true,
+          lesson: {
+            ...item,
+            metadata: { course: course.courseCode, ...(item.metadata || {}) }
+          },
+          context: {
+            course: {
+              courseCode: course.courseCode,
+              title: course.title,
+              url: course.url
+            },
+            module: {
+              title: mod.title,
+              description: mod.description
+            }
           }
-        }
+        });
       }
     }
-    return res.status(404).json({
-      success: false,
-      error: 'Lesson not found'
-    });
+    return res.status(404).json({ success: false, error: 'Lesson not found' });
   } catch (error) {
     console.error('Get lesson error:', error.message);
     res.status(500).json({
@@ -158,225 +160,13 @@ router.get('/lesson/:slug', async (req, res) => {
   }
 });
 
-// @route   GET /api/curriculum/lessons
-// @desc    Get all lessons from the active curriculum (flat list with material info)
-// @access  Public
-router.get('/lessons', async (req, res) => {
-  try {
-    const cur = await Curriculum.findOne({ isActive: true });
-    if (!cur) {
-      return res.json({ success: true, count: 0, lessons: [] });
-    }
-    const lessons = [];
-    for (const term of cur.terms || []) {
-      for (const week of term.weeks || []) {
-        for (const day of week.days || []) {
-          for (const lesson of day.lessons || []) {
-            if (!lesson) continue;
-            const m = lesson.materials || {};
-            lessons.push({
-              slug: lesson.slug || null,
-              title: lesson.title,
-              description: lesson.description || null,
-              duration: lesson.duration || 90,
-              order: lesson.order,
-              isReview: Boolean(lesson.isReview),
-              course: (lesson.metadata && lesson.metadata.course) || null,
-              lectureNumber: (lesson.metadata && lesson.metadata.lectureNumber) || null,
-              practiceLink: lesson.practiceLink || null,
-              week: week.weekNumber,
-              day: day.dayOfWeek,
-              date: day.date,
-              term: term.termNumber,
-              materials: {
-                videoId: m.videoId || null,
-                videoTitle: m.videoTitle || null,
-                slidesUrl: m.slidesUrl || null,
-                transcriptUrl: m.transcriptUrl || null,
-                practicePdfUrl: m.practicePdfUrl || null,
-                practiceZipUrl: m.practiceZipUrl || null,
-                practiceSolUrl: m.practiceSolUrl || null,
-                practiceLabel: m.practiceLabel || null,
-                externalUrl: m.externalUrl || null,
-              },
-              hasVideo: Boolean(m.videoId),
-              hasPractice: Boolean(m.practicePdfUrl || m.practiceZipUrl || (lesson.practiceLink && lesson.practiceLink.url)),
-            });
-          }
-        }
-      }
-    }
-    lessons.sort((a, b) => (a.week - b.week) || ((a.order || 0) - (b.order || 0)));
-    res.json({ success: true, count: lessons.length, lessons });
-  } catch (error) {
-    console.error('Get lessons error:', error.message);
-    res.status(500).json({ success: false, error: 'Server error' });
-  }
-});
-
-// @route   GET /api/curriculum/:id
-// @desc    Get single curriculum with full details
-// @access  Public
-router.get('/:id', async (req, res) => {
-  try {
-    const curriculum = await Curriculum.findById(req.params.id)
-      .populate('terms.courses', 'courseCode title description')
-      .populate('createdBy', 'username firstName lastName');
-
-    if (!curriculum) {
-      return res.status(404).json({
-        success: false,
-        error: 'Curriculum not found'
-      });
-    }
-
-    // Filter out terms that are not active or in the past based on query params
-    const { term, week, day, date } = req.query;
-    
-    let result = { ...curriculum.toObject() };
-
-    if (term) {
-      result.terms = result.terms.filter(t => t.termNumber === parseInt(term));
-    }
-
-    if (week) {
-      result.terms = result.terms.map(t => ({
-        ...t,
-        weeks: t.weeks.filter(w => w.weekNumber === parseInt(week))
-      }));
-    }
-
-    if (day) {
-      result.terms = result.terms.map(t => ({
-        ...t,
-        weeks: t.weeks.map(w => ({
-          ...w,
-          days: w.days.filter(d => d.dayOfWeek === day)
-        }))
-      }));
-    }
-
-    if (date) {
-      const targetDate = new Date(date);
-      result.terms = result.terms.map(t => ({
-        ...t,
-        weeks: t.weeks.map(w => ({
-          ...w,
-          days: w.days.filter(d => {
-            const dayDate = new Date(d.date);
-            return dayDate.toDateString() === targetDate.toDateString();
-          })
-        }))
-      }));
-    }
-
-    res.json({
-      success: true,
-      curriculum: result
-    });
-  } catch (error) {
-    console.error('Get curriculum error:', error.message);
-    if (error.kind === 'ObjectId') {
-      return res.status(400).json({
-        success: false,
-        error: 'Invalid curriculum ID'
-      });
-    }
-    res.status(500).json({
-      success: false,
-      error: 'Server error'
-    });
-  }
-});
-
-// @route   GET /api/curriculum/:curriculumId/term/:termId
-// @desc    Get a specific term with weeks
-// @access  Public
-router.get('/:curriculumId/term/:termId', async (req, res) => {
-  try {
-    const curriculum = await Curriculum.findById(req.params.curriculumId)
-      .populate('terms.courses');
-
-    if (!curriculum) {
-      return res.status(404).json({
-        success: false,
-        error: 'Curriculum not found'
-      });
-    }
-
-    const term = curriculum.terms.id(req.params.termId);
-    if (!term) {
-      return res.status(404).json({
-        success: false,
-        error: 'Term not found'
-      });
-    }
-
-    res.json({
-      success: true,
-      term
-    });
-  } catch (error) {
-    console.error('Get term error:', error.message);
-    res.status(500).json({
-      success: false,
-      error: 'Server error'
-    });
-  }
-});
-
-// @route   GET /api/curriculum/:curriculumId/week/:weekId
-// @desc    Get a specific week with full day details
-// @access  Public
-router.get('/:curriculumId/term/:termId/week/:weekId', async (req, res) => {
-  try {
-    const curriculum = await Curriculum.findById(req.params.curriculumId)
-      .populate('terms.courses');
-
-    if (!curriculum) {
-      return res.status(404).json({
-        success: false,
-        error: 'Curriculum not found'
-      });
-    }
-
-    const term = curriculum.terms.id(req.params.termId);
-    if (!term) {
-      return res.status(404).json({
-        success: false,
-        error: 'Term not found'
-      });
-    }
-
-    const week = term.weeks.id(req.params.weekId);
-    if (!week) {
-      return res.status(404).json({
-        success: false,
-        error: 'Week not found'
-      });
-    }
-
-    res.json({
-      success: true,
-      week
-    });
-  } catch (error) {
-    console.error('Get week error:', error.message);
-    res.status(500).json({
-      success: false,
-      error: 'Server error'
-    });
-  }
-});
-
-
 // @route   GET /api/curriculum/course/:courseCode
-// @desc    Get course details
+// @desc    Get course details including all modules and items
 // @access  Public
 router.get('/course/:courseCode', async (req, res) => {
   try {
-    const course = await Course.findOne({ 
-      courseCode: req.params.courseCode.toUpperCase() 
+    const course = await Course.findOne({
+      courseCode: req.params.courseCode.toUpperCase()
     });
 
     if (!course) {
@@ -415,67 +205,6 @@ router.post('/', protect, authorize('admin'), async (req, res) => {
     });
   } catch (error) {
     console.error('Create curriculum error:', error.message);
-    res.status(500).json({
-      success: false,
-      error: 'Server error'
-    });
-  }
-});
-
-// @route   PUT /api/curriculum/:id
-// @desc    Update curriculum (admin only)
-// @access  Private/Admin
-router.put('/:id', protect, authorize('admin'), async (req, res) => {
-  try {
-    let curriculum = await Curriculum.findById(req.params.id);
-
-    if (!curriculum) {
-      return res.status(404).json({
-        success: false,
-        error: 'Curriculum not found'
-      });
-    }
-
-    curriculum = await Curriculum.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
-      runValidators: true
-    });
-
-    res.json({
-      success: true,
-      curriculum
-    });
-  } catch (error) {
-    console.error('Update curriculum error:', error.message);
-    res.status(500).json({
-      success: false,
-      error: 'Server error'
-    });
-  }
-});
-
-// @route   DELETE /api/curriculum/:id
-// @desc    Delete curriculum (admin only)
-// @access  Private/Admin
-router.delete('/:id', protect, authorize('admin'), async (req, res) => {
-  try {
-    const curriculum = await Curriculum.findById(req.params.id);
-
-    if (!curriculum) {
-      return res.status(404).json({
-        success: false,
-        error: 'Curriculum not found'
-      });
-    }
-
-    await curriculum.deleteOne();
-
-    res.json({
-      success: true,
-      message: 'Curriculum deleted successfully'
-    });
-  } catch (error) {
-    console.error('Delete curriculum error:', error.message);
     res.status(500).json({
       success: false,
       error: 'Server error'

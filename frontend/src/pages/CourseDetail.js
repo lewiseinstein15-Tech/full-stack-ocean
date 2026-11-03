@@ -69,7 +69,7 @@ const CourseDetail = () => {
     const norm = (s) => (s || '').replace(/[^a-z0-9]/gi, '').toLowerCase();
     return lessons
       .filter((l) => norm(l.course) === norm(code) || norm(l.course).startsWith(norm(code)))
-      .sort((a, b) => (a.week - b.week) || ((a.order || 0) - (b.order || 0)));
+      .sort((a, b) => ((a.moduleIndex ?? 0) - (b.moduleIndex ?? 0)) || ((a.order || 0) - (b.order || 0)));
   }, [lessons, code]);
 
   const completedSet = useMemo(
@@ -89,7 +89,7 @@ const CourseDetail = () => {
           key,
           slug: l.slug,
           label,
-          week: l.week,
+          module: l.module,
           isPdf: Boolean(m.practicePdfUrl),
           isZip: Boolean(m.practiceZipUrl),
           hasSolutions: Boolean(m.practiceSolUrl),
@@ -103,8 +103,8 @@ const CourseDetail = () => {
     const total = courseLessons.length;
     const done = courseLessons.filter((l) => l.slug && completedSet.has(l.slug)).length;
     const hours = Math.round(courseLessons.reduce((s, l) => s + (l.duration || 90) / 60, 0) * 10) / 10;
-    const weeks = new Set(courseLessons.map((l) => l.week)).size;
-    return { total, done, hours, weeks, pct: total ? Math.round((done / total) * 100) : 0 };
+    const modules = new Set(courseLessons.map((l) => l.moduleIndex)).size;
+    return { total, done, hours, modules, pct: total ? Math.round((done / total) * 100) : 0 };
   }, [courseLessons, completedSet]);
 
   if (course === undefined || lessons === null) {
@@ -170,7 +170,7 @@ const CourseDetail = () => {
               {course.courseCode}
             </span>
             <span className="status-badge status-completed">
-              <FiPlay className="w-3 h-3" /> Active · {course.term}
+              <FiPlay className="w-3 h-3" /> {course.provider || 'Self-paced'}
             </span>
           </div>
 
@@ -186,8 +186,8 @@ const CourseDetail = () => {
             {[
               { label: 'Lessons', value: stats.total, icon: FiLayers },
               { label: 'Material', value: `${stats.hours}h`, icon: FiClock },
-              { label: 'Weeks', value: stats.weeks, icon: FiCalendar },
-              { label: 'Instructor', value: course.instructor || 'MIT Faculty', icon: FiAward },
+              { label: 'Modules', value: stats.modules, icon: FiCalendar },
+              { label: 'Provider', value: course.provider || course.instructor || 'Self-paced', icon: FiAward },
             ].map((s) => (
               <div
                 key={s.label}
@@ -251,12 +251,16 @@ const CourseDetail = () => {
                     About this course
                   </h3>
                   <p className="text-espresso-700 leading-relaxed">
-                    {course.description || course.title} — taught by{' '}
-                    {course.instructor || 'course staff'} through the official course hub. Term 1
-                    courses have every lecture, slide deck, transcript and problem set embedded
-                    right here (in-app player and PDF reader); later terms link to their official
-                    hubs until their material is embedded. Your completion progress feeds your
-                    daily streak either way.
+                    {course.description || course.title} — from{' '}
+                    {course.provider || 'its provider'}'s{' '}
+                    {course.url && (
+                      <a href={course.url} target="_blank" rel="noopener noreferrer" className="underline font-bold text-honey-700">
+                        official course page
+                      </a>
+                    )}
+                    . Work through the modules in order (or hop around — everything is self-paced),
+                    and mark items complete to feed your streak. Prerequisites:{' '}
+                    {(course.prerequisites && course.prerequisites.length) ? course.prerequisites.join(', ') : 'none'}.
                   </p>
                 </div>
 
@@ -348,7 +352,7 @@ const CourseDetail = () => {
                         <div className="min-w-0 flex-1">
                           <div className="flex items-center gap-2 flex-wrap">
                             <span className="text-[11px] font-bold text-espresso-500">
-                              Week {l.week} · {l.day}
+                              {l.module}
                             </span>
                             <span className="inline-flex items-center gap-1 text-[11px] font-bold text-espresso-500">
                               <FiClock className="w-3 h-3" />
@@ -403,7 +407,7 @@ const CourseDetail = () => {
                         </span>
                         <div className="min-w-0 flex-1">
                           <div className="flex items-center gap-2 flex-wrap">
-                            <span className="text-[11px] font-bold text-espresso-500">Week {p.week}</span>
+                            <span className="text-[11px] font-bold text-espresso-500">{p.module}</span>
                             {p.isPdf && (
                               <span className="status-badge">
                                 <FiFileText className="w-3 h-3" /> In-app PDF reader
